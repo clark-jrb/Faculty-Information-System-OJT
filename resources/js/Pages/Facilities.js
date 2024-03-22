@@ -43,7 +43,7 @@ export default function Facilities(props) {
                     <div className="facility-tables row">
                         <div className="col-md-4">
                             <div className="facility-item">
-                                <div className="image-box"  >
+                                <div className="image-box">
                                     <div class="image-overlay" onClick={handleOpenModal1}></div> 
                                     <img src={facility1} alt="Facility 1"/>
                                     <p className="facility-text">Facility 1</p>
@@ -53,16 +53,20 @@ export default function Facilities(props) {
                         </div>
                         <div className="col-md-4">
                             <div className="facility-item">
-                                <div className="image-box" data-image="/img/facility2.jpg" data-id="exampleModal2">
-                                    <button onClick={handleOpenModal2} className='btn btn-primary'>Open Modal</button>
+                                <div className="image-box">
+                                    <div class="image-overlay" onClick={handleOpenModal2}></div> 
+                                    <img src={facility2} alt="Facility 2"/>
+                                    <p className="facility-text">Facility 2</p>
                                     <Modal2 show={showModal2} handleClose={handleCloseModal2} />
                                 </div>
                             </div>
                         </div>
                         <div className="col-md-4">
                             <div className="facility-item">
-                                <div className="image-box" data-image="/img/facility3.jpg" data-id="exampleModal3">
-                                    <button onClick={handleOpenModal3} className='btn btn-primary'>Open Modal</button>
+                                <div className="image-box">
+                                    <div class="image-overlay" onClick={handleOpenModal3}></div> 
+                                    <img src={facility3} alt="Facility 3"/>
+                                    <p className="facility-text">Facility 3</p>
                                     <Modal3 show={showModal3} handleClose={handleCloseModal3} />
                                 </div>
                             </div>
@@ -72,7 +76,7 @@ export default function Facilities(props) {
             </div>
 
             {/* <!-- 1 --> */}
-            {/* <div className="modal fade" id="exampleModal1" tabIndex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+            <div className="modal fade" id="exampleModal1" tabIndex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
 
@@ -117,7 +121,7 @@ export default function Facilities(props) {
                         </div>
                     </div>
                 </div>
-            </div> */}
+            </div>
 
             {/* <!-- 2 --> */}
             {/* <div className="modal fade" id="exampleModal2" tabIndex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
