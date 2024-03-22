@@ -22,8 +22,7 @@
     /* position: relative; */
     color: white;
     /* background-color: var(--light-green); */
-    background-image: linear-gradient(to left bottom, #4fa94f, #45a244, #3a9a38, #2e932c, #208c1e, #208c1e, #208c1e, #208c1e, #2e932c, #3a9a38, #45a244, #4fa94f);
-    border: var(--light-green) solid 1px;
+    background-image: linear-gradient(to bottom, #038303, #1b8a18, #2a9127, #369834, #419f40, #46a245, #4aa64a, #4fa94f, #4fa94f, #4fa94f, #4fa94f, #4fa94f);
     width: 25%;
 }
 
