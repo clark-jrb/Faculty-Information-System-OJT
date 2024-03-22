@@ -1,0 +1,131 @@
+:root {
+    --yellow: #FCC926;
+    --green: #038303;
+    --dark-green: #005F00;
+    --light-green: #4fa94f;
+    --grey: #555;
+}
+
+.navbar-agri {
+    background-color: var(--green);
+    height: 60px;
+    display: flex;
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    box-shadow: 0 1.5px 3px 0 #ccc;
+}
+
+.nav-logo-label-cont {
+    align-items: center;
+}
+
+.nav-logo-label {
+    color: white;
+    line-height: 1.2;
+}
+
+.nav-logo-cont img {
+    height: 45px;
+}
+
+.navbar-agri ul {
+    list-style-type: none;
+    overflow: hidden;
+    margin: 0;
+    display: flex;
+}
+
+.navbar-agri li {
+    /* float: left; */
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-agri a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* NAVBAR ANIMATIONS */
+.navbar-agri a::after {
+    display:block;
+    content: '';
+    width: inherit;
+    border-bottom: solid 4px var(--light-green);  
+    transform: scaleX(0);  
+    transition: transform 150ms ease-in-out;
+    border-radius: 10px;
+}
+
+.navbar-agri a:hover:after { transform: scaleX(1); }
+
+.navbar-agri a.active:after {
+    transform: scaleX(1);
+}
+
+.sign-out-cont {
+    display: grid;
+    justify-content: end;
+    align-items: center;
+}
+
+.sign-out-cont button {
+    font-size: medium;
+    background-color: var(--light-green);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    border-bottom: 3px solid var(--dark-green);
+}
+
+.sign-out-cont button:active {
+    border-bottom: 1px solid var(--dark-green);
+
+}
+
+.search-faculty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.search-box {
+    width: 100%;
+    border-radius: 5px;
+    height: 60%;
+    border: var(--green) solid 3px;
+    outline: var(--light-green);
+    transition: .1s outline ease;
+}
+
+.search-box:focus {
+    box-shadow: none;
+    border-color: none;
+    border: var(--green) solid 3px;
+    outline: var(--light-green) solid 3px;
+    outline-offset: 2px;
+}
+
+
+.search-icon {
+    left: 0;
+    position: absolute;
+    width: 8%;
+    height: 60%;
+    background-color: white;
+    border-radius: 5px;
+    border: var(--dark-green) solid 3px;
+    transition: .2s border;
+    color: var(--grey);
+}
+
+.search-icon:active {
+    border: var(--light-green) solid 3px;
+}
