@@ -4652,17 +4652,18 @@ function Facilities(props) {
               className: "facility-item",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                 className: "image-box",
-                "data-image": "/img/facility1.jpg",
-                onClick: handleOpenModal1,
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Components_Modals_Modal1__WEBPACK_IMPORTED_MODULE_8__["default"], {
-                  show: showModal1,
-                  handleClose: handleCloseModal1
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+                  "class": "image-overlay",
+                  onClick: handleOpenModal1
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
                   src: _public_images_facility1_jpg__WEBPACK_IMPORTED_MODULE_5__["default"],
                   alt: "Facility 1"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("p", {
                   className: "facility-text",
                   children: "Facility 1"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Components_Modals_Modal1__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                  show: showModal1,
+                  handleClose: handleCloseModal1
                 })]
               })
             })

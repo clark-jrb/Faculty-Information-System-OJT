@@ -43,10 +43,11 @@ export default function Facilities(props) {
                     <div className="facility-tables row">
                         <div className="col-md-4">
                             <div className="facility-item">
-                                <div className="image-box" data-image="/img/facility1.jpg" onClick={handleOpenModal1} >
-                                    <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                <div className="image-box"  >
+                                    <div class="image-overlay" onClick={handleOpenModal1}></div> 
                                     <img src={facility1} alt="Facility 1"/>
                                     <p className="facility-text">Facility 1</p>
+                                    <Modal1 show={showModal1} handleClose={handleCloseModal1} />
                                 </div>
                             </div>
                         </div>
