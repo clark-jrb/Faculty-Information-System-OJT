@@ -82,12 +82,13 @@ export default function Profile({ children }) {
                             </ul>
                         </div>
 
+                        <div className="profile-info-content">
+                            {children}
+                        </div>
                         <div className="agri-logo-cont">
                             <img src={agri_logo} alt="agri-logo"/>
                         </div>
-                        <div className="profile-info-content" id="profile-info-content">
-                            {children}
-                        </div>
+                        
                     </div>
                 </div>
             </div>

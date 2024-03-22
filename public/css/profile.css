@@ -91,6 +91,7 @@
 
 .profile-info-content {
     height: 93%;
+    position: inherit;
     /* background-image: url('../img/agri_logo.png');
     background-repeat: no-repeat;
     background-position: center;
@@ -98,10 +99,12 @@
     background-color: transparent; */
     /* border: black solid 1px; */
     /* opacity: 0.5; */
+    z-index: 1;
 }
 
 .agri-logo-cont img {
     height: 400px;
+    /* -webkit-user-drag: none; */
 }   
 
 .agri-logo-cont {
