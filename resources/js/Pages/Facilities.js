@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Authenticated from '@/Layouts/Authenticated';
 import sample1 from '../../../public/images/sample1.jpg'
 import sample2 from '../../../public/images/sample2.jpg'
@@ -6,8 +6,26 @@ import sample3 from '../../../public/images/sample3.jpg'
 import facility1 from '../../../public/images/facility1.jpg'
 import facility2 from '../../../public/images/facility2.jpg'
 import facility3 from '../../../public/images/facility3.jpg'
+import Modal1 from '@/Components/Modals/Modal1';
+import Modal2 from '@/Components/Modals/Modal2';
+import Modal3 from '@/Components/Modals/Modal3';
 
 export default function Facilities(props) {
+    const [showModal1, setShowModal1] = useState(false);
+    const [showModal2, setShowModal2] = useState(false);
+    const [showModal3, setShowModal3] = useState(false);
+
+    const handleCloseModal1 = () => {
+        setShowModal1(false);
+    };
+    const handleOpenModal1 = () => setShowModal1(true);
+
+    const handleCloseModal2 = () => setShowModal2(false);
+    const handleOpenModal2 = () => setShowModal2(true);
+
+    const handleCloseModal3 = () => setShowModal3(false);
+    const handleOpenModal3 = () => setShowModal3(true);
+
     return (
         <Authenticated
             auth={props.auth}
@@ -15,17 +33,18 @@ export default function Facilities(props) {
         >
             <div className="lists-content pt-4">
                 <div className="lists-container px-4 pt-3">
+                    
                     <div className="title-filters-legend py-1 d-flex">
                         <div className="facility-title">
                             <p className="m-0">Facilities</p>
                         </div>
-
                     </div>
+
                     <div className="facility-tables row">
                         <div className="col-md-4">
                             <div className="facility-item">
-                                <div className="image-box" data-image="/img/facility1.jpg" data-id="exampleModal1">
-                                    <div className="image-overlay"></div> 
+                                <div className="image-box" data-image="/img/facility1.jpg" onClick={handleOpenModal1} >
+                                    <Modal1 show={showModal1} handleClose={handleCloseModal1} />
                                     <img src={facility1} alt="Facility 1"/>
                                     <p className="facility-text">Facility 1</p>
                                 </div>
@@ -34,18 +53,16 @@ export default function Facilities(props) {
                         <div className="col-md-4">
                             <div className="facility-item">
                                 <div className="image-box" data-image="/img/facility2.jpg" data-id="exampleModal2">
-                                    <div className="image-overlay"></div> 
-                                    <img src={facility2} alt="Facility 2"/>
-                                    <p className="facility-text">Facility 2</p>
+                                    <button onClick={handleOpenModal2} className='btn btn-primary'>Open Modal</button>
+                                    <Modal2 show={showModal2} handleClose={handleCloseModal2} />
                                 </div>
                             </div>
                         </div>
                         <div className="col-md-4">
                             <div className="facility-item">
                                 <div className="image-box" data-image="/img/facility3.jpg" data-id="exampleModal3">
-                                    <div className="image-overlay"></div> 
-                                    <img src={facility3} alt="Facility 3"/>
-                                    <p className="facility-text">Facility 3</p>
+                                    <button onClick={handleOpenModal3} className='btn btn-primary'>Open Modal</button>
+                                    <Modal3 show={showModal3} handleClose={handleCloseModal3} />
                                 </div>
                             </div>
                         </div>
@@ -54,13 +71,15 @@ export default function Facilities(props) {
             </div>
 
             {/* <!-- 1 --> */}
-            <div className="modal fade" id="exampleModal1" tabIndex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+            {/* <div className="modal fade" id="exampleModal1" tabIndex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
+
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel1">Facility 1</h5>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
+
                         <div className="modal-body">
                             <div id="carouselExampleControls1" className="carousel slide">
                                 <div className="carousel-indicators">
@@ -89,6 +108,7 @@ export default function Facilities(props) {
                                 </a>
                             </div>
                         </div>
+
                         <div className="facility-info text-center">
                             <h6>Title: Facility 1</h6>
                             <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam porta nisl vel ex condimentum, non fermentum magna congue. Sed venenatis lorem vitae quam consequat, id malesuada velit fringilla.</p>
@@ -96,10 +116,10 @@ export default function Facilities(props) {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             {/* <!-- 2 --> */}
-            <div className="modal fade" id="exampleModal2" tabIndex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+            {/* <div className="modal fade" id="exampleModal2" tabIndex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -141,10 +161,10 @@ export default function Facilities(props) {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             {/* <!-- 3 --> */}
-            <div className="modal fade" id="exampleModal3" tabIndex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+            {/* <div className="modal fade" id="exampleModal3" tabIndex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -186,7 +206,7 @@ export default function Facilities(props) {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </Authenticated>
     );
 }
