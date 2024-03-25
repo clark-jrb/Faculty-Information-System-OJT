@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 import Authenticated from '@/Layouts/Authenticated';
-import sample1 from '../../../public/images/sample1.jpg'
-import sample2 from '../../../public/images/sample2.jpg'
-import sample3 from '../../../public/images/sample3.jpg'
 import facility1 from '../../../public/images/facility1.jpg'
 import facility2 from '../../../public/images/facility2.jpg'
 import facility3 from '../../../public/images/facility3.jpg'
