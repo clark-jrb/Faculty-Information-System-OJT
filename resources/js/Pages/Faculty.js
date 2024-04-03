@@ -17,7 +17,7 @@ export default function Faculty(props) {
                         </div>
                         
                         <div className="filters d-flex">
-                            <button className="filter-reset d-flex p-1 px-2">
+                            <button id="resetFilter" className="filter-reset d-flex p-1 px-2">
                                 <i className="fa-solid fa-rotate-right"></i>
                                 <p className="m-0">
                                     &nbsp;Reset
@@ -25,29 +25,34 @@ export default function Faculty(props) {
                             </button>
 
                             <div className="filter-rank">
-                                <select className="form-select" aria-label="Default select example">
-                                    <option selected>Rank</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                <select id="rankFilter" className="form-select" aria-label="Default select example">
+                                    <option disabled selected>Select Rank</option>
+                                    <option value="1">Dean</option>
+                                    <option value="2">Professor</option>
+                                    <option value="3">Associate Professor</option>
+                                    <option value="4">Assistant Professor</option>
+                                    <option value="5">Instructor</option>
                                 </select>
                             </div>
 
                             <div className="filter-degree">
-                                <select className="form-select" aria-label="Default select example">
-                                    <option selected>Degree</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                <select id="degreeFilter" className="form-select" aria-label="Default select example">
+                                    <option disabled selected>Select Degree</option>
+                                    <option value="1">Doctoral</option>
+                                    <option value="2">Masteral</option>
+                                    <option value="3">Bachelor</option>
                                 </select>
                             </div>
 
                             <div className="filter-department">
-                                <select className="form-select" aria-label="Default select example">
-                                    <option selected>Department</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                <select id="departmentFilter" className="form-select" aria-label="Default select example">
+                                    <option disabled selected>Select Department</option>
+                                    <option value="1">Agricultural Extension</option>
+                                    <option value="2">Agri-Management</option>
+                                    <option value="3">Animal Science</option>
+                                    <option value="4">Crop Protection</option>
+                                    <option value="5">Crop Science</option>
+                                    <option value="6">Soil Science</option>
                                 </select>
                             </div>
                         </div>
