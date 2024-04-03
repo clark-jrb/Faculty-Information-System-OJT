@@ -34,16 +34,16 @@ export default function Profile({ children }) {
                                 &nbsp;Contact Number
                             </p>
                         </div>
-                        <div className="edit-profile-cont">
+                        {/* <div className="edit-profile-cont">
                             <button className="edit-profile-btn py-1">
                                 <i className="fa-solid fa-pen-clip"></i>
                                 Edit Profile
                             </button>
-                        </div>
+                        </div> */}
                         <div className="print-data-cont">
                             <button className="print-data-btn py-1">
                                 <i className="fa-solid fa-print"></i>
-                                Print Data
+                                &nbsp;Print Data
                             </button>
                         </div>
 

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import clsu_logo from '../../../public/images/clsu_logo.png';
-import Dropdown from '@/Components/Dropdown';
 
 export default function Authenticated({ auth, children }) {
     const routeNames = [
@@ -27,10 +26,10 @@ export default function Authenticated({ auth, children }) {
                     <div className="nav-logo-label px-2">
                         <span style={{fontSize: "large", fontWeight: "bold"}}>
                             <p className="m-0">
-                                Faculty Information System
+                                CAg FIS
                             </p>
                         </span> 
-                        <p className="m-0">Central Luzon State University</p>
+                        <p className="m-0" style={{fontSize: "small"}}>Central Luzon State University</p>
                     </div>
                 </div>
                 {/* Search bar */}
@@ -71,9 +70,6 @@ export default function Authenticated({ auth, children }) {
                     <ResponsiveNavLink method="post" href={route('logout')} as="button">
                         Log Out
                     </ResponsiveNavLink>
-                    <Dropdown>
-                        
-                    </Dropdown>
                 </div>
             </div>
 

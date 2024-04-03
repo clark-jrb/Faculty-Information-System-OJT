@@ -41,7 +41,7 @@ export default function Facilities(props) {
                         <div className="col-md-4">
                             <div className="facility-item">
                                 <div className="image-box">
-                                    <div class="image-overlay" onClick={handleOpenModal1}></div> 
+                                    <div className="image-overlay" onClick={handleOpenModal1}></div> 
                                     <img src={facility1} alt="Facility 1"/>
                                     <p className="facility-text">Facility 1</p>
                                     <Modal1 show={showModal1} handleClose={handleCloseModal1} />
@@ -51,7 +51,7 @@ export default function Facilities(props) {
                         <div className="col-md-4">
                             <div className="facility-item">
                                 <div className="image-box">
-                                    <div class="image-overlay" onClick={handleOpenModal2}></div> 
+                                    <div className="image-overlay" onClick={handleOpenModal2}></div> 
                                     <img src={facility2} alt="Facility 2"/>
                                     <p className="facility-text">Facility 2</p>
                                     <Modal2 show={showModal2} handleClose={handleCloseModal2} />
@@ -61,7 +61,7 @@ export default function Facilities(props) {
                         <div className="col-md-4">
                             <div className="facility-item">
                                 <div className="image-box">
-                                    <div class="image-overlay" onClick={handleOpenModal3}></div> 
+                                    <div className="image-overlay" onClick={handleOpenModal3}></div> 
                                     <img src={facility3} alt="Facility 3"/>
                                     <p className="facility-text">Facility 3</p>
                                     <Modal3 show={showModal3} handleClose={handleCloseModal3} />

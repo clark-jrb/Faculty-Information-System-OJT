@@ -1,0 +1,51 @@
+
+.admin-nav {
+    height: 9dvh;
+    display: flex;
+}
+
+.admin-logo-cont {
+    width: 15dvw;
+    background-color: var(--dark-green);
+}
+
+.admin-nav-cont {
+    border-bottom: #ccc solid 1px;
+    flex: 1;
+}
+
+.admin-content {
+    display: flex;
+    height: 91dvh;
+    /* border: red solid 1px; */
+}
+
+.side-nav-admin {
+    height: 100%;
+    width: 15dvw;
+    background-color: var(--green);
+}
+
+.admin-container {
+    background-color: whitesmoke;
+    flex: 1;
+}
+
+.side-nav-admin, .admin-container {
+    /* border: red solid 1px; */
+
+}
+
+.admin-logout-cont button {
+    font-size: medium;
+    background-color: var(--light-green);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    border-bottom: 3px solid var(--dark-green);
+}
+
+.admin-logout-cont button:active {
+    border-bottom: 1px solid var(--dark-green);
+
+}

@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\Auth\RedirectAuthenticatedUsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -11,7 +12,7 @@ use Inertia\Inertia;
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| contains the 'web' middleware group. Now create something great!
 |
 */
 
@@ -24,47 +25,42 @@ Route::get('/', function () {
     ]);
 });
 
-// Dashboard Route
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// For Viewer
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/redirectAuthenticatedUsers', [RedirectAuthenticatedUsersController::class, 'home']);
+    // Dashboard Route
+    Route::get('/dashboard', fn () => Inertia::render('Dashboard'))->name('dashboard');
 
-// Profile Route 
-Route::prefix('/profile')->middleware(['auth', 'verified'])->group(function () {
-    Route::get('/', function () {
-        return Inertia::render('Profile');
-    })->name('profile');
+    // Profile Routes
+    Route::prefix('/profile')->group(function () {
+        Route::get('/', fn () => Inertia::render('Profile'))->name('profile');
+        Route::get('/basic', fn () => Inertia::render('Profile/Basic'))->name('basic');
+        Route::get('/research', fn () => Inertia::render('Profile/Research'))->name('research');
+        Route::get('/academic', fn () => Inertia::render('Profile/Academic'))->name('academic');
+        Route::get('/documents', fn () => Inertia::render('Profile/Documents'))->name('documents');
+        Route::get('/extensions', fn () => Inertia::render('Profile/Extensions'))->name('extensions');
+    });
 
-    Route::get('/basic', function () {
-        return Inertia::render('Profile/Basic');
-    })->name('basic');
+    // Faculty Route
+    Route::get('/faculty', fn () => Inertia::render('Faculty'))->name('faculty');
 
-    Route::get('/research', function () {
-        return Inertia::render('Profile/Research');
-    })->name('research');
+    // Facility Route
+    Route::get('/facilities', fn () => Inertia::render('Facilities'))->name('facilities');
+    
+    // For Admin
+    // Route::middleware(['auth', 'verified'])->group(function () {
+    //     Route::prefix('/admin')->group(function () {
+    //         Route::get('/', fn () => Inertia::render('AdminDashboard'))->name('admin');
+    //         // Route::get('/dashboard', fn () => Inertia::render('Admin/Dashboard'))->name('Admin.dashboard');
+    //     });
+    // });
 
-    Route::get('/academic', function () {
-        return Inertia::render('Profile/Academic');
-    })->name('academic');
-
-    Route::get('/documents', function () {
-        return Inertia::render('Profile/Documents');
-    })->name('documents');
-
-    Route::get('/extensions', function () {
-        return Inertia::render('Profile/Extensions');
-    })->name('extensions');
+    Route::group(['middleware' => 'ifAdmin:admin'], function() {
+        Route::inertia('/admin', 'Admin/AdminDashboard')->name('admin');
+    });
 });
 
 
-// Faculty Route
-Route::get('/faculty', function () {
-    return Inertia::render('Faculty');
-})->middleware(['auth', 'verified'])->name('faculty');
 
-// Facility Route
-Route::get('/facilities', function () {
-    return Inertia::render('Facilities');
-})->middleware(['auth', 'verified'])->name('facilities');
 
 require __DIR__.'/auth.php';

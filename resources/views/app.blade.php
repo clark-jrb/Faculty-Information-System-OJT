@@ -16,6 +16,7 @@
         <link href="{{ asset('css/facilities.css') }}" rel="stylesheet">
         <!-- <link href="{{ asset('css/login.css') }}" rel="stylesheet"> -->
         <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
         <!-- Scripts -->
         @routes
         <script src="{{ mix('js/app.js') }}" defer></script>
