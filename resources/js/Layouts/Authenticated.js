@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import clsu_logo from '../../../public/images/clsu_logo.png';
+import Dropdown from '@/Components/Dropdown';
 
 export default function Authenticated({ auth, children }) {
     const routeNames = [
@@ -70,6 +71,9 @@ export default function Authenticated({ auth, children }) {
                     <ResponsiveNavLink method="post" href={route('logout')} as="button">
                         Log Out
                     </ResponsiveNavLink>
+                    <Dropdown>
+                        
+                    </Dropdown>
                 </div>
             </div>
 

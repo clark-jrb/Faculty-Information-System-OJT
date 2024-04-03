@@ -1,18 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '@/Components/Button';
 import Guest from '@/Layouts/Guest';
 import Input from '@/Components/Input';
 import Label from '@/Components/Label';
 import ValidationErrors from '@/Components/ValidationErrors';
 import { Head, Link, useForm } from '@inertiajs/inertia-react';
+import { Dropdown } from 'react-bootstrap';
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         email: '',
+        role: '',
         password: '',
         password_confirmation: '',
     });
+
+    const [selectedRole, setSelectedRole] = useState('');
 
     useEffect(() => {
         return () => {
@@ -23,6 +27,15 @@ export default function Register() {
     const onHandleChange = (event) => {
         setData(event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value);
     };
+
+    const handleRoleChange = (eventKey) => {
+        setSelectedRole(eventKey);
+        setData('role', eventKey); // Update form data with selected role
+    };
+
+    useEffect(() => {
+        console.log('Selected role: ' + selectedRole);
+    }, [selectedRole]);
 
     const submit = (e) => {
         e.preventDefault();
@@ -64,6 +77,21 @@ export default function Register() {
                         handleChange={onHandleChange}
                         required
                     />
+                </div>
+
+                <div className="mt-4">
+                    <Label forInput="role" value="Role" />
+
+                    <Dropdown onSelect={handleRoleChange}>
+                        <Dropdown.Toggle variant="success" id="dropdown-basic">
+                            {selectedRole || 'Select Role'}
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            <Dropdown.Item eventKey="admin">Admin</Dropdown.Item>
+                            <Dropdown.Item eventKey="viewer">Viewer</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
                 </div>
 
                 <div className="mt-4">
