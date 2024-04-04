@@ -211,6 +211,20 @@
 /* ADMIN CREATE  */
 
 .admin-create-fields {
-    border: red solid 1px;
+    /* border: red solid 1px; */
     height: auto;
+}
+
+.create-basic-fields {
+    /* border: red solid 1px; */
+    height: auto;
+    background-color: white;
+    border-radius: 3px;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* justify-content: space-around; */
+}
+
+.basic2-flex #age {
+    width: 100px;
 }
