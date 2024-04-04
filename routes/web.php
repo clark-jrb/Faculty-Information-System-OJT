@@ -57,6 +57,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::group(['middleware' => 'ifAdmin:admin'], function() {
         Route::inertia('/admin', 'Admin/AdminDashboard')->name('admin');
+        Route::inertia('/admin/dashboard', 'Admin/AdminDashboard')->name('admin.dashboard');
+        Route::inertia('/admin/faculties', 'Admin/AdminFaculties')->name('admin.faculties');
+        Route::inertia('/admin/faculties/departments', 'Admin/AdminDepartments')->name('admin.departments');
+
+        Route::inertia('/admin/faculties/departments/ae', 'Admin/Departments/DAE')->name('admin.departments.ae');
+        Route::inertia('/admin/faculties/departments/am', 'Admin/Departments/DAM')->name('admin.departments.am');
+        Route::inertia('/admin/faculties/departments/as', 'Admin/Departments/DAS')->name('admin.departments.as');
+        Route::inertia('/admin/faculties/departments/cp', 'Admin/Departments/DCP')->name('admin.departments.cp');
+        Route::inertia('/admin/faculties/departments/cs', 'Admin/Departments/DCS')->name('admin.departments.cs');
+        Route::inertia('/admin/faculties/departments/ss', 'Admin/Departments/DSS')->name('admin.departments.ss');
     });
 });
 

@@ -3,6 +3,7 @@
     --green: #038303;
     --dark-green: #005F00;
     --light-green: #4fa94f;
+    --very-light-green: #74c974;
     --grey: #555;
 }
 
@@ -79,7 +80,7 @@
     font-size: medium;
     background-color: var(--light-green);
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
     color: white;
     border-bottom: 3px solid var(--dark-green);
 }
@@ -98,7 +99,7 @@
 
 .search-box {
     width: 100%;
-    border-radius: 5px;
+    border-radius: 3px;
     height: 60%;
     border: var(--green) solid 3px;
     outline: var(--light-green);
@@ -120,7 +121,7 @@
     width: 8%;
     height: 60%;
     background-color: white;
-    border-radius: 5px;
+    border-radius: 3px;
     border: var(--dark-green) solid 3px;
     transition: .2s border;
     color: var(--grey);

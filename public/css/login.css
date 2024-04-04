@@ -13,7 +13,7 @@ input[type="password"] {
     width: 100%;
     padding: 15px; /* Increase the padding to increase the height */
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
     background-color: #f2f2f2;
     font-family: 'Inter';
     font-size: 16px;

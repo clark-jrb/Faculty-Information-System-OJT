@@ -7,11 +7,28 @@
 .admin-logo-cont {
     width: 15dvw;
     background-color: var(--dark-green);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-right: var(--yellow) solid 2px;
 }
 
 .admin-nav-cont {
     border-bottom: #ccc solid 1px;
     flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.admin-logo img {
+    height: 45px;
+}
+
+.admin-logo-title {
+    flex: 1;
+    color: white;
+    font-size: x-large;
+    font-weight: bold;
 }
 
 .admin-content {
@@ -24,23 +41,49 @@
     height: 100%;
     width: 15dvw;
     background-color: var(--green);
+    border-right: var(--yellow) solid 2px;
 }
+
+.side-nav-admin a{
+    text-decoration: none;
+    color: var(--very-light-green);
+    font-size: medium;
+}
+
+.side-nav-admin a:hover, .side-nav-admin a.active  {
+    color: white;
+}
+
+/* .side-nav-admin li{
+
+} */
 
 .admin-container {
     background-color: whitesmoke;
     flex: 1;
+    overflow: auto;
 }
 
-.side-nav-admin, .admin-container {
+/* .side-nav-admin, .admin-container { */
     /* border: red solid 1px; */
 
+/* } */
+
+.admin-nav-title-cont {
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+
+.admin-logout-cont {
+    flex: 1;
 }
 
 .admin-logout-cont button {
     font-size: medium;
     background-color: var(--light-green);
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
     color: white;
     border-bottom: 3px solid var(--dark-green);
 }
@@ -49,3 +92,85 @@
     border-bottom: 1px solid var(--dark-green);
 
 }
+
+.admin-faculties-cont {
+    height: 50%;
+}
+
+/* DASHBOARD  */
+.admin-dash-cont, .admin-faculty-cont {
+    border: red solid 1px;
+}
+/* FACULTIES  */
+
+.admin-faculty-cont-title {
+    color: var(--grey);
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.admin-filter-add-cont {
+    display: flex;
+}
+
+.admin-filter-search {
+    width: 30%;
+}
+
+/* .admin-add-faculty {
+    float: right;
+} */
+
+/* DEpARTMENTS FILTER  */
+
+.admin-departments-cont {
+    display: flex;
+    gap: 10px;
+}
+
+/* .admin-departments-lists {
+    border: blue solid 1px;
+} */
+
+.admin-departments-title {
+    font-size: x-large;
+}
+
+.admin-departments-lists a {
+    text-decoration: none;
+}
+
+.admin-departments-lists a.active .admin-department-ae, 
+.admin-departments-lists a.active .admin-department-am,
+.admin-departments-lists a.active .admin-department-as,
+.admin-departments-lists a.active .admin-department-cp,
+.admin-departments-lists a.active .admin-department-cs,
+.admin-departments-lists a.active .admin-department-ss {
+    background-color: var(--green);
+}
+
+.admin-department-ae,
+.admin-department-am,
+.admin-department-as,
+.admin-department-cp,
+.admin-department-cs,
+.admin-department-ss {
+    /* border: red solid 1px; */
+    background-color: var(--light-green);
+    width: 360px;
+    color: white;
+    border-radius: 3px;
+    display: flex;
+    user-select: none;
+}
+
+[class^="admin-department-"]:hover {
+    cursor: pointer;
+    background-color: var(--green);
+}
+
+/* FACULTY TABLE  */
+/* .admin-faculties-table-cont {
+    border: black solid 1px;
+    flex: 1;
+} */
