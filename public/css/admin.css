@@ -98,7 +98,7 @@
 }
 
 /* DASHBOARD  */
-.admin-dash-cont, .admin-faculty-cont {
+.admin-dash-cont {
     border: red solid 1px;
 }
 /* FACULTIES  */
@@ -107,6 +107,20 @@
     color: var(--grey);
     font-size: xx-large;
     font-weight: bold;
+}
+
+.admin-create-faculty-cont a{
+    text-decoration: none;
+}
+
+.admin-create-cont-title {
+    color: #ccc;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.admin-create-cont-title:hover {
+    color: var(--grey);
 }
 
 .admin-filter-add-cont {
@@ -156,7 +170,7 @@
 .admin-department-cs,
 .admin-department-ss {
     /* border: red solid 1px; */
-    background-color: var(--light-green);
+    background-color: var(--very-light-green);
     width: 360px;
     color: white;
     border-radius: 3px;
@@ -166,11 +180,37 @@
 
 [class^="admin-department-"]:hover {
     cursor: pointer;
-    background-color: var(--green);
+    background-color: var(--light-green);
 }
 
 /* FACULTY TABLE  */
-/* .admin-faculties-table-cont {
-    border: black solid 1px;
+.admin-faculties-table-cont {
+    /* border: black solid 1px; */
     flex: 1;
-} */
+}
+
+.admin-dept-ae-title,
+.admin-dept-as-title,
+.admin-dept-am-title,
+.admin-dept-cp-title,
+.admin-dept-cs-title,
+.admin-dept-ss-title {
+    font-size: x-large;
+}
+
+.admin-table {
+    background-color: white;
+    width: 100%;
+    border-radius: 3px;
+}
+
+.admin-table tbody tr{
+    border-top: #ccc 1px solid;
+}
+
+/* ADMIN CREATE  */
+
+.admin-create-fields {
+    border: red solid 1px;
+    height: auto;
+}

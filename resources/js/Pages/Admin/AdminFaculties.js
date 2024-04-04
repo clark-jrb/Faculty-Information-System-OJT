@@ -2,7 +2,8 @@ import React from "react";
 import AdminAuthenticated from "@/Layouts/AdminAuthenticated";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';    
+import InputGroup from 'react-bootstrap/InputGroup';
+import NavLink from "@/Components/NavLink";
 
 export default function AdminFaculties({ children }) {
     return (
@@ -27,9 +28,12 @@ export default function AdminFaculties({ children }) {
                     </div>
 
                     <div className="admin-add-faculty ms-auto">
-                        <Button variant="success">
-                            Add Faculty
-                        </Button>
+                        <NavLink href={route('admin.create')}>
+                            <Button variant="success">
+                                Add Faculty
+                            </Button>
+                        </NavLink>
+                        
                     </div>
                 </div>
                 

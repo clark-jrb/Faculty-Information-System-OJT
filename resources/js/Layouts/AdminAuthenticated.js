@@ -4,12 +4,18 @@ import agri_logo from "../../../public/images/agri_logo.png"
 import NavLink from "@/Components/NavLink";
 
 export default function AdminAuthenticated({ children }) {
-    // const routeNames = [
-    //     'admin.dashboard', 
-    //     'admin.faculties'
-    // ];
+    const routeNames = [
+        'admin.faculties',
+        'admin.departments',
+        'admin.departments.ae',
+        'admin.departments.as',
+        'admin.departments.am',
+        'admin.departments.cp',
+        'admin.departments.cs',
+        'admin.departments.ss'
+    ];
 
-    // const side_nav_active = routeNames.includes(route().current());
+    const side_nav_active = routeNames.includes(route().current());
 
     return (
         <div className="admin-screen">
@@ -46,7 +52,7 @@ export default function AdminAuthenticated({ children }) {
                             </NavLink>
                         </li>
                         <li className="mb-4">
-                            <NavLink href={route('admin.departments')} active={route().current('admin.departments')}>
+                            <NavLink href={route('admin.departments')} active={side_nav_active}>
                                 <i className="fa-solid fa-users"></i> &nbsp;Faculties
                             </NavLink>
                         </li>

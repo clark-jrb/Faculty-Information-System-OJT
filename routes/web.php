@@ -61,6 +61,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::inertia('/admin/faculties', 'Admin/AdminFaculties')->name('admin.faculties');
         Route::inertia('/admin/faculties/departments', 'Admin/AdminDepartments')->name('admin.departments');
 
+        Route::inertia('/admin/create', 'Admin/AdminCreateFaculty')->name('admin.create');
+
         Route::inertia('/admin/faculties/departments/ae', 'Admin/Departments/DAE')->name('admin.departments.ae');
         Route::inertia('/admin/faculties/departments/am', 'Admin/Departments/DAM')->name('admin.departments.am');
         Route::inertia('/admin/faculties/departments/as', 'Admin/Departments/DAS')->name('admin.departments.as');
