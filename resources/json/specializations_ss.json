@@ -1,0 +1,12 @@
+[
+    { "id": 1, "label": "Environmental Soil Science", "value": "Environmental Soil Science" },
+    { "id": 2, "label": "Soil Resources", "value": "Soil Resources" },
+    { "id": 3, "label": "Soil Biology", "value": "Soil Biology" },
+    { "id": 4, "label": "Soil Chemistry", "value": "Soil Chemistry" },
+    { "id": 5, "label": "Mineralogy", "value": "Mineralogy" },
+    { "id": 6, "label": "Soil Science", "value": "Soil Science" },
+    { "id": 7, "label": "Soil Molecular Biology", "value": "Soil Molecular Biology" },
+    { "id": 8, "label": "Chemistry", "value": "Chemistry" },
+    { "id": 9, "label": "Nanotechnology", "value": "Nanotechnology" },
+    { "id": 10, "label": "Soil classification", "value": "Soil classification" }
+]

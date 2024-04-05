@@ -1,0 +1,12 @@
+[
+    { "id": 1, "label": "Veterinary Science", "value": "Veterinary Science" },
+    { "id": 2, "label": "Animal Nutrition", "value": "Animal Nutrition" },
+    { "id": 3, "label": "Ruminant Production", "value": "Ruminant Production" },
+    { "id": 4, "label": "Small Ruminant Production", "value": "Small Ruminant Production" },
+    { "id": 5, "label": "Non-ruminant Production", "value": "Non-ruminant Production" },
+    { "id": 6, "label": "Poultry Production", "value": "Poultry Production" },
+    { "id": 7, "label": "Dairy Science", "value": "Dairy Science" },
+    { "id": 8, "label": "Dairy Science/Technology", "value": "Dairy Science/Technology" },
+    { "id": 9, "label": "Animal Breeding and Genetics", "value": "Animal Breeding and Genetics" },
+    { "id": 10, "label": "Ruminant Nutrition", "value": "Ruminant Nutrition" }
+]

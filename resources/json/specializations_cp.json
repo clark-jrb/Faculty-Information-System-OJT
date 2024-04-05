@@ -1,0 +1,9 @@
+[
+    { "id": 1, "label": "Plant Disease Epidemiology", "value": "Plant Disease Epidemiology" },
+    { "id": 2, "label": "Remote Sensing", "value": "Remote Sensing" },
+    { "id": 3, "label": "Taxonomy", "value": "Taxonomy" },
+    { "id": 4, "label": "Entomology", "value": "Entomology" },
+    { "id": 5, "label": "Plant Pathology", "value": "Plant Pathology" },
+    { "id": 6, "label": "Mycology", "value": "Mycology" },
+    { "id": 7, "label": "Economic Entomology", "value": "Economic Entomology" }
+]

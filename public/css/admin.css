@@ -215,6 +215,12 @@
     height: auto;
 }
 
+.acf-title {
+    font-size: x-large;
+    color: var(--grey);
+    font-weight: bold;
+}
+
 .create-basic-fields {
     /* border: red solid 1px; */
     height: auto;

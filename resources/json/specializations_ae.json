@@ -1,0 +1,9 @@
+[
+    { "id": 1, "label": "Entomology", "value": "Entomology" },
+    { "id": 2, "label": "Community Development", "value": "Community Development" },
+    { "id": 3, "label": "Rural Development", "value": "Rural Development" },
+    { "id": 4, "label": "Rural Economic Development", "value": "Rural Economic Development" },
+    { "id": 5, "label": "Animal Science", "value": "Animal Science" },
+    { "id": 6, "label": "Extension Education", "value": "Extension Education" },
+    { "id": 7, "label": "Development Communication", "value": "Development Communication" }
+]

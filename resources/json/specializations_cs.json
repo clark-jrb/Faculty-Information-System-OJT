@@ -1,0 +1,9 @@
+[
+    { "id": 1, "label": "Plant Breeding", "value": "Plant Breeding" },
+    { "id": 2, "label": "Crop Physiology", "value": "Crop Physiology" },
+    { "id": 3, "label": "Postharvest Horticulture", "value": "Postharvest Horticulture" },
+    { "id": 4, "label": "Horticulture", "value": "Horticulture" },
+    { "id": 5, "label": "Crop Production and Management", "value": "Crop Production and Management" },
+    { "id": 6, "label": "Agronomy", "value": "Agronomy" },
+    { "id": 7, "label": "Molecular Breeding", "value": "Molecular Breeding" }
+]

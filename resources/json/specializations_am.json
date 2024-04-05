@@ -1,0 +1,8 @@
+[
+    { "id": 1, "label": "Financial Management", "value": "Financial Management" },
+    { "id": 2, "label": "Economics", "value": "Economics" },
+    { "id": 3, "label": "Agricultural Economics", "value": "Agricultural Economics" },
+    { "id": 4, "label": "Agribusiness Management", "value": "Agribusiness Management" },
+    { "id": 5, "label": "Entrepreneurship", "value": "Entrepreneurship" },
+    { "id": 6, "label": "Business Incubation", "value": "Business Incubation" }
+]

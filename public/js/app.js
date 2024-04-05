@@ -13063,11 +13063,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_NavLink__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/NavLink */ "./resources/js/Components/NavLink.js");
 /* harmony import */ var _Components_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Components/Input */ "./resources/js/Components/Input.js");
 /* harmony import */ var _Components_Label__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Components/Label */ "./resources/js/Components/Label.js");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Form.js");
-/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-datepicker */ "./node_modules/react-datepicker/dist/react-datepicker.min.js");
-/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_datepicker__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Form.js");
+/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! react-datepicker */ "./node_modules/react-datepicker/dist/react-datepicker.min.js");
+/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(react_datepicker__WEBPACK_IMPORTED_MODULE_15__);
 /* harmony import */ var react_datepicker_dist_react_datepicker_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-datepicker/dist/react-datepicker.css */ "./node_modules/react-datepicker/dist/react-datepicker.css");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _json_specializations_ae_json__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../json/specializations_ae.json */ "./resources/json/specializations_ae.json");
+/* harmony import */ var _json_specializations_am_json__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../json/specializations_am.json */ "./resources/json/specializations_am.json");
+/* harmony import */ var _json_specializations_as_json__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../json/specializations_as.json */ "./resources/json/specializations_as.json");
+/* harmony import */ var _json_specializations_cs_json__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../json/specializations_cs.json */ "./resources/json/specializations_cs.json");
+/* harmony import */ var _json_specializations_cp_json__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../json/specializations_cp.json */ "./resources/json/specializations_cp.json");
+/* harmony import */ var _json_specializations_ss_json__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../json/specializations_ss.json */ "./resources/json/specializations_ss.json");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -13085,189 +13097,355 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
+
+
+
+
+
 function AdminFaculties(_ref) {
   var children = _ref.children;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(new Date()),
     _useState2 = _slicedToArray(_useState, 2),
     startDate = _useState2[0],
     setStartDate = _useState2[1];
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Layouts_AdminAuthenticated__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState4 = _slicedToArray(_useState3, 2),
+    selectedItems = _useState4[0],
+    setSelectedItems = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState6 = _slicedToArray(_useState5, 2),
+    selectedDept = _useState6[0],
+    setSelectedDept = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState8 = _slicedToArray(_useState7, 2),
+    specializaions = _useState8[0],
+    setSpecializaions = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState10 = _slicedToArray(_useState9, 2),
+    specToMap = _useState10[0],
+    setSpecToMap = _useState10[1];
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    setSpecializaions(selectedItems.join(', '));
+  }, [selectedItems]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var specToMap;
+    switch (selectedDept) {
+      case 'Agricultural Extension':
+        specToMap = _json_specializations_ae_json__WEBPACK_IMPORTED_MODULE_6__;
+        break;
+      case 'Agri-Management':
+        specToMap = _json_specializations_am_json__WEBPACK_IMPORTED_MODULE_7__;
+        break;
+      case 'Animal Science':
+        specToMap = _json_specializations_as_json__WEBPACK_IMPORTED_MODULE_8__;
+        break;
+      case 'Crop Protection':
+        specToMap = _json_specializations_cp_json__WEBPACK_IMPORTED_MODULE_10__;
+        break;
+      case 'Crop Science':
+        specToMap = _json_specializations_cs_json__WEBPACK_IMPORTED_MODULE_9__;
+        break;
+      case 'Soil Science':
+        specToMap = _json_specializations_ss_json__WEBPACK_IMPORTED_MODULE_11__;
+        break;
+      default:
+        specToMap = [];
+    }
+    setSpecToMap(specToMap);
+  }, [selectedDept]);
+
+  // useEffect(() => {
+  // if (selectedDept === 'Agricultural Extension') {
+  //     setSpecToMap(specializations_ae)
+  // }
+  //     if (selectedDept === 'Agri-Management') {
+  //         setSpecToMap(specializations_am)
+  //     }
+  //     else {
+  //         setSpecToMap([])
+  //     }
+  // }, [specToMap]);
+
+  var handleCheckboxChange = function handleCheckboxChange(e) {
+    var value = e.target.value;
+    if (e.target.checked) {
+      // If checkbox is checked, add the value to the selectedItems array
+      setSelectedItems([].concat(_toConsumableArray(selectedItems), [value]));
+    } else {
+      // If checkbox is unchecked, remove the value from the selectedItems array
+      setSelectedItems(selectedItems.filter(function (item) {
+        return item !== value;
+      }));
+    }
+  };
+  var handleSelectDept = function handleSelectDept(e) {
+    setSelectedDept(e.target.value);
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Layouts_AdminAuthenticated__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
       className: "admin-create-faculty-cont m-4",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
         className: "d-flex",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_NavLink__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Components_NavLink__WEBPACK_IMPORTED_MODULE_2__["default"], {
           href: route('admin.departments'),
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
             className: "admin-create-cont-title",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("p", {
               className: "m-0",
               children: "Faculties/\xA0"
             })
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
           className: "admin-faculty-cont-title",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("p", {
             className: "m-0",
             children: "Create"
           })
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-        className: "admin-create-fields",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("form", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+        className: "admin-create-fields mt-2",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("form", {
           onSubmit: "",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+            className: "acf-title py-2",
+            children: "Basic Information"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
             className: "create-basic-fields w-75 p-3",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-              className: "basic1-flex d-flex",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+              className: "basic1-flex d-flex py-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
                 className: "flex-fill p-2",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
                   forInput: "fname",
                   value: "First Name:"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["default"].Control, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_14__["default"].Control, {
                   type: "text",
                   name: "fname",
                   placeholder: "First Name"
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
                 className: "flex-fill p-2",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
                   forInput: "lname",
                   value: "Last Name:"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["default"].Control, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_14__["default"].Control, {
                   type: "text",
                   name: "lname",
                   placeholder: "Last Name"
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
                 className: "flex-fill p-2",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
                   forInput: "gender",
                   value: "Gender:"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["default"].Select, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_14__["default"].Select, {
                   type: "text",
                   name: "gender",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
                     disabled: true,
-                    selected: true,
+                    value: "",
                     children: "Gender"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
                     value: "male",
                     children: "Male"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
                     value: "female",
                     children: "Female"
                   })]
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-              className: "basic2-flex d-flex",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+              className: "basic2-flex d-flex py-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
                 className: "flex-fill p-2",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
                   forInput: "email",
                   value: "Email:"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["default"].Control, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_14__["default"].Control, {
                   type: "text",
                   name: "email",
                   placeholder: "Email"
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
                 className: "flex-fill p-2",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
                   forInput: "contact",
                   value: "Contact:"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["default"].Control, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_14__["default"].Control, {
                   type: "text",
                   name: "contact",
                   placeholder: "Contact"
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
                 className: "flex-fill p-2",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
                   forInput: "age",
                   value: "Age:"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["default"].Control, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_14__["default"].Control, {
                   id: "age",
                   type: "text",
                   name: "age",
                   placeholder: "Age"
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-              className: "basic3-flex d-flex",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+              className: "basic3-flex d-flex py-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
                 className: "flex-fill p-2",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
                   forInput: "date",
                   value: "Date of Birth:"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)((react_datepicker__WEBPACK_IMPORTED_MODULE_8___default()), {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)((react_datepicker__WEBPACK_IMPORTED_MODULE_15___default()), {
                   name: "date",
                   selected: startDate,
                   onChange: function onChange(date) {
                     return setStartDate(date);
                   }
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
                 className: "flex-fill p-2",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
                   forInput: "role",
                   value: "Role:"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["default"].Select, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_14__["default"].Select, {
                   type: "text",
                   name: "role",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
                     disabled: true,
-                    selected: true,
+                    value: "",
                     children: "Role"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
                     value: "male",
                     children: "College Dean"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
                     value: "female",
                     children: "Department Head"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
                     value: "female",
                     children: "Faculty"
                   })]
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
                 className: "flex-fill p-2",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
                   forInput: "rank",
                   value: "Rank:"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["default"].Select, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_14__["default"].Select, {
                   type: "text",
                   name: "rank",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
                     disabled: true,
-                    selected: true,
+                    value: "",
                     children: "Rank"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
                     value: "male",
                     children: "Instructor I"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
                     value: "female",
                     children: "Associate Professor I"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
                     value: "female",
                     children: "Assist Professor I"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
                     value: "female",
                     children: "Professor I"
                   })]
                 })]
               })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+              className: "basic3-flex d-flex py-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+                className: "flex-fill p-2",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                  forInput: "department",
+                  value: "Department:"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_14__["default"].Select, {
+                  type: "text",
+                  name: "department",
+                  value: selectedDept,
+                  onChange: handleSelectDept,
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
+                    disabled: true,
+                    value: "",
+                    children: "Department"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
+                    value: "Agricultural Extension",
+                    children: "Agricultural Extension"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
+                    value: "Agri-Management",
+                    children: "Agri-Management"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
+                    value: "Animal Science",
+                    children: "Animal Science"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
+                    value: "Crop Protection",
+                    children: "Crop Protection"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
+                    value: "Crop Science",
+                    children: "Crop Science"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
+                    value: "Soil Science",
+                    children: "Soil Science"
+                  })]
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+                className: "flex-fill p-2",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                  forInput: "special",
+                  value: "Specialization:"
+                }), specToMap.map(function (item) {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+                    className: "mb-3",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_14__["default"].Check, {
+                      // prettier-ignore
+                      type: "checkbox",
+                      id: "default-".concat(item.id),
+                      label: item.label,
+                      value: item.value,
+                      onChange: handleCheckboxChange
+                    })
+                  }, item.id);
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+              className: "basic4-flex py-2",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+                className: "profile-pic-cont",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                  forInput: "profile-pic",
+                  value: "Upload profile picture (Optional):"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_14__["default"].Control, {
+                  type: "file",
+                  name: "profile-pic"
+                })]
+              })
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-            className: "create-academic-fields"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-            className: "create-research-fields"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-            className: "create-extensions-fields"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-            className: "create-documents-fields"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+            className: "create-academic-fields",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+              className: "acf-title py-2",
+              children: "Academic"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+            className: "create-research-fields",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+              className: "acf-title py-2",
+              children: "Research"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+            className: "create-extensions-fields",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+              className: "acf-title py-2",
+              children: "Extension Activities"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+            className: "create-documents-fields",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+              className: "acf-title py-2",
+              children: "Documents"
+            })
           })]
         })
       })]
@@ -90069,6 +90247,72 @@ function dequal(foo, bar) {
 
 "use strict";
 module.exports = /*#__PURE__*/JSON.parse('{"name":"axios","version":"0.21.4","description":"Promise based HTTP client for the browser and node.js","main":"index.js","scripts":{"test":"grunt test","start":"node ./sandbox/server.js","build":"NODE_ENV=production grunt build","preversion":"npm test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json","postversion":"git push && git push --tags","examples":"node ./examples/server.js","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","fix":"eslint --fix lib/**/*.js"},"repository":{"type":"git","url":"https://github.com/axios/axios.git"},"keywords":["xhr","http","ajax","promise","node"],"author":"Matt Zabriskie","license":"MIT","bugs":{"url":"https://github.com/axios/axios/issues"},"homepage":"https://axios-http.com","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"jsdelivr":"dist/axios.min.js","unpkg":"dist/axios.min.js","typings":"./index.d.ts","dependencies":{"follow-redirects":"^1.14.0"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}]}');
+
+/***/ }),
+
+/***/ "./resources/json/specializations_ae.json":
+/*!************************************************!*\
+  !*** ./resources/json/specializations_ae.json ***!
+  \************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = /*#__PURE__*/JSON.parse('[{"id":1,"label":"Entomology","value":"Entomology"},{"id":2,"label":"Community Development","value":"Community Development"},{"id":3,"label":"Rural Development","value":"Rural Development"},{"id":4,"label":"Rural Economic Development","value":"Rural Economic Development"},{"id":5,"label":"Animal Science","value":"Animal Science"},{"id":6,"label":"Extension Education","value":"Extension Education"},{"id":7,"label":"Development Communication","value":"Development Communication"}]');
+
+/***/ }),
+
+/***/ "./resources/json/specializations_am.json":
+/*!************************************************!*\
+  !*** ./resources/json/specializations_am.json ***!
+  \************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = /*#__PURE__*/JSON.parse('[{"id":1,"label":"Financial Management","value":"Financial Management"},{"id":2,"label":"Economics","value":"Economics"},{"id":3,"label":"Agricultural Economics","value":"Agricultural Economics"},{"id":4,"label":"Agribusiness Management","value":"Agribusiness Management"},{"id":5,"label":"Entrepreneurship","value":"Entrepreneurship"},{"id":6,"label":"Business Incubation","value":"Business Incubation"}]');
+
+/***/ }),
+
+/***/ "./resources/json/specializations_as.json":
+/*!************************************************!*\
+  !*** ./resources/json/specializations_as.json ***!
+  \************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = /*#__PURE__*/JSON.parse('[{"id":1,"label":"Veterinary Science","value":"Veterinary Science"},{"id":2,"label":"Animal Nutrition","value":"Animal Nutrition"},{"id":3,"label":"Ruminant Production","value":"Ruminant Production"},{"id":4,"label":"Small Ruminant Production","value":"Small Ruminant Production"},{"id":5,"label":"Non-ruminant Production","value":"Non-ruminant Production"},{"id":6,"label":"Poultry Production","value":"Poultry Production"},{"id":7,"label":"Dairy Science","value":"Dairy Science"},{"id":8,"label":"Dairy Science/Technology","value":"Dairy Science/Technology"},{"id":9,"label":"Animal Breeding and Genetics","value":"Animal Breeding and Genetics"},{"id":10,"label":"Ruminant Nutrition","value":"Ruminant Nutrition"}]');
+
+/***/ }),
+
+/***/ "./resources/json/specializations_cp.json":
+/*!************************************************!*\
+  !*** ./resources/json/specializations_cp.json ***!
+  \************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = /*#__PURE__*/JSON.parse('[{"id":1,"label":"Plant Disease Epidemiology","value":"Plant Disease Epidemiology"},{"id":2,"label":"Remote Sensing","value":"Remote Sensing"},{"id":3,"label":"Taxonomy","value":"Taxonomy"},{"id":4,"label":"Entomology","value":"Entomology"},{"id":5,"label":"Plant Pathology","value":"Plant Pathology"},{"id":6,"label":"Mycology","value":"Mycology"},{"id":7,"label":"Economic Entomology","value":"Economic Entomology"}]');
+
+/***/ }),
+
+/***/ "./resources/json/specializations_cs.json":
+/*!************************************************!*\
+  !*** ./resources/json/specializations_cs.json ***!
+  \************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = /*#__PURE__*/JSON.parse('[{"id":1,"label":"Plant Breeding","value":"Plant Breeding"},{"id":2,"label":"Crop Physiology","value":"Crop Physiology"},{"id":3,"label":"Postharvest Horticulture","value":"Postharvest Horticulture"},{"id":4,"label":"Horticulture","value":"Horticulture"},{"id":5,"label":"Crop Production and Management","value":"Crop Production and Management"},{"id":6,"label":"Agronomy","value":"Agronomy"},{"id":7,"label":"Molecular Breeding","value":"Molecular Breeding"}]');
+
+/***/ }),
+
+/***/ "./resources/json/specializations_ss.json":
+/*!************************************************!*\
+  !*** ./resources/json/specializations_ss.json ***!
+  \************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = /*#__PURE__*/JSON.parse('[{"id":1,"label":"Environmental Soil Science","value":"Environmental Soil Science"},{"id":2,"label":"Soil Resources","value":"Soil Resources"},{"id":3,"label":"Soil Biology","value":"Soil Biology"},{"id":4,"label":"Soil Chemistry","value":"Soil Chemistry"},{"id":5,"label":"Mineralogy","value":"Mineralogy"},{"id":6,"label":"Soil Science","value":"Soil Science"},{"id":7,"label":"Soil Molecular Biology","value":"Soil Molecular Biology"},{"id":8,"label":"Chemistry","value":"Chemistry"},{"id":9,"label":"Nanotechnology","value":"Nanotechnology"},{"id":10,"label":"Soil classification","value":"Soil classification"}]');
 
 /***/ })
 
