@@ -164,7 +164,8 @@
 
 .basic-tab a, 
 .academic-tab a, 
-.research-tab a, 
+.research-tab a,
+.publication-tab a, 
 .subject-tab a, 
 .documents-tab a, 
 .extensions-tab  a{
@@ -174,6 +175,7 @@
 
 .basic-tab a:hover, 
 .academic-tab a:hover, 
+.publication-tab a:hover, 
 .research-tab a:hover, 
 .subject-tab a:hover, 
 .documents-tab a:hover, 
@@ -183,6 +185,7 @@
 
 .basic-tab.active a, 
 .academic-tab.active a, 
+.publication-tab.active a, 
 .research-tab.active a, 
 .subject-tab.active a,
 .documents-tab a,
@@ -200,6 +203,7 @@
 }
 
 .academic-tab.active,
+.publication-tab.active,
 .research-tab.active,
 .subject-tab.active,
 .extensions-tab,

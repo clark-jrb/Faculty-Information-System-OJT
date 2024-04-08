@@ -8,6 +8,7 @@ export default function Authenticated({ auth, children }) {
         'profile', 
         'basic', 
         'academic', 
+        'publication',
         'research', 
         'documents', 
         'extensions'

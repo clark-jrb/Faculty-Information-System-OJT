@@ -37,6 +37,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/basic', fn () => Inertia::render('Profile/Basic'))->name('basic');
         Route::get('/research', fn () => Inertia::render('Profile/Research'))->name('research');
         Route::get('/academic', fn () => Inertia::render('Profile/Academic'))->name('academic');
+        Route::get('/publication', fn () => Inertia::render('Profile/Publication'))->name('publication');
         Route::get('/documents', fn () => Inertia::render('Profile/Documents'))->name('documents');
         Route::get('/extensions', fn () => Inertia::render('Profile/Extensions'))->name('extensions');
     });

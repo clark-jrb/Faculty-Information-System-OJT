@@ -63,6 +63,11 @@ export default function Profile({ children }) {
                                         <p className='m-0 p-2'>Academic</p>
                                     </NavLink>
                                 </li>
+                                <li className={`publication-tab px-3 ${route().current('publication') ? 'active' : ''}`} id="publication">
+                                    <NavLink href={route('publication')} >
+                                        <p className='m-0 p-2'>Publications</p>
+                                    </NavLink>
+                                </li>
                                 <li className={`research-tab px-3 ${route().current('research') ? 'active' : ''}`} id="research">
                                     <NavLink href={route('research')} >
                                         <p className='m-0 p-2'>Research</p>
