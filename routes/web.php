@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\Auth\RedirectAuthenticatedUsersController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,6 +64,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::inertia('/admin/faculties/departments', 'Admin/AdminDepartments')->name('admin.departments');
 
         Route::inertia('/admin/create', 'Admin/AdminCreateFaculty')->name('admin.create');
+        Route::post('/admin/store', [AdminController::class, 'store'])->name('admin.store');
 
         Route::inertia('/admin/faculties/departments/ae', 'Admin/Departments/DAE')->name('admin.departments.ae');
         Route::inertia('/admin/faculties/departments/am', 'Admin/Departments/DAM')->name('admin.departments.am');

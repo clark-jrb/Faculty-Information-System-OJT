@@ -1,29 +1,25 @@
 import React, { useState, useEffect } from "react";
-import AdminAuthenticated from "@/Layouts/AdminAuthenticated";
-import Button from 'react-bootstrap/Button';
-import InputGroup from 'react-bootstrap/InputGroup';
-import NavLink from "@/Components/NavLink";
-import Input from "@/Components/Input";
-import Label from "@/Components/Label";
+import moment from "moment";
 import { Form } from "react-bootstrap";
+import Label from "@/Components/Label";
+import NavLink from "@/Components/NavLink";
 import ReactDatePicker from "react-datepicker";
+import { useForm } from "@inertiajs/inertia-react";
 import 'react-datepicker/dist/react-datepicker.css'
+import AdminAuthenticated from "@/Layouts/AdminAuthenticated";
 import specializations_ae from '../../../json/specializations_ae.json'
 import specializations_am from '../../../json/specializations_am.json'
 import specializations_as from '../../../json/specializations_as.json'
 import specializations_cs from '../../../json/specializations_cs.json'
 import specializations_cp from '../../../json/specializations_cp.json'
 import specializations_ss from '../../../json/specializations_ss.json'
-import { join } from "lodash";
-import { useForm } from "@inertiajs/inertia-react";
-import moment from "moment";
+import { useNotifContext } from "@/Contexts/Notification";
 
 export default function AdminFaculties({ children }) {
     const [startDate, setStartDate] = useState(new Date());
     const [selectedItems, setSelectedItems] = useState([]);
-    const [selectedDept, setSelectedDept] = useState('');
-    const [specializaions, setSpecializaions] = useState('');
     const [specToMap, setSpecToMap] = useState([]);
+    const { updateNotif, updateMessage } = useNotifContext()
 
     const { data, setData, post, processing, errors, reset } = useForm({
         fname: '',
@@ -39,10 +35,6 @@ export default function AdminFaculties({ children }) {
         contact_no: '',
         profile_pic: ''
     });
-
-    useEffect(() => {
-        setSpecializaions(selectedItems.join(', '))
-    }, [selectedItems]);
 
     useEffect(() => {
         let specToMap;
@@ -116,8 +108,13 @@ export default function AdminFaculties({ children }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Inertia.post('/form', formData);
         console.log(data);
+        post('/admin/store', data)
+
+        updateNotif(true); 
+        updateMessage('Faculty Added!')
+        setTimeout(() => updateNotif(false), 5000); 
+        setTimeout(() => updateMessage(''), 5000); 
     };
 
     return (

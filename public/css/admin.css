@@ -107,6 +107,17 @@
     color: var(--grey);
     font-size: xx-large;
     font-weight: bold;
+    gap: 10px;
+}
+
+.notif-bar-f {
+    color: white;
+    display: flex;
+    align-items: center;
+    background-color: var(--light-green);
+    font-size: medium;
+    font-weight: normal;
+    border-radius: 3px;
 }
 
 .admin-create-faculty-cont a{
