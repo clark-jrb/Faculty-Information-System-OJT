@@ -19,6 +19,12 @@ import { useForm } from "@inertiajs/inertia-react";
 import moment from "moment";
 
 export default function AdminFaculties({ children }) {
+    const [startDate, setStartDate] = useState(new Date());
+    const [selectedItems, setSelectedItems] = useState([]);
+    const [selectedDept, setSelectedDept] = useState('');
+    const [specializaions, setSpecializaions] = useState('');
+    const [specToMap, setSpecToMap] = useState([]);
+
     const { data, setData, post, processing, errors, reset } = useForm({
         fname: '',
         lname: '',
@@ -28,20 +34,11 @@ export default function AdminFaculties({ children }) {
         department: '',
         position: '',
         role: '',
-        specializaion: '',
+        specialization: '',
         email: '',
         contact_no: '',
         profile_pic: ''
     });
-
-    const [startDate, setStartDate] = useState(null);
-    const [selectedItems, setSelectedItems] = useState([]);
-    const [selectedDept, setSelectedDept] = useState('');
-    const [selectedGender, setSelectedGender] = useState('');
-    const [selectedRank, setSelectedRank] = useState('');
-    const [selectedRole, setSelectedRole] = useState('');
-    const [specializaions, setSpecializaions] = useState('');
-    const [specToMap, setSpecToMap] = useState([]);
 
     useEffect(() => {
         setSpecializaions(selectedItems.join(', '))
@@ -49,7 +46,7 @@ export default function AdminFaculties({ children }) {
 
     useEffect(() => {
         let specToMap;
-        switch (selectedDept) {
+        switch (data.department) {
             case 'Agricultural Extension':
                 specToMap = specializations_ae;
                 break;
@@ -72,34 +69,32 @@ export default function AdminFaculties({ children }) {
                 specToMap = [];
         }
         setSpecToMap(specToMap);
-    }, [selectedDept]);
+    }, [data.department]);
 
 
     const handleCheckboxChange = (e) => {
         const value = e.target.value;
+        let updatedSpecializations;
+
         if (e.target.checked) {
-          // If checkbox is checked, add the value to the selectedItems array
-            setSelectedItems([...selectedItems, value]);
+            // If checkbox is checked, add the value to the selectedItems array
+            updatedSpecializations = [...selectedItems, value];
         } else {
             // If checkbox is unchecked, remove the value from the selectedItems array
-            setSelectedItems(selectedItems.filter(item => item !== value));
+            updatedSpecializations = selectedItems.filter(item => item !== value);
         }
-    };
 
-    const handleSelectDept = (e) => {
-        setSelectedDept(e.target.value);
-    };
+        // Update the 'specializations' field in the 'data' object
+        const updatedData = {
+            ...data,
+            specialization: updatedSpecializations.join(', ')
+        };
 
-    const handleSelectGender = (e) => {
-        setSelectedGender(e.target.value);
-    };
+        // Update the state of selectedItems
+        setSelectedItems(updatedSpecializations);
 
-    const handleSelectRole = (e) => {
-        setSelectedRole(e.target.value);
-    };
-
-    const handleSelectRank = (e) => {
-        setSelectedRank(e.target.value);
+        // Update form data using setData()
+        setData(updatedData);
     };
 
     const handleChange = (e) => {
@@ -110,15 +105,21 @@ export default function AdminFaculties({ children }) {
         }));
     };
 
+    const handleDateChange = (date) => {
+        setStartDate(date); // Update the state for ReactDatePicker
+        const convertedDate = moment(date).format('YYYY-MM-DD')
+        setData(prevState => ({
+            ...prevState,
+            birth_date: convertedDate // Update the 'birth_date' field in the 'data' object directly with the selected date
+        }));
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         // Inertia.post('/form', formData);
         console.log(data);
     };
 
-    useEffect(() => {
-        console.log(moment(startDate).format('L'));
-    }, [startDate]);
     return (
         <AdminAuthenticated>
             <div className="admin-create-faculty-cont m-4">
@@ -214,8 +215,13 @@ export default function AdminFaculties({ children }) {
                             {/* Birth / Role / Rank  */}
                             <div className="basic3-flex d-flex py-2">
                                 <div className="flex-fill p-2">
-                                    <Label forInput="date" value="Date of Birth:" />
-                                    <ReactDatePicker name="birth_date" selected={startDate} isClearable />
+                                    <Label forInput="date" value="Date of Birth: &#40;MM-DD-YYYY&#41;" />
+                                    <ReactDatePicker 
+                                        name="birth_date" 
+                                        selected={startDate}
+                                        onChange={handleDateChange}
+                                        isClearable 
+                                    />
                                 </div>
                                 <div className="flex-fill p-2">
                                     <Label forInput="role" value="Role:" />
@@ -240,7 +246,7 @@ export default function AdminFaculties({ children }) {
                                         onChange={(e) => handleChange(e)}
                                     >
                                         <option disabled value="">Rank</option>
-                                        <option value=">Instructor I">Instructor I</option>
+                                        <option value="Instructor I">Instructor I</option>
                                         <option value="Associate Professor I">Associate Professor I</option>
                                         <option value="Assist Professor I">Assist Professor I</option>
                                         <option value="Professor I">Professor I</option>
@@ -254,8 +260,8 @@ export default function AdminFaculties({ children }) {
                                     <Form.Select
                                         type="text"
                                         name="department"
-                                        value={selectedDept}
-                                        onChange={handleSelectDept}
+                                        value={data.department}
+                                        onChange={(e) => handleChange(e)}
                                     >
                                         <option disabled value="">Department</option>
                                         <option value="Agricultural Extension">Agricultural Extension</option>

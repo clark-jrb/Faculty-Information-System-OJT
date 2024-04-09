@@ -28,12 +28,11 @@ export default function AdminFaculties({ children }) {
                     </div>
 
                     <div className="admin-add-faculty ms-auto">
-                        <NavLink href={route('admin.creat')}>
+                        <NavLink href={route('admin.create')}>
                             <Button variant="success">
                                 Add Faculty
                             </Button>
                         </NavLink>
-                        
                     </div>
                 </div>
                 
