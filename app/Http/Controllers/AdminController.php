@@ -49,10 +49,10 @@ class AdminController extends Controller
             'email' => 'required',
             'contact_no' => 'required',
             'profile_pic' => 'nullable',
-            'institution' => 'required',
-            'degree' => 'required',
-            'educ_location' => 'required',
-            'educ_date' => 'required'
+            'academic_educ.*.institution' => 'required',
+            'academic_educ.*.degree' => 'required',
+            'academic_educ.*.educ_location' => 'required',
+            'academic_educ.*.educ_date' => 'required'
         ]);
 
         $basicInfo = Basic_info::create([
@@ -70,15 +70,18 @@ class AdminController extends Controller
             'profile_pic' => $request->input('profile_pic')
         ]);
 
-        $acad_educ = Acad_Education::create([
-            'faculty_id' => $basicInfo->id,
-            'degree' => $request->input('degree'),
-            'institution' => $request->input('institution'),
-            'date' => $request->input('educ_date'),
-            'location' => $request->input('educ_location')
-        ]);
+        foreach ($request->input('academic_educ') as $academicEducData) {
+            Acad_Education::create([
+                'faculty_id' => $basicInfo->id,
+                'degree' => $academicEducData['degree'],
+                'institution' => $academicEducData['institution'],
+                'date' => $academicEducData['educ_date'],
+                'location' => $academicEducData['educ_location']
+            ]);
+        }
 
-        if ($basicInfo && $acad_educ) {
+
+        if ($basicInfo && $academicEducData) {
             return redirect('/admin/faculties/departments');
         }
     }

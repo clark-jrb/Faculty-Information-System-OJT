@@ -34,11 +34,39 @@ export default function AdminFaculties({ children }) {
         email: '',
         contact_no: '',
         profile_pic: '',
-        degree: '',
-        institution: '',
-        educ_date: '',
-        educ_location: ''
+        academic_educ: [{ 
+            degree: '', 
+            institution: '', 
+            educ_date: '', 
+            educ_location: ''
+        }]
     });
+
+    const handleAddEducField = () => {
+        setData((prevData) => ({
+            ...prevData,
+            academic_educ: [...prevData.academic_educ, { 
+                degree: '', 
+                institution: '', 
+                educ_date: '', 
+                educ_location: '' 
+            }],
+        }));
+    };
+
+    const handleRemoveField = (index) => {
+        setData((prevData) => ({
+            ...prevData,
+            academic_educ: prevData.academic_educ.filter((_, i) => i !== index),
+        }));
+    };
+
+    const handleEducChange = (e, index) => {
+        const { name, value } = e.target;
+        const educData = { ...data };
+        educData.academic_educ[index][name] = value;
+        setData(educData);
+    };
 
     useEffect(() => {
         let specToMap;
@@ -302,57 +330,71 @@ export default function AdminFaculties({ children }) {
                         <div className="acf-title py-2">
                             Academic
                         </div>
-                        <div className="create-academic-fields w-75 p-3">
+                        <div className="create-academic-fields w-100 p-3">
                             <div className="acf-title py-2">
                                 Education
                             </div>
-                            <div className="acad-educ-flex d-flex py-2">
-                                <div className="flex-fill p-2">
-                                    <Label forInput="institution" value="Institution/School:" />
-                                    <Form.Control
-                                        type="text"
-                                        name="institution"
-                                        placeholder="Institution/School"
-                                        value={data.institution}
-                                        onChange={(e) => handleChange(e)}
-                                    />
-                                </div>
+                            {data.academic_educ.map((academicEduc, index) => (
+                                <div className="acad-educ-flex d-flex py-2" key={index}>
+                                    <div className="flex-fill p-2">
+                                        <Label forInput="institution" value="Institution/School:" />
+                                        <Form.Control
+                                            type="text"
+                                            name="institution"
+                                            placeholder="Institution/School"
+                                            value={academicEduc.institution}
+                                            onChange={(e) => handleEducChange(e, index)}
+                                        />
+                                    </div>
 
-                                <div className="flex-fill p-2">
-                                    <Label forInput="location" value="Location:" />
-                                    <Form.Control
-                                        type="text"
-                                        name="educ_location"
-                                        placeholder="Location"
-                                        value={data.educ_location}
-                                        onChange={(e) => handleChange(e)}
-                                    />
-                                </div>
-                            </div>
+                                    <div className="flex-fill p-2">
+                                        <Label forInput="location" value="Location:" />
+                                        <Form.Control
+                                            type="text"
+                                            name="educ_location"
+                                            placeholder="Location"
+                                            value={academicEduc.educ_location}
+                                            onChange={(e) => handleEducChange(e, index)}
+                                        />
+                                    </div>
 
-                            <div className="acad-educ-flex2 d-flex py-2">
-                                <div className="flex-fill p-2">
-                                    <Label forInput="educ_date" value="Date:" />
-                                    <Form.Control
-                                        type="text"
-                                        name="educ_date"
-                                        placeholder="YYYY"
-                                        value={data.educ_date}
-                                        onChange={(e) => handleChange(e)}
-                                    />
-                                </div>
+                                    <div className="flex-fill p-2">
+                                        <Label forInput="educ_date" value="Date:" />
+                                        <Form.Control   
+                                            type="text"
+                                            name="educ_date"
+                                            placeholder="YYYY"
+                                            value={academicEduc.educ_date}
+                                            onChange={(e) => handleEducChange(e, index)}
+                                        />
+                                    </div>
 
-                                <div className="flex-fill p-2">
-                                    <Label forInput="degree" value="Degree:" />
-                                    <Form.Control
-                                        type="text"
-                                        name="degree"
-                                        placeholder="Degree"
-                                        value={data.degree}
-                                        onChange={(e) => handleChange(e)}
-                                    />
+                                    <div className="flex-fill p-2">
+                                        <Label forInput="degree" value="Degree:" />
+                                        <Form.Control
+                                            type="text"
+                                            name="degree"
+                                            placeholder="Degree"
+                                            value={academicEduc.degree}
+                                            onChange={(e) => handleEducChange(e, index)}
+                                        />
+                                    </div>
+
+                                    <div className="flex-fill p-2">
+                                        {!academicEduc.isEmpty && ( // Only render the remove button if the academic background is not empty
+                                            <button type="button" className="btn btn-danger" onClick={() => setData(prevData => ({
+                                            ...prevData,
+                                            academic_educ: prevData.academic_educ.filter((_, i) => i !== index),
+                                            }))}>
+                                                Remove
+                                            </button>
+                                        )}
+                                    </div>
+                                    
                                 </div>
-                            </div>
+                            ))}
+
+                            <button type="button" className="btn btn-success" onClick={handleAddEducField}>Add Another</button>
 
                             <div className="acf-title py-2">
                                 Work Experience
