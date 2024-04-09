@@ -15,11 +15,31 @@ import specializations_cs from '../../../json/specializations_cs.json'
 import specializations_cp from '../../../json/specializations_cp.json'
 import specializations_ss from '../../../json/specializations_ss.json'
 import { join } from "lodash";
+import { useForm } from "@inertiajs/inertia-react";
+import moment from "moment";
 
 export default function AdminFaculties({ children }) {
-    const [startDate, setStartDate] = useState(new Date());
+    const { data, setData, post, processing, errors, reset } = useForm({
+        fname: '',
+        lname: '',
+        gender: '',
+        birth_date: '',
+        age: '',
+        department: '',
+        position: '',
+        role: '',
+        specializaion: '',
+        email: '',
+        contact_no: '',
+        profile_pic: ''
+    });
+
+    const [startDate, setStartDate] = useState(null);
     const [selectedItems, setSelectedItems] = useState([]);
     const [selectedDept, setSelectedDept] = useState('');
+    const [selectedGender, setSelectedGender] = useState('');
+    const [selectedRank, setSelectedRank] = useState('');
+    const [selectedRole, setSelectedRole] = useState('');
     const [specializaions, setSpecializaions] = useState('');
     const [specToMap, setSpecToMap] = useState([]);
 
@@ -53,19 +73,7 @@ export default function AdminFaculties({ children }) {
         }
         setSpecToMap(specToMap);
     }, [selectedDept]);
-    
 
-    // useEffect(() => {
-        // if (selectedDept === 'Agricultural Extension') {
-        //     setSpecToMap(specializations_ae)
-        // }
-    //     if (selectedDept === 'Agri-Management') {
-    //         setSpecToMap(specializations_am)
-    //     }
-    //     else {
-    //         setSpecToMap([])
-    //     }
-    // }, [specToMap]);
 
     const handleCheckboxChange = (e) => {
         const value = e.target.value;
@@ -78,11 +86,39 @@ export default function AdminFaculties({ children }) {
         }
     };
 
-
     const handleSelectDept = (e) => {
         setSelectedDept(e.target.value);
     };
 
+    const handleSelectGender = (e) => {
+        setSelectedGender(e.target.value);
+    };
+
+    const handleSelectRole = (e) => {
+        setSelectedRole(e.target.value);
+    };
+
+    const handleSelectRank = (e) => {
+        setSelectedRank(e.target.value);
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setData(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Inertia.post('/form', formData);
+        console.log(data);
+    };
+
+    useEffect(() => {
+        console.log(moment(startDate).format('L'));
+    }, [startDate]);
     return (
         <AdminAuthenticated>
             <div className="admin-create-faculty-cont m-4">
@@ -99,7 +135,7 @@ export default function AdminFaculties({ children }) {
                 </div>
                 {/* FIELDS  */}
                 <div className="admin-create-fields mt-2">
-                    <form onSubmit="">
+                    <form onSubmit={handleSubmit}>
                         {/* BASIC FIELDS */}
                         <div className="acf-title py-2">
                             Basic Information
@@ -113,6 +149,8 @@ export default function AdminFaculties({ children }) {
                                         type="text"
                                         name="fname"
                                         placeholder="First Name"
+                                        value={data.fname}
+                                        onChange={(e) => handleChange(e)}
                                     />
                                 </div>
                                 <div className="flex-fill p-2">
@@ -121,6 +159,8 @@ export default function AdminFaculties({ children }) {
                                         type="text"
                                         name="lname"
                                         placeholder="Last Name"
+                                        value={data.lname}
+                                        onChange={(e) => handleChange(e)}
                                     />
                                 </div>
                                 <div className="flex-fill p-2">
@@ -128,6 +168,8 @@ export default function AdminFaculties({ children }) {
                                     <Form.Select
                                         type="text"
                                         name="gender"
+                                        value={data.gender}
+                                        onChange={(e) => handleChange(e)}
                                     >
                                         <option disabled value="">Gender</option>
                                         <option value="male">Male</option>
@@ -143,14 +185,18 @@ export default function AdminFaculties({ children }) {
                                         type="text"
                                         name="email"
                                         placeholder="Email"
+                                        value={data.email}
+                                        onChange={(e) => handleChange(e)}
                                     />
                                 </div>
                                 <div className="flex-fill p-2">
                                     <Label forInput="contact" value="Contact:" />
                                     <Form.Control
                                         type="text"
-                                        name="contact"
+                                        name="contact_no"
                                         placeholder="Contact"
+                                        value={data.contact_no}
+                                        onChange={(e) => handleChange(e)}
                                     />
                                 </div>
                                 <div className="flex-fill p-2">
@@ -160,6 +206,8 @@ export default function AdminFaculties({ children }) {
                                         type="text"
                                         name="age"
                                         placeholder="Age"
+                                        value={data.age}
+                                        onChange={(e) => handleChange(e)}
                                     />
                                 </div>
                             </div>
@@ -167,31 +215,35 @@ export default function AdminFaculties({ children }) {
                             <div className="basic3-flex d-flex py-2">
                                 <div className="flex-fill p-2">
                                     <Label forInput="date" value="Date of Birth:" />
-                                    <ReactDatePicker name="date" selected={startDate} onChange={(date) => setStartDate(date)}/>
+                                    <ReactDatePicker name="birth_date" selected={startDate} isClearable />
                                 </div>
                                 <div className="flex-fill p-2">
                                     <Label forInput="role" value="Role:" />
                                     <Form.Select
                                         type="text"
                                         name="role"
+                                        value={data.role}
+                                        onChange={(e) => handleChange(e)}
                                     >
                                         <option disabled value="">Role</option>
-                                        <option value="male">College Dean</option>
-                                        <option value="female">Department Head</option>
-                                        <option value="female">Faculty</option>
+                                        <option value="College Dean">College Dean</option>
+                                        <option value="Department Head">Department Head</option>
+                                        <option value="Faculty">Faculty</option>
                                     </Form.Select>
                                 </div>
                                 <div className="flex-fill p-2">
                                     <Label forInput="rank" value="Rank:" />
                                     <Form.Select
                                         type="text" 
-                                        name="rank"
+                                        name="position"
+                                        value={data.position}
+                                        onChange={(e) => handleChange(e)}
                                     >
                                         <option disabled value="">Rank</option>
-                                        <option value="male">Instructor I</option>
-                                        <option value="female">Associate Professor I</option>
-                                        <option value="female">Assist Professor I</option>
-                                        <option value="female">Professor I</option>
+                                        <option value=">Instructor I">Instructor I</option>
+                                        <option value="Associate Professor I">Associate Professor I</option>
+                                        <option value="Assist Professor I">Assist Professor I</option>
+                                        <option value="Professor I">Professor I</option>
                                     </Form.Select>
                                 </div>
                             </div>
@@ -263,6 +315,7 @@ export default function AdminFaculties({ children }) {
                                 Documents
                             </div>
                         </div>
+                        <button className="btn btn-success" type="submit">Add</button>
                     </form>
                 </div>
             </div>

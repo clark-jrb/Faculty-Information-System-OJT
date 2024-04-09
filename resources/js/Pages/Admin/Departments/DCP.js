@@ -9,7 +9,7 @@ export default function DCP() {
                     <p>Crop Protection</p>
                 </div>
                 <div className="agri-dept-cp-table-cont">
-                    <table class="admin-table">
+                    <table className="admin-table">
                         <thead>
                             <tr>
                                 <th scope="col" className="p-3 pb-2">#</th>
@@ -25,7 +25,7 @@ export default function DCP() {
                                 <td className="p-2 ps-3">Faculty</td>
                                 <td className="p-2 ps-3">Instructor II</td>
                                 <td className="p-2 ps-3">
-                                    <i class="fa-solid fa-chevron-right"></i>
+                                    <i className="fa-solid fa-chevron-right"></i>
                                 </td>
                             </tr>
                         </tbody>
