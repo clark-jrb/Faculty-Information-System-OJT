@@ -11,6 +11,6 @@ class Acad_Education extends Model
     protected $table = "acad__education";
     public $timestamps = true;
     protected $fillable = [
-        'degree', 'institution', 'date', 'location'
+        'faculty_id', 'degree', 'institution', 'date', 'location'
     ];
 }

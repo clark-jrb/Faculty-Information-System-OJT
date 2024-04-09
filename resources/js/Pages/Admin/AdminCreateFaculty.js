@@ -33,7 +33,11 @@ export default function AdminFaculties({ children }) {
         specialization: '',
         email: '',
         contact_no: '',
-        profile_pic: ''
+        profile_pic: '',
+        degree: '',
+        institution: '',
+        educ_date: '',
+        educ_location: ''
     });
 
     useEffect(() => {
@@ -139,6 +143,7 @@ export default function AdminFaculties({ children }) {
                             Basic Information
                         </div>
                         <div className="create-basic-fields w-75 p-3">
+                            
                             {/* Full Name / Gender  */}
                             <div className="basic1-flex d-flex py-2">
                                 <div className="flex-fill p-2">
@@ -271,19 +276,18 @@ export default function AdminFaculties({ children }) {
                                 </div>
                                 <div className="flex-fill p-2">
                                     <Label forInput="special" value="Specialization:" />
-                                    {/* <Form name="special"> */}
-                                        {specToMap.map((item) => (
-                                            <div key={item.id} className="mb-3">
-                                                <Form.Check // prettier-ignore
-                                                    type="checkbox"
-                                                    id={`default-${item.id}`}
-                                                    label={item.label}
-                                                    value={item.value}
-                                                    onChange={handleCheckboxChange}
-                                                />
-                                            </div>
-                                        ))}
-                                    {/* </Form> */}
+                                    {specToMap.map((item) => (
+                                        <div key={item.id} className="mb-3">
+                                            <Form.Check // prettier-ignore
+                                                type="checkbox"
+                                                name="specialization"
+                                                id={`default-${item.id}`}
+                                                label={item.label}
+                                                value={item.value}
+                                                onChange={handleCheckboxChange}
+                                            />
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                             {/* Upload Profile Image  */}
@@ -294,10 +298,64 @@ export default function AdminFaculties({ children }) {
                                 </div>
                             </div>
                         </div>
-
-                        <div className="create-academic-fields">
+                        {/* ACADEMIC FIELDS */}
+                        <div className="acf-title py-2">
+                            Academic
+                        </div>
+                        <div className="create-academic-fields w-75 p-3">
                             <div className="acf-title py-2">
-                                Academic
+                                Education
+                            </div>
+                            <div className="acad-educ-flex d-flex py-2">
+                                <div className="flex-fill p-2">
+                                    <Label forInput="institution" value="Institution/School:" />
+                                    <Form.Control
+                                        type="text"
+                                        name="institution"
+                                        placeholder="Institution/School"
+                                        value={data.institution}
+                                        onChange={(e) => handleChange(e)}
+                                    />
+                                </div>
+
+                                <div className="flex-fill p-2">
+                                    <Label forInput="location" value="Location:" />
+                                    <Form.Control
+                                        type="text"
+                                        name="educ_location"
+                                        placeholder="Location"
+                                        value={data.educ_location}
+                                        onChange={(e) => handleChange(e)}
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="acad-educ-flex2 d-flex py-2">
+                                <div className="flex-fill p-2">
+                                    <Label forInput="educ_date" value="Date:" />
+                                    <Form.Control
+                                        type="text"
+                                        name="educ_date"
+                                        placeholder="YYYY"
+                                        value={data.educ_date}
+                                        onChange={(e) => handleChange(e)}
+                                    />
+                                </div>
+
+                                <div className="flex-fill p-2">
+                                    <Label forInput="degree" value="Degree:" />
+                                    <Form.Control
+                                        type="text"
+                                        name="degree"
+                                        placeholder="Degree"
+                                        value={data.degree}
+                                        onChange={(e) => handleChange(e)}
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="acf-title py-2">
+                                Work Experience
                             </div>
                         </div>
 

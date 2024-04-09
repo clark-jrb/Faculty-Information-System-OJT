@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Basic_info;
+use App\Models\Acad_Education;
 
 class AdminController extends Controller
 {
@@ -47,10 +48,37 @@ class AdminController extends Controller
             'specialization' => 'required',
             'email' => 'required',
             'contact_no' => 'required',
-            'profile_pic' => 'nullable'
+            'profile_pic' => 'nullable',
+            'institution' => 'required',
+            'degree' => 'required',
+            'educ_location' => 'required',
+            'educ_date' => 'required'
         ]);
 
-        if (Basic_info::create($validatedData)) {
+        $basicInfo = Basic_info::create([
+            'fname' => $request->input('fname'),
+            'lname' => $request->input('lname'),
+            'gender' => $request->input('gender'),
+            'birth_date' => $request->input('birth_date'),
+            'age' => $request->input('age'),
+            'department' => $request->input('department'),
+            'position' => $request->input('position'),
+            'role' => $request->input('role'),
+            'specialization' => $request->input('specialization'),
+            'email' => $request->input('email'),
+            'contact_no' => $request->input('contact_no'),
+            'profile_pic' => $request->input('profile_pic')
+        ]);
+
+        $acad_educ = Acad_Education::create([
+            'faculty_id' => $basicInfo->id,
+            'degree' => $request->input('degree'),
+            'institution' => $request->input('institution'),
+            'date' => $request->input('educ_date'),
+            'location' => $request->input('educ_location')
+        ]);
+
+        if ($basicInfo && $acad_educ) {
             return redirect('/admin/faculties/departments');
         }
     }
