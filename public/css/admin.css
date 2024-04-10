@@ -136,15 +136,25 @@
 
 .admin-filter-add-cont {
     display: flex;
+    align-items: center;
 }
 
 .admin-filter-search {
     width: 30%;
 }
 
-/* .admin-add-faculty {
-    float: right;
-} */
+.admin-add-faculty button{
+    font-size: medium;
+    background-color: var(--light-green);
+    border: none;
+    border-radius: 3px;
+    color: white;
+    border-bottom: 3px solid var(--dark-green);
+}
+
+.admin-add-faculty button:active {
+    border-bottom: 1px solid var(--dark-green);
+}
 
 /* DEpARTMENTS FILTER  */
 
@@ -244,4 +254,32 @@
 
 .basic2-flex #age {
     width: 100px;
+}
+
+.remove-field-btn button {
+    display: grid;
+    align-items: center;
+    font-size: small;
+    background-color: var(--red);
+    border: none;
+    border-radius: 3px;
+    color: white;
+    border-bottom: 3px solid var(--dark-red);
+}
+
+.remove-field-btn button:active {
+    border-bottom: 1px solid var(--dark-red);
+}
+
+.add-field-btn {
+    font-size: small;
+    background-color: var(--very-light-grey);
+    border: none;
+    border-radius: 3px;
+    color: var(--grey);
+    border-bottom: 3px solid #ccc;
+}
+
+.add-field-btn:active {
+    border-bottom: 1px solid #ccc;
 }

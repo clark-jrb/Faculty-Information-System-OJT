@@ -3,8 +3,8 @@ import AdminAuthenticated from "@/Layouts/AdminAuthenticated";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
-import NavLink from "@/Components/NavLink";
 import { useNotifContext } from "@/Contexts/Notification";
+import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 
 export default function AdminFaculties({ children }) {
     const { notif, message } = useNotifContext()
@@ -21,9 +21,9 @@ export default function AdminFaculties({ children }) {
                     )}
                 </div>
 
-                <div className="admin-filter-add-cont">
+                <div className="admin-filter-add-cont mb-3">
                     <div className="admin-filter-search">
-                        <InputGroup className="mb-3">
+                        <InputGroup className="">
                             <Button variant="outline-secondary" id="button-addon1">
                             Button
                             </Button>
@@ -36,11 +36,9 @@ export default function AdminFaculties({ children }) {
                     </div>
 
                     <div className="admin-add-faculty ms-auto">
-                        <NavLink href={route('admin.create')}>
-                            <Button variant="success">
-                                Add Faculty
-                            </Button>
-                        </NavLink>
+                        <ResponsiveNavLink href={route('admin.create')} as="button">
+                            Add Faculty
+                        </ResponsiveNavLink>
                     </div>
                 </div>
                 

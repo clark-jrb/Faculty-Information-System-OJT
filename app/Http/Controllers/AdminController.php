@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Basic_info;
 use App\Models\Acad_Education;
+use App\Models\Acad_WorkExp;
 
 class AdminController extends Controller
 {
@@ -52,7 +53,11 @@ class AdminController extends Controller
             'academic_educ.*.institution' => 'required',
             'academic_educ.*.degree' => 'required',
             'academic_educ.*.educ_location' => 'required',
-            'academic_educ.*.educ_date' => 'required'
+            'academic_educ.*.educ_date' => 'required',
+            'academic_work.*.work_institution' => 'required',
+            'academic_work.*.work_position' => 'required',
+            'academic_work.*.work_location' => 'required',
+            'academic_work.*.work_date' => 'required'
         ]);
 
         $basicInfo = Basic_info::create([
@@ -80,8 +85,17 @@ class AdminController extends Controller
             ]);
         }
 
+        foreach ($request->input('academic_work') as $academicWorkData) {
+            Acad_WorkExp::create([
+                'faculty_id' => $basicInfo->id,
+                'position' => $academicWorkData['work_position'],
+                'location' => $academicWorkData['work_institution'],
+                'date' => $academicWorkData['work_date'],
+                'work_loc' => $academicWorkData['work_location']
+            ]);
+        }
 
-        if ($basicInfo && $academicEducData) {
+        if ($basicInfo && $academicEducData && $academicWorkData) {
             return redirect('/admin/faculties/departments');
         }
     }

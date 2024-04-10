@@ -39,6 +39,12 @@ export default function AdminFaculties({ children }) {
             institution: '', 
             educ_date: '', 
             educ_location: ''
+        }],
+        academic_work: [{
+            work_position: '',
+            work_institution: '',
+            work_location: '',
+            work_date: ''
         }]
     });
 
@@ -54,10 +60,15 @@ export default function AdminFaculties({ children }) {
         }));
     };
 
-    const handleRemoveField = (index) => {
+    const handleAddWorkField = () => {
         setData((prevData) => ({
             ...prevData,
-            academic_educ: prevData.academic_educ.filter((_, i) => i !== index),
+            academic_work: [...prevData.academic_work, { 
+                work_position: '', 
+                work_institution: '', 
+                work_date: '', 
+                work_location: '' 
+            }],
         }));
     };
 
@@ -66,6 +77,13 @@ export default function AdminFaculties({ children }) {
         const educData = { ...data };
         educData.academic_educ[index][name] = value;
         setData(educData);
+    };
+
+    const handleWorkChange = (e, index) => {
+        const { name, value } = e.target;
+        const workData = { ...data };
+        workData.academic_work[index][name] = value;
+        setData(workData);
     };
 
     useEffect(() => {
@@ -152,7 +170,7 @@ export default function AdminFaculties({ children }) {
     return (
         <AdminAuthenticated>
             <div className="admin-create-faculty-cont m-4">
-                {/* HEADER  */}
+    {/* HEADER  */}
                 <div className="d-flex">
                     <NavLink href={route('admin.departments')}>
                         <div className="admin-create-cont-title">
@@ -163,16 +181,16 @@ export default function AdminFaculties({ children }) {
                         <p className="m-0">Create</p>
                     </div>
                 </div>
-                {/* FIELDS  */}
+    {/* FIELDS  */}
                 <div className="admin-create-fields mt-2">
                     <form onSubmit={handleSubmit}>
-                        {/* BASIC FIELDS */}
+            {/* BASIC FIELDS */}
                         <div className="acf-title py-2">
                             Basic Information
                         </div>
                         <div className="create-basic-fields w-75 p-3">
                             
-                            {/* Full Name / Gender  */}
+                {/* Full Name / Gender  */}
                             <div className="basic1-flex d-flex py-2">
                                 <div className="flex-fill p-2">
                                     <Label forInput="fname" value="First Name:" />
@@ -208,7 +226,7 @@ export default function AdminFaculties({ children }) {
                                     </Form.Select>
                                 </div>
                             </div>
-                            {/* Email / Contact / Age  */}
+                {/* Email / Contact / Age  */}
                             <div className="basic2-flex d-flex py-2">
                                 <div className="flex-fill p-2">
                                     <Label forInput="email" value="Email:" />
@@ -242,7 +260,7 @@ export default function AdminFaculties({ children }) {
                                     />
                                 </div>
                             </div>
-                            {/* Birth / Role / Rank  */}
+                {/* Birth / Role / Rank  */}
                             <div className="basic3-flex d-flex py-2">
                                 <div className="flex-fill p-2">
                                     <Label forInput="date" value="Date of Birth: &#40;MM-DD-YYYY&#41;" />
@@ -283,7 +301,7 @@ export default function AdminFaculties({ children }) {
                                     </Form.Select>
                                 </div>
                             </div>
-                            {/* Department / Specialization  */}
+                {/* Department / Specialization  */}
                             <div className="basic3-flex d-flex py-2">
                                 <div className="flex-fill p-2">
                                     <Label forInput="department" value="Department:" />
@@ -318,7 +336,7 @@ export default function AdminFaculties({ children }) {
                                     ))}
                                 </div>
                             </div>
-                            {/* Upload Profile Image  */}
+                {/* Upload Profile Image  */}
                             <div className="basic4-flex py-2">
                                 <div className="profile-pic-cont">
                                     <Label forInput="profile-pic" value="Upload profile picture &#40;Optional&#41;:" />
@@ -326,11 +344,12 @@ export default function AdminFaculties({ children }) {
                                 </div>
                             </div>
                         </div>
-                        {/* ACADEMIC FIELDS */}
+            {/* ACADEMIC FIELDS */}
                         <div className="acf-title py-2">
                             Academic
                         </div>
                         <div className="create-academic-fields w-100 p-3">
+                {/* Education  */}
                             <div className="acf-title py-2">
                                 Education
                             </div>
@@ -359,7 +378,7 @@ export default function AdminFaculties({ children }) {
                                     </div>
 
                                     <div className="flex-fill p-2">
-                                        <Label forInput="educ_date" value="Date:" />
+                                        <Label forInput="educ_date" value="Year Graduated:" />
                                         <Form.Control   
                                             type="text"
                                             name="educ_date"
@@ -370,23 +389,94 @@ export default function AdminFaculties({ children }) {
                                     </div>
 
                                     <div className="flex-fill p-2">
-                                        <Label forInput="degree" value="Degree:" />
+                                        <Label forInput="degree" value="Degree/Masteral/Doctorate Title:" />
                                         <Form.Control
                                             type="text"
                                             name="degree"
-                                            placeholder="Degree"
+                                            placeholder="ex. MS in Crop Protection"
                                             value={academicEduc.degree}
                                             onChange={(e) => handleEducChange(e, index)}
                                         />
                                     </div>
 
-                                    <div className="flex-fill p-2">
+                                    <div className="remove-field-btn flex-fill p-2 d-flex align-items-end ">
                                         {!academicEduc.isEmpty && ( // Only render the remove button if the academic background is not empty
-                                            <button type="button" className="btn btn-danger" onClick={() => setData(prevData => ({
+                                            <button type="button" className="px-2 py-1" onClick={() => setData(prevData => ({
                                             ...prevData,
                                             academic_educ: prevData.academic_educ.filter((_, i) => i !== index),
                                             }))}>
-                                                Remove
+                                                <i className="fa-solid fa-minus"></i>
+                                            </button>
+                                        )}
+                                    </div>
+                                    
+                                </div>
+                            ))}
+                            {/* Add button */}
+                            <div className="add-field-container w-100 px-2">
+                                <button type="button" className="add-field-btn w-100 py-2" onClick={handleAddEducField}>
+                                    <i className="fa-solid fa-plus"></i> Add Another
+                                </button>
+                            </div>
+                            
+                {/* Work Experience  */}
+                            <div className="acf-title py-2">
+                                Work Experience
+                            </div>
+                            <div className="acad-work-flex d-flex py-2"></div>
+                            {data.academic_work.map((academicWork, index) => (
+                                <div className="acad-work-flex d-flex py-2" key={index}>
+                                    <div className="flex-fill p-2">
+                                        <Label forInput="work_institution" value="Institution/Organization:" />
+                                        <Form.Control
+                                            type="text"
+                                            name="work_institution"
+                                            placeholder="Institution/Organization"
+                                            value={academicWork.work_institution}
+                                            onChange={(e) => handleWorkChange(e, index)}
+                                        />
+                                    </div>
+
+                                    <div className="flex-fill p-2">
+                                        <Label forInput="location" value="Work location:" />
+                                        <Form.Control
+                                            type="text"
+                                            name="work_location"
+                                            placeholder="Work location"
+                                            value={academicWork.work_location}
+                                            onChange={(e) => handleWorkChange(e, index)}
+                                        />
+                                    </div>
+
+                                    <div className="flex-fill p-2">
+                                        <Label forInput="work_date" value="Date:" />
+                                        <Form.Control   
+                                            type="text"
+                                            name="work_date"
+                                            placeholder="YYYY-(YYYY/Present)"
+                                            value={academicWork.work_date}
+                                            onChange={(e) => handleWorkChange(e, index)}
+                                        />
+                                    </div>
+
+                                    <div className="flex-fill p-2">
+                                        <Label forInput="work_position" value="Position:" />
+                                        <Form.Control
+                                            type="text"
+                                            name="work_position"
+                                            placeholder="Position"
+                                            value={academicWork.work_position}
+                                            onChange={(e) => handleWorkChange(e, index)}
+                                        />
+                                    </div>
+
+                                    <div className="remove-field-btn flex-fill p-2 d-flex align-items-end ">
+                                        {!academicWork.isEmpty && ( // Only render the remove button if the academic background is not empty
+                                            <button type="button" className="px-2 py-1" onClick={() => setData(prevData => ({
+                                            ...prevData,
+                                            academic_work: prevData.academic_work.filter((_, i) => i !== index),
+                                            }))}>
+                                                <i className="fa-solid fa-minus"></i>
                                             </button>
                                         )}
                                     </div>
@@ -394,30 +484,32 @@ export default function AdminFaculties({ children }) {
                                 </div>
                             ))}
 
-                            <button type="button" className="btn btn-success" onClick={handleAddEducField}>Add Another</button>
-
-                            <div className="acf-title py-2">
-                                Work Experience
+                            {/* Add button */}
+                            <div className="add-field-container w-100 px-2">
+                                <button type="button" className="add-field-btn w-100 py-2" onClick={handleAddWorkField}>
+                                    <i className="fa-solid fa-plus"></i> Add Another
+                                </button>
                             </div>
                         </div>
-
+            {/* RESEARCH FIELDS  */}
                         <div className="create-research-fields">
                             <div className="acf-title py-2">
                                 Research
                             </div>
                         </div>
-
+            {/* EXTENSION ACTIVITIES  */}
                         <div className="create-extensions-fields">
                             <div className="acf-title py-2">
                                 Extension Activities
                             </div>
                         </div>
-
+            {/* DOCUMENTS  */}
                         <div className="create-documents-fields">
                             <div className="acf-title py-2">
                                 Documents
                             </div>
                         </div>
+                {/* SUBMIT BUTTON  */}
                         <button className="btn btn-success" type="submit">Add</button>
                     </form>
                 </div>
