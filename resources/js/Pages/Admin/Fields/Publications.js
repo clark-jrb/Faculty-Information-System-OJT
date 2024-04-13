@@ -83,7 +83,7 @@ export default function Publications({ data, setData }) {
                     </div>
 
                     <div className="remove-field-btn flex-fill p-2 d-flex justify-content-end">
-                        {!pub.isEmpty && ( // Only render the remove button if the academic background is not empty
+                        {data.publications.length > 1 && ( // Only render the remove button if the academic background is not empty
                             <button type="button" className="px-2 py-1" onClick={() => setData(prevData => ({
                             ...prevData,
                             publications: prevData.publications.filter((_, i) => i !== index),
@@ -99,7 +99,7 @@ export default function Publications({ data, setData }) {
             {/* Add field button */}
             <div className="add-field-container w-100 px-2">
                 <button type="button" className="add-field-btn w-100 py-2" onClick={handleAddField}>
-                    <i className="fa-solid fa-plus"></i> Add another
+                    <i className="fa-solid fa-plus"></i> Add another publication
                 </button>
             </div>
         </div>

@@ -79,7 +79,7 @@ export default function ResearchActivities({ data, setData }) {
                     </div>
 
                     <div className="remove-field-btn flex-fill p-2 d-flex justify-content-end">
-                        {!res.isEmpty && ( // Only render the remove button if the academic background is not empty
+                        {data.research.length > 1 && ( // Only render the remove button if the academic background is not empty
                             <button type="button" className="px-2 py-1" onClick={() => setData(prevData => ({
                             ...prevData,
                             research: prevData.research.filter((_, i) => i !== index),
@@ -95,7 +95,7 @@ export default function ResearchActivities({ data, setData }) {
             {/* Add field button */}
             <div className="add-field-container w-100 px-2">
                 <button type="button" className="add-field-btn w-100 py-2" onClick={handleAddRAField}>
-                    <i className="fa-solid fa-plus"></i> Add another
+                    <i className="fa-solid fa-plus"></i> Add another research activity
                 </button>
             </div>
         </div>

@@ -95,7 +95,7 @@ export default function Academic({ data, setData }) {
                     </div>
 
                     <div className="remove-field-btn flex-fill p-2 d-flex align-items-end ">
-                        {!academicEduc.isEmpty && ( // Only render the remove button if the academic background is not empty
+                        {data.academic_educ.length > 1 && ( // Only render the remove button if the academic background is not empty
                             <button type="button" className="px-2 py-1" onClick={() => setData(prevData => ({
                             ...prevData,
                             academic_educ: prevData.academic_educ.filter((_, i) => i !== index),
@@ -110,7 +110,7 @@ export default function Academic({ data, setData }) {
             {/* Add button */}
             <div className="add-field-container w-100 px-2">
                 <button type="button" className="add-field-btn w-100 py-2" onClick={handleAddEducField}>
-                    <i className="fa-solid fa-plus"></i> Add another
+                    <i className="fa-solid fa-plus"></i> Add another education background
                 </button>
             </div>
             
@@ -166,7 +166,7 @@ export default function Academic({ data, setData }) {
                     </div>
 
                     <div className="remove-field-btn flex-fill p-2 d-flex align-items-end ">
-                        {!academicWork.isEmpty && ( // Only render the remove button if the academic background is not empty
+                        {data.academic_work.length > 1 && ( // Only render the remove button if the academic background is not empty
                             <button type="button" className="px-2 py-1" onClick={() => setData(prevData => ({
                             ...prevData,
                             academic_work: prevData.academic_work.filter((_, i) => i !== index),
@@ -182,7 +182,7 @@ export default function Academic({ data, setData }) {
             {/* Add field button */}
             <div className="add-field-container w-100 px-2">
                 <button type="button" className="add-field-btn w-100 py-2" onClick={handleAddWorkField}>
-                    <i className="fa-solid fa-plus"></i> Add another
+                    <i className="fa-solid fa-plus"></i> Add another work experience
                 </button>
             </div>
         </div>
