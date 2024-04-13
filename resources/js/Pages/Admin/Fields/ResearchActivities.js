@@ -1,26 +1,27 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 import Label from "@/Components/Label";
+import { addField, handleFieldChange } from "@/utils/forms";
 
 export default function ResearchActivities({ data, setData }) {
 
     const handleAddRAField = () => {
-        setData((prevData) => ({
-            ...prevData,
-            research: [...prevData.research, { 
-                title: '', 
-                status: '', 
-                duration: '', 
-                researchers: '' 
-            }],
-        }));
+        addField(
+            'research',
+            { title: '', status: '', duration: '', researchers: '' },
+            setData,
+            data
+        )
     };
 
     const handleResActChange = (e, index) => {
-        const { name, value } = e.target;
-        const resActData = { ...data };
-        resActData.research[index][name] = value;
-        setData(resActData);
+        handleFieldChange(
+            'research',
+            e,
+            index,
+            setData,
+            data
+        )
     };
 
     return (

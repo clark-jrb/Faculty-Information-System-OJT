@@ -1,44 +1,45 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 import Label from "@/Components/Label";
+import { addField, handleFieldChange } from "@/utils/forms";
 
 export default function Academic({ data, setData }) {
     const handleAddEducField = () => {
-        setData((prevData) => ({
-            ...prevData,
-            academic_educ: [...prevData.academic_educ, { 
-                degree: '', 
-                institution: '', 
-                educ_date: '', 
-                educ_location: '' 
-            }],
-        }));
+        addField(
+            'academic_educ',
+            { degree: '', institution: '', educ_date: '', educ_location: '' },
+            setData,
+            data
+        );
     };
 
     const handleAddWorkField = () => {
-        setData((prevData) => ({
-            ...prevData,
-            academic_work: [...prevData.academic_work, { 
-                work_position: '', 
-                work_institution: '', 
-                work_date: '', 
-                work_location: '' 
-            }],
-        }));
+        addField(
+            'academic_work',
+            { work_position: '', work_institution: '', work_date: '', work_location: '' },
+            setData,
+            data
+        );
     };
 
     const handleEducChange = (e, index) => {
-        const { name, value } = e.target;
-        const educData = { ...data };
-        educData.academic_educ[index][name] = value;
-        setData(educData);
+        handleFieldChange(
+            'academic_educ',
+            e,
+            index,
+            setData,
+            data
+        );
     };
 
     const handleWorkChange = (e, index) => {
-        const { name, value } = e.target;
-        const workData = { ...data };
-        workData.academic_work[index][name] = value;
-        setData(workData);
+        handleFieldChange(
+            'academic_work',
+            e,
+            index,
+            setData,
+            data
+        );
     };
 
     return (
