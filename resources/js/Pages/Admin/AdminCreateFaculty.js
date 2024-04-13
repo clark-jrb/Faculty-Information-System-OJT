@@ -9,6 +9,7 @@ import { useNotifContext } from "@/Contexts/Notification";
 import BasicInfo from "./Fields/BasicInfo";
 import Academic from "./Fields/Academic";
 import ResearchActivities from "./Fields/ResearchActivities";
+import Publications from "./Fields/Publications";
 
 export default function AdminFaculties({ children }) {
 
@@ -44,6 +45,13 @@ export default function AdminFaculties({ children }) {
             status: '',
             duration: '',
             researchers: ''
+        }],
+        publications: [{
+            proj_title: '',
+            proj_date: '',
+            authors: '',
+            doi: '',
+            cover_page: ''
         }]
     });
 
@@ -90,6 +98,11 @@ export default function AdminFaculties({ children }) {
                             Research
                         </div>
                         <ResearchActivities data={data} setData={setData}/>
+                    {/* PUBLICATIONS FIELDS  */}
+                        <div className="acf-title py-2">
+                            Publications
+                        </div>
+                        <Publications data={data} setData={setData}/>
                     {/* EXTENSION ACTIVITIES  */}
                         <div className="create-extensions-fields">
                             <div className="acf-title py-2">

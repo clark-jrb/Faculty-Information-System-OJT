@@ -687,6 +687,9 @@ select {
 .z-50 {
   z-index: 50;
 }
+.float-end {
+  float: inline-end;
+}
 .m-0 {
   margin: 0px;
 }

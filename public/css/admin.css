@@ -237,7 +237,10 @@
     font-weight: bold;
 }
 
-.create-basic-fields, .create-academic-fields, .create-research-fields {
+.create-basic-fields, 
+.create-academic-fields, 
+.create-research-fields,
+.create-publications-fields {
     /* border: red solid 1px; */
     height: auto;
     background-color: white;
@@ -279,6 +282,6 @@
     border-bottom: 1px solid #ccc;
 }
 
-.research-flex {
+.research-flex, .publications-flex {
     flex-direction: column;
 }
