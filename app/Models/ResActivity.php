@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class ResActivity extends Model
 {
     use HasFactory;
-    protected $table = "res_activities";
+    protected $table = "res__res_activities";
     public $timestamps = true;
     protected $fillable = [
-        'res_title', 'status', 'duration', 'researcher'
+        'faculty_id', 'res_title', 'status', 'duration', 'researcher'
     ];
 }

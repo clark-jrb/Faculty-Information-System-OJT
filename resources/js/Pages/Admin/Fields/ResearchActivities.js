@@ -3,6 +3,26 @@ import { Form } from "react-bootstrap";
 import Label from "@/Components/Label";
 
 export default function ResearchActivities({ data, setData }) {
+
+    const handleAddRAField = () => {
+        setData((prevData) => ({
+            ...prevData,
+            research: [...prevData.research, { 
+                title: '', 
+                status: '', 
+                duration: '', 
+                researchers: '' 
+            }],
+        }));
+    };
+
+    const handleResActChange = (e, index) => {
+        const { name, value } = e.target;
+        const resActData = { ...data };
+        resActData.research[index][name] = value;
+        setData(resActData);
+    };
+
     return (
         <div className="create-research-fields w-100 p-3">
             {data.research.map((res, index) => (
@@ -15,18 +35,21 @@ export default function ResearchActivities({ data, setData }) {
                                 name="title"
                                 placeholder="Research Title"
                                 value={res.title}
-                                onChange={(e) => handleEducChange(e, index)}
+                                onChange={(e) => handleResActChange(e, index)}
                             />
                         </div>
                         <div className="flex-fill w-25">
                             <Label forInput="status" value="Status:" />
-                            <Form.Control
+                            <Form.Select
                                 type="text"
                                 name="status"
-                                placeholder="Status"
                                 value={res.status}
-                                onChange={(e) => handleEducChange(e, index)}
-                            />
+                                onChange={(e) => handleResActChange(e, index)}
+                            >
+                                <option disabled value="">Status</option>
+                                <option value="On Going">On going</option>
+                                <option value="Complete">Complete</option>
+                            </Form.Select>
                         </div>
                     </div>
                     
@@ -36,9 +59,9 @@ export default function ResearchActivities({ data, setData }) {
                             <Form.Control   
                                 type="text"
                                 name="duration"
-                                placeholder="ex. 3 Years/ YYYY-YYYY"
+                                placeholder="ex. 3 Years or YYYY-YYYY"
                                 value={res.duration}
-                                onChange={(e) => handleEducChange(e, index)}
+                                onChange={(e) => handleResActChange(e, index)}
                             />
                         </div>
                         <div className="flex-fill w-75">
@@ -49,7 +72,7 @@ export default function ResearchActivities({ data, setData }) {
                                 name="researchers"
                                 placeholder="ex. Dr. John Doe, Ms. Jane Doe, JM Cruz, Mr. Juan Dela Cruz"
                                 value={res.researchers}
-                                onChange={(e) => handleEducChange(e, index)}
+                                onChange={(e) => handleResActChange(e, index)}
                             />
                         </div>
                     </div>
@@ -67,6 +90,13 @@ export default function ResearchActivities({ data, setData }) {
                     
                 </div>
             ))}
+
+            {/* Add field button */}
+            <div className="add-field-container w-100 px-2">
+                <button type="button" className="add-field-btn w-100 py-2" onClick={handleAddRAField}>
+                    <i className="fa-solid fa-plus"></i> Add another
+                </button>
+            </div>
         </div>
     )
 }

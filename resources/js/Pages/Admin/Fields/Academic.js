@@ -178,7 +178,7 @@ export default function Academic({ data, setData }) {
                 </div>
             ))}
 
-            {/* Add button */}
+            {/* Add field button */}
             <div className="add-field-container w-100 px-2">
                 <button type="button" className="add-field-btn w-100 py-2" onClick={handleAddWorkField}>
                     <i className="fa-solid fa-plus"></i> Add another

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Basic_info;
 use App\Models\Acad_Education;
 use App\Models\Acad_WorkExp;
+use App\Models\ResActivity;
 
 class AdminController extends Controller
 {
@@ -57,7 +58,12 @@ class AdminController extends Controller
             'academic_work.*.work_institution' => 'required',
             'academic_work.*.work_position' => 'required',
             'academic_work.*.work_location' => 'required',
-            'academic_work.*.work_date' => 'required'
+            'academic_work.*.work_date' => 'required',
+
+            'research.*.title' => 'required',
+            'research.*.status' => 'required',
+            'research.*.duration' => 'required',
+            'research.*.researchers' => 'required'
         ]);
 
         $basicInfo = Basic_info::create([
@@ -95,7 +101,17 @@ class AdminController extends Controller
             ]);
         }
 
-        if ($basicInfo && $academicEducData && $academicWorkData) {
+        foreach ($request->input('research') as $researchData) {
+            ResActivity::create([
+                'faculty_id' => $basicInfo->id,
+                'res_title' => $researchData['title'],
+                'status' => $researchData['status'],
+                'duration' => $researchData['duration'],
+                'researcher' => $researchData['researchers']
+            ]);
+        }
+
+        if ($basicInfo && $academicEducData && $academicWorkData && $researchData) {
             return redirect('/admin/faculties/departments');
         }
     }
