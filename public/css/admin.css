@@ -79,18 +79,13 @@
     flex: 1;
 }
 
-.admin-logout-cont button {
-    font-size: medium;
-    background-color: var(--light-green);
-    border: none;
-    border-radius: 3px;
-    color: white;
-    border-bottom: 3px solid var(--dark-green);
+.admin-logout-cont:hover {
+    cursor: pointer;
+    color: var(--green);
 }
 
-.admin-logout-cont button:active {
-    border-bottom: 1px solid var(--dark-green);
-
+.admin-logout-cont a {
+    text-decoration: none;
 }
 
 .admin-faculties-cont {
@@ -242,7 +237,7 @@
     font-weight: bold;
 }
 
-.create-basic-fields, .create-academic-fields {
+.create-basic-fields, .create-academic-fields, .create-research-fields {
     /* border: red solid 1px; */
     height: auto;
     background-color: white;
@@ -282,4 +277,8 @@
 
 .add-field-btn:active {
     border-bottom: 1px solid #ccc;
+}
+
+.research-flex {
+    flex-direction: column;
 }

@@ -2,6 +2,7 @@ import React from "react";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import agri_logo from "../../../public/images/agri_logo.png"
 import NavLink from "@/Components/NavLink";
+import Dropdown from "@/Components/Dropdown";
 
 export default function AdminAuthenticated({ children }) {
     const routeNames = [
@@ -36,10 +37,18 @@ export default function AdminAuthenticated({ children }) {
                         <p className="m-0">CAg FIS Administrator</p>
                     </div>
                     <div className="admin-logout-cont">
-                        <ResponsiveNavLink method="post" href={route('logout')} as="button">
-                            Log Out
-                        </ResponsiveNavLink>
+                        <Dropdown>
+                            <Dropdown.Trigger>
+                                <div className="p-2 d-flex justify-content-center align-items-center gap-1">
+                                    <i className="fa-regular fa-user"></i> Admin
+                                </div>
+                            </Dropdown.Trigger> 
+                            <Dropdown.Content>
+                                <Dropdown.Link href={route('logout')}>Log Out</Dropdown.Link>
+                            </Dropdown.Content>
+                        </Dropdown>
                     </div>
+                    
                 </div>
             </div>
 
