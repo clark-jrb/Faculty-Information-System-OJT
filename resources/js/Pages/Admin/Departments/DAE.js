@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AdminDepartments from "../AdminDepartments";
+import { usePage } from "@inertiajs/inertia-react";
 
 export default function DAE() {
+    const { ae } = usePage().props;
+
+    useEffect(() => {
+        console.log(ae);
+    }, [ae]);
+
     return (
         <AdminDepartments>
             <div className="admin-dept-ae-cont h-100">
@@ -19,15 +26,17 @@ export default function DAE() {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th className="p-2 ps-3">1</th>
-                                <td className="p-2 ps-3">Dela Cruz, Juan</td>
-                                <td className="p-2 ps-3">Faculty</td>
-                                <td className="p-2 ps-3">Instructor II</td>
-                                <td className="p-2 ps-3">
-                                    <i className="fa-solid fa-chevron-right"></i>
-                                </td>
-                            </tr>
+                            {ae.map((faculty) => (
+                                <tr key={faculty.id}>
+                                    <th className="p-2 ps-3">{faculty.id}</th>
+                                    <td className="p-2 ps-3">{`${faculty.lname}, ${faculty.fname}`}</td>
+                                    <td className="p-2 ps-3">{faculty.role}</td>
+                                    <td className="p-2 ps-3">{faculty.position}</td>
+                                    <td className="p-2 ps-3">
+                                        <i className="fa-solid fa-chevron-right"></i>
+                                    </td>
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
                 </div>

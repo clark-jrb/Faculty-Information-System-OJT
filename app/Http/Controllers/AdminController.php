@@ -10,6 +10,7 @@ use App\Models\ResActivity;
 use App\Models\Publication;
 use App\Models\Ext_Activity;
 use App\Models\Document;
+use Inertia\Inertia;
 
 class AdminController extends Controller
 {
@@ -21,6 +22,12 @@ class AdminController extends Controller
     public function index()
     {
         //
+    }
+
+    public function getAE()
+    {
+        $ae = Basic_info::where('department', 'like', 'Agricultural Extension')->get();
+        return Inertia::render('Admin/Departments/DAE', ['ae' => $ae]);
     }
 
     /**
