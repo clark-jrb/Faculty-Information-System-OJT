@@ -161,6 +161,7 @@ export default function BasicInfo({ data, setData }) {
                 <div className="flex-fill p-2">
                     <Label forInput="date" value="Date of Birth: &#40;MM-DD-YYYY&#41;" />
                     <ReactDatePicker 
+                        className="date-picker"
                         name="birth_date" 
                         selected={startDate}
                         onChange={handleDateChange}

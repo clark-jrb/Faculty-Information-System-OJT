@@ -98,39 +98,41 @@ export default function AdminFaculties({ children }) {
                 <div className="admin-create-fields mt-2">
                     <form onSubmit={handleSubmit}>
                     {/* BASIC FIELDS */}
-                        <div className="acf-title py-2">
+                        <div className="acf-title my-3 px-3">
                             Basic Information
                         </div>
                         <BasicInfo data={data} setData={setData}/>
                     {/* ACADEMIC FIELDS */}
-                        <div className="acf-title py-2">
+                        <div className="acf-title my-3 px-3">
                             Academic
                         </div>
                         <Academic data={data} setData={setData}/>
                     {/* RESEARCH FIELDS  */}
-                        <div className="acf-title py-2">
+                        <div className="acf-title my-3 px-3">
                             Research
                         </div>
                         <ResearchActivities data={data} setData={setData}/>
                     {/* PUBLICATIONS FIELDS  */}
-                        <div className="acf-title py-2">
+                        <div className="acf-title my-3 px-3">
                             Publications
                         </div>
                         <Publications data={data} setData={setData}/>
                     {/* EXTENSION ACTIVITIES  */}
-                        <div className="acf-title py-2">
+                        <div className="acf-title my-3 px-3">
                             Extension Activities
                         </div>
                         <Extensions data={data} setData={setData}/>
                     {/* DOCUMENTS  */}
-                        <div className="acf-title py-2">
+                        <div className="acf-title my-3 px-3">
                             Documents &#40;certificates etc.&#41; &#40;Not Required&#41; 
                         </div>
                         <Documents data={data} setData={setData}/>
                     {/* SUBMIT BUTTON  */}
-                        <button className="btn btn-success" type="submit">Add</button>
+                        <div className="admin-add-faculty d-flex justify-content-end py-3">
+                            <button className="p-3 py-2" type="submit">Create faculty</button>
+                        </div>
                     </form>
-                </div>
+                </div>  
             </div>
         </AdminAuthenticated>
     )

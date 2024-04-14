@@ -232,6 +232,7 @@
 }
 
 .acf-title {
+    border-left: 5px solid var(--yellow);
     font-size: x-large;
     color: var(--grey);
     font-weight: bold;
@@ -286,4 +287,10 @@
 
 .research-flex, .publications-flex, .extensions-flex {
     flex-direction: column;
+}
+
+.date-picker {
+    border: #dee2e6 solid 1px;
+    border-radius: 0.372rem;
+    padding: 6px 12px;
 }

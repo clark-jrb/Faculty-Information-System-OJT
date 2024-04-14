@@ -25,7 +25,7 @@ export default function Documents({ data, setData }) {
     };
 
     return (
-        <div className="create-documents-fields w-100 p-3">
+        <div className="create-documents-fields w-75 p-3">
             {data.documents.map((doc, index) => (
                 <div className="documents-flex d-flex py-2" key={index}>
                     <div className="flex-fill d-flex p-2 gap-3">

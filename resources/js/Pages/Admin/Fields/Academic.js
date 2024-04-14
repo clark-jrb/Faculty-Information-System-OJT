@@ -45,7 +45,7 @@ export default function Academic({ data, setData }) {
     return (
         <div className="create-academic-fields w-100 p-3">
     {/* Education  */}
-            <div className="acf-title py-2">
+            <div className="acf-title m-2 px-3">
                 Education
             </div>
             {data.academic_educ.map((academicEduc, index) => (
@@ -115,10 +115,9 @@ export default function Academic({ data, setData }) {
             </div>
             
     {/* Work Experience  */}
-            <div className="acf-title py-2">
+            <div className="acf-title m-2 px-3">
                 Work Experience
             </div>
-            <div className="acad-work-flex d-flex py-2"></div>
             {data.academic_work.map((academicWork, index) => (
                 <div className="acad-work-flex d-flex py-2" key={index}>
                     <div className="flex-fill p-2">
