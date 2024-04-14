@@ -11,6 +11,7 @@ import Academic from "./Fields/Academic";
 import ResearchActivities from "./Fields/ResearchActivities";
 import Publications from "./Fields/Publications";
 import Extensions from "./Fields/Extensions";
+import Documents from "./Fields/Documents";
 
 export default function AdminFaculties({ children }) {
 
@@ -61,6 +62,10 @@ export default function AdminFaculties({ children }) {
             members: '',
             sponsor: '',
             beneficiaries: ''
+        }],
+        documents: [{
+            label: '',
+            file_name: ''
         }]
     });
 
@@ -118,11 +123,10 @@ export default function AdminFaculties({ children }) {
                         </div>
                         <Extensions data={data} setData={setData}/>
                     {/* DOCUMENTS  */}
-                        <div className="create-documents-fields">
-                            <div className="acf-title py-2">
-                                Documents
-                            </div>
+                        <div className="acf-title py-2">
+                            Documents &#40;certificates etc.&#41; &#40;Not Required&#41; 
                         </div>
+                        <Documents data={data} setData={setData}/>
                     {/* SUBMIT BUTTON  */}
                         <button className="btn btn-success" type="submit">Add</button>
                     </form>

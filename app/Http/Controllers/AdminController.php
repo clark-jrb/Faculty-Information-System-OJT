@@ -9,6 +9,7 @@ use App\Models\Acad_WorkExp;
 use App\Models\ResActivity;
 use App\Models\Publication;
 use App\Models\Ext_Activity;
+use App\Models\Document;
 
 class AdminController extends Controller
 {
@@ -80,7 +81,10 @@ class AdminController extends Controller
             'extensions.*.lead_faculty' => 'required',
             'extensions.*.members' => 'required',
             'extensions.*.sponsor' => 'required',
-            'extensions.*.beneficiaries' => 'required'
+            'extensions.*.beneficiaries' => 'required',
+
+            'documents.*.label' => 'nullable',
+            'documents.*.file_name' => 'nullable'
         ]);
 
         $basicInfo = Basic_info::create([
@@ -151,9 +155,15 @@ class AdminController extends Controller
             ]);
         }
 
-        if ($basicInfo && $academicEducData && $academicWorkData && $researchData && $publicationData) {
-            return redirect('/admin/faculties/departments');
+        foreach ($request->input('documents') as $documentsData) {
+            Document::create([
+                'faculty_id' => $basicInfo->id,
+                'label' => $documentsData['label'],
+                'file_name' => $documentsData['file_name']
+            ]);
         }
+
+        return redirect('/admin/faculties/departments');
     }
 
     /**

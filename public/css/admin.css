@@ -241,7 +241,8 @@
 .create-academic-fields, 
 .create-research-fields,
 .create-publications-fields, 
-.create-extensions-fields {
+.create-extensions-fields,
+.create-documents-fields {
     /* border: red solid 1px; */
     height: auto;
     background-color: white;
