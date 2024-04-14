@@ -240,7 +240,8 @@
 .create-basic-fields, 
 .create-academic-fields, 
 .create-research-fields,
-.create-publications-fields {
+.create-publications-fields, 
+.create-extensions-fields {
     /* border: red solid 1px; */
     height: auto;
     background-color: white;
@@ -282,6 +283,6 @@
     border-bottom: 1px solid #ccc;
 }
 
-.research-flex, .publications-flex {
+.research-flex, .publications-flex, .extensions-flex {
     flex-direction: column;
 }

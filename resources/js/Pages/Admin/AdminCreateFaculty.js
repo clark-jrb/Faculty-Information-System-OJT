@@ -10,6 +10,7 @@ import BasicInfo from "./Fields/BasicInfo";
 import Academic from "./Fields/Academic";
 import ResearchActivities from "./Fields/ResearchActivities";
 import Publications from "./Fields/Publications";
+import Extensions from "./Fields/Extensions";
 
 export default function AdminFaculties({ children }) {
 
@@ -52,6 +53,14 @@ export default function AdminFaculties({ children }) {
             authors: '',
             doi: '',
             cover_page: ''
+        }],
+        extensions: [{
+            ext_title: '',
+            ext_duration: '',
+            lead_faculty: '',
+            members: '',
+            sponsor: '',
+            beneficiaries: ''
         }]
     });
 
@@ -104,11 +113,10 @@ export default function AdminFaculties({ children }) {
                         </div>
                         <Publications data={data} setData={setData}/>
                     {/* EXTENSION ACTIVITIES  */}
-                        <div className="create-extensions-fields">
-                            <div className="acf-title py-2">
-                                Extension Activities
-                            </div>
+                        <div className="acf-title py-2">
+                            Extension Activities
                         </div>
+                        <Extensions data={data} setData={setData}/>
                     {/* DOCUMENTS  */}
                         <div className="create-documents-fields">
                             <div className="acf-title py-2">

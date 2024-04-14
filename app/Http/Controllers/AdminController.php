@@ -8,6 +8,7 @@ use App\Models\Acad_Education;
 use App\Models\Acad_WorkExp;
 use App\Models\ResActivity;
 use App\Models\Publication;
+use App\Models\Ext_Activity;
 
 class AdminController extends Controller
 {
@@ -72,7 +73,14 @@ class AdminController extends Controller
             'publications.*.proj_date' => 'required',
             'publications.*.authors' => 'required',
             'publications.*.doi' => 'required',
-            'publications.*.cover_page' => 'nullable'
+            'publications.*.cover_page' => 'nullable',
+
+            'extensions.*.ext_title' => 'required',
+            'extensions.*.ext_duration' => 'required',
+            'extensions.*.lead_faculty' => 'required',
+            'extensions.*.members' => 'required',
+            'extensions.*.sponsor' => 'required',
+            'extensions.*.beneficiaries' => 'required'
         ]);
 
         $basicInfo = Basic_info::create([
@@ -128,6 +136,18 @@ class AdminController extends Controller
                 'doi' => $publicationData['doi'],
                 'authors' => $publicationData['authors'],
                 'cover' => $publicationData['cover_page']
+            ]);
+        }
+
+        foreach ($request->input('extensions') as $extensionsData) {
+            Ext_Activity::create([
+                'faculty_id' => $basicInfo->id,
+                'ext_title' => $extensionsData['ext_title'],
+                'duration' => $extensionsData['ext_duration'],
+                'lead' => $extensionsData['lead_faculty'],
+                'member' => $extensionsData['members'],
+                'sponsor' => $extensionsData['sponsor'],
+                'beneficiaries' => $extensionsData['beneficiaries']
             ]);
         }
 
