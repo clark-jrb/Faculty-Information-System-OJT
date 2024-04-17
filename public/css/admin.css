@@ -305,7 +305,12 @@
     color: var(--red);
 }
 
-.admin-dept-ae-cont {
+.admin-dept-ae-cont,
+.admin-dept-am-cont,
+.admin-dept-as-cont,
+.admin-dept-cp-cont,
+.admin-dept-cs-cont,
+.admin-dept-ss-cont {
     color: var(--grey);
 }
 
