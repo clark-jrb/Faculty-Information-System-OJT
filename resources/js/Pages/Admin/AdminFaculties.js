@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import AdminAuthenticated from "@/Layouts/AdminAuthenticated";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { useNotifContext } from "@/Contexts/Notification";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
+import { Switch } from "@headlessui/react";
+import { useEditContext } from "@/Contexts/EditButtons";
 
 export default function AdminFaculties({ children }) {
     const { notif, message } = useNotifContext()
+    const { checked, handleChecked } = useEditContext()
+
+    useEffect(() => {
+        console.log(checked);
+    }, [checked]);
     
     return (
         <AdminAuthenticated>
@@ -19,6 +26,25 @@ export default function AdminFaculties({ children }) {
                             <p className="m-0">{message}</p>
                         </span>
                     )}
+                    <div className="d-flex ms-auto gap-2 align-items-center" style={{ fontSize: 'small' }}>
+                        <p className="m-0">Delete button</p>
+                        <Switch
+                            checked={checked}
+                            onChange={handleChecked}
+                            className={`${
+                            checked ? 'bg-green-700' : 'bg-gray-200'
+                            } relative inline-flex items-center h-6 rounded-full w-11 transition-colors duration-300`}
+                        >
+                            <span className="sr-only">Enable notifications</span>
+                            <span
+                            className={`${
+                                checked ? 'translate-x-6' : 'translate-x-1'
+                            } inline-block w-4 h-4 transform bg-white rounded-full transition-transform duration-300`}
+                            />
+                        </Switch>
+                    </div>
+                    
+
                 </div>
 
                 <div className="admin-filter-add-cont mb-3">

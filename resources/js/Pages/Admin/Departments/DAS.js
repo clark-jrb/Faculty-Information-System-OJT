@@ -6,7 +6,7 @@ export default function DAS() {
         <AdminDepartments>
             <div className="admin-dept-as-cont h-100">
                 <div className="admin-dept-as-title">
-                    <p>Agricultural Science</p>
+                    <p>Animal Science</p>
                 </div>
                 <div className="agri-dept-as-table-cont">
                     <table className="admin-table">

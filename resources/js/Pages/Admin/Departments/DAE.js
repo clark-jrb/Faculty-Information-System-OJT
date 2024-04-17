@@ -1,9 +1,12 @@
 import React, { useEffect } from "react";
 import AdminDepartments from "../AdminDepartments";
 import { usePage } from "@inertiajs/inertia-react";
+import { useEditContext } from "@/Contexts/EditButtons";
 
 export default function DAE() {
     const { ae } = usePage().props;
+    const { checked } = useEditContext()
+
 
     useEffect(() => {
         console.log(ae);
@@ -26,14 +29,21 @@ export default function DAE() {
                             </tr>
                         </thead>
                         <tbody>
-                            {ae.map((faculty) => (
-                                <tr key={faculty.id}>
-                                    <th className="p-2 ps-3">{faculty.id}</th>
+                            {ae.map((faculty, index) => (
+                                <tr key={index}>
+                                    <th className="p-2 ps-3">{index + 1}</th>
                                     <td className="p-2 ps-3">{`${faculty.lname}, ${faculty.fname}`}</td>
                                     <td className="p-2 ps-3">{faculty.role}</td>
                                     <td className="p-2 ps-3">{faculty.position}</td>
                                     <td className="p-2 ps-3">
-                                        <i className="fa-solid fa-chevron-right"></i>
+                                        { checked ? 
+                                        <>
+                                            <i className="fa-solid fa-trash-can"></i>
+                                        </> : 
+                                        <>
+                                            <i className="fa-solid fa-chevron-right"></i>
+                                        </> }
+                                        
                                     </td>
                                 </tr>
                             ))}

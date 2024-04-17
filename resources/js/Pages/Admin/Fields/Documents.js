@@ -62,7 +62,7 @@ export default function Documents({ data, setData }) {
             {/* Add field button */}
             <div className="add-field-container w-100 px-2">
                 <button type="button" className="add-field-btn w-100 py-2" onClick={handleAddRAField}>
-                    <i className="fa-solid fa-plus"></i> Add another research activity
+                    <i className="fa-solid fa-plus"></i> Add another document
                 </button>
             </div>
         </div>

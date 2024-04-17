@@ -14,6 +14,7 @@
 }
 
 .admin-nav-cont {
+    color: var(--grey);
     border-bottom: #ccc solid 1px;
     flex: 1;
     display: flex;
@@ -293,4 +294,17 @@
     border: #dee2e6 solid 1px;
     border-radius: 0.372rem;
     padding: 6px 12px;
+}
+
+.fa-trash-can {
+    transition: color .2s ease;
+}
+
+.fa-trash-can:hover {
+    cursor: pointer;
+    color: var(--red);
+}
+
+.admin-dept-ae-cont {
+    color: var(--grey);
 }
