@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import AdminDepartments from "../AdminDepartments";
 import { usePage } from "@inertiajs/inertia-react";
 import { useEditContext } from "@/Contexts/EditButtons";
+import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
+import { InertiaLink } from "@inertiajs/inertia-react";
 
 export default function DAE() {
     const { ae } = usePage().props;
@@ -38,7 +40,14 @@ export default function DAE() {
                                     <td className="p-2 ps-3">
                                         { checked ? 
                                         <>
-                                            <i className="fa-solid fa-trash-can"></i>
+                                            <InertiaLink 
+                                                method="delete"
+                                                href={route('admin.destroy', { id: faculty.id })} 
+                                                className="p-0"
+                                                as="button"
+                                            >
+                                                <i className="fa-solid fa-trash-can"></i>
+                                            </InertiaLink>
                                         </> : 
                                         <>
                                             <i className="fa-solid fa-chevron-right"></i>

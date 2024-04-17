@@ -308,3 +308,7 @@
 .admin-dept-ae-cont {
     color: var(--grey);
 }
+
+.admin-table a{
+    color: var(--grey);
+}

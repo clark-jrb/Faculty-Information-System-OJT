@@ -215,6 +215,12 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $faculty = Basic_Info::findOrFail($id);
+        $faculty->delete();
+        
+        // Delete associated records
+        Acad_Education::where('faculty_id', $id)->delete();
+
+        return redirect('/admin/faculties/departments');
     }
 }
