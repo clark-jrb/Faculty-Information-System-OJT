@@ -19,14 +19,14 @@ export default function AdminFaculties({ children }) {
     return (
         <AdminAuthenticated>
             <div className="admin-faculty-cont m-4">
-                <div className="admin-faculty-cont-title d-flex">
+                <div className="admin-faculty-cont-title d-flex justify-content-between">
                     <p className="m-0">Faculties</p>
                     {notif && (
-                        <span className="notif-bar-f my-2 px-3">
-                            <p className="m-0">{message}</p>
+                        <span className="notif-bar-f my-2 px-3 w-50">
+                            <p className="m-0 text-center w-100">{message}</p>
                         </span>
                     )}
-                    <div className="d-flex ms-auto gap-2 align-items-center" style={{ fontSize: 'small' }}>
+                    <div className="d-flex gap-2 align-items-center" style={{ fontSize: 'small' }}>
                         <p className="m-0">Delete button</p>
                         <Switch
                             checked={checked}

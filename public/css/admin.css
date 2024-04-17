@@ -107,10 +107,10 @@
 }
 
 .notif-bar-f {
-    color: white;
+    color: var(--green);
     display: flex;
     align-items: center;
-    background-color: var(--light-green);
+    background-color: var(--very-light-green);
     font-size: medium;
     font-weight: normal;
     border-radius: 3px;

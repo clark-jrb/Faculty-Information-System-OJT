@@ -76,8 +76,10 @@ export default function AdminFaculties({ children }) {
 
         updateNotif(true); 
         updateMessage('Faculty Added!')
-        setTimeout(() => updateNotif(false), 5000); 
-        setTimeout(() => updateMessage(''), 5000); 
+        setTimeout(() => {
+            updateNotif(false); // Hides the notification
+            updateMessage(''); // Clears the message
+        }, 3000); 
     };
 
     return (
