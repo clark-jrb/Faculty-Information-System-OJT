@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import AdminAuthenticated from "@/Layouts/AdminAuthenticated";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -11,10 +11,6 @@ import { useEditContext } from "@/Contexts/EditButtons";
 export default function AdminFaculties({ children }) {
     const { notif, message } = useNotifContext()
     const { checked, handleChecked } = useEditContext()
-
-    useEffect(() => {
-        console.log(checked);
-    }, [checked]);
     
     return (
         <AdminAuthenticated>

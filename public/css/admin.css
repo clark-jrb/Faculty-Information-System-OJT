@@ -206,6 +206,11 @@
     flex: 1;
 }
 
+.admin-faculties-table-cont table tbody tr:hover {
+    cursor: pointer;
+    background-color: #ccc;
+}
+
 .admin-dept-ae-title,
 .admin-dept-as-title,
 .admin-dept-am-title,

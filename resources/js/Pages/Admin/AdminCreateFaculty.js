@@ -79,7 +79,7 @@ export default function AdminFaculties({ children }) {
         setTimeout(() => {
             updateNotif(false); // Hides the notification
             updateMessage(''); // Clears the message
-        }, 3000); 
+        }, 5000); 
     };
 
     return (
