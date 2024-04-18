@@ -214,7 +214,7 @@ class AdminController extends Controller
         $faculty_data = Basic_Info::findOrFail($id);
 
         // Retrieve related data for the faculty
-        $acadEduc_data = Acad_Education::where('faculty_id', '=', '1')->get();
+        $acadEduc_data = Acad_Education::where('faculty_id', '=', $id)->get();
         $acadWork_data = Acad_WorkExp::where('faculty_id', '=', $id)->get();
         $research_data = ResActivity::where('faculty_id', '=', $id)->get();
         $publication_data = Publication::where('faculty_id', '=', $id)->get();

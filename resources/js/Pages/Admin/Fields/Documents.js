@@ -35,7 +35,7 @@ export default function Documents({ data, setData }) {
                                 type="text"
                                 name="label"
                                 placeholder="Label"
-                                value={doc.label}
+                                value={doc.label === null ? undefined : doc.label}
                                 onChange={(e) => handleResActChange(e, index)}
                             />
                         </div>

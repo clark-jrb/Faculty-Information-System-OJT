@@ -27,11 +27,13 @@ export default function FacultyInfo({ children }) {
     const { updateNotif, updateMessage } = useNotifContext()
 
     const AcadEducData = acadEduc_data.map(item => ({
-        degree: item.degree, 
-        institution: item.institution, 
-        educ_date: item.date, 
+        degree: item.degree,
+        institution: item.institution,
+        educ_date: item.date,
         educ_location: item.location
     }));
+
+    // console.log(AcadEducData);
 
     const AcadWorkData = acadWork_data.map(item => ({
         work_position: item.position,
