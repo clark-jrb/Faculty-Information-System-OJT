@@ -14,8 +14,60 @@ import Extensions from "./Fields/Extensions";
 import Documents from "./Fields/Documents";
 
 export default function FacultyInfo({ children }) {
-    const { faculty_data } = usePage().props;
+    const { 
+        faculty_data,
+        acadEduc_data,
+        acadWork_data,
+        research_data,
+        publication_data,
+        extention_data,
+        document_data
+    } = usePage().props;
+
     const { updateNotif, updateMessage } = useNotifContext()
+
+    const AcadEducData = acadEduc_data.map(item => ({
+        degree: item.degree, 
+        institution: item.institution, 
+        educ_date: item.date, 
+        educ_location: item.location
+    }));
+
+    const AcadWorkData = acadWork_data.map(item => ({
+        work_position: item.position,
+        work_institution: item.work_loc,
+        work_location: item.location,
+        work_date: item.date
+    }));
+
+    const ResearchActData = research_data.map(item => ({
+        title: item.res_title,
+        status: item.status,
+        duration: item.duration,
+        researchers: item.researcher
+    }));
+
+    const PublicationData = publication_data.map(item => ({
+        proj_title: item.proj_title,
+        proj_date: item.date,
+        authors: item.authors,
+        doi: item.doi,
+        cover_page: item.cover
+    }));
+
+    const ExtActData = extention_data.map(item => ({
+        ext_title: item.ext_title,
+        ext_duration: item.duration,
+        lead_faculty: item.lead,
+        members: item.member,
+        sponsor: item.sponsor,
+        beneficiaries: item.beneficiaries
+    }));
+
+    const DocumentData = document_data.map(item => ({
+        label: item.label,
+        file_name: item.file_name
+    }));
 
     const { data, setData, post, processing, errors, reset } = useForm({
         fname: faculty_data.fname,
@@ -30,43 +82,12 @@ export default function FacultyInfo({ children }) {
         email: faculty_data.email,
         contact_no: faculty_data.contact_no,
         profile_pic: faculty_data.profile_pic,
-        academic_educ: [{ 
-            degree: '', 
-            institution: '', 
-            educ_date: '', 
-            educ_location: ''
-        }],
-        academic_work: [{
-            work_position: '',
-            work_institution: '',
-            work_location: '',
-            work_date: ''
-        }],
-        research: [{
-            title: '',
-            status: '',
-            duration: '',
-            researchers: ''
-        }],
-        publications: [{
-            proj_title: '',
-            proj_date: '',
-            authors: '',
-            doi: '',
-            cover_page: ''
-        }],
-        extensions: [{
-            ext_title: '',
-            ext_duration: '',
-            lead_faculty: '',
-            members: '',
-            sponsor: '',
-            beneficiaries: ''
-        }],
-        documents: [{
-            label: '',
-            file_name: ''
-        }]
+        academic_educ: AcadEducData,
+        academic_work: AcadWorkData,
+        research: ResearchActData,
+        publications: PublicationData,
+        extensions: ExtActData,
+        documents: DocumentData
     });
 
     const handleSubmit = (e) => {

@@ -38,7 +38,6 @@ export default function DCS() {
                                 {cs.map((faculty, index) => (
                                     <tr 
                                         key={index}
-                                        href={route('admin.faculties')}
                                         onClick={() => handleRowClick(faculty.id)} 
                                     >
                                         <th className="p-2 ps-3">{index + 1}</th>

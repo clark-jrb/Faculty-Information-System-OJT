@@ -43,6 +43,12 @@ export default function BasicInfo({ data, setData }) {
         setSpecToMap(specToMap);
     }, [data.department]);
 
+    useEffect(() => {
+        // Split the specialization string into an array
+        const selectedSpecializations = data.specialization.split(',').map(spec => spec.trim());
+        setSelectedItems(selectedSpecializations);
+    }, [data.specialization]);
+
     const handleCheckboxChange = (e) => {
         const value = e.target.value;
         let updatedSpecializations;
@@ -228,6 +234,7 @@ export default function BasicInfo({ data, setData }) {
                                 label={item.label}
                                 value={item.value}
                                 onChange={handleCheckboxChange}
+                                checked={selectedItems.includes(item.value)}
                             />
                         </div>
                     ))}

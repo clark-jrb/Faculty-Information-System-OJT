@@ -213,9 +213,23 @@ class AdminController extends Controller
     {
         $faculty_data = Basic_Info::findOrFail($id);
 
+        // Retrieve related data for the faculty
+        $acadEduc_data = Acad_Education::where('faculty_id', '=', '1')->get();
+        $acadWork_data = Acad_WorkExp::where('faculty_id', '=', $id)->get();
+        $research_data = ResActivity::where('faculty_id', '=', $id)->get();
+        $publication_data = Publication::where('faculty_id', '=', $id)->get();
+        $extention_data = Ext_Activity::where('faculty_id', '=', $id)->get();
+        $document_data = Document::where('faculty_id', '=', $id)->get();
+
         // Pass the retrieved data to the Inertia view
         return Inertia::render('Admin/FacultyInfo', [
             'faculty_data' => $faculty_data,
+            'acadEduc_data' => $acadEduc_data,
+            'acadWork_data' => $acadWork_data,
+            'research_data' => $research_data,
+            'publication_data' => $publication_data,
+            'extention_data' => $extention_data,
+            'document_data' => $document_data
         ]);
     }
     /**
