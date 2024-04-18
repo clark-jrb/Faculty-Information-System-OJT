@@ -211,9 +211,13 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //
-    }
+        $faculty_data = Basic_Info::findOrFail($id);
 
+        // Pass the retrieved data to the Inertia view
+        return Inertia::render('Admin/FacultyInfo', [
+            'faculty_data' => $faculty_data,
+        ]);
+    }
     /**
      * Show the form for editing the specified resource.
      *
