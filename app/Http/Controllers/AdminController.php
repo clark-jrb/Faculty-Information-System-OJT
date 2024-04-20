@@ -29,7 +29,7 @@ class AdminController extends Controller
             'specialization' => 'required',
             'email' => 'required',
             'contact_no' => 'required',
-            'profile_pic' => 'nullable',
+            'profile_pic' => 'nullable|file|image|mimes:jpg,jpeg,png|max:5000',
 
             'academic_educ.*.institution' => 'required',
             'academic_educ.*.degree' => 'required',
@@ -142,8 +142,24 @@ class AdminController extends Controller
             'specialization' => $request->input('specialization'),
             'email' => $request->input('email'),
             'contact_no' => $request->input('contact_no'),
-            'profile_pic' => $request->input('profile_pic')
+            'profile_pic' => ''
         ]);
+
+        if ($request->hasFile('profile_pic')) {
+            $file = $request->file('profile_pic');
+
+            if ($file->isValid()) {
+                $newFileName = uniqid() . '.' . $file->getClientOriginalExtension();
+
+                $file->move(public_path('images/faculty_images'), $newFileName);
+
+                $filePath = $newFileName;
+
+                $basicInfo['profile_pic'] = $filePath;
+            } else {
+                return redirect('/admin/faculties/departments');
+            }
+        }
 
         foreach ($request->input('academic_educ') as $academicEducData) {
             Acad_Education::create([

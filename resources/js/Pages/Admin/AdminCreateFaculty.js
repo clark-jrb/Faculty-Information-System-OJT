@@ -29,7 +29,7 @@ export default function AdminFaculties({ children }) {
         specialization: '',
         email: '',
         contact_no: '',
-        profile_pic: '',
+        profile_pic: null,
         academic_educ: [{ 
             degree: '', 
             institution: '', 

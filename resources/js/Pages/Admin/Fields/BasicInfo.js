@@ -92,6 +92,14 @@ export default function BasicInfo({ data, setData }) {
         }));
     };
 
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        setData(prevState => ({
+            ...prevState,
+            profile_pic: file 
+        }));
+    };
+
     return (
         <div className="create-basic-fields w-75 p-3">
 {/* Full Name / Gender  */}
@@ -246,8 +254,8 @@ export default function BasicInfo({ data, setData }) {
 {/* Upload Profile Image  */}
             <div className="basic4-flex py-2">
                 <div className="profile-pic-cont">
-                    <Label forInput="profile-pic" value="Upload profile picture &#40;Optional&#41;:" />
-                    <Form.Control type="file" name="profile-pic"/>
+                    <Label forInput="profile_pic" value="Upload profile picture &#40;Optional&#41;:" />
+                    <Form.Control type="file" name="profile_pic" onChange={handleFileChange}/>
                 </div>
             </div>
         </div>
