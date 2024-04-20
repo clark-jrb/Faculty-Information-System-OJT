@@ -95,10 +95,10 @@ export default function FacultyInfo({ children }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(data);
-        // post('/admin/store', data)
+        post(`/admin/update/${faculty_data.id}`, data)
 
         updateNotif(true); 
-        updateMessage('Faculty Added!')
+        updateMessage('Faculty Updated!')
         setTimeout(() => {
             updateNotif(false); // Hides the notification
             updateMessage(''); // Clears the message
@@ -154,7 +154,7 @@ export default function FacultyInfo({ children }) {
                         <Documents data={data} setData={setData}/>
                     {/* SUBMIT BUTTON  */}
                         <div className="admin-add-faculty d-flex justify-content-end py-3">
-                            <button className="p-3 py-2" type="submit">Create faculty</button>
+                            <button className="p-3 py-2" type="submit">Update faculty</button>
                         </div>
                     </form>
                 </div>  

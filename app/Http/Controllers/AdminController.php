@@ -253,6 +253,55 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $validatedData = $this->validate($request,[
+            'fname' => 'required',
+            'lname' => 'required',
+            'gender' => 'required',
+            'birth_date' => 'required|date',
+            'age' => 'required|integer',
+            'department' => 'required',
+            'position' => 'required',
+            'role' => 'required',
+            'specialization' => 'required',
+            'email' => 'required',
+            'contact_no' => 'required',
+            'profile_pic' => 'nullable',
+
+            // 'academic_educ.*.institution' => 'required',
+            // 'academic_educ.*.degree' => 'required',
+            // 'academic_educ.*.educ_location' => 'required',
+            // 'academic_educ.*.educ_date' => 'required',
+
+            // 'academic_work.*.work_institution' => 'required',
+            // 'academic_work.*.work_position' => 'required',
+            // 'academic_work.*.work_location' => 'required',
+            // 'academic_work.*.work_date' => 'required',
+
+            // 'research.*.title' => 'required',
+            // 'research.*.status' => 'required',
+            // 'research.*.duration' => 'required',
+            // 'research.*.researchers' => 'required',
+
+            // 'publications.*.proj_title' => 'required',
+            // 'publications.*.proj_date' => 'required',
+            // 'publications.*.authors' => 'required',
+            // 'publications.*.doi' => 'required',
+            // 'publications.*.cover_page' => 'nullable',
+
+            // 'extensions.*.ext_title' => 'required',
+            // 'extensions.*.ext_duration' => 'required',
+            // 'extensions.*.lead_faculty' => 'required',
+            // 'extensions.*.members' => 'required',
+            // 'extensions.*.sponsor' => 'required',
+            // 'extensions.*.beneficiaries' => 'required',
+
+            // 'documents.*.label' => 'nullable',
+            // 'documents.*.file_name' => 'nullable'
+        ]);
+
+        Basic_Info::whereId($id)->update($validatedData);
+
+        return redirect('/admin/faculties/departments');
     }
 
     /**

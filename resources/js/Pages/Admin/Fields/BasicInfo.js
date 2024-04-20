@@ -18,6 +18,8 @@ export default function BasicInfo({ data, setData }) {
 
     useEffect(() => {
         let specToMap;
+
+        setSelectedItems([]);
         switch (data.department) {
             case 'Agricultural Extension':
                 specToMap = specializations_ae;
