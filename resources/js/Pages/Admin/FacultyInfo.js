@@ -27,6 +27,7 @@ export default function FacultyInfo({ children }) {
     const { updateNotif, updateMessage } = useNotifContext()
 
     const AcadEducData = acadEduc_data.map(item => ({
+        id: item.id,
         degree: item.degree,
         institution: item.institution,
         educ_date: item.date,
@@ -36,9 +37,10 @@ export default function FacultyInfo({ children }) {
     // console.log(AcadEducData);
 
     const AcadWorkData = acadWork_data.map(item => ({
+        id: item.id,
         work_position: item.position,
-        work_institution: item.work_loc,
-        work_location: item.location,
+        work_institution: item.location,
+        work_location: item.work_loc,
         work_date: item.date
     }));
 

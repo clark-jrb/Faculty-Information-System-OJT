@@ -14,6 +14,56 @@ use Inertia\Inertia;
 
 class AdminController extends Controller
 {
+    protected function validateRequest(Request $request)
+    {
+        return $this->validate($request, [
+            // Validation rules here
+            'fname' => 'required',
+            'lname' => 'required',
+            'gender' => 'required',
+            'birth_date' => 'required|date',
+            'age' => 'required|integer',
+            'department' => 'required',
+            'position' => 'required',
+            'role' => 'required',
+            'specialization' => 'required',
+            'email' => 'required',
+            'contact_no' => 'required',
+            'profile_pic' => 'nullable',
+
+            'academic_educ.*.institution' => 'required',
+            'academic_educ.*.degree' => 'required',
+            'academic_educ.*.educ_location' => 'required',
+            'academic_educ.*.educ_date' => 'required',
+
+            'academic_work.*.work_institution' => 'required',
+            'academic_work.*.work_position' => 'required',
+            'academic_work.*.work_location' => 'required',
+            'academic_work.*.work_date' => 'required',
+
+            'research.*.title' => 'required',
+            'research.*.status' => 'required',
+            'research.*.duration' => 'required',
+            'research.*.researchers' => 'required',
+
+            'publications.*.proj_title' => 'required',
+            'publications.*.proj_date' => 'required',
+            'publications.*.authors' => 'required',
+            'publications.*.doi' => 'required',
+            'publications.*.cover_page' => 'nullable',
+
+            'extensions.*.ext_title' => 'required',
+            'extensions.*.ext_duration' => 'required',
+            'extensions.*.lead_faculty' => 'required',
+            'extensions.*.members' => 'required',
+            'extensions.*.sponsor' => 'required',
+            'extensions.*.beneficiaries' => 'required',
+
+            'documents.*.label' => 'nullable',
+            'documents.*.file_name' => 'nullable'
+        ]);
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -78,51 +128,7 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $this->validate($request,[
-            'fname' => 'required',
-            'lname' => 'required',
-            'gender' => 'required',
-            'birth_date' => 'required|date',
-            'age' => 'required|integer',
-            'department' => 'required',
-            'position' => 'required',
-            'role' => 'required',
-            'specialization' => 'required',
-            'email' => 'required',
-            'contact_no' => 'required',
-            'profile_pic' => 'nullable',
-
-            'academic_educ.*.institution' => 'required',
-            'academic_educ.*.degree' => 'required',
-            'academic_educ.*.educ_location' => 'required',
-            'academic_educ.*.educ_date' => 'required',
-
-            'academic_work.*.work_institution' => 'required',
-            'academic_work.*.work_position' => 'required',
-            'academic_work.*.work_location' => 'required',
-            'academic_work.*.work_date' => 'required',
-
-            'research.*.title' => 'required',
-            'research.*.status' => 'required',
-            'research.*.duration' => 'required',
-            'research.*.researchers' => 'required',
-
-            'publications.*.proj_title' => 'required',
-            'publications.*.proj_date' => 'required',
-            'publications.*.authors' => 'required',
-            'publications.*.doi' => 'required',
-            'publications.*.cover_page' => 'nullable',
-
-            'extensions.*.ext_title' => 'required',
-            'extensions.*.ext_duration' => 'required',
-            'extensions.*.lead_faculty' => 'required',
-            'extensions.*.members' => 'required',
-            'extensions.*.sponsor' => 'required',
-            'extensions.*.beneficiaries' => 'required',
-
-            'documents.*.label' => 'nullable',
-            'documents.*.file_name' => 'nullable'
-        ]);
+        $validatedData = $this->validateRequest($request);
 
         $basicInfo = Basic_info::create([
             'fname' => $request->input('fname'),
@@ -243,6 +249,135 @@ class AdminController extends Controller
         //
     }
 
+    protected function updateRecords($data, $id, $model, $fieldMappings)
+    {
+        $updatedIds = [];
+
+        foreach ($data as $item) {
+            $recordData = ['faculty_id' => $id];
+
+            foreach ($fieldMappings as $dbField => $requestDataKey) {
+                $recordData[$dbField] = $item[$requestDataKey];
+            }
+
+            if (isset($item['id']) && $item['id']) {
+                $model::whereId($item['id'])->update($recordData);
+                $updatedIds[] = $item['id'];
+            } else {
+                $createdRecord = $model::create($recordData);
+                $updatedIds[] = $createdRecord->id;
+            }
+        }
+
+        // Delete records not present in the updated request
+        $model::where('faculty_id', $id)->whereNotIn('id', $updatedIds)->delete();
+    }
+
+    protected function updateBasicInfo(Request $request, $id)
+    {
+        $validatedBasic = $request->only([
+            'fname', 
+            'lname', 
+            'gender', 
+            'birth_date', 
+            'age', 
+            'department', 
+            'position', 
+            'role', 
+            'specialization', 
+            'email', 
+            'contact_no', 
+            'profile_pic'
+        ]);
+
+        Basic_Info::whereId($id)->update($validatedBasic);
+    }
+
+    protected function updateAcademicEducation(Request $request, $id)
+    {
+        if ($request->has('academic_educ')) {
+            $this->updateRecords($request->academic_educ, $id, Acad_Education::class, [
+                'degree' => 'degree',
+                'institution' => 'institution',
+                'location' => 'educ_location',
+                'date' => 'educ_date',
+            ]);
+        } else {
+            Acad_Education::where('faculty_id', $id)->delete();
+        }
+    }
+
+    protected function updateAcademicWork(Request $request, $id)
+    {
+        if ($request->has('academic_work')) {
+            $this->updateRecords($request->academic_work, $id, Acad_WorkExp::class, [
+                'position' => 'work_position',
+                'location' => 'work_institution',
+                'work_loc' => 'work_location',
+                'date' => 'work_date',
+            ]);
+        } else {
+            Acad_WorkExp::where('faculty_id', $id)->delete();
+        }
+    }
+
+    protected function updateResearch(Request $request, $id)
+    {
+        if ($request->has('research')) {
+            $this->updateRecords($request->research, $id, ResActivity::class, [
+                'res_title' => 'title',
+                'status' => 'status',
+                'duration' => 'duration',
+                'researcher' => 'researchers',
+            ]);
+        } else {
+            ResActivity::where('faculty_id', $id)->delete();
+        }
+    }
+
+    protected function updatePublications(Request $request, $id)
+    {
+        if ($request->has('publications')) {
+            $this->updateRecords($request->publications, $id, Publication::class, [
+                'proj_title' => 'proj_title',
+                'date' => 'proj_date',
+                'authors' => 'authors',
+                'doi' => 'doi',
+                'cover' => 'cover_page'
+            ]);
+        } else {
+            Publication::where('faculty_id', $id)->delete();
+        }
+    }
+
+    protected function updateExtensions(Request $request, $id)
+    {
+        if ($request->has('extensions')) {
+            $this->updateRecords($request->extensions, $id, Ext_Activity::class, [
+                'ext_title' => 'ext_title',
+                'duration' => 'ext_duration',
+                'lead' => 'lead_faculty',
+                'member' => 'members',
+                'sponsor' => 'sponsor',
+                'beneficiaries' => 'beneficiaries'
+            ]);
+        } else {
+            Ext_Activity::where('faculty_id', $id)->delete();
+        }
+    }
+
+    protected function updateDocuments(Request $request, $id)
+    {
+        if ($request->has('documents')) {
+            $this->updateRecords($request->documents, $id, Document::class, [
+                'label' => 'label',
+                'file_name' => 'file_name'
+            ]);
+        } else {
+            Document::where('faculty_id', $id)->delete();
+        }
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -252,54 +387,15 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        $validatedData = $this->validate($request,[
-            'fname' => 'required',
-            'lname' => 'required',
-            'gender' => 'required',
-            'birth_date' => 'required|date',
-            'age' => 'required|integer',
-            'department' => 'required',
-            'position' => 'required',
-            'role' => 'required',
-            'specialization' => 'required',
-            'email' => 'required',
-            'contact_no' => 'required',
-            'profile_pic' => 'nullable',
+        $this->validateRequest($request);
 
-            // 'academic_educ.*.institution' => 'required',
-            // 'academic_educ.*.degree' => 'required',
-            // 'academic_educ.*.educ_location' => 'required',
-            // 'academic_educ.*.educ_date' => 'required',
-
-            // 'academic_work.*.work_institution' => 'required',
-            // 'academic_work.*.work_position' => 'required',
-            // 'academic_work.*.work_location' => 'required',
-            // 'academic_work.*.work_date' => 'required',
-
-            // 'research.*.title' => 'required',
-            // 'research.*.status' => 'required',
-            // 'research.*.duration' => 'required',
-            // 'research.*.researchers' => 'required',
-
-            // 'publications.*.proj_title' => 'required',
-            // 'publications.*.proj_date' => 'required',
-            // 'publications.*.authors' => 'required',
-            // 'publications.*.doi' => 'required',
-            // 'publications.*.cover_page' => 'nullable',
-
-            // 'extensions.*.ext_title' => 'required',
-            // 'extensions.*.ext_duration' => 'required',
-            // 'extensions.*.lead_faculty' => 'required',
-            // 'extensions.*.members' => 'required',
-            // 'extensions.*.sponsor' => 'required',
-            // 'extensions.*.beneficiaries' => 'required',
-
-            // 'documents.*.label' => 'nullable',
-            // 'documents.*.file_name' => 'nullable'
-        ]);
-
-        Basic_Info::whereId($id)->update($validatedData);
+        $this->updateBasicInfo($request, $id);
+        $this->updateAcademicEducation($request, $id);
+        $this->updateAcademicWork($request, $id);
+        $this->updateResearch($request, $id);
+        $this->updatePublications($request, $id);
+        $this->updateExtensions($request, $id);
+        $this->updateDocuments($request, $id);
 
         return redirect('/admin/faculties/departments');
     }
