@@ -12,7 +12,7 @@ import specializations_ss from '../../../../json/specializations_ss.json'
 
 
 export default function BasicInfo({ data, setData }) {
-    const [startDate, setStartDate] = useState(new Date());
+    const [startDate, setStartDate] = useState(data.birth_date);
     const [selectedItems, setSelectedItems] = useState([]);
     const [specToMap, setSpecToMap] = useState([]);
 
@@ -165,10 +165,11 @@ export default function BasicInfo({ data, setData }) {
 {/* Birth / Role / Rank  */}
             <div className="basic3-flex d-flex py-2">
                 <div className="flex-fill p-2">
-                    <Label forInput="date" value="Date of Birth: &#40;MM-DD-YYYY&#41;" />
+                    <Label forInput="date" value="Date of Birth: " />
                     <ReactDatePicker 
                         className="date-picker"
                         name="birth_date" 
+                        placeholderText="MM/DD/YYYY"
                         selected={startDate}
                         onChange={handleDateChange}
                         isClearable 
