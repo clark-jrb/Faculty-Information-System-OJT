@@ -38,7 +38,7 @@ export default function DCP() {
                                 {cp.map((faculty, index) => (
                                     <tr 
                                         key={index}
-                                        onClick={() => handleRowClick(faculty.id)}
+                                        onClick={() => checked ? null : handleRowClick(faculty.id)}
                                     >
                                         <th className="p-2 ps-3">{index + 1}</th>
                                         <td className="p-2 ps-3">{`${faculty.lname}, ${faculty.fname}`}</td>

@@ -14,7 +14,8 @@ export default function AdminAuthenticated({ children }) {
         'admin.departments.cp',
         'admin.departments.cs',
         'admin.departments.ss',
-        'admin.create'
+        'admin.create',
+        'admin.faculty.show'
     ];
 
     const side_nav_active = routeNames.includes(route().current());

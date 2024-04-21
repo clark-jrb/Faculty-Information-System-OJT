@@ -29,7 +29,7 @@ class AdminController extends Controller
             'specialization' => 'required',
             'email' => 'required',
             'contact_no' => 'required',
-            'profile_pic' => 'nullable|file|image|mimes:jpg,jpeg,png|max:5000',
+            'profile_pic' => 'nullable|file|image|mimes:jpg,jpeg,png|max:10000',
 
             'academic_educ.*.institution' => 'required',
             'academic_educ.*.degree' => 'required',
@@ -142,7 +142,7 @@ class AdminController extends Controller
             'specialization' => $request->input('specialization'),
             'email' => $request->input('email'),
             'contact_no' => $request->input('contact_no'),
-            'profile_pic' => ''
+            // 'profile_pic' => ''
         ]);
 
         if ($request->hasFile('profile_pic')) {
@@ -155,7 +155,8 @@ class AdminController extends Controller
 
                 $filePath = $newFileName;
 
-                $basicInfo['profile_pic'] = $filePath;
+                $basicInfo->profile_pic = $filePath;
+                $basicInfo->save();
             } else {
                 return redirect('/admin/faculties/departments');
             }
@@ -291,6 +292,8 @@ class AdminController extends Controller
 
     protected function updateBasicInfo(Request $request, $id)
     {
+        // $basicInfo = Basic_Info::findOrFail($id);
+
         $validatedBasic = $request->only([
             'fname', 
             'lname', 
@@ -302,11 +305,12 @@ class AdminController extends Controller
             'role', 
             'specialization', 
             'email', 
-            'contact_no', 
-            'profile_pic'
+            'contact_no'
+            // 'profile_pic'
         ]);
 
         Basic_Info::whereId($id)->update($validatedBasic);
+
     }
 
     protected function updateAcademicEducation(Request $request, $id)

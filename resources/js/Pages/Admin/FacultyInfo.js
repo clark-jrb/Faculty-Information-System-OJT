@@ -1,6 +1,4 @@
 import React from "react";
-import { Form } from "react-bootstrap";
-import Label from "@/Components/Label";
 import NavLink from "@/Components/NavLink";
 import { useForm, usePage } from "@inertiajs/inertia-react";
 import 'react-datepicker/dist/react-datepicker.css'
@@ -85,7 +83,7 @@ export default function FacultyInfo({ children }) {
         specialization: faculty_data.specialization,
         email: faculty_data.email,
         contact_no: faculty_data.contact_no,
-        profile_pic: faculty_data.profile_pic,
+        // profile_pic: faculty_data.profile_pic,
         academic_educ: AcadEducData,
         academic_work: AcadWorkData,
         research: ResearchActData,
@@ -150,10 +148,10 @@ export default function FacultyInfo({ children }) {
                         </div>
                         <Extensions data={data} setData={setData}/>
                     {/* DOCUMENTS  */}
-                        <div className="acf-title my-3 px-3">
+                        {/* <div className="acf-title my-3 px-3">
                             Documents &#40;certificates etc.&#41; &#40;Not Required&#41; 
                         </div>
-                        <Documents data={data} setData={setData}/>
+                        <Documents data={data} setData={setData}/> */}
                     {/* SUBMIT BUTTON  */}
                         <div className="admin-add-faculty d-flex justify-content-end py-3">
                             <button className="p-3 py-2" type="submit">Update faculty</button>

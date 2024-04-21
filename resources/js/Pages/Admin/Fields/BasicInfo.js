@@ -15,6 +15,7 @@ export default function BasicInfo({ data, setData }) {
     const [startDate, setStartDate] = useState(data.birth_date);
     const [selectedItems, setSelectedItems] = useState([]);
     const [specToMap, setSpecToMap] = useState([]);
+    const [profilePic, setProfilePic] = useState(data.profile_pic);
 
     useEffect(() => {
         let specToMap;
@@ -98,7 +99,12 @@ export default function BasicInfo({ data, setData }) {
             ...prevState,
             profile_pic: file 
         }));
+        setProfilePic(file);
     };
+
+    // useEffect(() => {
+    //     console.log(profilePic);
+    // }, [profilePic]);
 
     return (
         <div className="create-basic-fields w-75 p-3">
@@ -252,12 +258,16 @@ export default function BasicInfo({ data, setData }) {
                 </div>
             </div>
 {/* Upload Profile Image  */}
-            <div className="basic4-flex py-2">
-                <div className="profile-pic-cont">
-                    <Label forInput="profile_pic" value="Upload profile picture &#40;Optional&#41;:" />
-                    <Form.Control type="file" name="profile_pic" onChange={handleFileChange}/>
+            {route().current('admin.create') ? 
+            <>
+                <div className="basic4-flex py-2">
+                    <div className="profile-pic-cont">
+                        <Label forInput="profile_pic" value="Upload profile picture &#40;Optional&#41;:" />
+                        <Form.Control type="file" name="profile_pic" onChange={handleFileChange}/>
+                    </div>
+                    {profilePic && <p className="m-0 py-2">Selected file: {profilePic.name || profilePic}</p>}
                 </div>
-            </div>
+            </> : <></>}
         </div>
     )
 }
