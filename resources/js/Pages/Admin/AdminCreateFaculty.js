@@ -13,7 +13,7 @@ import Publications from "./Fields/Publications";
 import Extensions from "./Fields/Extensions";
 import Documents from "./Fields/Documents";
 
-export default function AdminFaculties({ children }) {
+export default function AdminCreateFaculty({ children }) {
 
     const { updateNotif, updateMessage } = useNotifContext()
 
@@ -52,8 +52,7 @@ export default function AdminFaculties({ children }) {
             proj_title: '',
             proj_date: '',
             authors: '',
-            doi: '',
-            cover_page: ''
+            doi: ''
         }],
         extensions: [{
             ext_title: '',

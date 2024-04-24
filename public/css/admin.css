@@ -89,7 +89,7 @@
     text-decoration: none;
 }
 
-.admin-faculties-cont {
+.admin-faculties-cont, .admin-doc-content {
     height: 50%;
 }
 
@@ -99,7 +99,7 @@
 }
 /* FACULTIES  */
 
-.admin-faculty-cont-title {
+.admin-faculty-cont-title, .admin-doc-title {
     color: var(--grey);
     font-size: xx-large;
     font-weight: bold;
@@ -139,7 +139,7 @@
     width: 30%;
 }
 
-.admin-add-faculty button{
+.admin-add-faculty button, .go-to-files-btn button{
     font-size: medium;
     background-color: var(--light-green);
     border: none;
@@ -148,7 +148,7 @@
     border-bottom: 3px solid var(--dark-green);
 }
 
-.admin-add-faculty button:active {
+.admin-add-faculty button:active, .go-to-files-btn button:active {
     border-bottom: 1px solid var(--dark-green);
 }
 

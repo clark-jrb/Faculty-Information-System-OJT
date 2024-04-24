@@ -11,6 +11,6 @@ class Publication extends Model
     protected $table = "res__publications";
     public $timestamps = true;
     protected $fillable = [
-        'faculty_id', 'proj_title', 'authors', 'date', 'doi', 'cover'
+        'faculty_id', 'proj_title', 'authors', 'date', 'doi'
     ];
 }

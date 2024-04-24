@@ -39,8 +39,6 @@ export default function AdminFaculties({ children }) {
                             />
                         </Switch>
                     </div>
-                    
-
                 </div>
 
                 <div className="admin-filter-add-cont mb-3">

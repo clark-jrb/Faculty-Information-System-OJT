@@ -15,7 +15,7 @@ export default function BasicInfo({ data, setData }) {
     const [startDate, setStartDate] = useState(data.birth_date);
     const [selectedItems, setSelectedItems] = useState([]);
     const [specToMap, setSpecToMap] = useState([]);
-    const [profilePic, setProfilePic] = useState(data.profile_pic);
+    const [profilePic, setProfilePic] = useState(data.profile_pic || null);
 
     useEffect(() => {
         let specToMap;
@@ -95,11 +95,20 @@ export default function BasicInfo({ data, setData }) {
 
     const handleFileChange = (e) => {
         const file = e.target.files[0];
-        setData(prevState => ({
-            ...prevState,
-            profile_pic: file 
-        }));
-        setProfilePic(file);
+        if (file) {
+            setData(prevState => ({
+                ...prevState,
+                profile_pic: file 
+            }));
+            setProfilePic(file);
+            console.log('its a file');
+        } else {
+            setData(prevState => ({
+                ...prevState,
+                profile_pic: data.profilePic 
+            }));
+            console.log('its a string');
+        }
     };
 
     // useEffect(() => {

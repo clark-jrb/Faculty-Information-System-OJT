@@ -8,7 +8,7 @@ export default function Publications({ data, setData }) {
     const handleAddField = () => {
         addField(
             'publications',
-            { proj_title: '', proj_date: '', doi: '', authors: '', cover_page: '' },
+            { proj_title: '', proj_date: '', doi: '', authors: '' },
             setData,
             data
         )

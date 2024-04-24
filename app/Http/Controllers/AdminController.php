@@ -50,7 +50,6 @@ class AdminController extends Controller
             'publications.*.proj_date' => 'required',
             'publications.*.authors' => 'required',
             'publications.*.doi' => 'required',
-            'publications.*.cover_page' => 'nullable',
 
             'extensions.*.ext_title' => 'required',
             'extensions.*.ext_duration' => 'required',
@@ -198,8 +197,7 @@ class AdminController extends Controller
                 'proj_title' => $publicationData['proj_title'],
                 'date' => $publicationData['proj_date'],
                 'doi' => $publicationData['doi'],
-                'authors' => $publicationData['authors'],
-                'cover' => $publicationData['cover_page']
+                'authors' => $publicationData['authors']
             ]);
         }
 
@@ -215,12 +213,30 @@ class AdminController extends Controller
             ]);
         }
 
-        foreach ($request->input('documents') as $documentsData) {
-            Document::create([
-                'faculty_id' => $basicInfo->id,
-                'label' => $documentsData['label'],
-                'file_name' => $documentsData['file_name']
-            ]);
+        // foreach ($request->input('documents') as $documentsData) {
+        //     Document::create([
+        //         'faculty_id' => $basicInfo->id,
+        //         'label' => $documentsData['label'],
+        //         'file_name' => $documentsData['file_name']
+        //     ]);
+        // }
+
+        foreach ($request->input('documents') as $index => $documentData) {
+            $document = new Document();
+            $document->faculty_id = $basicInfo->id;
+            $document->label = $documentData['label'];
+            
+            // Handle file upload
+            if ($request->hasFile('documents.'.$index.'.file_name')) {
+                $file = $request->file('documents.'.$index.'.file_name');
+                if ($file->isValid()) {
+                    $newFileName = uniqid() . '.' . $file->getClientOriginalExtension();
+                    $file->move(public_path('images/faculty_images'), $newFileName);
+                    $document->file_name = $newFileName;
+                }
+            }
+        
+            $document->save();
         }
 
         return redirect('/admin/faculties/departments');
@@ -292,8 +308,10 @@ class AdminController extends Controller
 
     protected function updateBasicInfo(Request $request, $id)
     {
-        // $basicInfo = Basic_Info::findOrFail($id);
+        // dd('Function called', $id, $request->all());
+        $basicInfo = Basic_Info::findOrFail($id);
 
+        // Validate the request data for basic info
         $validatedBasic = $request->only([
             'fname', 
             'lname', 
@@ -306,11 +324,11 @@ class AdminController extends Controller
             'specialization', 
             'email', 
             'contact_no'
-            // 'profile_pic'
         ]);
+        $basicInfo->save();
+        $basicInfo->update($validatedBasic);
 
-        Basic_Info::whereId($id)->update($validatedBasic);
-
+        return redirect('/admin/faculties/departments')->with('success', 'Basic info updated successfully.');
     }
 
     protected function updateAcademicEducation(Request $request, $id)
@@ -362,8 +380,7 @@ class AdminController extends Controller
                 'proj_title' => 'proj_title',
                 'date' => 'proj_date',
                 'authors' => 'authors',
-                'doi' => 'doi',
-                'cover' => 'cover_page'
+                'doi' => 'doi'
             ]);
         } else {
             Publication::where('faculty_id', $id)->delete();

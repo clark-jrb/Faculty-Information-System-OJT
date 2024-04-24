@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NavLink from "@/Components/NavLink";
+import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { useForm, usePage } from "@inertiajs/inertia-react";
 import 'react-datepicker/dist/react-datepicker.css'
 import AdminAuthenticated from "@/Layouts/AdminAuthenticated";
@@ -53,8 +54,7 @@ export default function FacultyInfo({ children }) {
         proj_title: item.proj_title,
         proj_date: item.date,
         authors: item.authors,
-        doi: item.doi,
-        cover_page: item.cover
+        doi: item.doi
     }));
 
     const ExtActData = extention_data.map(item => ({
@@ -109,7 +109,7 @@ export default function FacultyInfo({ children }) {
         <AdminAuthenticated>
             <div className="admin-create-faculty-cont m-4">
                 {/* HEADER  */}
-                <div className="d-flex">
+                <div className="d-flex align-items-center">
                     <NavLink href={route('admin.departments')}>
                         <div className="admin-create-cont-title">
                             <p className="m-0">Faculties/&nbsp;</p>
@@ -118,6 +118,12 @@ export default function FacultyInfo({ children }) {
                     <div className="admin-faculty-cont-title">
                         <p className="m-0">{faculty_data.fname + ' ' + faculty_data.lname}</p>
                     </div>
+                    <div className="go-to-files-btn ms-auto">
+                        <ResponsiveNavLink href={route('admin.files')} as="button">
+                            Go to files
+                        </ResponsiveNavLink>
+                    </div>
+                    
                 </div>
                 {/* FIELDS  */}
                 <div className="admin-create-fields mt-2">

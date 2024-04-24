@@ -18,7 +18,7 @@ export default function AdminAuthenticated({ children }) {
         'admin.faculty.show'
     ];
 
-    const side_nav_active = routeNames.includes(route().current());
+    const admin_faculty_active = routeNames.includes(route().current());
 
     return (
         <div className="admin-screen">
@@ -63,7 +63,7 @@ export default function AdminAuthenticated({ children }) {
                             </NavLink>
                         </li>
                         <li className="mb-4">
-                            <NavLink href={route('admin.departments')} active={side_nav_active}>
+                            <NavLink href={route('admin.departments')} active={admin_faculty_active}>
                                 <i className="fa-solid fa-users"></i> &nbsp;Faculties
                             </NavLink>
                         </li>

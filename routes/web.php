@@ -62,6 +62,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::inertia('/admin/dashboard', 'Admin/AdminDashboard')->name('admin.dashboard');
         Route::inertia('/admin/faculties', 'Admin/AdminFaculties')->name('admin.faculties');
         Route::inertia('/admin/faculties/departments', 'Admin/AdminDepartments')->name('admin.departments');
+        Route::inertia('/admin/files', 'Admin/AdminFiles')->name('admin.files');
 
         Route::inertia('/admin/create', 'Admin/AdminCreateFaculty')->name('admin.create');
         Route::post('/admin/store', [AdminController::class, 'store'])->name('admin.store');

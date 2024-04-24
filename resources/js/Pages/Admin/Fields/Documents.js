@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import Label from "@/Components/Label";
 import { addField, handleFieldChange } from "@/utils/forms";
 
 export default function Documents({ data, setData }) {
+    const [fileData, setFileData] = useState([]); // State to hold file data
 
     const handleAddRAField = () => {
         addField(
@@ -24,6 +25,21 @@ export default function Documents({ data, setData }) {
         )
     };
 
+    const handleFileChange = (e, index) => {
+        const files = e.target.files;
+        const newFileData = [...fileData];
+        newFileData[index] = files[0];
+        setFileData(newFileData);
+        // Optionally, update the document state with file name
+        handleFieldChange(
+            'documents',
+            { target: { name: 'file_name', value: files[0] } },
+            index,
+            setData,
+            data
+        );
+    };
+
     return (
         <div className="create-documents-fields w-75 p-3">
             {data.documents.map((doc, index) => (
@@ -41,21 +57,30 @@ export default function Documents({ data, setData }) {
                         </div>
                         <div className="flex-fill">
                             <Label forInput="file_name" value="Upload document (.png, .jpg, .jpeg)" />
-                            <Form.Control type="file" name="file_name"/>
+                            <Form.Control
+                                type="file"
+                                name="file_name"
+                                onChange={(e) => handleFileChange(e, index)}
+                            />
                         </div>
                     </div>
 
                     <div className="remove-field-btn flex-fill p-2 d-flex align-items-end">
-                        {data.documents.length > 1 && ( // Only render the remove button if the academic background is not empty
-                            <button type="button" className="px-2 py-1" onClick={() => setData(prevData => ({
-                            ...prevData,
-                            documents: prevData.documents.filter((_, i) => i !== index),
-                            }))}>
+                        {data.documents.length > 1 && (
+                            <button
+                                type="button"
+                                className="px-2 py-1"
+                                onClick={() =>
+                                    setData((prevData) => ({
+                                        ...prevData,
+                                        documents: prevData.documents.filter((_, i) => i !== index),
+                                    }))
+                                }
+                            >
                                 <i className="fa-solid fa-minus"></i>
                             </button>
                         )}
                     </div>
-                    
                 </div>
             ))}
 
@@ -66,5 +91,5 @@ export default function Documents({ data, setData }) {
                 </button>
             </div>
         </div>
-    )
+    );
 }
