@@ -139,7 +139,7 @@
     width: 30%;
 }
 
-.admin-add-faculty button, .go-to-files-btn button{
+.admin-add-faculty button, .go-to-files-btn button, .update-prof-btn button{
     font-size: medium;
     background-color: var(--light-green);
     border: none;
@@ -148,7 +148,7 @@
     border-bottom: 3px solid var(--dark-green);
 }
 
-.admin-add-faculty button:active, .go-to-files-btn button:active {
+.admin-add-faculty button:active, .go-to-files-btn button:active, .update-prof-btn button:active {
     border-bottom: 1px solid var(--dark-green);
 }
 
@@ -321,4 +321,11 @@
 
 .admin-table a{
     color: var(--grey);
+}
+
+.profile-image-cont img {
+    border: #dee2e6 solid 3px;
+    border-radius: 3px;
+    height: 200px;
+    width: 200px;
 }

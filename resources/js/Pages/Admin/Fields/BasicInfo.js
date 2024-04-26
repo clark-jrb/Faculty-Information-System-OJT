@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
+import axios from "axios";
+import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Form } from "react-bootstrap";
 import Label from "@/Components/Label";
 import ReactDatePicker from "react-datepicker";
@@ -9,13 +11,49 @@ import specializations_as from '../../../../json/specializations_as.json'
 import specializations_cs from '../../../../json/specializations_cs.json'
 import specializations_cp from '../../../../json/specializations_cp.json'
 import specializations_ss from '../../../../json/specializations_ss.json'
+import { useForm } from "@inertiajs/inertia-react";
 
 
-export default function BasicInfo({ data, setData }) {
+export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
     const [startDate, setStartDate] = useState(data.birth_date);
     const [selectedItems, setSelectedItems] = useState([]);
     const [specToMap, setSpecToMap] = useState([]);
     const [profilePic, setProfilePic] = useState(data.profile_pic || null);
+    const [fileInput, setFileInput] = useState(false)
+    const [updatePF, setUpdatePF] = useState(true);
+    const [removeUpdatePF, setRemoveUpdatePF] = useState(false);
+    const [ppFile, setPPFile] = useState(null);
+
+    const handlePPFileChange = (event) => {
+        setPPFile(event.target.files[0]);
+    };
+
+    const handleRemoveUpdate = () => {
+        setRemoveUpdatePF(false)
+        setFileInput(false)
+        setUpdatePF(true)
+    }
+
+    const handleAddUpdatePF = () => {
+        setRemoveUpdatePF(true)
+        setFileInput(true)
+        setUpdatePF(false)
+    }
+
+    const { post } = useForm();
+
+    const handleSubmitPP = (e) => {
+        e.preventDefault()
+        if (ppFile) {
+            const formData = new FormData();
+            formData.append('profile_pic', ppFile);
+    
+            // Use the post function from useForm instead of axios
+            post(`/admin/updateProfilePic/${faculty_id}`, formData)
+            console.log('success');
+        }
+        // console.log(ppFile);
+    };
 
     useEffect(() => {
         let specToMap;
@@ -111,9 +149,9 @@ export default function BasicInfo({ data, setData }) {
         }
     };
 
-    // useEffect(() => {
-    //     console.log(profilePic);
-    // }, [profilePic]);
+    useEffect(() => {
+        console.log(profilePic);
+    }, [profilePic]);
 
     return (
         <div className="create-basic-fields w-75 p-3">
@@ -232,7 +270,7 @@ export default function BasicInfo({ data, setData }) {
             </div>
 {/* Department / Specialization  */}
             <div className="basic3-flex d-flex py-2">
-                <div className="flex-fill p-2">
+                <div className="flex-fill p-2 w-50">
                     <Label forInput="department" value="Department:" />
                     <Form.Select
                         type="text"
@@ -248,8 +286,49 @@ export default function BasicInfo({ data, setData }) {
                         <option value="Crop Science">Crop Science</option>
                         <option value="Soil Science">Soil Science</option>
                     </Form.Select>
+                    {route().current('admin.faculty.show') ? 
+                    <>
+                        <div className="py-2 profile-image-cont">
+                            <Label forInput="profile-image" value="Profile Picture:" />
+
+                            <div className="d-flex justify-content-center py-2">
+                                <img src={`/images/faculty_images/${profile_pic}`} alt="Faculty Profile" />
+                            </div>
+                            {fileInput && (
+                                <>
+                                    <div className="add-field-container w-100 p-2">
+                                        <Form.Control type="file" name="profile_pic" onChange={handlePPFileChange}/>
+                                    </div>
+                                    <div className="update-prof-btn px-2 d-flex align-items-center">
+                                        <div className="ms-auto">
+                                            <button type="button" onClick={handleSubmitPP}>
+                                                Update
+                                            </button>
+                                        </div>
+                                    </div>
+                                </>
+                            )}
+
+                            {updatePF && (
+                                <div className="update-btn-container w-100 px-2">
+                                    <button type="button" className="add-field-btn w-100 py-2" onClick={handleAddUpdatePF}>
+                                        <i className="fa-solid fa-square-pen"></i> Update profile
+                                    </button>
+                                </div>
+                            )}
+                            
+                            {removeUpdatePF && (
+                                <div className="remove-update-container w-100 p-2">
+                                    <button type="button" className="add-field-btn w-100 py-2" onClick={handleRemoveUpdate}>
+                                        <i className="fa-solid fa-minus"></i> Remove Update
+                                    </button>
+                                </div>
+                            )}
+                        </div>
+                    </> : <></>}
+                    
                 </div>
-                <div className="flex-fill p-2">
+                <div className="flex-fill p-2 w-50">
                     <Label forInput="special" value="Specialization:" />
                     {specToMap.map((item) => (
                         <div key={item.id} className="mb-3">

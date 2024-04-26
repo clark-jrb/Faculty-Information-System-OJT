@@ -25,7 +25,7 @@ export default function Publications({ data, setData }) {
     };
 
     return (
-        <div className="create-publications-fields w-100 p-3">
+        <div className="create-publications-fields w-75 p-3">
             {data.publications.map((pub, index) => (
                 <div className="publications-flex d-flex py-2" key={index}>
                     <div className="flex-fill d-flex p-2 gap-3">
@@ -72,13 +72,6 @@ export default function Publications({ data, setData }) {
                                 value={pub.authors}
                                 onChange={(e) => handleChange(e, index)}
                             />
-                        </div>
-                    </div>
-
-                    <div className="flex-fill p-2">
-                        <div className="cover-page-cont">
-                            <Label forInput="cover-page" value="Upload cover page &#40;Optional&#41;:" />
-                            <Form.Control type="file" name="cover-page"/>
                         </div>
                     </div>
 

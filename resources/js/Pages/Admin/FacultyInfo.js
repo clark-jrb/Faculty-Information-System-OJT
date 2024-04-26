@@ -132,7 +132,12 @@ export default function FacultyInfo({ children }) {
                         <div className="acf-title my-3 px-3">
                             Basic Information
                         </div>
-                        <BasicInfo data={data} setData={setData}/>
+                        <BasicInfo 
+                            data={data} 
+                            setData={setData} 
+                            profile_pic={faculty_data.profile_pic}
+                            faculty_id={faculty_data.id}
+                        />
                     {/* ACADEMIC FIELDS */}
                         <div className="acf-title my-3 px-3">
                             Academic

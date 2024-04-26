@@ -698,9 +698,6 @@ select {
 .z-50 {
   z-index: 50;
 }
-.float-end {
-  float: inline-end;
-}
 .m-0 {
   margin: 0px;
 }
@@ -775,9 +772,6 @@ select {
 }
 .mt-8 {
   margin-top: 2rem;
-}
-.ms-0 {
-  margin-inline-start: 0px;
 }
 .block {
   display: block;
