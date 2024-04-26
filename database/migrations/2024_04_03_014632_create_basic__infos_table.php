@@ -22,6 +22,7 @@ class CreateBasicInfosTable extends Migration
             $table->integer('age');
             $table->string('department');
             $table->string('position');
+            $table->string('role');
             $table->string('specialization');
             $table->string('email');
             $table->string('contact_no');

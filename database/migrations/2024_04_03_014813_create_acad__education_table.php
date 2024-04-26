@@ -15,6 +15,7 @@ class CreateAcadEducationTable extends Migration
     {
         Schema::create('acad__education', function (Blueprint $table) {
             $table->id();
+            $table->integer('faculty_id', 5);
             $table->string('degree');
             $table->string('institution');
             $table->string('date');
