@@ -167,7 +167,7 @@ export default function FacultyInfo({ children }) {
         e.preventDefault();
         try {
             // console.log(profilePicData);
-            post(`/admin/update/${faculty_data.id}`, data)
+            postProfPicData(`/admin/updateProfilePic/${faculty_data.id}`, profilePicData);
             console.log('File uploaded successfully!');
         } catch (error) {
             console.error('Error uploading file:', error);
