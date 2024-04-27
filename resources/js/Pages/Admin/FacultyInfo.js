@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import NavLink from "@/Components/NavLink";
-import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
-import { Form, Modal } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { useForm, usePage } from "@inertiajs/inertia-react";
 import 'react-datepicker/dist/react-datepicker.css'
 import AdminAuthenticated from "@/Layouts/AdminAuthenticated";
@@ -13,6 +12,7 @@ import Publications from "./Fields/Publications";
 import Extensions from "./Fields/Extensions";
 import Documents from "./Fields/Documents";
 import Label from "@/Components/Label";
+import { handleFieldChange } from "@/utils/forms";
 
 export default function FacultyInfo({ children }) {
     const { 
@@ -24,26 +24,6 @@ export default function FacultyInfo({ children }) {
         extention_data,
         document_data
     } = usePage().props;
-
-    const [fileInput, setFileInput] = useState(false)
-    const [updatePF, setUpdatePF] = useState(true);
-    const [removeUpdatePF, setRemoveUpdatePF] = useState(false);
-    const [showProfileUpdBtn, setShowProfileUpdBtn] = useState(false);
-
-    const handleRemoveUpdate = () => {
-        setRemoveUpdatePF(false)
-        setFileInput(false)
-        setUpdatePF(true)
-        setShowProfileUpdBtn(false)
-    }
-
-    const handleAddUpdatePF = () => {
-        setRemoveUpdatePF(true)
-        setFileInput(true)
-        setUpdatePF(false)
-    }
-    
-    const { updateNotif, updateMessage } = useNotifContext()
 
     const AcadEducData = acadEduc_data.map(item => ({
         id: item.id,
@@ -109,12 +89,46 @@ export default function FacultyInfo({ children }) {
         research: ResearchActData,
         publications: PublicationData,
         extensions: ExtActData,
-        documents: DocumentData
+        // documents: DocumentData
     });
 
     const { data: profilePicData, setData: setProfPicData, post: postProfPicData, processing: profilePicProcess } = useForm({
         profile_pic: faculty_data.profile_pic
     })
+
+    const { data: filesData, setData: setFilesData, post: postFilesData, processing: filesProcess } = useForm({
+        documents: DocumentData
+    })
+
+    const { data: addFilesData, setData: setAddFilesData, post: postAddFilesData, processing: addFilesProcess } = useForm({
+        faculty_id: '',
+        label: '',
+        file_name: null
+    })
+
+
+
+    const [fileInput, setFileInput] = useState(false)
+    const [updatePF, setUpdatePF] = useState(true);
+    const [removeUpdatePF, setRemoveUpdatePF] = useState(false);
+    const [showProfileUpdBtn, setShowProfileUpdBtn] = useState(false);
+    const [addFileCont, setAddFileCont] = useState(false);
+    const [fileData, setFileData] = useState([]);
+
+    const handleRemoveUpdate = () => {
+        setRemoveUpdatePF(false)
+        setFileInput(false)
+        setUpdatePF(true)
+        setShowProfileUpdBtn(false)
+    }
+
+    const handleAddUpdatePF = () => {
+        setRemoveUpdatePF(true)
+        setFileInput(true)
+        setUpdatePF(false)
+    }
+
+    const { updateNotif, updateMessage } = useNotifContext()
 
     const handleFileChange = (e) => {
         const file = e.target.files[0];
@@ -125,17 +139,41 @@ export default function FacultyInfo({ children }) {
         setShowProfileUpdBtn(true)
     };
 
+    const handleValueOnFileChange = (e) => {
+        const { value } = e.target;
+        setAddFilesData(prevState => ({
+            ...prevState,
+            faculty_id: faculty_data.id,
+            label: value
+        }));
+    };
+
+    const handleAddFileChange = (e) => {
+        const file = e.target.files[0];
+        setAddFilesData(prevState => ({
+            ...prevState,
+            file_name: file
+        }));
+    };
+
+    const handleAddFileSubmit = (e) => {
+        e.preventDefault()
+        console.log(addFilesData);
+        postAddFilesData(`/admin/addDocument/${faculty_data.id}`, addFilesData);
+        setAddFileCont(false)
+    }
+
     const handleUpdateProfPic = (e) => {
         e.preventDefault();
         try {
             // console.log(profilePicData);
-            postProfPicData(`/admin/updateProfilePic/${faculty_data.id}`, profilePicData);
+            post(`/admin/update/${faculty_data.id}`, data)
             console.log('File uploaded successfully!');
-            setShowProfileUpdBtn(false);
         } catch (error) {
             console.error('Error uploading file:', error);
             // Optionally, you can notify the user about the error, or handle it in another way.
         }
+        setShowProfileUpdBtn(false);
     }
 
     const handleSubmit = (e) => {
@@ -164,12 +202,6 @@ export default function FacultyInfo({ children }) {
                     <div className="admin-faculty-cont-title">
                         <p className="m-0">{faculty_data.fname + ' ' + faculty_data.lname}</p>
                     </div>
-                    <div className="go-to-files-btn ms-auto">
-                        <ResponsiveNavLink href={route('admin.files')} as="button">
-                            Go to files
-                        </ResponsiveNavLink>
-                    </div>
-                    
                 </div>
                 {/* FIELDS  */}
                 <div className="d-flex gap-3">
@@ -212,14 +244,15 @@ export default function FacultyInfo({ children }) {
                             <Documents data={data} setData={setData}/> */}
                         {/* SUBMIT BUTTON  */}
                             <div className="admin-add-faculty d-flex justify-content-end py-3">
-                                <button className="p-3 py-2" type="submit">Update faculty</button>
+                                <button className="p-3 py-2" type="submit" disabled={processing}>Update faculty</button>
                             </div>
                         </form>
                     </div>
                     <div className="admin-faculty-files-panel w-25 mt-2">
                         <div className="acf-title my-3 px-3">
-                            Files
+                            Profile Picture
                         </div>
+                        {/* Profile Picture  */}
                         <form onSubmit={handleUpdateProfPic}>
                             <div className="admin-profile-pic-update-cont p-3">
                                 <div className="py-2 profile-image-cont">
@@ -237,7 +270,7 @@ export default function FacultyInfo({ children }) {
                                             <>
                                             <div className="update-prof-btn px-2 d-flex align-items-center">
                                                 <div className="ms-auto">
-                                                    <button type="submit" className="p-3 py-1">
+                                                    <button type="submit" className="p-3 py-1" disabled={profilePicProcess}>
                                                         Update
                                                     </button>
                                                 </div>
@@ -271,6 +304,63 @@ export default function FacultyInfo({ children }) {
                                 </div>
                             </div>
                         </form>
+                        {/* Documents */}
+                        <div className="acf-title my-3 px-3">
+                            Files <span className="in-parenthesis">(certificates etc.)</span>
+                        </div>
+                        {DocumentData.map((file, index) => (
+                            <div className="admin-file-update-cont p-3 mb-3" key={index}>
+                                <form>
+                                    <div className="file-image-cont py-2">
+                                        <Label forInput="file-image" value={file.label + ":"} />
+                                    </div>
+                                    <p>{file.file_name}</p>
+                                </form>
+                            </div>
+                        ))}
+
+                        {addFileCont && 
+                        <>
+                            <div className="admin-file-update-cont p-3">
+                                <form onSubmit={handleAddFileSubmit}>
+                                    <div className="pt-3">
+                                        <Label forInput="label" value="Image Label:" />
+                                        <Form.Control
+                                            type="text"
+                                            name="label"
+                                            placeholder="Label"
+                                            value={addFilesData.label === null ? undefined : addFilesData.label}
+                                            onChange={(e) => handleValueOnFileChange(e)}
+                                        />
+                                    </div>
+                                    <div className="pt-3">
+                                        <Label forInput="file_name" value="Upload Image (.png, .jpg, .jpeg)" />
+                                        <Form.Control
+                                            type="file"
+                                            name="file_name"
+                                            onChange={(e) => handleAddFileChange(e)}
+                                        />
+                                    </div>
+                                    <div className="add-file-btn pt-3 d-flex align-items-center">
+                                        <div className="ms-auto d-flex align-items-center gap-2">
+                                            <div className="flex-fill">
+                                                <button type="submit" className="p-3 py-1">Add</button>
+                                            </div>
+                                            <div className="cancel-add-btn flex-fill">
+                                                <button type="button" className="p-3 py-1" onClick={() => setAddFileCont(false)}>Cancel</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </>
+                        }
+
+                        <div className="add-field-container w-100 py-2">
+                            <button type="button" className="add-field-btn w-100 py-2" onClick={() => setAddFileCont(true)}>
+                                <i className="fa-regular fa-image"></i> Add Image
+                            </button>
+                        </div>
                     </div>  
                 </div>
             </div>

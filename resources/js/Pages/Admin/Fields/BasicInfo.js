@@ -116,7 +116,7 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
     // }, [profilePic]);
 
     return (
-        <div className="create-basic-fields w-100 p-3">
+        <div className={`create-basic-fields ${route().current('admin.create') ? 'w-75' : 'w-100'} p-3`}>
 {/* Full Name / Gender  */}
             <div className="basic1-flex d-flex py-2">
                 <div className="flex-fill p-2">

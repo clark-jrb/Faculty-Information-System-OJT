@@ -43,7 +43,7 @@ export default function Academic({ data, setData }) {
     };
 
     return (
-        <div className="create-academic-fields w-100 p-3">
+        <div className={`create-academic-fields ${route().current('admin.create') ? 'w-75' : 'w-100'} p-3`}>
     {/* Education  */}
             <div className="acf-title m-2 px-3">
                 Education

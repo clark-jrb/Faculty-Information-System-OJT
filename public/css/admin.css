@@ -141,7 +141,8 @@
 
 .admin-add-faculty button, 
 .go-to-files-btn button, 
-.update-prof-btn button {
+.update-prof-btn button,
+.add-file-btn button {
     font-size: medium;
     background-color: var(--light-green);
     border: none;
@@ -150,8 +151,17 @@
     border-bottom: 3px solid var(--dark-green);
 }
 
-.admin-add-faculty button:active, .go-to-files-btn button:active, .update-prof-btn button:active {
+.admin-add-faculty button:active, 
+.go-to-files-btn button:active, 
+.update-prof-btn button:active, 
+.add-file-btn button:active {
     border-bottom: 1px solid var(--dark-green);
+}
+
+.admin-add-faculty button:disabled {
+    background-color: var(--very-light-grey);
+    border-bottom: 3px solid #ccc;
+    cursor: not-allowed;
 }
 
 /* DEpARTMENTS FILTER  */
@@ -246,13 +256,19 @@
     font-weight: bold;
 }
 
+.in-parenthesis {
+    font-weight: normal;
+    font-size: large;
+}
+
 .create-basic-fields, 
 .create-academic-fields, 
 .create-research-fields,
 .create-publications-fields, 
 .create-extensions-fields,
 .create-documents-fields,
-.admin-profile-pic-update-cont {
+.admin-profile-pic-update-cont,
+.admin-file-update-cont {
     /* border: red solid 1px; */
     height: auto;
     background-color: white;
@@ -262,11 +278,15 @@
     /* justify-content: space-around; */
 }
 
+.admin-file-update-cont {
+    border: #ccc solid 1px;
+}
+
 .basic2-flex #age {
     width: 100px;
 }
 
-.remove-field-btn button {
+.remove-field-btn button, .cancel-add-btn button {
     display: grid;
     align-items: center;
     font-size: small;
@@ -279,6 +299,10 @@
 
 .remove-field-btn button:active {
     border-bottom: 1px solid var(--dark-red);
+}
+
+.cancel-add-btn button {
+    font-size: medium;
 }
 
 .add-field-btn {

@@ -242,6 +242,38 @@ class AdminController extends Controller
         return redirect('/admin/faculties/departments');
     }
 
+    public function addDocument(Request $request, $id)
+    {
+        // dd($request);
+        // Validate the incoming request
+        $validatedData = $request->validate([
+            // 'faculty_id' => 'required',
+            'label' => 'required|string|max:255',
+            'file_name' => 'required|image|mimes:jpeg,png,jpg|max:100000', // Example: max file size of 10MB
+        ]);
+
+        // Assuming you want to associate the document with a faculty by its ID
+        $facultyId = $id;
+
+        // Upload the file
+        $file = $request->file('file_name');
+        $fileName = $file->getClientOriginalExtension();
+        $newFileName = uniqid() . '.' . $fileName;
+        $file->move(public_path('images/faculty_files'), $newFileName); // Store the file in the 'documents' directory
+
+        // Create a new document record
+        $document = new Document();
+        $document->faculty_id = $facultyId;
+        $document->label = $validatedData['label'];
+        $document->file_name = $newFileName; // Or you can store the path to the file if you prefer
+        $document->save();
+        
+        $modifiedDocuments = Document::where('faculty_id', $facultyId)->get();
+        // You can return a response if needed
+        // return response()->json(['message' => 'Document added successfully'], 200);
+        return redirect()->back()->with(['document_data' => $modifiedDocuments]);
+    }
+
     /**
      * Display the specified resource.
      *
@@ -470,7 +502,7 @@ class AdminController extends Controller
         $this->updateResearch($request, $id);
         $this->updatePublications($request, $id);
         $this->updateExtensions($request, $id);
-        $this->updateDocuments($request, $id);
+        // $this->updateDocuments($request, $id);
 
         return redirect('/admin/faculties/departments');
     }

@@ -68,6 +68,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/admin/store', [AdminController::class, 'store'])->name('admin.store');
         Route::post('/admin/update/{id}', [AdminController::class, 'update'])->name('admin.update');
         Route::post('/admin/updateProfilePic/{id}', [AdminController::class, 'updateProfilePicture'])->name('admin.update.profilePic');
+        Route::post('/admin/addDocument/{id}', [AdminController::class, 'addDocument'])->name('admin.addDocument');
         Route::delete('/admin/delete/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
         Route::get('/admin/faculty/{id}', [AdminController::class, 'show'])->name('admin.faculty.show');
 
