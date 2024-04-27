@@ -335,34 +335,38 @@ class AdminController extends Controller
     {
         // Validate the request
         $request->validate([
-            'profile_pic' => 'required|image|mimes:jpeg,png,jpg|max:10000', // Adjust the max file size as needed
+            'profile_pic' => 'required|image|mimes:jpeg,png,jpg|max:100000', // Adjust the max file size as needed
         ]);
 
-        // Retrieve the basic info record
         $basicInfo = Basic_Info::findOrFail($id);
+    
+        if ($request->hasFile('profile_pic')) {
+            $file = $request->file('profile_pic');
+    
+            if ($file->isValid()) {
+                $newFileName = uniqid() . '.' . $file->getClientOriginalExtension();
 
-        // Get the profile picture file from the request
-        $profilePic = $request->file('profile_pic');
-
-        // If the user already has a profile picture, delete it
-        if ($basicInfo->profile_pic) {
-            $existingFilePath = public_path('images/faculty_images/' . $basicInfo->profile_pic);
-            if (File::exists($existingFilePath)) {
-                File::delete($existingFilePath);
+                // Delete previous profile picture if exists
+                if ($basicInfo->profile_pic) {
+                    $previousFilePath = public_path('images/faculty_images/') . $basicInfo->profile_pic;
+                    if (file_exists($previousFilePath)) {
+                        unlink($previousFilePath);
+                    }
+                }
+    
+                $file->move(public_path('images/faculty_images'), $newFileName);
+    
+                $basicInfo->profile_pic = $newFileName; // Updated to use the filename directly
+            } else {
+                return redirect('/admin/faculties/departments')->with('error', 'Invalid file.');
             }
         }
+    
+        $basicInfo->save(); // Moved save operation outside the if-else block
 
-        // Generate a new unique file name
-        $newFileName = uniqid() . '.' . $profilePic->getClientOriginalExtension();
-
-        // Move the uploaded file to the images directory
-        $profilePic->move(public_path('images/faculty_images'), $newFileName);
-
-        // Update the basic info record with the new profile picture path
-        $basicInfo->profile_pic = $newFileName;
-        $basicInfo->save();
-
-        return redirect('/admin/faculty/' . $id)->with('success', 'Profile picture updated successfully.');
+        // return redirect()->route('admin.faculty.show', ['id' => $id]);
+        return redirect()->back()->with(['faculty_data' => $basicInfo]);
+        // return redirect('/admin/faculty/' . $id)->with('success', 'Profile picture updated successfully.');
     }
 
     protected function updateAcademicEducation(Request $request, $id)

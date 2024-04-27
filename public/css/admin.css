@@ -139,7 +139,9 @@
     width: 30%;
 }
 
-.admin-add-faculty button, .go-to-files-btn button, .update-prof-btn button{
+.admin-add-faculty button, 
+.go-to-files-btn button, 
+.update-prof-btn button {
     font-size: medium;
     background-color: var(--light-green);
     border: none;
@@ -249,7 +251,8 @@
 .create-research-fields,
 .create-publications-fields, 
 .create-extensions-fields,
-.create-documents-fields {
+.create-documents-fields,
+.admin-profile-pic-update-cont {
     /* border: red solid 1px; */
     height: auto;
     background-color: white;

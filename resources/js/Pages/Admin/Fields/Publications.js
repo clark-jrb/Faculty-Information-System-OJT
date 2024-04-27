@@ -25,7 +25,7 @@ export default function Publications({ data, setData }) {
     };
 
     return (
-        <div className="create-publications-fields w-75 p-3">
+        <div className="create-publications-fields w-100 p-3">
             {data.publications.map((pub, index) => (
                 <div className="publications-flex d-flex py-2" key={index}>
                     <div className="flex-fill d-flex p-2 gap-3">

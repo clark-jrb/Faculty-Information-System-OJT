@@ -25,7 +25,7 @@ export default function Extensions({ data, setData }) {
     };
 
     return (
-        <div className="create-extensions-fields w-75 p-3">
+        <div className="create-extensions-fields w-100 p-3">
             {data.extensions.map((ext, index) => (
                 <div className="extensions-flex d-flex py-2" key={index}>
 

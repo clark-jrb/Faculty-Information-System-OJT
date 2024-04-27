@@ -25,7 +25,7 @@ export default function ResearchActivities({ data, setData }) {
     };
 
     return (
-        <div className="create-research-fields w-75 p-3">
+        <div className="create-research-fields w-100 p-3">
             {data.research.map((res, index) => (
                 <div className="research-flex d-flex py-2" key={index}>
                     <div className="flex-fill d-flex p-2 gap-3">

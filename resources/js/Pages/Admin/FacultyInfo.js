@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
+import { Form, Modal } from "react-bootstrap";
 import { useForm, usePage } from "@inertiajs/inertia-react";
 import 'react-datepicker/dist/react-datepicker.css'
 import AdminAuthenticated from "@/Layouts/AdminAuthenticated";
@@ -11,6 +12,7 @@ import ResearchActivities from "./Fields/ResearchActivities";
 import Publications from "./Fields/Publications";
 import Extensions from "./Fields/Extensions";
 import Documents from "./Fields/Documents";
+import Label from "@/Components/Label";
 
 export default function FacultyInfo({ children }) {
     const { 
@@ -23,6 +25,24 @@ export default function FacultyInfo({ children }) {
         document_data
     } = usePage().props;
 
+    const [fileInput, setFileInput] = useState(false)
+    const [updatePF, setUpdatePF] = useState(true);
+    const [removeUpdatePF, setRemoveUpdatePF] = useState(false);
+    const [showProfileUpdBtn, setShowProfileUpdBtn] = useState(false);
+
+    const handleRemoveUpdate = () => {
+        setRemoveUpdatePF(false)
+        setFileInput(false)
+        setUpdatePF(true)
+        setShowProfileUpdBtn(false)
+    }
+
+    const handleAddUpdatePF = () => {
+        setRemoveUpdatePF(true)
+        setFileInput(true)
+        setUpdatePF(false)
+    }
+    
     const { updateNotif, updateMessage } = useNotifContext()
 
     const AcadEducData = acadEduc_data.map(item => ({
@@ -92,6 +112,32 @@ export default function FacultyInfo({ children }) {
         documents: DocumentData
     });
 
+    const { data: profilePicData, setData: setProfPicData, post: postProfPicData, processing: profilePicProcess } = useForm({
+        profile_pic: faculty_data.profile_pic
+    })
+
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        setProfPicData(prevState => ({
+            ...prevState,
+            profile_pic: file 
+        }));
+        setShowProfileUpdBtn(true)
+    };
+
+    const handleUpdateProfPic = (e) => {
+        e.preventDefault();
+        try {
+            // console.log(profilePicData);
+            postProfPicData(`/admin/updateProfilePic/${faculty_data.id}`, profilePicData);
+            console.log('File uploaded successfully!');
+            setShowProfileUpdBtn(false);
+        } catch (error) {
+            console.error('Error uploading file:', error);
+            // Optionally, you can notify the user about the error, or handle it in another way.
+        }
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(data);
@@ -126,49 +172,107 @@ export default function FacultyInfo({ children }) {
                     
                 </div>
                 {/* FIELDS  */}
-                <div className="admin-create-fields mt-2">
-                    <form onSubmit={handleSubmit}>
-                    {/* BASIC FIELDS */}
+                <div className="d-flex gap-3">
+                    <div className="admin-create-fields mt-2 w-75">
+                        <form onSubmit={handleSubmit}>
+                        {/* BASIC FIELDS */}
+                            <div className="acf-title my-3 px-3">
+                                Basic Information
+                            </div>
+                            <BasicInfo 
+                                data={data} 
+                                setData={setData} 
+                                profile_pic={faculty_data.profile_pic}
+                                faculty_id={faculty_data.id}
+                            />
+                        {/* ACADEMIC FIELDS */}
+                            <div className="acf-title my-3 px-3">
+                                Academic
+                            </div>
+                            <Academic data={data} setData={setData}/>
+                        {/* RESEARCH FIELDS  */}
+                            <div className="acf-title my-3 px-3">
+                                Research
+                            </div>
+                            <ResearchActivities data={data} setData={setData}/>
+                        {/* PUBLICATIONS FIELDS  */}
+                            <div className="acf-title my-3 px-3">
+                                Publications
+                            </div>
+                            <Publications data={data} setData={setData}/>
+                        {/* EXTENSION ACTIVITIES  */}
+                            <div className="acf-title my-3 px-3">
+                                Extension Activities
+                            </div>
+                            <Extensions data={data} setData={setData}/>
+                        {/* DOCUMENTS  */}
+                            {/* <div className="acf-title my-3 px-3">
+                                Documents &#40;certificates etc.&#41; &#40;Not Required&#41; 
+                            </div>
+                            <Documents data={data} setData={setData}/> */}
+                        {/* SUBMIT BUTTON  */}
+                            <div className="admin-add-faculty d-flex justify-content-end py-3">
+                                <button className="p-3 py-2" type="submit">Update faculty</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div className="admin-faculty-files-panel w-25 mt-2">
                         <div className="acf-title my-3 px-3">
-                            Basic Information
+                            Files
                         </div>
-                        <BasicInfo 
-                            data={data} 
-                            setData={setData} 
-                            profile_pic={faculty_data.profile_pic}
-                            faculty_id={faculty_data.id}
-                        />
-                    {/* ACADEMIC FIELDS */}
-                        <div className="acf-title my-3 px-3">
-                            Academic
-                        </div>
-                        <Academic data={data} setData={setData}/>
-                    {/* RESEARCH FIELDS  */}
-                        <div className="acf-title my-3 px-3">
-                            Research
-                        </div>
-                        <ResearchActivities data={data} setData={setData}/>
-                    {/* PUBLICATIONS FIELDS  */}
-                        <div className="acf-title my-3 px-3">
-                            Publications
-                        </div>
-                        <Publications data={data} setData={setData}/>
-                    {/* EXTENSION ACTIVITIES  */}
-                        <div className="acf-title my-3 px-3">
-                            Extension Activities
-                        </div>
-                        <Extensions data={data} setData={setData}/>
-                    {/* DOCUMENTS  */}
-                        {/* <div className="acf-title my-3 px-3">
-                            Documents &#40;certificates etc.&#41; &#40;Not Required&#41; 
-                        </div>
-                        <Documents data={data} setData={setData}/> */}
-                    {/* SUBMIT BUTTON  */}
-                        <div className="admin-add-faculty d-flex justify-content-end py-3">
-                            <button className="p-3 py-2" type="submit">Update faculty</button>
-                        </div>
-                    </form>
-                </div>  
+                        <form onSubmit={handleUpdateProfPic}>
+                            <div className="admin-profile-pic-update-cont p-3">
+                                <div className="py-2 profile-image-cont">
+                                    <Label forInput="profile-image" value="Profile Picture:" />
+
+                                    <div className="d-flex justify-content-center py-2">
+                                        <img src={`/images/faculty_images/${faculty_data.profile_pic}`} alt="Faculty Profile" />
+                                    </div>
+                                    {fileInput && (
+                                        <>
+                                        <div className="add-field-container w-100 p-2">
+                                            <Form.Control type="file" name="profile_pic" onChange={handleFileChange}/>
+                                        </div>
+                                        {showProfileUpdBtn && (
+                                            <>
+                                            <div className="update-prof-btn px-2 d-flex align-items-center">
+                                                <div className="ms-auto">
+                                                    <button type="submit" className="p-3 py-1">
+                                                        Update
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            </>
+                                        )}
+                                        {profilePicProcess && (
+                                            <>
+                                            <p>Processing upload...</p>
+                                            </>
+                                        )}
+                                        </>
+                                    )}
+
+                                    {updatePF && (
+                                        <div className="update-btn-container w-100 px-2">
+                                            <button type="button" className="add-field-btn w-100 py-2" onClick={handleAddUpdatePF}
+                                            disabled={processing}>
+                                                <i className="fa-solid fa-square-pen"></i> Edit profile picture
+                                            </button>
+                                        </div>
+                                    )}
+                                    
+                                    {removeUpdatePF && (
+                                        <div className="remove-update-container w-100 p-2">
+                                            <button type="button" className="add-field-btn w-100 py-2" onClick={handleRemoveUpdate}>
+                                                <i className="fa-solid fa-xmark"></i> Cancel Edit
+                                            </button>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        </form>
+                    </div>  
+                </div>
             </div>
         </AdminAuthenticated>
     )
