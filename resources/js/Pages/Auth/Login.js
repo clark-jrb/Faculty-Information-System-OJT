@@ -42,51 +42,50 @@ export default function Login({ status, canResetPassword }) {
                 <div>
                     <Label forInput="email" value="Email" />
 
-                    <Input
-                        type="text"
+                    <input 
+                        type="text" 
                         name="email"
                         value={data.email}
-                        className="mt-1 block w-full"
-                        autoComplete="username"
-                        isFocused={true}
-                        handleChange={onHandleChange}
+                        className="input-cred-box my-1" 
+                        onChange={onHandleChange}
+                        placeholder="Email"
                     />
                 </div>
 
                 <div className="mt-4">
                     <Label forInput="password" value="Password" />
 
-                    <Input
-                        type="password"
+                    <input 
+                        type="password" 
                         name="password"
                         value={data.password}
-                        className="mt-1 block w-full"
-                        autoComplete="current-password"
-                        handleChange={onHandleChange}
+                        className="input-cred-box my-1" 
+                        onChange={onHandleChange}
+                        placeholder="Password"
                     />
                 </div>
 
-                <div className="block mt-4">
+                <div className="other-link-cont block mt-4">
                     <label className="flex items-center">
                         <Checkbox name="remember" value={data.remember} handleChange={onHandleChange} />
 
-                        <span className="ml-2 text-sm text-gray-600">Remember me</span>
+                        <span className="ml-2 text-sm">Remember me</span>
                     </label>
                 </div>
 
-                <div className="flex items-center justify-end mt-4">
+                <div className="other-link-cont flex items-center justify-end mt-4 gap-3">
                     {canResetPassword && (
                         <Link
                             href={route('password.request')}
-                            className="underline text-sm text-gray-600 hover:text-gray-900"
+                            className="underline text-sm hover:text-gray-900"
                         >
                             Forgot your password?
                         </Link>
                     )}
 
-                    <Button className="ml-4" processing={processing}>
+                    <button type='submit' className='py-1 px-3'>
                         Log in
-                    </Button>
+                    </button>
                 </div>
             </form>
         </Guest>

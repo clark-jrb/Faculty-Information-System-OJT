@@ -53,7 +53,7 @@ export default function Register() {
                 <div>
                     <Label forInput="name" value="Name" />
 
-                    <Input
+                    {/* <Input
                         type="text"
                         name="name"
                         value={data.name}
@@ -62,28 +62,49 @@ export default function Register() {
                         isFocused={true}
                         handleChange={onHandleChange}
                         required
+                    /> */}
+                    <input 
+                        type="text" 
+                        name="name"
+                        value={data.name}
+                        autoComplete="name"
+                        className="input-cred-box my-1" 
+                        onChange={onHandleChange}
+                        placeholder="Name"
+                        required
                     />
                 </div>
 
                 <div className="mt-4">
                     <Label forInput="email" value="Email" />
 
-                    <Input
+                    {/* <Input
                         type="email"
                         name="email"
                         value={data.email}
-                        className="mt-1 block w-full"
                         autoComplete="username"
+                        className="mt-1 block w-full"
                         handleChange={onHandleChange}
+                        placeholder="Email"
+                        required
+                    /> */}
+                    <input 
+                        type="email" 
+                        name="email"
+                        value={data.email}
+                        className="input-cred-box my-1" 
+                        autoComplete="username"
+                        onChange={onHandleChange}
+                        placeholder="Email"
                         required
                     />
                 </div>
 
-                <div className="mt-4">
+                <div className="for-dropdown-cont mt-4">
                     <Label forInput="role" value="Role" />
 
                     <Dropdown onSelect={handleRoleChange}>
-                        <Dropdown.Toggle variant="success" id="dropdown-basic">
+                        <Dropdown.Toggle variant="success" id="dropdown-basic" className='px-3'>
                             {selectedRole || 'Select Role'}
                         </Dropdown.Toggle>
 
@@ -97,13 +118,14 @@ export default function Register() {
                 <div className="mt-4">
                     <Label forInput="password" value="Password" />
 
-                    <Input
-                        type="password"
+                    <input 
+                        type="password" 
                         name="password"
                         value={data.password}
-                        className="mt-1 block w-full"
+                        className="input-cred-box my-1" 
                         autoComplete="new-password"
-                        handleChange={onHandleChange}
+                        onChange={onHandleChange}
+                        placeholder="Password"
                         required
                     />
                 </div>
@@ -111,24 +133,26 @@ export default function Register() {
                 <div className="mt-4">
                     <Label forInput="password_confirmation" value="Confirm Password" />
 
-                    <Input
-                        type="password"
+                    <input 
+                        type="password" 
                         name="password_confirmation"
                         value={data.password_confirmation}
-                        className="mt-1 block w-full"
-                        handleChange={onHandleChange}
+                        className="input-cred-box my-1" 
+                        autoComplete="new-password"
+                        onChange={onHandleChange}
+                        placeholder="Confirm password"
                         required
                     />
                 </div>
 
-                <div className="flex items-center justify-end mt-4">
+                <div className="other-link-cont flex items-center justify-end mt-4 gap-3">
                     <Link href={route('login')} className="underline text-sm text-gray-600 hover:text-gray-900">
                         Already registered?
                     </Link>
 
-                    <Button className="ml-4" processing={processing}>
+                    <button type='submit' className='py-1 px-3'>
                         Register
-                    </Button>
+                    </button>
                 </div>
             </form>
         </Guest>
