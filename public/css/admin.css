@@ -286,7 +286,9 @@
     width: 100px;
 }
 
-.remove-field-btn button, .cancel-add-btn button {
+.remove-field-btn button, 
+.cancel-add-btn button,
+.delete-doc-btn button {
     display: grid;
     align-items: center;
     font-size: small;
@@ -297,7 +299,9 @@
     border-bottom: 3px solid var(--dark-red);
 }
 
-.remove-field-btn button:active {
+.remove-field-btn button:active,
+.cancel-add-btn button:active,
+.delete-doc-btn button:active {
     border-bottom: 1px solid var(--dark-red);
 }
 

@@ -129,7 +129,7 @@ export default function AdminCreateFaculty({ children }) {
                         </div>
                         <Documents data={data} setData={setData}/>
                     {/* SUBMIT BUTTON  */}
-                        <div className="admin-add-faculty d-flex justify-content-end py-3">
+                        <div className="admin-add-faculty d-flex justify-content-end py-3 w-75">
                             <button className="p-3 py-2" type="submit">Create faculty</button>
                         </div>
                     </form>

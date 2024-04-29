@@ -528,4 +528,14 @@ class AdminController extends Controller
 
         return redirect('/admin/faculties/departments');
     }
+
+    public function deleteDocument($id)
+    {
+        $document = Document::findOrFail($id);
+        $document->delete();
+
+        $documents = Document::get();
+
+        return redirect()->back()->with(['document_data' => $documents]);
+    }
 }

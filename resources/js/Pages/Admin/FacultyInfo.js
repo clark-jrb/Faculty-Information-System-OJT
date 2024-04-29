@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import NavLink from "@/Components/NavLink";
 import { Form } from "react-bootstrap";
-import { useForm, usePage } from "@inertiajs/inertia-react";
+import { useForm, usePage, InertiaLink } from "@inertiajs/inertia-react";
 import 'react-datepicker/dist/react-datepicker.css'
 import AdminAuthenticated from "@/Layouts/AdminAuthenticated";
 import { useNotifContext } from "@/Contexts/Notification";
@@ -67,6 +67,7 @@ export default function FacultyInfo({ children }) {
     }));
 
     const DocumentData = document_data.map(item => ({
+        doc_id: item.id,
         label: item.label,
         file_name: item.file_name
     }));
@@ -315,6 +316,19 @@ export default function FacultyInfo({ children }) {
                                         <Label forInput="file-image" value={file.label + ":"} />
                                     </div>
                                     <p>{file.file_name}</p>
+                                    <div className="d-flex align-items-center">
+                                        <div className="delete-doc-btn ms-auto">
+                                            <InertiaLink
+                                                method="delete"
+                                                href={route('admin.deleteDocument', { id: file.doc_id })} 
+                                                className="py-1 px-2"
+                                                as="button"
+                                            >
+                                                Delete
+                                            </InertiaLink>
+                                        </div>
+                                    </div>
+                                    
                                 </form>
                             </div>
                         ))}
