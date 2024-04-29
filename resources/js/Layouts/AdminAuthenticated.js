@@ -45,7 +45,7 @@ export default function AdminAuthenticated({ children }) {
                                 </div>
                             </Dropdown.Trigger> 
                             <Dropdown.Content>
-                                <Dropdown.Link href={route('logout')}>Log Out</Dropdown.Link>
+                                <Dropdown.Link href={route('logout')} as="button">Log Out</Dropdown.Link>
                             </Dropdown.Content>
                         </Dropdown>
                     </div>

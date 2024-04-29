@@ -44,7 +44,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 
     // Faculty Route
-    Route::get('/faculty', fn () => Inertia::render('Faculty'))->name('faculty');
+    // Route::get('/faculty', fn () => Inertia::render('Faculty'))->name('faculty');
+    Route::get('/faculty', [AdminController::class, 'showFaculties'])->name('faculties');
 
     // Facility Route
     Route::get('/facilities', fn () => Inertia::render('Facilities'))->name('facilities');

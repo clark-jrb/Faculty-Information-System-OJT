@@ -29,6 +29,7 @@
 .faculty-title {
     font-size: xx-large;
     font-weight: bold;
+    color: var(--grey);
 }
 
 .filters {
@@ -66,10 +67,36 @@
 .legend {
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
     color: var(--grey);
 }
 
 .sample {
     color: green;
+}
+
+.faculty-department-ae,
+.faculty-department-am,
+.faculty-department-as {
+    background-color: var(--light-green);
+    width: 100%;
+    color: white;
+    border-radius: 3px;
+    display: flex;
+    user-select: none;
+}
+
+.faculties-table {
+    background-color: white;
+    width: 100%;
+    border-radius: 3px;
+}
+
+.faculties-table tbody tr,
+.faculties-table thead tr {
+    border-bottom: #ccc 1px solid;
+}
+
+.faculties-table a{
+    color: var(--grey);
 }

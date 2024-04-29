@@ -303,6 +303,25 @@ class AdminController extends Controller
             'document_data' => $document_data
         ]);
     }
+
+    public function showFaculties()
+    {
+        $faculty_data_ae = Basic_Info::where('department', 'like', 'Agricultural Extension')->get();
+        $faculty_data_am = Basic_Info::where('department', 'like', 'Agri-Management')->get();
+        $faculty_data_as = Basic_Info::where('department', 'like', 'Animal Science')->get();
+        $faculty_data_cp = Basic_Info::where('department', 'like', 'Crop Protection')->get();
+        $faculty_data_cs = Basic_Info::where('department', 'like', 'Crop Science')->get();
+        $faculty_data_ss = Basic_Info::where('department', 'like', 'Soil Science')->get();
+
+        return Inertia::render('Faculty', [
+            'faculty_data_ae' => $faculty_data_ae,
+            'faculty_data_am' => $faculty_data_am,
+            'faculty_data_as' => $faculty_data_as,
+            'faculty_data_cp' => $faculty_data_cp,
+            'faculty_data_cs' => $faculty_data_cs,
+            'faculty_data_ss' => $faculty_data_ss
+        ]);
+    }
     /**
      * Show the form for editing the specified resource.
      *

@@ -1,5 +1,7 @@
 import React from 'react';
 import Authenticated from '@/Layouts/Authenticated';
+import Table1 from './Tables/Table1';
+import Table2 from './Tables/Table2';
 
 export default function Faculty(props) {
     return (
@@ -26,7 +28,7 @@ export default function Faculty(props) {
 
                             <div className="filter-rank">
                                 <select id="rankFilter" className="form-select" aria-label="Default select example">
-                                    <option disabled selected>Select Rank</option>
+                                    <option disabled>Select Rank</option>
                                     <option value="1">Dean</option>
                                     <option value="2">Professor</option>
                                     <option value="3">Associate Professor</option>
@@ -37,7 +39,7 @@ export default function Faculty(props) {
 
                             <div className="filter-degree">
                                 <select id="degreeFilter" className="form-select" aria-label="Default select example">
-                                    <option disabled selected>Select Degree</option>
+                                    <option disabled>Select Degree</option>
                                     <option value="1">Doctoral</option>
                                     <option value="2">Masteral</option>
                                     <option value="3">Bachelor</option>
@@ -46,7 +48,7 @@ export default function Faculty(props) {
 
                             <div className="filter-department">
                                 <select id="departmentFilter" className="form-select" aria-label="Default select example">
-                                    <option disabled selected>Select Department</option>
+                                    <option disabled>Select Department</option>
                                     <option value="1">Agricultural Extension</option>
                                     <option value="2">Agri-Management</option>
                                     <option value="3">Animal Science</option>
@@ -65,7 +67,7 @@ export default function Faculty(props) {
                             </div>
                             <div className="legend-head">
                                 <p className="m-0">
-                                    <i className="fa-solid fa-user" style={{color: "var(--green)"}}></i> Head
+                                    <i className="fa-solid fa-user" style={{color: "var(--light-green)"}}></i> Head
                                 </p>
                             </div>
                             <div className="legend-faculty">
@@ -76,8 +78,9 @@ export default function Faculty(props) {
                         </div>
                         
                     </div>
-                    <div className="lists-tables">
-
+                    <div className="lists-tables py-3">
+                        <Table1/>
+                        <Table2/>
                     </div>
                 </div>
             </div>

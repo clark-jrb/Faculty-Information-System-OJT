@@ -668,6 +668,9 @@ select {
   white-space: nowrap;
   border-width: 0;
 }
+.collapse {
+  visibility: collapse;
+}
 .fixed {
   position: fixed;
 }
@@ -926,6 +929,9 @@ select {
 }
 .overflow-hidden {
   overflow: hidden;
+}
+.text-wrap {
+  text-wrap: wrap;
 }
 .rounded {
   border-radius: 0.25rem;

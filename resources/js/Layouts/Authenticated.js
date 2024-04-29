@@ -51,7 +51,7 @@ export default function Authenticated({ auth, children }) {
                             </NavLink>
                         </li>
                         <li className="px-3" >
-                            <NavLink href={route('faculty')} active={route().current('faculty')}>
+                            <NavLink href={route('faculties')} active={route().current('faculties')}>
                                 <p className="p-1 m-0">
                                     <i className="fa-solid fa-bars-staggered"></i> Faculty
                                 </p>
