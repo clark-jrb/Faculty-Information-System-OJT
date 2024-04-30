@@ -1,12 +1,6 @@
 import React from 'react';
-import { usePage } from '@inertiajs/inertia-react';
 
-export default function Table1 () {
-    const { 
-        faculty_data_cp,
-        faculty_data_cs,
-        faculty_data_ss
-    } = usePage().props;
+export default function Table1 ({cp_data, cs_data, ss_data}) {
 
     return (
         <div className='d-flex gap-3 pt-3'>
@@ -17,12 +11,12 @@ export default function Table1 () {
                     </div>
                     <div className='ms-auto'>
                         <p className='m-0'>
-                            <i className="fa-regular fa-user fa-sm"></i>&nbsp;{faculty_data_cp.length}
+                            <i className="fa-regular fa-user fa-xs"></i>&nbsp;{cp_data.length}
                         </p>
                     </div>
                 </div>
                 <div className="agri-dept-ae-table-cont">
-                    {faculty_data_cp.length === 0 ? (
+                    {cp_data.length === 0 ? (
                         <div className="d-flex justify-content-center align-items-center h-100">
                             <p className="m-0">No data to show</p>
                         </div>
@@ -37,7 +31,7 @@ export default function Table1 () {
                                 </tr>
                             </thead>
                             <tbody>
-                                {faculty_data_cp.map((faculty, index) => (
+                                {cp_data.map((faculty, index) => (
                                     <tr 
                                         key={index}
                                         onClick={() => checked ? null : handleRowClick(faculty.id)}
@@ -68,12 +62,12 @@ export default function Table1 () {
                     </div>
                     <div className='ms-auto'>
                         <p className='m-0'>
-                            <i className="fa-regular fa-user fa-sm"></i>&nbsp;{faculty_data_cs.length}
+                            <i className="fa-regular fa-user fa-xs"></i>&nbsp;{cs_data.length}
                         </p>
                     </div>
                 </div>
                 <div className="agri-dept-ae-table-cont">
-                    {faculty_data_cs.length === 0 ? (
+                    {cs_data.length === 0 ? (
                         <div className="d-flex justify-content-center align-items-center h-100">
                             <p className="m-0">No data to show</p>
                         </div>
@@ -88,7 +82,7 @@ export default function Table1 () {
                                 </tr>
                             </thead>
                             <tbody>
-                                {faculty_data_cs.map((faculty, index) => (
+                                {cs_data.map((faculty, index) => (
                                     <tr 
                                         key={index}
                                         onClick={() => checked ? null : handleRowClick(faculty.id)}
@@ -119,12 +113,12 @@ export default function Table1 () {
                     </div>
                     <div className='ms-auto'>
                         <p className='m-0'>
-                            <i className="fa-regular fa-user fa-sm"></i>&nbsp;{faculty_data_ss.length}
+                            <i className="fa-regular fa-user fa-xs"></i>&nbsp;{ss_data.length}
                         </p>
                     </div>
                 </div>
                 <div className="agri-dept-ae-table-cont">
-                    {faculty_data_ss.length === 0 ? (
+                    {ss_data.length === 0 ? (
                         <div className="d-flex justify-content-center align-items-center h-100">
                             <p className="m-0">No data to show</p>
                         </div>
@@ -139,7 +133,7 @@ export default function Table1 () {
                                 </tr>
                             </thead>
                             <tbody>
-                                {faculty_data_ss.map((faculty, index) => (
+                                {ss_data.map((faculty, index) => (
                                     <tr 
                                         key={index}
                                         onClick={() => checked ? null : handleRowClick(faculty.id)}

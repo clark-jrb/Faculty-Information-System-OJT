@@ -72,6 +72,7 @@ class AdminController extends Controller
     {
         //
     }
+
     // Agricultural Extension
     public function getAE()
     {

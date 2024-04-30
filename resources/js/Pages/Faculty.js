@@ -1,9 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Authenticated from '@/Layouts/Authenticated';
 import Table1 from './Tables/Table1';
 import Table2 from './Tables/Table2';
+import { usePage } from '@inertiajs/inertia-react';
+import { Inertia } from '@inertiajs/inertia';
 
 export default function Faculty(props) {
+    const { 
+        faculty_data_ae,
+        faculty_data_am,
+        faculty_data_as,
+        faculty_data_cp,
+        faculty_data_cs,
+        faculty_data_ss
+    } = usePage().props;
+
+    const [selectedRank, setSelectedRank] = useState('');
+
+    const handleSelectedRank = (e) => {
+        setSelectedRank(e.target.value);
+    };
+
+    const filteredFacultyAE = faculty_data_ae.filter(faculty => {
+        return (
+            (selectedRank === '' || faculty.position === selectedRank)
+        );
+    });
+
+    const filteredFacultyAM = faculty_data_am.filter(faculty => {
+        return (
+            (selectedRank === '' || faculty.position === selectedRank)
+        );
+    });
+
+    const filteredFacultyAS = faculty_data_as.filter(faculty => {
+        return (
+            (selectedRank === '' || faculty.position === selectedRank)
+        );
+    });
+
     return (
         <Authenticated
             auth={props.auth}
@@ -27,13 +62,19 @@ export default function Faculty(props) {
                             </button>
 
                             <div className="filter-rank">
-                                <select id="rankFilter" className="form-select" aria-label="Default select example">
-                                    <option disabled>Select Rank</option>
-                                    <option value="1">Dean</option>
-                                    <option value="2">Professor</option>
-                                    <option value="3">Associate Professor</option>
-                                    <option value="4">Assistant Professor</option>
-                                    <option value="5">Instructor</option>
+                                <select 
+                                    id="rankFilter" 
+                                    className="form-select" 
+                                    aria-label="Default select example"
+                                    value={selectedRank}
+                                    onChange={handleSelectedRank}
+                                >
+                                    <option disabled value="">Select Rank</option>
+                                    <option value="College Dean">Dean</option>
+                                    <option value="Professor I">Professor</option>
+                                    <option value="Associate Professor I">Associate Professor</option>
+                                    <option value="Assistant Professor I">Assistant Professor</option>
+                                    <option value="Instructor I">Instructor</option>
                                 </select>
                             </div>
 
@@ -79,8 +120,8 @@ export default function Faculty(props) {
                         
                     </div>
                     <div className="lists-tables py-3">
-                        <Table1/>
-                        <Table2/>
+                        <Table1 ae_data={filteredFacultyAE} am_data={filteredFacultyAM} as_data={filteredFacultyAS}/>
+                        <Table2 cp_data={faculty_data_cp} cs_data={faculty_data_cs} ss_data={faculty_data_ss}/>
                     </div>
                 </div>
             </div>

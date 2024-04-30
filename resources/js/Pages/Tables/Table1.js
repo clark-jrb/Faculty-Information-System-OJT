@@ -1,13 +1,6 @@
 import React, { useEffect } from 'react';
-import { usePage } from '@inertiajs/inertia-react';
-import { InertiaLink } from "@inertiajs/inertia-react";
 
-export default function Table1 () {
-    const { 
-        faculty_data_ae,
-        faculty_data_am,
-        faculty_data_as
-    } = usePage().props;
+export default function Table1 ({ae_data, am_data, as_data}) {
 
     // useEffect(() => {
     //     console.log(faculty_data_ae);
@@ -22,12 +15,12 @@ export default function Table1 () {
                     </div>
                     <div className='ms-auto'>
                         <p className='m-0'>
-                            <i class="fa-regular fa-user"></i>&nbsp;{faculty_data_ae.length}
+                            <i className="fa-regular fa-user fa-xs"></i>&nbsp;{ae_data.length}
                         </p>
                     </div>
                 </div>
                 <div className="agri-dept-ae-table-cont">
-                    {faculty_data_ae.length === 0 ? (
+                    {ae_data.length === 0 ? (
                         <div className="d-flex justify-content-center align-items-center h-100">
                             <p className="m-0">No data to show</p>
                         </div>
@@ -42,7 +35,7 @@ export default function Table1 () {
                                 </tr>
                             </thead>
                             <tbody>
-                                {faculty_data_ae.map((faculty, index) => (
+                                {ae_data.map((faculty, index) => (
                                     <tr 
                                         key={index}
                                         onClick={() => checked ? null : handleRowClick(faculty.id)}
@@ -73,12 +66,12 @@ export default function Table1 () {
                     </div>
                     <div className='ms-auto'>
                         <p className='m-0'>
-                            <i class="fa-regular fa-user"></i>&nbsp;{faculty_data_am.length}
+                            <i className="fa-regular fa-user fa-xs"></i>&nbsp;{am_data.length}
                         </p>
                     </div>
                 </div>
                 <div className="agri-dept-ae-table-cont">
-                    {faculty_data_am.length === 0 ? (
+                    {am_data.length === 0 ? (
                         <div className="d-flex justify-content-center align-items-center h-100">
                             <p className="m-0">No data to show</p>
                         </div>
@@ -93,7 +86,7 @@ export default function Table1 () {
                                 </tr>
                             </thead>
                             <tbody>
-                                {faculty_data_am.map((faculty, index) => (
+                                {am_data.map((faculty, index) => (
                                     <tr 
                                         key={index}
                                         onClick={() => checked ? null : handleRowClick(faculty.id)}
@@ -124,12 +117,12 @@ export default function Table1 () {
                     </div>
                     <div className='ms-auto'>
                         <p className='m-0'>
-                            <i class="fa-regular fa-user"></i>&nbsp;{faculty_data_as.length}
+                            <i className="fa-regular fa-user fa-xs"></i>&nbsp;{as_data.length}
                         </p>
                     </div>
                 </div>
                 <div className="agri-dept-ae-table-cont">
-                    {faculty_data_as.length === 0 ? (
+                    {as_data.length === 0 ? (
                         <div className="d-flex justify-content-center align-items-center h-100">
                             <p className="m-0">No data to show</p>
                         </div>
@@ -144,7 +137,7 @@ export default function Table1 () {
                                 </tr>
                             </thead>
                             <tbody>
-                                {faculty_data_as.map((faculty, index) => (
+                                {as_data.map((faculty, index) => (
                                     <tr 
                                         key={index}
                                         onClick={() => checked ? null : handleRowClick(faculty.id)}

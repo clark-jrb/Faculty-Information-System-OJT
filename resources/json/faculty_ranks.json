@@ -1,0 +1,22 @@
+[
+    { "id": "1", "rank": "Instructor I"},
+    { "id": "2", "rank": "Instructor II"},
+    { "id": "3", "rank": "Instructor III"},
+    { "id": "4", "rank": "Instructor IV"},
+    { "id": "5", "rank": "Instructor V"},
+    { "id": "6", "rank": "Assistant Professor I"},
+    { "id": "7", "rank": "Assistant Professor II"},
+    { "id": "8", "rank": "Assistant Professor III"},
+    { "id": "9", "rank": "Assistant Professor IV"},
+    { "id": "10", "rank": "Assistant Professor V"},
+    { "id": "11", "rank": "Associate Professor I"},
+    { "id": "12", "rank": "Associate Professor II"},
+    { "id": "13", "rank": "Associate Professor III"},
+    { "id": "14", "rank": "Associate Professor IV"},
+    { "id": "15", "rank": "Associate Professor V"},
+    { "id": "16", "rank": "Professor I"},
+    { "id": "17", "rank": "Professor II"},
+    { "id": "18", "rank": "Professor III"},
+    { "id": "19", "rank": "Professor IV"},
+    { "id": "20", "rank": "Professor V"}
+]
