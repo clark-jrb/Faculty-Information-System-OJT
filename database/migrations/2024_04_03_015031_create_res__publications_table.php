@@ -15,7 +15,7 @@ class CreateResPublicationsTable extends Migration
     {
         Schema::create('res__publications', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('faculty_id', 5);
+            $table->unsignedBigInteger('faculty_id');
             $table->string('proj_title');
             $table->string('authors');
             $table->string('date');

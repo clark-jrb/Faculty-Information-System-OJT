@@ -15,7 +15,7 @@ class CreateAcadWorkExpsTable extends Migration
     {
         Schema::create('acad__work_exps', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('faculty_id', 5);
+            $table->unsignedBigInteger('faculty_id');
             $table->string('position');
             $table->string('work_loc');
             $table->string('date');
