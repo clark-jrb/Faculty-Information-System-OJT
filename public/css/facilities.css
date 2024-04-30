@@ -12,14 +12,13 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0;
     padding: 10px;
     margin: 0;
     font-weight: lighter;
     font-size: 25px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
     color: white;
+    transition: opacity 0.3s ease;
+    z-index: 2;
 }
 
 .image-box {
@@ -36,9 +35,9 @@
 }
 
 .image-box img {
-    width: 100%;
-    height: auto;
-    transition: opacity 0.3s ease;
+    width: 500px;
+    height: 300px;
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .image-overlay {
@@ -50,14 +49,19 @@
     background-color: rgba(0, 0, 0, 0.5);
     opacity: 0;
     transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.image-box:hover img {
+    transform: scale(1.2);
 }
 
 .image-box:hover .image-overlay {
     opacity: 1;
 }
 
-.facility-tables {
-    margin-top: 10px;
+.title-filters-legend {
+    margin-bottom: 15px;
 }
 
 .modal-header {
