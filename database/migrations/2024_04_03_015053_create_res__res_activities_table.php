@@ -15,7 +15,7 @@ class CreateResResActivitiesTable extends Migration
     {
         Schema::create('res__res_activities', function (Blueprint $table) {
             $table->id();
-            $table->integer('faculty_id', 5);
+            $table->unsignedInteger('faculty_id', 5);
             $table->string('res_title');
             $table->string('status');
             $table->string('duration');

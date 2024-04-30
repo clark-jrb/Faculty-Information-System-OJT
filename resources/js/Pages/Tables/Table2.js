@@ -17,7 +17,7 @@ export default function Table1 () {
                     </div>
                     <div className='ms-auto'>
                         <p className='m-0'>
-                            <i class="fa-regular fa-user"></i>&nbsp;{faculty_data_cp.length}
+                            <i className="fa-regular fa-user fa-sm"></i>&nbsp;{faculty_data_cp.length}
                         </p>
                     </div>
                 </div>
@@ -68,7 +68,7 @@ export default function Table1 () {
                     </div>
                     <div className='ms-auto'>
                         <p className='m-0'>
-                            <i class="fa-regular fa-user"></i>&nbsp;{faculty_data_cs.length}
+                            <i className="fa-regular fa-user fa-sm"></i>&nbsp;{faculty_data_cs.length}
                         </p>
                     </div>
                 </div>
@@ -119,7 +119,7 @@ export default function Table1 () {
                     </div>
                     <div className='ms-auto'>
                         <p className='m-0'>
-                            <i class="fa-regular fa-user"></i>&nbsp;{faculty_data_ss.length}
+                            <i className="fa-regular fa-user fa-sm"></i>&nbsp;{faculty_data_ss.length}
                         </p>
                     </div>
                 </div>

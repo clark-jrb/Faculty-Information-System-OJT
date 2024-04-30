@@ -15,7 +15,7 @@ class CreateExtActivitiesTable extends Migration
     {
         Schema::create('ext__activities', function (Blueprint $table) {
             $table->id();
-            $table->integer('faculty_id', 5);
+            $table->unsignedInteger('faculty_id', 5);
             $table->string('ext_title');
             $table->string('duration');
             $table->string('lead');
