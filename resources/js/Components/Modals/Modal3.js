@@ -7,29 +7,29 @@ import sample3 from '../../../../public/images/sample3.jpg'
 export default function Modal3 ({ show, handleClose }) {
     return (
         <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton className="modal-header">
-                <Modal.Title className="modal-title">Facility 3</Modal.Title>
+            <Modal.Header closeButton>
+                <Modal.Title>Facility 3</Modal.Title>
             </Modal.Header>
 
             <Modal.Body>
                 <Carousel>
-                    <Carousel.Item className="carousel-item">
+                    <Carousel.Item>
                         <img
-                            className="d-block w-100 carousel-image"
+                            className="d-block w-100"
                             src={sample3}
                             alt="Facility 1"
                         />
                     </Carousel.Item>
-                    <Carousel.Item className="carousel-item">
+                    <Carousel.Item>
                         <img
-                            className="d-block w-100 carousel-image"
+                            className="d-block w-100"
                             src={sample1}
                             alt="Facility 2"
                         />
                     </Carousel.Item>
-                    <Carousel.Item className="carousel-item">
+                    <Carousel.Item>
                         <img
-                            className="d-block w-100 carousel-image"
+                            className="d-block w-100"
                             src={sample2}
                             alt="Facility 3"
                         />
