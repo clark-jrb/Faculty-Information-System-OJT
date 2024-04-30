@@ -1,19 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Authenticated from '@/Layouts/Authenticated';
 import Table1 from './Tables/Table1';
 import Table2 from './Tables/Table2';
 
 export default function Faculty(props) {
-    const [rankFilter, setRankFilter] = useState('');
-    const [degreeFilter, setDegreeFilter] = useState('');
-    const [departmentFilter, setDepartmentFilter] = useState('');
-
-    const resetFilters = () => {
-        setRankFilter('');
-        setDegreeFilter('');
-        setDepartmentFilter('');
-    };
-
     return (
         <Authenticated
             auth={props.auth}
@@ -29,7 +19,7 @@ export default function Faculty(props) {
                         </div>
                         
                         <div className="filters d-flex">
-                            <button id="resetFilter" className="filter-reset d-flex p-1 px-2" onClick={resetFilters}>
+                            <button id="resetFilter" className="filter-reset d-flex p-1 px-2">
                                 <i className="fa-solid fa-rotate-right"></i>
                                 <p className="m-0">
                                     &nbsp;Reset
@@ -37,7 +27,7 @@ export default function Faculty(props) {
                             </button>
 
                             <div className="filter-rank">
-                                <select id="rankFilter" className="form-select" aria-label="Default select example" value={rankFilter} onChange={(e) => setRankFilter(e.target.value)}>
+                                <select id="rankFilter" className="form-select" aria-label="Default select example">
                                     <option disabled>Select Rank</option>
                                     <option value="1">Dean</option>
                                     <option value="2">Professor</option>
@@ -48,7 +38,7 @@ export default function Faculty(props) {
                             </div>
 
                             <div className="filter-degree">
-                                <select id="degreeFilter" className="form-select" aria-label="Default select example" value={degreeFilter} onChange={(e) => setDegreeFilter(e.target.value)}>
+                                <select id="degreeFilter" className="form-select" aria-label="Default select example">
                                     <option disabled>Select Degree</option>
                                     <option value="1">Doctoral</option>
                                     <option value="2">Masteral</option>
@@ -57,7 +47,7 @@ export default function Faculty(props) {
                             </div>
 
                             <div className="filter-department">
-                                <select id="departmentFilter" className="form-select" aria-label="Default select example" value={departmentFilter} onChange={(e) => setDepartmentFilter(e.target.value)}>
+                                <select id="departmentFilter" className="form-select" aria-label="Default select example">
                                     <option disabled>Select Department</option>
                                     <option value="1">Agricultural Extension</option>
                                     <option value="2">Agri-Management</option>
