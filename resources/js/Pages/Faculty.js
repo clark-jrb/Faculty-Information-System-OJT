@@ -4,6 +4,7 @@ import Table1 from './Tables/Table1';
 import Table2 from './Tables/Table2';
 import { usePage } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
+import { filterFacultyByRank } from '@/utils/filters';
 
 export default function Faculty(props) {
     const { 
@@ -21,23 +22,12 @@ export default function Faculty(props) {
         setSelectedRank(e.target.value);
     };
 
-    const filteredFacultyAE = faculty_data_ae.filter(faculty => {
-        return (
-            (selectedRank === '' || faculty.position === selectedRank)
-        );
-    });
-
-    const filteredFacultyAM = faculty_data_am.filter(faculty => {
-        return (
-            (selectedRank === '' || faculty.position === selectedRank)
-        );
-    });
-
-    const filteredFacultyAS = faculty_data_as.filter(faculty => {
-        return (
-            (selectedRank === '' || faculty.position === selectedRank)
-        );
-    });
+    const filteredFacultyAE = filterFacultyByRank(faculty_data_ae, selectedRank);
+    const filteredFacultyAM = filterFacultyByRank(faculty_data_am, selectedRank);
+    const filteredFacultyAS = filterFacultyByRank(faculty_data_as, selectedRank);
+    const filteredFacultyCP = filterFacultyByRank(faculty_data_cp, selectedRank);
+    const filteredFacultyCS = filterFacultyByRank(faculty_data_cs, selectedRank);
+    const filteredFacultySS = filterFacultyByRank(faculty_data_ss, selectedRank);
 
     return (
         <Authenticated
@@ -121,7 +111,7 @@ export default function Faculty(props) {
                     </div>
                     <div className="lists-tables py-3">
                         <Table1 ae_data={filteredFacultyAE} am_data={filteredFacultyAM} as_data={filteredFacultyAS}/>
-                        <Table2 cp_data={faculty_data_cp} cs_data={faculty_data_cs} ss_data={faculty_data_ss}/>
+                        <Table2 cp_data={filteredFacultyCP} cs_data={filteredFacultyCS} ss_data={filteredFacultySS}/>
                     </div>
                 </div>
             </div>
