@@ -38,14 +38,15 @@
     overflow: hidden;
     margin: 0;
     display: flex;
+    justify-content: end;
 }
 
 .navbar-agri li {
     /* float: left; */
-    flex: 1;
+    /* flex: 1; */
     height: 100%;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    /* justify-content: center; */
     align-items: center;
 }
 

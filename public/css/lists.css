@@ -75,7 +75,7 @@
     color: green;
 }
 
-.faculty-department-ae,
+/* .faculty-department-ae,
 .faculty-department-am,
 .faculty-department-as {
     background-color: var(--light-green);
@@ -83,6 +83,24 @@
     color: white;
     border-radius: 3px;
     display: flex;
+    user-select: none;
+} */
+
+.faculty-department-ae,
+.faculty-department-am,
+.faculty-department-as,
+.faculty-department-cp,
+.faculty-department-cs,
+.faculty-department-ss {
+    background-color: rgb(233, 233, 233);
+    width: 100%;
+    font-weight: bold;
+    color: var(--grey);
+    border-bottom: var(--green) solid 3px;
+    /* border-radius: 3px; */
+    display: flex;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
     user-select: none;
 }
 

@@ -10,7 +10,7 @@ export default function Table1 ({cp_data, cs_data, ss_data}) {
     return (
         <div className='d-flex gap-3 pt-3'>
             <div className='faculty-per-table flex-fill'>
-                <div className="faculty-department-ae p-3">
+                <div className="faculty-department-cp p-3">
                     <div>
                         <i className="fa-solid fa-building-wheat" style={{ color: 'var(--yellow)'}}></i> &nbsp;Department of Crop Protection
                     </div>
@@ -61,7 +61,7 @@ export default function Table1 ({cp_data, cs_data, ss_data}) {
             </div>
             
             <div className='faculty-per-table flex-fill'>
-                <div className="faculty-department-am p-3">
+                <div className="faculty-department-cs p-3">
                     <div>
                         <i className="fa-solid fa-building-wheat" style={{ color: 'var(--yellow)'}}></i> &nbsp;Department of Crop Science
                     </div>
@@ -112,7 +112,7 @@ export default function Table1 ({cp_data, cs_data, ss_data}) {
             </div>
 
             <div className='faculty-per-table flex-fill'>
-                <div className="faculty-department-as p-3">
+                <div className="faculty-department-ss p-3">
                     <div>
                         <i className="fa-solid fa-building-wheat" style={{ color: 'var(--yellow)'}}></i> &nbsp;Department of Soil Science
                     </div>
