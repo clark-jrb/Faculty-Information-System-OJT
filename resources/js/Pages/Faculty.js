@@ -29,6 +29,10 @@ export default function Faculty(props) {
     const filteredFacultyCS = filterFacultyByRank(faculty_data_cs, selectedRank);
     const filteredFacultySS = filterFacultyByRank(faculty_data_ss, selectedRank);
 
+    const resetFilter = () => {
+        setSelectedRank('')
+    }
+
     return (
         <Authenticated
             auth={props.auth}
@@ -44,12 +48,17 @@ export default function Faculty(props) {
                         </div>
                         
                         <div className="filters d-flex">
-                            <button id="resetFilter" className="filter-reset d-flex p-1 px-2">
+                            {selectedRank !== '' ? 
+                            <>
+                            <button id="resetFilter" className="filter-reset d-flex p-1 px-2" onClick={() => resetFilter()}>
                                 <i className="fa-solid fa-rotate-right"></i>
                                 <p className="m-0">
                                     &nbsp;Reset
                                 </p>
                             </button>
+                            </> : 
+                            <>
+                            </>}
 
                             <div className="filter-rank">
                                 <select 
@@ -61,10 +70,10 @@ export default function Faculty(props) {
                                 >
                                     <option disabled value="">Select Rank</option>
                                     <option value="College Dean">Dean</option>
-                                    <option value="Professor I">Professor</option>
-                                    <option value="Associate Professor I">Associate Professor</option>
-                                    <option value="Assistant Professor I">Assistant Professor</option>
-                                    <option value="Instructor I">Instructor</option>
+                                    <option value="Professor">Professor</option>
+                                    <option value="Associate Professor">Associate Professor</option>
+                                    <option value="Assistant Professor">Assistant Professor</option>
+                                    <option value="Instructor">Instructor</option>
                                 </select>
                             </div>
 
@@ -77,7 +86,7 @@ export default function Faculty(props) {
                                 </select>
                             </div>
 
-                            <div className="filter-department">
+                            {/* <div className="filter-department">
                                 <select id="departmentFilter" className="form-select" aria-label="Default select example">
                                     <option disabled>Select Department</option>
                                     <option value="1">Agricultural Extension</option>
@@ -87,7 +96,7 @@ export default function Faculty(props) {
                                     <option value="5">Crop Science</option>
                                     <option value="6">Soil Science</option>
                                 </select>
-                            </div>
+                            </div> */}
                         </div>
 
                         <div className="legend d-flex">

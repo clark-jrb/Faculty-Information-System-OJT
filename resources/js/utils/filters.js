@@ -1,4 +1,9 @@
 
 export const filterFacultyByRank = (facultyData, selectedRank) => {
-    return selectedRank === '' ? facultyData : facultyData.filter(faculty => faculty.position === selectedRank);
+    if (selectedRank === '') {
+        return facultyData;
+    } else {
+        const regex = new RegExp(`^${selectedRank} [IVX]+$`);
+        return facultyData.filter(faculty => regex.test(faculty.position));
+    }
 };
