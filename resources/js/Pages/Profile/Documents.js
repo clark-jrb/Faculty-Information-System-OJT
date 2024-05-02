@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Profile from '../Profile';
+import { usePage } from '@inertiajs/inertia-react';
 
 export default function Documents(){
+    const {
+        document_data
+    } = usePage().props;
+
+    useEffect(() => {
+        console.log('document: ' + document_data);
+    }, [document_data]);
+
     return (
         <Profile>
             <div className="p-3 documents-content">

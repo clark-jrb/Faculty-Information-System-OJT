@@ -57,13 +57,13 @@ export default function Authenticated({ auth, children }) {
                                 </p>
                             </NavLink>
                         </li>
-                        <li className="px-3" >
+                        {/* <li className="px-3" >
                             <NavLink href={route('basic')} active={active}>
                                 <p className="p-1 m-0">
                                     <i className="fa-solid fa-address-card"></i> Profile
                                 </p>
                             </NavLink>
-                        </li>    
+                        </li>     */}
                     </ul>
                 </div>
                 {/* Sign Out Button */}

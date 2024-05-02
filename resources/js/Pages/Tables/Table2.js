@@ -1,6 +1,11 @@
 import React from 'react';
+import { Inertia } from '@inertiajs/inertia';
 
 export default function Table1 ({cp_data, cs_data, ss_data}) {
+    
+    const handleRowClick = (id) => {
+        Inertia.visit(route('basic', { id: id }))
+    }
 
     return (
         <div className='d-flex gap-3 pt-3'>
@@ -34,7 +39,7 @@ export default function Table1 ({cp_data, cs_data, ss_data}) {
                                 {cp_data.map((faculty, index) => (
                                     <tr 
                                         key={index}
-                                        onClick={() => checked ? null : handleRowClick(faculty.id)}
+                                        onClick={() => handleRowClick(faculty.id)}
                                     >
                                         <th className="p-2 ps-3">{index + 1}</th>
                                         <td className="p-2 ps-3 text-wrap" style={{ width: '150px' }}>{`${faculty.lname}, ${faculty.fname}`}</td>
@@ -85,7 +90,7 @@ export default function Table1 ({cp_data, cs_data, ss_data}) {
                                 {cs_data.map((faculty, index) => (
                                     <tr 
                                         key={index}
-                                        onClick={() => checked ? null : handleRowClick(faculty.id)}
+                                        onClick={() => handleRowClick(faculty.id)}
                                     >
                                         <th className="p-2 ps-3">{index + 1}</th>
                                         <td className="p-2 ps-3 text-wrap" style={{ width: '150px' }}>{`${faculty.lname}, ${faculty.fname}`}</td>
@@ -136,7 +141,7 @@ export default function Table1 ({cp_data, cs_data, ss_data}) {
                                 {ss_data.map((faculty, index) => (
                                     <tr 
                                         key={index}
-                                        onClick={() => checked ? null : handleRowClick(faculty.id)}
+                                        onClick={() => handleRowClick(faculty.id)}
                                     >
                                         <th className="p-2 ps-3">{index + 1}</th>
                                         <td className="p-2 ps-3 text-wrap" style={{ width: '150px' }}>{`${faculty.lname}, ${faculty.fname}`}</td>

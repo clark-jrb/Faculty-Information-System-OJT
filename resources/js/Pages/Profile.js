@@ -2,8 +2,13 @@ import React from 'react';
 import Authenticated from '@/Layouts/Authenticated';
 import agri_logo from '../../../public/images/agri_logo.png'
 import NavLink from '@/Components/NavLink';
+import { usePage } from '@inertiajs/inertia-react';
 
 export default function Profile({ children }) {
+    const { 
+        faculty_data
+    } = usePage().props;
+
     return (
         <Authenticated
             // auth={props.auth}
@@ -21,17 +26,19 @@ export default function Profile({ children }) {
                             </div>
                         </div>
                         <div className="name-rank-cont pb-3">
-                            <p className="m-0" style={{fontSize: "x-large", fontWeight: "bold"}}>Name</p>
-                            <p className="m-0" style={{fontSize: "large"}}>Position</p>
+                            <p className="m-0" style={{fontSize: "x-large", fontWeight: "bold"}}>
+                                {faculty_data.fname + ' ' + faculty_data.lname}
+                            </p>
+                            <p className="m-0" style={{fontSize: "large"}}>{faculty_data.position}</p>
                         </div>
                         <div className="email-num-cont px-2 py-3">
                             <p className="m-0 pb-2">
                                 <i className="fa-regular fa-envelope" style={{color: "var(--dark-green)", fontSize: "large"}}></i>
-                                &nbsp;Email
+                                &nbsp;{faculty_data.email}
                             </p>    
                             <p className="m-0 pb-2">
                                 <i className="fa-solid fa-phone" style={{color: "var(--dark-green)", fontSize: "large"}}></i>
-                                &nbsp;Contact Number
+                                &nbsp;{faculty_data.contact_no}
                             </p>
                         </div>
                         {/* <div className="edit-profile-cont">
@@ -54,32 +61,32 @@ export default function Profile({ children }) {
                         <div className="profile-ribbon">
                             <ul>
                                 <li className={`basic-tab px-3 ${route().current('basic') ? 'active' : ''}`} id="basic">
-                                    <NavLink href={route('basic')}>
+                                    <NavLink href={route('basic', { id: faculty_data.id })}>
                                         <p className='m-0 p-2'>Basic</p>
                                     </NavLink>
                                 </li>
                                 <li className={`academic-tab px-3 ${route().current('academic') ? 'active' : ''}`} id="academic">
-                                    <NavLink href={route('academic')} >
+                                    <NavLink href={route('academic', { id: faculty_data.id })} >
                                         <p className='m-0 p-2'>Academic</p>
                                     </NavLink>
                                 </li>
                                 <li className={`publication-tab px-3 ${route().current('publication') ? 'active' : ''}`} id="publication">
-                                    <NavLink href={route('publication')} >
+                                    <NavLink href={route('publication', { id: faculty_data.id })} >
                                         <p className='m-0 p-2'>Publications</p>
                                     </NavLink>
                                 </li>
                                 <li className={`research-tab px-3 ${route().current('research') ? 'active' : ''}`} id="research">
-                                    <NavLink href={route('research')} >
+                                    <NavLink href={route('research', { id: faculty_data.id })} >
                                         <p className='m-0 p-2'>Research</p>
                                     </NavLink>
                                 </li>
                                 <li className={`subject-tab px-3 ${route().current('extensions') ? 'active' : ''}`} id="subjects">
-                                    <NavLink href={route('extensions')} >
+                                    <NavLink href={route('extensions', { id: faculty_data.id })} >
                                         <p className='m-0 p-2'>Extensions</p>
                                     </NavLink>
                                 </li>
                                 <li className={`subject-tab px-3 ${route().current('documents') ? 'active' : ''}`} id="subjects">
-                                    <NavLink href={route('documents')} >
+                                    <NavLink href={route('documents', { id: faculty_data.id })} >
                                         <p className='m-0 p-2'>Documents</p>
                                     </NavLink>
                                 </li>

@@ -100,3 +100,8 @@
 .faculties-table a{
     color: var(--grey);
 }
+
+.faculties-table tbody tr:hover {
+    cursor: pointer;
+    background-color: whitesmoke;
+}

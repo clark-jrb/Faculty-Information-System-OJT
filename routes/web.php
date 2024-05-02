@@ -34,13 +34,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Profile Routes
     Route::prefix('/profile')->group(function () {
-        Route::get('/', fn () => Inertia::render('Profile'))->name('profile');
-        Route::get('/basic', fn () => Inertia::render('Profile/Basic'))->name('basic');
-        Route::get('/research', fn () => Inertia::render('Profile/Research'))->name('research');
-        Route::get('/academic', fn () => Inertia::render('Profile/Academic'))->name('academic');
-        Route::get('/publication', fn () => Inertia::render('Profile/Publication'))->name('publication');
-        Route::get('/documents', fn () => Inertia::render('Profile/Documents'))->name('documents');
-        Route::get('/extensions', fn () => Inertia::render('Profile/Extensions'))->name('extensions');
+        Route::get('/', [AdminController::class, 'showProfile'])->name('profile');
+        Route::get('/basic/{id}', [AdminController::class, 'showBasic'])->name('basic');
+        Route::get('/research/{id}', [AdminController::class, 'showResearch'])->name('research');
+        Route::get('/academic/{id}', [AdminController::class, 'showAcademic'])->name('academic');
+        Route::get('/publication/{id}', [AdminController::class, 'showPublications'])->name('publication');
+        Route::get('/documents/{id}', [AdminController::class, 'showDocuments'])->name('documents');
+        Route::get('/extensions/{id}', [AdminController::class, 'showExtensions'])->name('extensions');
     });
 
     // Faculty Route
