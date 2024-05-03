@@ -22,7 +22,9 @@ export default function Profile({ children }) {
                     <div className="profile-section p-4">
                         <div className="profile-pic-cont p-4">
                             <div className="first-layer p-2">
-                                <div className="second-layer"></div>
+                                <div className="second-layer">
+                                    <img src={`/images/faculty_images/${faculty_data.profile_pic}`} alt="profile picture" />
+                                </div>
                             </div>
                         </div>
                         <div className="name-rank-cont pb-3">
@@ -33,12 +35,17 @@ export default function Profile({ children }) {
                         </div>
                         <div className="email-num-cont px-2 py-3">
                             <p className="m-0 pb-2">
-                                <i className="fa-regular fa-envelope" style={{color: "var(--dark-green)", fontSize: "large"}}></i>
-                                &nbsp;{faculty_data.email}
+                                {/* <i className="fa-regular fa-envelope fa-lg" style={{color: "var(--dark-green)"}}></i> */}
+                                <i className="fa-solid fa-building-wheat" style={{ color: 'var(--dark-green)'}}></i>
+                                &nbsp;&nbsp;{faculty_data.department}
                             </p>    
                             <p className="m-0 pb-2">
-                                <i className="fa-solid fa-phone" style={{color: "var(--dark-green)", fontSize: "large"}}></i>
-                                &nbsp;{faculty_data.contact_no}
+                                <i className="fa-regular fa-envelope fa-lg" style={{color: "var(--dark-green)"}}></i>
+                                &nbsp;&nbsp;{faculty_data.email}
+                            </p>    
+                            <p className="m-0 pb-2">
+                                <i className="fa-solid fa-phone fa-lg" style={{color: "var(--dark-green)"}}></i>
+                                &nbsp;&nbsp;{faculty_data.contact_no}
                             </p>
                         </div>
                         {/* <div className="edit-profile-cont">

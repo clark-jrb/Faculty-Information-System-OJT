@@ -12,7 +12,7 @@ export default function Table1 ({cp_data, cs_data, ss_data}) {
             <div className='faculty-per-table flex-fill'>
                 <div className="faculty-department-cp p-3">
                     <div>
-                        <i className="fa-solid fa-building-wheat" style={{ color: 'var(--yellow)'}}></i> &nbsp;Department of Crop Protection
+                        <i className="fa-solid fa-building-wheat" style={{ color: 'var(--light-green)'}}></i> &nbsp;Department of Crop Protection
                     </div>
                     <div className='ms-auto'>
                         <p className='m-0'>
@@ -63,7 +63,7 @@ export default function Table1 ({cp_data, cs_data, ss_data}) {
             <div className='faculty-per-table flex-fill'>
                 <div className="faculty-department-cs p-3">
                     <div>
-                        <i className="fa-solid fa-building-wheat" style={{ color: 'var(--yellow)'}}></i> &nbsp;Department of Crop Science
+                        <i className="fa-solid fa-building-wheat" style={{ color: 'var(--light-green)'}}></i> &nbsp;Department of Crop Science
                     </div>
                     <div className='ms-auto'>
                         <p className='m-0'>
@@ -114,7 +114,7 @@ export default function Table1 ({cp_data, cs_data, ss_data}) {
             <div className='faculty-per-table flex-fill'>
                 <div className="faculty-department-ss p-3">
                     <div>
-                        <i className="fa-solid fa-building-wheat" style={{ color: 'var(--yellow)'}}></i> &nbsp;Department of Soil Science
+                        <i className="fa-solid fa-building-wheat" style={{ color: 'var(--light-green)'}}></i> &nbsp;Department of Soil Science
                     </div>
                     <div className='ms-auto'>
                         <p className='m-0'>

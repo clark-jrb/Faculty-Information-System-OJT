@@ -47,7 +47,14 @@
 
 .second-layer {
     height: 100%;
-    border: #ccc solid 1px;
+    border: var(--green) solid 1px;
+    overflow: hidden;
+}
+
+.second-layer img {
+    width: 100%; /* Makes the image fill the circular div */
+    height: 100%; /* Maintains aspect ratio */
+    display: block; /* Removes any extra space around the image */
 }
 
 .first-layer, .second-layer {
@@ -228,4 +235,11 @@
 .title-info-content-acad {
     display: flex;
     text-align: start;
+}
+
+.data-label {
+    text-decoration: underline;
+    text-decoration-color: var(--light-green);
+    text-decoration-thickness: 2px;
+    color: var(--grey);
 }

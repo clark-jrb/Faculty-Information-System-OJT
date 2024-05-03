@@ -16,7 +16,7 @@ export default function Table1 ({ae_data, am_data, as_data}) {
             <div className='faculty-per-table flex-fill'>
                 <div className="faculty-department-ae p-3">
                     <div>
-                        <i className="fa-solid fa-building-wheat" style={{ color: 'var(--yellow)'}}></i> &nbsp;Department of Agricultural Extension
+                        <i className="fa-solid fa-building-wheat" style={{ color: 'var(--light-green)'}}></i> &nbsp;Department of Agricultural Extension
                     </div>
                     <div className='ms-auto'>
                         <p className='m-0'>
@@ -67,7 +67,7 @@ export default function Table1 ({ae_data, am_data, as_data}) {
             <div className='faculty-per-table flex-fill'>
                 <div className="faculty-department-am p-3">
                     <div>
-                        <i className="fa-solid fa-building-wheat" style={{ color: 'var(--yellow)'}}></i> &nbsp;Department of Agri-Management
+                        <i className="fa-solid fa-building-wheat" style={{ color: 'var(--light-green)'}}></i> &nbsp;Department of Agri-Management
                     </div>
                     <div className='ms-auto'>
                         <p className='m-0'>
@@ -118,7 +118,7 @@ export default function Table1 ({ae_data, am_data, as_data}) {
             <div className='faculty-per-table flex-fill'>
                 <div className="faculty-department-as p-3">
                     <div>
-                        <i className="fa-solid fa-building-wheat" style={{ color: 'var(--yellow)'}}></i> &nbsp;Department of Animal Science
+                        <i className="fa-solid fa-building-wheat" style={{ color: 'var(--light-green)'}}></i> &nbsp;Department of Animal Science
                     </div>
                     <div className='ms-auto'>
                         <p className='m-0'>

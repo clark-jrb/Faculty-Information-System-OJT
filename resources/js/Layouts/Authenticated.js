@@ -11,7 +11,8 @@ export default function Authenticated({ auth, children }) {
         'publication',
         'research', 
         'documents', 
-        'extensions'
+        'extensions',
+        'faculties'
     ];
     const active = routeNames.includes(route().current());
 
@@ -51,7 +52,7 @@ export default function Authenticated({ auth, children }) {
                             </NavLink>
                         </li>
                         <li className="px-3" >
-                            <NavLink href={route('faculties')} active={route().current('faculties')}>
+                            <NavLink href={route('faculties')} active={active}>
                                 <p className="p-1 m-0">
                                     <i className="fa-solid fa-bars-staggered"></i> Faculty
                                 </p>
