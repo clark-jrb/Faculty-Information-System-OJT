@@ -225,14 +225,12 @@
 }
 
 
-.title-info-content, .title-info-content-acad {
+.title-info-content, 
+.title-info-content-acad,
+.title-info-content-res {
     font-size: x-large;
     font-weight: bold;
     width: 100%;
-    border-bottom: #ccc solid 1px;
-}
-
-.title-info-content-acad {
     border-bottom: var(--green) solid 2px;
     display: flex;
     text-align: start;
@@ -245,13 +243,16 @@
     color: var(--grey);
 }
 
-.acad-educ-content, .acad-work-content {
+.basic-content, 
+.acad-educ-content, 
+.acad-work-content, 
+.research-content {
     color: var(--grey);
 }
 
-.acad-row1 {
+.acad-row1, .res-title {
     display: ruby;
-    font-style: italic;
+    /* font-style: italic; */
     font-weight: bold;
     font-size: x-large;
 }

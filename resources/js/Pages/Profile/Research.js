@@ -13,14 +13,22 @@ export default function Research(){
 
     return (
         <Profile>
-            <div className="p-3 research-content">
-                <div className="title-info-content pb-2">
-                    <p className="m-0">Research</p>
+            <div className="p-3 px-4 research-content">
+                <div className="title-info-content-res pb-2">
+                    <p className="m-0">Research Activities</p>
                 </div>
                 {research_data.map((res, index) => (
-                    <div key={index}>
-                        <p className="m-0">{res.res_title}</p>
-                        <p className="m-0">{res.status}</p>
+                    <div className="p-3" key={index} style={{ borderBottom: '#ccc 1px solid' }}>
+                        <p className="m-0 res-title">{res.res_title}</p>
+                        <p className="m-0">
+                            <i className="fa-regular fa-calendar-check"></i> {res.duration}
+                        </p>
+                        <p className="m-0" style={{ fontSize: 'large' }}>
+                            <span style={{ color: 'var(--grey)', fontSize: 'medium'}}>Researcher(s):</span> 
+                            &nbsp;
+                            {res.researcher}
+                        </p>
+                        <p className="m-0" style={{ fontSize: 'large' }}>{res.status}</p>
                     </div>
                 ))}
             </div>
