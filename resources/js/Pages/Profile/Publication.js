@@ -18,7 +18,8 @@ export default function Publications(){
                     <p className="m-0">Publications</p>
                 </div>
                 {publication_data.map((pub, index) => (
-                    <div className="p-3" key={index} style={{ borderBottom: '#ccc 1px solid' }}>
+                    <div className="p-3" key={index} style={{ borderBottom: '#ccc 1px solid', position: 'relative' }}>
+                        <div className="bg-data"></div>
                         <p className="m-0 py-1 res-title">{pub.proj_title}</p>
                         <p className="m-0 py-1" style={{ fontSize: 'large' }}>
                             <span style={{ color: 'var(--grey)', fontSize: 'medium'}}>Author(s):</span> 

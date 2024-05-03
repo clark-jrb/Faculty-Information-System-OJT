@@ -18,7 +18,8 @@ export default function Research(){
                     <p className="m-0">Research Activities</p>
                 </div>
                 {research_data.map((res, index) => (
-                    <div className="p-3" key={index} style={{ borderBottom: '#ccc 1px solid' }}>
+                    <div className="p-3" key={index} style={{ borderBottom: '#ccc 1px solid', position: 'relative' }}>
+                        <div className="bg-data"></div>
                         <p className="m-0 py-1 res-title">{res.res_title}</p>
                         <p className="m-0 py-1">
                             <i className="fa-regular fa-calendar-check"></i> {res.duration}

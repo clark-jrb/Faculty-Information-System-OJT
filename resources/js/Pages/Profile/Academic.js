@@ -24,7 +24,8 @@ export default function Academic(){
                         <p className="m-0">Education</p>
                     </div>
                     {acadEduc_data.map((educ, index) => (
-                        <div className="p-3" key={index} style={{ borderBottom: '#ccc 1px solid' }}>
+                        <div className="p-3" key={index} style={{ borderBottom: '#ccc 1px solid', position: 'relative' }}>
+                            <div className="bg-data"></div>
                             <div className="acad-row1">
                                 <i className="fa-solid fa-graduation-cap" style={{ color: 'var(--light-green)' }}></i>
                                 &nbsp;
@@ -53,7 +54,8 @@ export default function Academic(){
                         <p className="m-0">Work Experience</p>
                     </div>
                     {acadWork_data.map((work, index) => (
-                        <div className="p-3" key={index} style={{ borderBottom: '#ccc 1px solid' }}>
+                        <div className="p-3" key={index} style={{ borderBottom: '#ccc 1px solid', position: 'relative' }}>
+                            <div className="bg-data"></div>
                             <div className="acad-row1">
                                 <p className="m-0">{work.position}</p>
                             </div>
