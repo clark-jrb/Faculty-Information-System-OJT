@@ -68,7 +68,7 @@
 }
 
 .email-num-cont {
-    font-size: medium;
+    font-size: large;
 }
 
 .edit-profile-cont, .print-data-cont {
@@ -233,6 +233,7 @@
 }
 
 .title-info-content-acad {
+    border-bottom: var(--green) solid 2px;
     display: flex;
     text-align: start;
 }
@@ -242,4 +243,15 @@
     text-decoration-color: var(--light-green);
     text-decoration-thickness: 2px;
     color: var(--grey);
+}
+
+.acad-educ-content, .acad-work-content {
+    color: var(--grey);
+}
+
+.acad-row1 {
+    display: ruby;
+    font-style: italic;
+    font-weight: bold;
+    font-size: x-large;
 }
