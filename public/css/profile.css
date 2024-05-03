@@ -246,7 +246,8 @@
 .basic-content, 
 .acad-educ-content, 
 .acad-work-content, 
-.research-content {
+.research-content,
+.publications-content {
     color: var(--grey);
 }
 
