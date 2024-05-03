@@ -237,17 +237,18 @@
 }
 
 .data-label {
-    text-decoration: underline;
+    /* text-decoration: underline;
     text-decoration-color: var(--light-green);
     text-decoration-thickness: 2px;
-    color: var(--grey);
+    color: var(--grey); */
 }
 
 .basic-content, 
 .acad-educ-content, 
 .acad-work-content, 
 .research-content,
-.publications-content {
+.publications-content,
+.extensions-content {
     color: var(--grey);
 }
 

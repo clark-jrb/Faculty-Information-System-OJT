@@ -15,7 +15,8 @@ export default function Basic(){
                     
                 </div>
 
-                <div className='d-flex py-3'>
+                <div className='d-flex p-3' style={{ position: 'relative' }}>
+                    <div className="bg-data"></div>
                     <div className="flex-fill w-25">
                         <p className="m-0 data-label">First Name:</p>
                         <p className="m-0 mt-1" style={{ fontSize: 'large' }}>{faculty_data.fname}</p>
@@ -34,7 +35,8 @@ export default function Basic(){
                     </div>
                 </div>
 
-                <div className='d-flex py-3'>
+                <div className='d-flex p-3' style={{ position: 'relative' }}>
+                    <div className="bg-data"></div>
                     <div className="flex-fill w-25">
                         <p className="m-0 data-label">Date of Birth:</p>
                         <p className="m-0 mt-1" style={{ fontSize: 'large' }}>{faculty_data.birth_date}</p>
