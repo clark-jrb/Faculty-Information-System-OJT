@@ -122,7 +122,7 @@
     bottom: 0;
     height: 93%;
     width: 100%;
-    opacity: 0.05;
+    opacity: 0.1;
 }
 
 .profile-ribbon {
@@ -236,12 +236,12 @@
     text-align: start;
 }
 
-.data-label {
+/* .data-label { */
     /* text-decoration: underline;
     text-decoration-color: var(--light-green);
     text-decoration-thickness: 2px;
     color: var(--grey); */
-}
+/* } */
 
 .basic-content, 
 .acad-educ-content, 
@@ -249,14 +249,16 @@
 .research-content,
 .publications-content,
 .extensions-content {
+    height: 100%;
     color: var(--grey);
 }
 
 .acad-row1, .res-title {
-    display: ruby;
+    /* display: ruby; */
     /* font-style: italic; */
     font-weight: bold;
     font-size: x-large;
+    text-align: justify;
 }
 
 .bg-data {
@@ -270,4 +272,9 @@
     /* filter: blur(15px); */
     backdrop-filter: blur(20px);
     z-index: -1;
+}
+
+.datas-content-container {
+    height: 90%;
+    overflow-y: auto;
 }

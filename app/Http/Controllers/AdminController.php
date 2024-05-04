@@ -31,32 +31,32 @@ class AdminController extends Controller
             'contact_no' => 'required',
             'profile_pic' => 'nullable|file|image|mimes:jpg,jpeg,png|max:10000',
 
-            'academic_educ.*.institution' => 'required',
-            'academic_educ.*.degree' => 'required',
-            'academic_educ.*.educ_location' => 'required',
-            'academic_educ.*.educ_date' => 'required',
+            'academic_educ.*.institution' => 'nullable',
+            'academic_educ.*.degree' => 'nullable',
+            'academic_educ.*.educ_location' => 'nullable',
+            'academic_educ.*.educ_date' => 'nullable',
 
-            'academic_work.*.work_institution' => 'required',
-            'academic_work.*.work_position' => 'required',
-            'academic_work.*.work_location' => 'required',
-            'academic_work.*.work_date' => 'required',
+            'academic_work.*.work_institution' => 'nullable',
+            'academic_work.*.work_position' => 'nullable',
+            'academic_work.*.work_location' => 'nullable',
+            'academic_work.*.work_date' => 'nullable',
 
-            'research.*.title' => 'required',
-            'research.*.status' => 'required',
-            'research.*.duration' => 'required',
-            'research.*.researchers' => 'required',
+            'research.*.title' => 'nullable',
+            'research.*.status' => 'nullable',
+            'research.*.duration' => 'nullable',
+            'research.*.researchers' => 'nullable',
 
-            'publications.*.proj_title' => 'required',
-            'publications.*.proj_date' => 'required',
-            'publications.*.authors' => 'required',
-            'publications.*.doi' => 'required',
+            'publications.*.proj_title' => 'nullable',
+            'publications.*.proj_date' => 'nullable',
+            'publications.*.authors' => 'nullable',
+            'publications.*.doi' => 'nullable',
 
-            'extensions.*.ext_title' => 'required',
-            'extensions.*.ext_duration' => 'required',
-            'extensions.*.lead_faculty' => 'required',
-            'extensions.*.members' => 'required',
-            'extensions.*.sponsor' => 'required',
-            'extensions.*.beneficiaries' => 'required',
+            'extensions.*.ext_title' => 'nullable',
+            'extensions.*.ext_duration' => 'nullable',
+            'extensions.*.lead_faculty' => 'nullable',
+            'extensions.*.members' => 'nullable',
+            'extensions.*.sponsor' => 'nullable',
+            'extensions.*.beneficiaries' => 'nullable',
 
             'documents.*.label' => 'nullable',
             'documents.*.file_name' => 'nullable'
@@ -218,8 +218,7 @@ class AdminController extends Controller
             'role' => $request->input('role'),
             'specialization' => $request->input('specialization'),
             'email' => $request->input('email'),
-            'contact_no' => $request->input('contact_no'),
-            // 'profile_pic' => ''
+            'contact_no' => $request->input('contact_no')
         ]);
 
         if ($request->hasFile('profile_pic')) {
@@ -239,82 +238,107 @@ class AdminController extends Controller
             }
         }
 
-        foreach ($request->input('academic_educ') as $academicEducData) {
-            Acad_Education::create([
-                'faculty_id' => $basicInfo->id,
-                'degree' => $academicEducData['degree'],
-                'institution' => $academicEducData['institution'],
-                'date' => $academicEducData['educ_date'],
-                'location' => $academicEducData['educ_location']
-            ]);
-        }
-
-        foreach ($request->input('academic_work') as $academicWorkData) {
-            Acad_WorkExp::create([
-                'faculty_id' => $basicInfo->id,
-                'position' => $academicWorkData['work_position'],
-                'location' => $academicWorkData['work_institution'],
-                'date' => $academicWorkData['work_date'],
-                'work_loc' => $academicWorkData['work_location']
-            ]);
-        }
-
-        foreach ($request->input('research') as $researchData) {
-            ResActivity::create([
-                'faculty_id' => $basicInfo->id,
-                'res_title' => $researchData['title'],
-                'status' => $researchData['status'],
-                'duration' => $researchData['duration'],
-                'researcher' => $researchData['researchers']
-            ]);
-        }
-
-        foreach ($request->input('publications') as $publicationData) {
-            Publication::create([
-                'faculty_id' => $basicInfo->id,
-                'proj_title' => $publicationData['proj_title'],
-                'date' => $publicationData['proj_date'],
-                'doi' => $publicationData['doi'],
-                'authors' => $publicationData['authors']
-            ]);
-        }
-
-        foreach ($request->input('extensions') as $extensionsData) {
-            Ext_Activity::create([
-                'faculty_id' => $basicInfo->id,
-                'ext_title' => $extensionsData['ext_title'],
-                'duration' => $extensionsData['ext_duration'],
-                'lead' => $extensionsData['lead_faculty'],
-                'member' => $extensionsData['members'],
-                'sponsor' => $extensionsData['sponsor'],
-                'beneficiaries' => $extensionsData['beneficiaries']
-            ]);
-        }
-
-        // foreach ($request->input('documents') as $documentsData) {
-        //     Document::create([
-        //         'faculty_id' => $basicInfo->id,
-        //         'label' => $documentsData['label'],
-        //         'file_name' => $documentsData['file_name']
-        //     ]);
-        // }
-
-        foreach ($request->input('documents') as $index => $documentData) {
-            $document = new Document();
-            $document->faculty_id = $basicInfo->id;
-            $document->label = $documentData['label'];
-            
-            // Handle file upload
-            if ($request->hasFile('documents.'.$index.'.file_name')) {
-                $file = $request->file('documents.'.$index.'.file_name');
-                if ($file->isValid()) {
-                    $newFileName = uniqid() . '.' . $file->getClientOriginalExtension();
-                    $file->move(public_path('images/faculty_images'), $newFileName);
-                    $document->file_name = $newFileName;
+        if ($request->filled('academic_educ')) {
+            foreach ($request->input('academic_educ') as $academicEducData) {
+                // Check if any of the fields in the academic education data is not null
+                if (!empty(array_filter($academicEducData))) {
+                    Acad_Education::create([
+                        'faculty_id' => $basicInfo->id,
+                        'degree' => $academicEducData['degree'],
+                        'institution' => $academicEducData['institution'],
+                        'date' => $academicEducData['educ_date'],
+                        'location' => $academicEducData['educ_location']
+                    ]);
                 }
             }
+        }
+    
+        if ($request->filled('academic_work')) {
+            foreach ($request->input('academic_work') as $academicWorkData) {
+                // Check if any of the fields in the academic work data is not null
+                if (!empty(array_filter($academicWorkData))) {
+                    Acad_WorkExp::create([
+                        'faculty_id' => $basicInfo->id,
+                        'position' => $academicWorkData['work_position'],
+                        'location' => $academicWorkData['work_institution'],
+                        'date' => $academicWorkData['work_date'],
+                        'work_loc' => $academicWorkData['work_location']
+                    ]);
+                }
+            }
+        }
+
+        if ($request->filled('research')) {
+            foreach ($request->input('research') as $researchData) {
+                // Check if any of the fields in the research data is not null
+                if (!empty(array_filter($researchData))) {
+                    ResActivity::create([
+                        'faculty_id' => $basicInfo->id,
+                        'res_title' => $researchData['title'],
+                        'status' => $researchData['status'],
+                        'duration' => $researchData['duration'],
+                        'researcher' => $researchData['researchers']
+                    ]);
+                }
+            }
+        }
         
-            $document->save();
+        // Create records for publications if data exists
+        if ($request->filled('publications')) {
+            foreach ($request->input('publications') as $publicationData) {
+                // Check if any of the fields in the publication data is not null
+                if (!empty(array_filter($publicationData))) {
+                    Publication::create([
+                        'faculty_id' => $basicInfo->id,
+                        'proj_title' => $publicationData['proj_title'],
+                        'date' => $publicationData['proj_date'],
+                        'doi' => $publicationData['doi'],
+                        'authors' => $publicationData['authors']
+                    ]);
+                }
+            }
+        }
+        
+        // Create records for extensions if data exists
+        if ($request->filled('extensions')) {
+            foreach ($request->input('extensions') as $extensionsData) {
+                // Check if any of the fields in the extension data is not null
+                if (!empty(array_filter($extensionsData))) {
+                    Ext_Activity::create([
+                        'faculty_id' => $basicInfo->id,
+                        'ext_title' => $extensionsData['ext_title'],
+                        'duration' => $extensionsData['ext_duration'],
+                        'lead' => $extensionsData['lead_faculty'],
+                        'member' => $extensionsData['members'],
+                        'sponsor' => $extensionsData['sponsor'],
+                        'beneficiaries' => $extensionsData['beneficiaries']
+                    ]);
+                }
+            }
+        }
+        
+        // Create records for documents if data exists
+        if ($request->filled('documents')) {
+            foreach ($request->input('documents') as $documentData) {
+                // Check if any of the fields in the document data is not null
+                if (!empty(array_filter($documentData))) {
+                    $document = new Document();
+                    $document->faculty_id = $basicInfo->id;
+                    $document->label = $documentData['label'];
+                    
+                    // Handle file upload
+                    if ($request->hasFile('documents.'.$index.'.file_name')) {
+                        $file = $request->file('documents.'.$index.'.file_name');
+                        if ($file->isValid()) {
+                            $newFileName = uniqid() . '.' . $file->getClientOriginalExtension();
+                            $file->move(public_path('images/faculty_images'), $newFileName);
+                            $document->file_name = $newFileName;
+                        }
+                    }
+                    
+                    $document->save();
+                }
+            }
         }
 
         return redirect('/admin/faculties/departments');
