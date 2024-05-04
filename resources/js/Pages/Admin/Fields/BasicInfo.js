@@ -9,6 +9,7 @@ import specializations_as from '../../../../json/specializations_as.json'
 import specializations_cs from '../../../../json/specializations_cs.json'
 import specializations_cp from '../../../../json/specializations_cp.json'
 import specializations_ss from '../../../../json/specializations_ss.json'
+import faculty_ranks from '../../../../json/faculty_ranks.json'
 
 
 export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
@@ -223,10 +224,9 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                         onChange={(e) => handleChange(e)}
                     >
                         <option disabled value="">Rank</option>
-                        <option value="Instructor I">Instructor I</option>
-                        <option value="Associate Professor I">Associate Professor I</option>
-                        <option value="Assist Professor I">Assist Professor I</option>
-                        <option value="Professor I">Professor I</option>
+                        {faculty_ranks.map((rank) => (
+                            <option key={rank.id} value={rank.rank}>{rank.rank}</option>
+                        ))}
                     </Form.Select>
                 </div>
             </div>
