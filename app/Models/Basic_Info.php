@@ -18,6 +18,7 @@ class Basic_Info extends Model
         'age', 
         'department', 
         'position', 
+        'high_degree',
         'role', 
         'specialization', 
         'email', 

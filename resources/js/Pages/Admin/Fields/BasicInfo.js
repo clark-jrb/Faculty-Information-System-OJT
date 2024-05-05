@@ -128,6 +128,7 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                         placeholder="First Name"
                         value={data.fname}
                         onChange={(e) => handleChange(e)}
+                        required
                     />
                 </div>
                 <div className="flex-fill p-2">
@@ -138,6 +139,7 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                         placeholder="Last Name"
                         value={data.lname}
                         onChange={(e) => handleChange(e)}
+                        required
                     />
                 </div>
                 <div className="flex-fill p-2">
@@ -147,6 +149,7 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                         name="gender"
                         value={data.gender}
                         onChange={(e) => handleChange(e)}
+                        required
                     >
                         <option disabled value="">Gender</option>
                         <option value="male">Male</option>
@@ -164,6 +167,7 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                         placeholder="Email"
                         value={data.email}
                         onChange={(e) => handleChange(e)}
+                        required
                     />
                 </div>
                 <div className="flex-fill p-2">
@@ -174,6 +178,7 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                         placeholder="Contact"
                         value={data.contact_no}
                         onChange={(e) => handleChange(e)}
+                        required
                     />
                 </div>
                 <div className="flex-fill p-2">
@@ -185,6 +190,7 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                         placeholder="Age"
                         value={data.age}
                         onChange={(e) => handleChange(e)}
+                        required
                     />
                 </div>
             </div>
@@ -199,6 +205,7 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                         selected={startDate}
                         onChange={handleDateChange}
                         isClearable 
+                        required
                     />
                 </div>
                 <div className="flex-fill p-2">
@@ -208,6 +215,7 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                         name="role"
                         value={data.role}
                         onChange={(e) => handleChange(e)}
+                        required
                     >
                         <option disabled value="">Role</option>
                         <option value="College Dean">College Dean</option>
@@ -222,6 +230,7 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                         name="position"
                         value={data.position}
                         onChange={(e) => handleChange(e)}
+                        required
                     >
                         <option disabled value="">Rank</option>
                         {faculty_ranks.map((rank) => (
@@ -239,6 +248,7 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                         name="department"
                         value={data.department}
                         onChange={(e) => handleChange(e)}
+                        required
                     >
                         <option disabled value="">Department</option>
                         <option value="Agricultural Extension">Agricultural Extension</option>
@@ -268,17 +278,32 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                     ))}
                 </div>
             </div>
-{/* Upload Profile Image  */}
-            {route().current('admin.create') ? 
-            <>
-                <div className="basic4-flex py-2">
-                    <div className="profile-pic-cont">
+{/* Upload Profile Image / Highest Degree  */}
+                <div className="basic4-flex d-flex py-2">
+                    <div className="p-2 w-25">
+                        <Label forInput="high_degree" value="Highest Degree:" />
+                        <Form.Select
+                            type="text"
+                            name="high_degree"
+                            value={data.high_degree}
+                            onChange={(e) => handleChange(e)}
+                            required
+                            >
+                            <option disabled value="">Degree</option>
+                            <option value="doctoral">Doctoral</option>
+                            <option value="masteral">Masteral</option>
+                            <option value="bachelor">Bachelor</option>
+                        </Form.Select>
+                    </div>
+
+                    {route().current('admin.create') ? <>
+                    <div className="profile-pic-cont w-75 p-2">
                         <Label forInput="profile_pic" value="Upload profile picture &#40;Optional&#41;:" />
                         <Form.Control type="file" name="profile_pic" onChange={handleFileChange}/>
+                        {/* {profilePic && <p className="m-0 py-2">Selected file: {profilePic.name || profilePic}</p>} */}
                     </div>
-                    {profilePic && <p className="m-0 py-2">Selected file: {profilePic.name || profilePic}</p>}
+                    </> : <></>}
                 </div>
-            </> : <></>}
         </div>
     )
 }

@@ -80,6 +80,7 @@ export default function FacultyInfo({ children }) {
         age: faculty_data.age,
         department: faculty_data.department,
         position: faculty_data.position,
+        high_degree: faculty_data.high_degree,
         role: faculty_data.role,
         specialization: faculty_data.specialization,
         email: faculty_data.email,

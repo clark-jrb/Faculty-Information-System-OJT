@@ -25,6 +25,7 @@ export default function AdminCreateFaculty({ children }) {
         age: '',
         department: '',
         position: '',
+        high_degree: '',
         role: '',
         specialization: '',
         email: '',
