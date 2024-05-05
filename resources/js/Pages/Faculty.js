@@ -3,8 +3,7 @@ import Authenticated from '@/Layouts/Authenticated';
 import Table1 from './Tables/Table1';
 import Table2 from './Tables/Table2';
 import { usePage } from '@inertiajs/inertia-react';
-import { Inertia } from '@inertiajs/inertia';
-import { filterFacultyByRank } from '@/utils/filters';
+import { filterFaculty } from '@/utils/filters';
 
 export default function Faculty(props) {
     const { 
@@ -17,20 +16,31 @@ export default function Faculty(props) {
     } = usePage().props;
 
     const [selectedRank, setSelectedRank] = useState('');
+    const [selectedDegree, setSelectedDegree] = useState('');
 
     const handleSelectedRank = (e) => {
         setSelectedRank(e.target.value);
     };
 
-    const filteredFacultyAE = filterFacultyByRank(faculty_data_ae, selectedRank);
-    const filteredFacultyAM = filterFacultyByRank(faculty_data_am, selectedRank);
-    const filteredFacultyAS = filterFacultyByRank(faculty_data_as, selectedRank);
-    const filteredFacultyCP = filterFacultyByRank(faculty_data_cp, selectedRank);
-    const filteredFacultyCS = filterFacultyByRank(faculty_data_cs, selectedRank);
-    const filteredFacultySS = filterFacultyByRank(faculty_data_ss, selectedRank);
+    const handleSelectedDegree = (e) => {
+        setSelectedDegree(e.target.value);
+    };
+
+    useEffect(() => {
+        console.log(selectedDegree);
+    }, [selectedDegree]);
+
+    const filteredFacultyAE = filterFaculty(faculty_data_ae, selectedRank, selectedDegree);
+    const filteredFacultyAM = filterFaculty(faculty_data_am, selectedRank, selectedDegree);
+    const filteredFacultyAS = filterFaculty(faculty_data_as, selectedRank, selectedDegree);
+    const filteredFacultyCP = filterFaculty(faculty_data_cp, selectedRank, selectedDegree);
+    const filteredFacultyCS = filterFaculty(faculty_data_cs, selectedRank, selectedDegree);
+    const filteredFacultySS = filterFaculty(faculty_data_ss, selectedRank, selectedDegree);
+
 
     const resetFilter = () => {
         setSelectedRank('')
+        setSelectedDegree('')
     }
 
     return (
@@ -48,7 +58,7 @@ export default function Faculty(props) {
                         </div>
                         
                         <div className="filters d-flex">
-                            {selectedRank !== '' ? 
+                            {selectedRank !== '' || selectedDegree !== '' ? 
                             <>
                             <button id="resetFilter" className="filter-reset d-flex p-1 px-2" onClick={() => resetFilter()}>
                                 <i className="fa-solid fa-rotate-right"></i>
@@ -78,11 +88,17 @@ export default function Faculty(props) {
                             </div>
 
                             <div className="filter-degree">
-                                <select id="degreeFilter" className="form-select" aria-label="Default select example">
-                                    <option disabled>Select Degree</option>
-                                    <option value="1">Doctoral</option>
-                                    <option value="2">Masteral</option>
-                                    <option value="3">Bachelor</option>
+                                <select 
+                                    id="degreeFilter" 
+                                    className="form-select" 
+                                    aria-label="Default select example"
+                                    value={selectedDegree}
+                                    onChange={handleSelectedDegree}
+                                >
+                                    <option disabled value="">Select Degree</option>
+                                    <option value="doctoral">Doctoral</option>
+                                    <option value="masteral">Masteral</option>
+                                    <option value="bachelor">Bachelor</option>
                                 </select>
                             </div>
 
@@ -119,8 +135,16 @@ export default function Faculty(props) {
                         
                     </div>
                     <div className="lists-tables py-3">
-                        <Table1 ae_data={filteredFacultyAE} am_data={filteredFacultyAM} as_data={filteredFacultyAS}/>
-                        <Table2 cp_data={filteredFacultyCP} cs_data={filteredFacultyCS} ss_data={filteredFacultySS}/>
+                        <Table1 
+                            ae_data={filteredFacultyAE} 
+                            am_data={filteredFacultyAM} 
+                            as_data={filteredFacultyAS}
+                        />
+                        <Table2 
+                            cp_data={filteredFacultyCP} 
+                            cs_data={filteredFacultyCS} 
+                            ss_data={filteredFacultySS}
+                        />
                     </div>
                 </div>
             </div>
