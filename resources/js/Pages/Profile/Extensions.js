@@ -7,9 +7,9 @@ export default function Extensions(){
         extension_data
     } = usePage().props;
 
-    useEffect(() => {
-        console.log('extensions: ' + extension_data);
-    }, [extension_data]);
+    // useEffect(() => {
+    //     console.log('extensions: ' + extension_data);
+    // }, [extension_data]);
 
     return (
         <Profile>

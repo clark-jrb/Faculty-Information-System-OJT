@@ -46,16 +46,16 @@ export default function Authenticated({ auth, children }) {
                     <ul className="px-4 h-100">
                         <li className="px-3" >
                             <NavLink href={route('facilities')} active={route().current('facilities')}>
-                                <p className="p-1 m-0">
+                                {/* <p className="p-1 m-0"> */}
                                     <i className="fa-solid fa-building-wheat"></i> Facilities
-                                </p>
+                                {/* </p> */}
                             </NavLink>
                         </li>
                         <li className="px-3" >
                             <NavLink href={route('faculties')} active={active}>
-                                <p className="p-1 m-0">
+                                {/* <p className="p-1 m-0"> */}
                                     <i className="fa-solid fa-bars-staggered"></i> Faculty
-                                </p>
+                                {/* </p> */}
                             </NavLink>
                         </li>
                         {/* <li className="px-3" >

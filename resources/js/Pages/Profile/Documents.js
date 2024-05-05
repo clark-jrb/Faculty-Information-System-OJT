@@ -7,9 +7,9 @@ export default function Documents(){
         document_data
     } = usePage().props;
 
-    useEffect(() => {
-        console.log('document: ' + document_data);
-    }, [document_data]);
+    // useEffect(() => {
+    //     console.log('document: ' + document_data);
+    // }, [document_data]);
 
     return (
         <Profile>

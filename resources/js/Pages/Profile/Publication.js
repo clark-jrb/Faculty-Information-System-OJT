@@ -7,9 +7,9 @@ export default function Publications(){
         publication_data
     } = usePage().props;
 
-    useEffect(() => {
-        console.log('publications: ' + publication_data);
-    }, [publication_data]);
+    // useEffect(() => {
+    //     console.log('publications: ' + publication_data);
+    // }, [publication_data]);
 
     return (
         <Profile>

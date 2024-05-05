@@ -8,13 +8,13 @@ export default function Academic(){
         acadWork_data
     } = usePage().props;
 
-    useEffect(() => {
-        console.log('acad educ: ' + acadEduc_data);
-    }, [acadEduc_data]);
+    // useEffect(() => {
+    //     console.log('acad educ: ' + acadEduc_data);
+    // }, [acadEduc_data]);
 
-    useEffect(() => {
-        console.log('acad work: ' + acadWork_data);
-    }, [acadWork_data]);
+    // useEffect(() => {
+    //     console.log('acad work: ' + acadWork_data);
+    // }, [acadWork_data]);
 
     return (
         <Profile>

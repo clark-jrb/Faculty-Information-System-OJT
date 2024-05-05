@@ -7,9 +7,9 @@ export default function Research(){
         research_data
     } = usePage().props;
 
-    useEffect(() => {
-        console.log('research' + research_data);
-    }, [research_data]);
+    // useEffect(() => {
+    //     console.log('research' + research_data);
+    // }, [research_data]);
 
     return (
         <Profile>
