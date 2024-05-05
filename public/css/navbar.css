@@ -103,27 +103,28 @@
 
 .search-box {
     width: 100%;
+    border: #dee2e6 solid 1px;
     border-radius: 3px;
-    height: 60%;
-    border: var(--green) solid 3px;
-    outline: var(--light-green);
-    transition: .1s outline ease;
+    /* height: 100%; */
+    /* border: var(--green) solid 3px; */
+    /* outline: var(--light-green); */
+    /* transition: .1s outline ease; */
 }
 
 .search-box:focus {
     box-shadow: none;
     border-color: none;
-    border: var(--green) solid 3px;
-    outline: var(--light-green) solid 3px;
-    outline-offset: 2px;
+    border: var(--green) solid 2px;
+    /* outline: var(--light-green) solid 3px; */
+    /* outline-offset: 2px; */
 }
 
 
 .search-icon {
     left: 0;
     position: absolute;
-    width: 8%;
-    height: 60%;
+    /* width: 10%; */
+    height: 80%;
     background-color: white;
     border-radius: 3px;
     border: var(--dark-green) solid 3px;

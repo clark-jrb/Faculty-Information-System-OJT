@@ -56,6 +56,13 @@ export default function Faculty(props) {
                         <div className="faculty-title">
                             <p className="m-0">Faculty List</p>
                         </div>
+
+                        <div className="search-faculty w-25">
+                            <button className="search-icon px-2">
+                                <i className="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                            <input type="text" className="search-box px-5 py-1" placeholder="Search faculty..."/>
+                        </div>
                         
                         <div className="filters d-flex">
                             {selectedRank !== '' || selectedDegree !== '' ? 

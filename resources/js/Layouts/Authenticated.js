@@ -35,12 +35,12 @@ export default function Authenticated({ auth, children }) {
                     </div>
                 </div>
                 {/* Search bar */}
-                <div className="search-faculty flex-fill w-25">
+                {/* <div className="search-faculty flex-fill w-25">
                     <button className="search-icon p-0">
                         <i className="fa-solid fa-magnifying-glass"></i>
                     </button>
                     <input type="text" className="search-box px-5" placeholder="Search faculty..."/>
-                </div>
+                </div> */}
                 {/* Links */}
                 <div className="flex-fill w-25">
                     <ul className="px-4 h-100">
