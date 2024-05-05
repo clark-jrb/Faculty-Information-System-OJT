@@ -71,3 +71,8 @@
 .other-link-cont a:hover {
     color: var(--grey);
 }
+
+.other-link-cont button:disabled {
+    background-color: #ccc;
+    border-bottom: 3px solid var(--grey);
+}

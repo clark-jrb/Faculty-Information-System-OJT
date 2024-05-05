@@ -74,6 +74,13 @@ export default function Login({ status, canResetPassword }) {
                 </div>
 
                 <div className="other-link-cont flex items-center justify-end mt-4 gap-3">
+                    {processing === true ? 
+                    <>
+                    <div className='flex-fill d-flex justify-content-center py-2'>
+                        <i className="fa-solid fa-spinner fa-spin fa-xl"></i>
+                    </div>
+                    </> : 
+                    <>
                     {canResetPassword && (
                         <Link
                             href={route('password.request')}
@@ -86,6 +93,7 @@ export default function Login({ status, canResetPassword }) {
                     <button type='submit' className='py-1 px-3'>
                         Log in
                     </button>
+                    </>}
                 </div>
             </form>
         </Guest>
