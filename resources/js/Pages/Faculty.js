@@ -4,6 +4,7 @@ import Table1 from './Tables/Table1';
 import Table2 from './Tables/Table2';
 import { usePage } from '@inertiajs/inertia-react';
 import { filterFaculty, searchFaculty } from '@/utils/filters';
+import { Inertia } from '@inertiajs/inertia';
 
 export default function Faculty(props) {
     const { 
@@ -18,6 +19,7 @@ export default function Faculty(props) {
     const [selectedRank, setSelectedRank] = useState('');
     const [selectedDegree, setSelectedDegree] = useState('');
     const [filterName, setFilterName] = useState('');
+    const [isSearchBoxActive, setIsSearchBoxActive] = useState(false);
 
     const handleSelectedRank = (e) => {
         setSelectedRank(e.target.value);
@@ -29,6 +31,14 @@ export default function Faculty(props) {
 
     const handleFilterName = (e) => {
         setFilterName(e.target.value);
+    };
+
+    const handleSearchBoxFocus = () => {
+        setIsSearchBoxActive(true);
+    };
+
+    const handleSearchBoxBlur = () => {
+        setIsSearchBoxActive(false);
     };
 
     useEffect(() => {
@@ -61,6 +71,12 @@ export default function Faculty(props) {
         setSelectedDegree('')
     }
 
+    const handleClickSearched = (e, id) => {
+        e.preventDefault();
+        // console.log('click');
+        Inertia.visit(route('basic', { id: id }))
+    }
+    
     // useEffect(() => {
     //     console.log(searchResults);
     // }, [searchResults]);
@@ -89,22 +105,30 @@ export default function Faculty(props) {
                                 placeholder="Search faculty..."
                                 value={filterName}
                                 onChange={handleFilterName}
+                                onFocus={handleSearchBoxFocus} // Set isSearchBoxActive to true when focused
+                                onBlur={handleSearchBoxBlur}
                             />
-                            {filterName === '' ? 
-                            <>
-                            </> : 
-                            <>
-                            <div className='searches-container'>
-                                {searchResults.map(({ key, results }) => (
-                                    <div key={key}>
-                                        {results.map(faculty => (
-                                            <div key={faculty.id}>{`${faculty.fname} ${faculty.lname}`}</div>
-                                        ))}
-                                    </div>
-                                ))}
-                            </div>
-                            </>}
-                            
+                            {isSearchBoxActive && filterName !== '' && (
+                                <div className='searches-container'>
+                                    {searchResults.map(({ key, results }) => (
+                                        results.length > 0 && 
+                                        <div key={key} className='searched-data'>
+                                            {results.map(faculty => (
+                                                <div key={faculty.id} className='p-3 d-flex align-items-center' onMouseDown={(e) => handleClickSearched(e, faculty.id)}>
+                                                    {`${faculty.fname} ${faculty.lname}`}
+                                                    <i 
+                                                    className="fa-solid fa-user ms-auto fa-sm" 
+                                                    style={
+                                                        {color: faculty.role === 'Faculty' ? "var(--grey)" : 
+                                                        faculty.role === 'Department Head' ? "var(--light-green)" : 
+                                                        faculty.role === 'College Dean' ? "var(--yellow)" : "white"}
+                                                    }></i>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
                         </div>
                         
                         <div className="filters d-flex">
