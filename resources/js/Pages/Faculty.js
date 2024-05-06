@@ -3,7 +3,7 @@ import Authenticated from '@/Layouts/Authenticated';
 import Table1 from './Tables/Table1';
 import Table2 from './Tables/Table2';
 import { usePage } from '@inertiajs/inertia-react';
-import { filterFaculty } from '@/utils/filters';
+import { filterFaculty, searchFaculty } from '@/utils/filters';
 
 export default function Faculty(props) {
     const { 
@@ -17,6 +17,7 @@ export default function Faculty(props) {
 
     const [selectedRank, setSelectedRank] = useState('');
     const [selectedDegree, setSelectedDegree] = useState('');
+    const [filterName, setFilterName] = useState('');
 
     const handleSelectedRank = (e) => {
         setSelectedRank(e.target.value);
@@ -24,6 +25,10 @@ export default function Faculty(props) {
 
     const handleSelectedDegree = (e) => {
         setSelectedDegree(e.target.value);
+    };
+
+    const handleFilterName = (e) => {
+        setFilterName(e.target.value);
     };
 
     useEffect(() => {
@@ -37,11 +42,28 @@ export default function Faculty(props) {
     const filteredFacultyCS = filterFaculty(faculty_data_cs, selectedRank, selectedDegree);
     const filteredFacultySS = filterFaculty(faculty_data_ss, selectedRank, selectedDegree);
 
+    const facultyNames = [
+        { data: faculty_data_ae, key: 'AE' },
+        { data: faculty_data_am, key: 'AM' },
+        { data: faculty_data_as, key: 'AS' },
+        { data: faculty_data_cp, key: 'CP' },
+        { data: faculty_data_cs, key: 'CS' },
+        { data: faculty_data_ss, key: 'SS' }
+    ];
+
+    const searchResults = facultyNames.map(({ data, key }) => ({
+        key,
+        results: searchFaculty(data, filterName)
+    }));
 
     const resetFilter = () => {
         setSelectedRank('')
         setSelectedDegree('')
     }
+
+    // useEffect(() => {
+    //     console.log(searchResults);
+    // }, [searchResults]);
 
     return (
         <Authenticated
@@ -61,7 +83,28 @@ export default function Faculty(props) {
                             <button className="search-icon px-2">
                                 <i className="fa-solid fa-magnifying-glass fa-sm"></i>
                             </button>
-                            <input type="text" className="search-box px-5 py-1" placeholder="Search faculty..."/>
+                            <input 
+                                type="text" 
+                                className="search-box px-5 py-1" 
+                                placeholder="Search faculty..."
+                                value={filterName}
+                                onChange={handleFilterName}
+                            />
+                            {filterName === '' ? 
+                            <>
+                            </> : 
+                            <>
+                            <div className='searches-container'>
+                                {searchResults.map(({ key, results }) => (
+                                    <div key={key}>
+                                        {results.map(faculty => (
+                                            <div key={faculty.id}>{`${faculty.fname} ${faculty.lname}`}</div>
+                                        ))}
+                                    </div>
+                                ))}
+                            </div>
+                            </>}
+                            
                         </div>
                         
                         <div className="filters d-flex">
