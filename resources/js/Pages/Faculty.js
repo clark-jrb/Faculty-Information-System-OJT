@@ -57,9 +57,9 @@ export default function Faculty(props) {
                             <p className="m-0">Faculty List</p>
                         </div>
 
-                        <div className="search-faculty w-25">
+                        <div className="search-faculty">
                             <button className="search-icon px-2">
-                                <i className="fa-solid fa-magnifying-glass"></i>
+                                <i className="fa-solid fa-magnifying-glass fa-sm"></i>
                             </button>
                             <input type="text" className="search-box px-5 py-1" placeholder="Search faculty..."/>
                         </div>

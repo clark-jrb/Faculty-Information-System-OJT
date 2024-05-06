@@ -101,15 +101,15 @@
     position: relative;
 }
 
-.search-box {
+/* .search-box {
     width: 100%;
     border: #dee2e6 solid 1px;
     border-radius: 3px;
-    /* height: 100%; */
+    height: 70%; */
     /* border: var(--green) solid 3px; */
     /* outline: var(--light-green); */
     /* transition: .1s outline ease; */
-}
+/* } */
 
 .search-box:focus {
     box-shadow: none;
@@ -119,12 +119,56 @@
     /* outline-offset: 2px; */
 }
 
+/* .search-box::after { */
+    /* display: block; */
+    /* content: ''; */
+    /* border: solid 2px var(--green);  
+    transform: scaleX(0);  
+    transition: transform 150ms ease-in-out; */
+    /* border-radius: 10px; */
+/* } */
+
+/* .search-box:hover:after {
+    transform: scaleX(1);
+} */
+
+/* .search-box:hover {
+    border: var(--green) solid 4px;
+} */
+
+.search-box {
+    width: 100%;
+    border: #dee2e6 solid 1px;
+    border-radius: 3px;
+    height: 70%;
+}
+
+.search-box:focus {
+    box-shadow: none;
+    border-color: transparent;
+    border: var(--green) solid 2px;
+    transition: border-color 0.3s ease; /* Add transition for border-color */
+}
+
+.search-box::after {
+    content: '';
+    border: solid 2px var(--green);  
+    transform: scaleX(0);  
+    transition: transform 150ms ease-in-out;
+    position: absolute; /* Add position property */
+    bottom: 0; /* Adjust position as needed */
+    left: 0; /* Adjust position as needed */
+}
+
+/* .search-box:hover::after {
+    transform: scaleX(1);
+} */
 
 .search-icon {
     left: 0;
     position: absolute;
     /* width: 10%; */
-    height: 80%;
+    height: 70%;
     background-color: white;
     border-radius: 3px;
     border: var(--dark-green) solid 3px;
