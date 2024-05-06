@@ -3,11 +3,16 @@ import Authenticated from '@/Layouts/Authenticated';
 import agri_logo from '../../../public/images/agri_logo.png'
 import NavLink from '@/Components/NavLink';
 import { usePage } from '@inertiajs/inertia-react';
+import { Inertia } from '@inertiajs/inertia';
 
 export default function Profile({ children }) {
     const { 
         faculty_data
     } = usePage().props;
+
+    const handleGoBack = () => {
+        Inertia.visit(route('faculties'))
+    }
 
     return (
         <Authenticated
@@ -20,6 +25,9 @@ export default function Profile({ children }) {
                 <div className="profile-container">
                     {/* <!-- Profile  --> */}
                     <div className="profile-section p-4">
+                        <div className='go-back-btn' onClick={() => handleGoBack()}>
+                            <i className="fa-solid fa-arrow-left-long fa-xl"></i>
+                        </div>
                         <div className="profile-pic-cont p-4">
                             <div className="first-layer p-2">
                                 <div className="second-layer">

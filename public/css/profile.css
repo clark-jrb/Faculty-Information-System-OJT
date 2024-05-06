@@ -278,3 +278,13 @@
     height: 90%;
     overflow-y: auto;
 }
+
+.go-back-btn {
+    width: fit-content;
+}
+
+.go-back-btn:hover {
+    transition: .2s;
+    cursor: pointer;
+    color: var(--light-green);
+}
