@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AdminAuthenticated from "@/Layouts/AdminAuthenticated";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -11,6 +11,21 @@ import { useEditContext } from "@/Contexts/EditButtons";
 export default function AdminFaculties({ children }) {
     const { notif, message } = useNotifContext()
     const { checked, handleChecked } = useEditContext()
+    const [filterName, setFilterName] = useState('');
+    const [isSearchBoxActive, setIsSearchBoxActive] = useState(false);
+
+    const handleFilterName = (e) => {
+        setFilterName(e.target.value);
+    };
+
+    const handleSearchBoxFocus = () => {
+        setIsSearchBoxActive(true);
+    };
+
+    const handleSearchBoxBlur = () => {
+        setIsSearchBoxActive(false);
+    };
+
     
     return (
         <AdminAuthenticated>
@@ -42,7 +57,44 @@ export default function AdminFaculties({ children }) {
                 </div>
 
                 <div className="admin-filter-add-cont mb-3">
-                    <div className="admin-filter-search">
+
+                    <div className="search-faculty">
+                        <button className="search-icon px-2">
+                            <i className="fa-solid fa-magnifying-glass fa-sm"></i>
+                        </button>
+                        <input 
+                            type="text" 
+                            className="search-box px-5 py-1" 
+                            placeholder="Search faculty..."
+                            value={filterName}
+                            onChange={handleFilterName}
+                            onFocus={handleSearchBoxFocus} // Set isSearchBoxActive to true when focused
+                            onBlur={handleSearchBoxBlur}
+                        />
+                        {/* {isSearchBoxActive && filterName !== '' && (
+                            <div className='searches-container'>
+                                {searchResults.map(({ key, results }) => (
+                                    results.length > 0 && 
+                                    <div key={key} className='searched-data'>
+                                        {results.map(faculty => (
+                                            <div key={faculty.id} className='p-3 d-flex align-items-center' onMouseDown={(e) => handleClickSearched(e, faculty.id)}>
+                                                {`${faculty.fname} ${faculty.lname}`}
+                                                <i 
+                                                className="fa-solid fa-user ms-auto fa-sm" 
+                                                style={
+                                                    {color: faculty.role === 'Faculty' ? "var(--grey)" : 
+                                                    faculty.role === 'Department Head' ? "var(--light-green)" : 
+                                                    faculty.role === 'College Dean' ? "var(--yellow)" : "white"}
+                                                }></i>
+                                            </div>
+                                        ))}
+                                    </div>
+                                ))}
+                            </div>
+                        )} */}
+                    </div>
+
+                    {/* <div className="admin-filter-search">
                         <InputGroup className="">
                             <Button variant="outline-secondary" id="button-addon1">
                             Button
@@ -53,7 +105,7 @@ export default function AdminFaculties({ children }) {
                             placeholder="Search faculty..."
                             />
                         </InputGroup>
-                    </div>
+                    </div> */}
 
                     <div className="admin-add-faculty ms-auto">
                         <ResponsiveNavLink href={route('admin.create')} as="button">

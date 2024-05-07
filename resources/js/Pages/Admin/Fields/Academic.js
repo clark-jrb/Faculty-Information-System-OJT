@@ -110,7 +110,7 @@ export default function Academic({ data, setData }) {
             {/* Add button */}
             <div className="add-field-container w-100 px-2">
                 <button type="button" className="add-field-btn w-100 py-2" onClick={handleAddEducField}>
-                    <i className="fa-solid fa-plus"></i> Add another education background
+                    <i className="fa-solid fa-plus"></i> Add education background
                 </button>
             </div>
             
@@ -181,7 +181,7 @@ export default function Academic({ data, setData }) {
             {/* Add field button */}
             <div className="add-field-container w-100 px-2">
                 <button type="button" className="add-field-btn w-100 py-2" onClick={handleAddWorkField}>
-                    <i className="fa-solid fa-plus"></i> Add another work experience
+                    <i className="fa-solid fa-plus"></i> Add work experience
                 </button>
             </div>
         </div>

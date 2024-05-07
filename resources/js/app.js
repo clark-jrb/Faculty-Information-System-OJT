@@ -8,6 +8,7 @@ import { createInertiaApp } from '@inertiajs/inertia-react';
 import { InertiaProgress } from '@inertiajs/progress';
 import { NotifProvider } from './Contexts/Notification';
 import { EditProvider } from './Contexts/EditButtons';
+import { FacultyDataProvider } from './Contexts/FacultyDatas';
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
@@ -18,7 +19,9 @@ createInertiaApp({
         return render(
             <NotifProvider>
                 <EditProvider>
-                    <App {...props} />
+                    <FacultyDataProvider>
+                        <App {...props} />
+                    </FacultyDataProvider>
                 </EditProvider>
             </NotifProvider>,
             el
