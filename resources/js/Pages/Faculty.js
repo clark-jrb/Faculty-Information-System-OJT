@@ -175,18 +175,6 @@ export default function Faculty(props) {
                                     <option value="bachelor">Bachelor</option>
                                 </select>
                             </div>
-
-                            {/* <div className="filter-department">
-                                <select id="departmentFilter" className="form-select" aria-label="Default select example">
-                                    <option disabled>Select Department</option>
-                                    <option value="1">Agricultural Extension</option>
-                                    <option value="2">Agri-Management</option>
-                                    <option value="3">Animal Science</option>
-                                    <option value="4">Crop Protection</option>
-                                    <option value="5">Crop Science</option>
-                                    <option value="6">Soil Science</option>
-                                </select>
-                            </div> */}
                         </div>
 
                         <div className="legend d-flex">

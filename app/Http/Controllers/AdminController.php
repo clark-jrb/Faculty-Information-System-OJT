@@ -416,24 +416,14 @@ class AdminController extends Controller
         $faculty_data_cs = Basic_Info::where('department', 'like', 'Crop Science')->get();
         $faculty_data_ss = Basic_Info::where('department', 'like', 'Soil Science')->get();
 
-        // return Inertia::render('Faculty', [
-        //     'faculty_data_ae' => $faculty_data_ae,
-        //     'faculty_data_am' => $faculty_data_am,
-        //     'faculty_data_as' => $faculty_data_as,
-        //     'faculty_data_cp' => $faculty_data_cp,
-        //     'faculty_data_cs' => $faculty_data_cs,
-        //     'faculty_data_ss' => $faculty_data_ss
-        // ]);
-        $faculty_data = [
+        return Inertia::render('Faculty', [
             'faculty_data_ae' => $faculty_data_ae,
             'faculty_data_am' => $faculty_data_am,
             'faculty_data_as' => $faculty_data_as,
             'faculty_data_cp' => $faculty_data_cp,
             'faculty_data_cs' => $faculty_data_cs,
             'faculty_data_ss' => $faculty_data_ss
-        ];
-    
-        return response()->json($faculty_data);
+        ]);
     }
     /**
      * Show the form for editing the specified resource.

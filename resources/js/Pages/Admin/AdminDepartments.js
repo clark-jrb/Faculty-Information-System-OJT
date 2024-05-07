@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AdminFaculties from "./AdminFaculties";
 import NavLink from "@/Components/NavLink";
 
 export default function AdminDepartments({ children }) {
+
+    // useEffect(() => {
+    //     console.log(facultyData);
+    // }, [facultyData]);
+
     return (
         <AdminFaculties>
             <div className="admin-departments-cont h-100">
@@ -79,6 +84,11 @@ export default function AdminDepartments({ children }) {
                 </div>
                 
                 <div className="admin-faculties-table-cont">
+                    {/* <Table2 
+                        cp_data={facultyData.faculty_data_cp}
+                        cs_data={facultyData.faculty_data_cs}
+                        ss_data={facultyData.faculty_data_ss}
+                    /> */}
                     { children }
                 </div>
             </div>

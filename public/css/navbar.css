@@ -123,7 +123,7 @@
     width: 100%;
     border: #dee2e6 solid 1px;
     border-radius: 0.375rem;
-    height: 70%;
+    height: 100%;
 }
 
 .search-box:focus {

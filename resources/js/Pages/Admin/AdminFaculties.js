@@ -13,6 +13,16 @@ export default function AdminFaculties({ children }) {
     const { checked, handleChecked } = useEditContext()
     const [filterName, setFilterName] = useState('');
     const [isSearchBoxActive, setIsSearchBoxActive] = useState(false);
+    const [selectedRank, setSelectedRank] = useState('');
+    const [selectedDegree, setSelectedDegree] = useState('');
+
+    const handleSelectedRank = (e) => {
+        setSelectedRank(e.target.value);
+    };
+
+    const handleSelectedDegree = (e) => {
+        setSelectedDegree(e.target.value);
+    };
 
     const handleFilterName = (e) => {
         setFilterName(e.target.value);
@@ -26,10 +36,15 @@ export default function AdminFaculties({ children }) {
         setIsSearchBoxActive(false);
     };
 
+    const resetFilter = () => {
+        setSelectedRank('')
+        setSelectedDegree('')
+    }
     
     return (
         <AdminAuthenticated>
             <div className="admin-faculty-cont m-4">
+                {/* Title and delete switch  */}
                 <div className="admin-faculty-cont-title d-flex justify-content-between">
                     <p className="m-0">Faculties</p>
                     {notif && (
@@ -55,10 +70,11 @@ export default function AdminFaculties({ children }) {
                         </Switch>
                     </div>
                 </div>
-
-                <div className="admin-filter-add-cont mb-3">
-
-                    <div className="search-faculty">
+                
+                {/* Filters  */}
+                <div className="admin-filter-add-cont justify-content-between mb-3 w-100">
+                    {/* Search faculty  */}
+                    <div className="search-faculty h-100">
                         <button className="search-icon px-2">
                             <i className="fa-solid fa-magnifying-glass fa-sm"></i>
                         </button>
@@ -107,7 +123,55 @@ export default function AdminFaculties({ children }) {
                         </InputGroup>
                     </div> */}
 
-                    <div className="admin-add-faculty ms-auto">
+                    {/* Filter degree and rank  */}
+                    <div className="d-flex gap-3">
+                        {selectedRank !== '' || selectedDegree !== '' ? 
+                        <>
+                        <button id="resetFilter" className="filter-reset d-flex p-1 px-2" onClick={() => resetFilter()}>
+                            <i className="fa-solid fa-rotate-right"></i>
+                            <p className="m-0">
+                                &nbsp;Reset
+                            </p>
+                        </button>
+                        </> : 
+                        <>
+                        </>}
+
+                        <div className="filter-rank">
+                            <select 
+                                id="rankFilter" 
+                                className="form-select" 
+                                aria-label="Default select example"
+                                value={selectedRank}
+                                onChange={handleSelectedRank}
+                            >
+                                <option disabled value="">Select Rank</option>
+                                <option value="College Dean">Dean</option>
+                                <option value="Professor">Professor</option>
+                                <option value="Associate Professor">Associate Professor</option>
+                                <option value="Assistant Professor">Assistant Professor</option>
+                                <option value="Instructor">Instructor</option>
+                            </select>
+                        </div>
+
+                        <div className="filter-degree">
+                            <select 
+                                id="degreeFilter" 
+                                className="form-select" 
+                                aria-label="Default select example"
+                                value={selectedDegree}
+                                onChange={handleSelectedDegree}
+                            >
+                                <option disabled value="">Select Degree</option>
+                                <option value="doctoral">Doctoral</option>
+                                <option value="masteral">Masteral</option>
+                                <option value="bachelor">Bachelor</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    {/* Add faculty button  */}
+                    <div className="admin-add-faculty">
                         <ResponsiveNavLink href={route('admin.create')} as="button">
                             Add Faculty
                         </ResponsiveNavLink>
