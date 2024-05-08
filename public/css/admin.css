@@ -93,6 +93,10 @@
     height: 50%;
 }
 
+.admin-faculties-cont {
+    color: var(--grey);
+}
+
 /* DASHBOARD  */
 .admin-dash-cont {
     border: red solid 1px;
@@ -218,12 +222,7 @@
     flex: 1;
 }
 
-.admin-dept-ae-cont table tbody tr:hover,
-.admin-dept-am-cont table tbody tr:hover,
-.admin-dept-as-cont table tbody tr:hover,
-.admin-dept-cp-cont table tbody tr:hover,
-.admin-dept-cs-cont table tbody tr:hover,
-.admin-dept-ss-cont table tbody tr:hover {
+.admin-faculties-cont table tbody tr:hover {
     cursor: pointer;
     background-color: #dee2e6;
 }
@@ -377,4 +376,8 @@
 .admin-dept-cs-cont,
 .admin-dept-ss-cont {
     flex: 1;
+}
+
+.tb-fullname {
+    width: 250px;
 }

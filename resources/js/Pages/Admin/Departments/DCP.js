@@ -30,7 +30,7 @@ export default function DCP() {
                             <thead>
                                 <tr>
                                     <th scope="col" className="p-3 pb-2">#</th>
-                                    <th scope="col" className="p-3 pb-2">Full Name</th>
+                                    <th scope="col" className="p-3 pb-2 tb-fullname">Full Name</th>
                                     <th scope="col" className="p-3 pb-2">Role</th>
                                     <th scope="col" className="p-3 pb-2">Rank</th>
                                 </tr>
@@ -42,7 +42,7 @@ export default function DCP() {
                                         onClick={() => checked ? null : handleRowClick(faculty.id)}
                                     >
                                         <th className="p-2 ps-3">{index + 1}</th>
-                                        <td className="p-2 ps-3">{`${faculty.lname}, ${faculty.fname}`}</td>
+                                        <td className="p-2 ps-3 tb-fullname">{`${faculty.lname}, ${faculty.fname}`}</td>
                                         <td className="p-2 ps-3">{faculty.role}</td>
                                         <td className="p-2 ps-3">{faculty.position}</td>
                                         <td className="p-2 ps-3">

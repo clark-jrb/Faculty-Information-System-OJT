@@ -407,7 +407,7 @@ class AdminController extends Controller
         ]);
     }
 
-    public function filterFaculty($filter)
+    public function showFaculties()
     {
         $faculty_data_ae = Basic_Info::where('department', 'like', 'Agricultural Extension')->get();
         $faculty_data_am = Basic_Info::where('department', 'like', 'Agri-Management')->get();
@@ -416,7 +416,7 @@ class AdminController extends Controller
         $faculty_data_cs = Basic_Info::where('department', 'like', 'Crop Science')->get();
         $faculty_data_ss = Basic_Info::where('department', 'like', 'Soil Science')->get();
 
-        return Inertia::render('Faculty', [
+        return Inertia::render('Admin/AdminFacultyList', [
             'faculty_data_ae' => $faculty_data_ae,
             'faculty_data_am' => $faculty_data_am,
             'faculty_data_as' => $faculty_data_as,

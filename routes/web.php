@@ -61,7 +61,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::group(['middleware' => 'ifAdmin:admin'], function() {
         Route::inertia('/admin', 'Admin/AdminDashboard')->name('admin');
         Route::inertia('/admin/dashboard', 'Admin/AdminDashboard')->name('admin.dashboard');
-        Route::inertia('/admin/faculties', 'Admin/AdminFacultyList')->name('admin.faculties');
+        // Route::inertia('/admin/faculties', 'Admin/AdminFacultyList')->name('admin.faculties');
+        Route::get('/admin/faculties', [AdminController::class, 'showFaculties'])->name('admin.faculties');
         Route::inertia('/admin/faculties/departments', 'Admin/AdminDepartments')->name('admin.departments');
         Route::inertia('/admin/files', 'Admin/AdminFiles')->name('admin.files');
 
