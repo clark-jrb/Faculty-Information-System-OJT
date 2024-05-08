@@ -1,5 +1,6 @@
 import React from "react";
 import AdminDepartments from "../AdminDepartments";
+import AdminFaculties from "../AdminFaculties";
 import { usePage } from "@inertiajs/inertia-react";
 import { useEditContext } from "@/Contexts/EditButtons";
 import { InertiaLink } from "@inertiajs/inertia-react";
@@ -14,7 +15,7 @@ export default function DCP() {
     }
 
     return (
-        <AdminDepartments>
+        <AdminFaculties>
             <div className="admin-dept-cp-cont h-100">
                 <div className="admin-dept-cp-title">
                     <p>Crop Protection</p>
@@ -68,6 +69,6 @@ export default function DCP() {
                     )}
                 </div>
             </div>
-        </AdminDepartments>
+        </AdminFaculties>
     )
 }

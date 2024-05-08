@@ -407,7 +407,7 @@ class AdminController extends Controller
         ]);
     }
 
-    public function showFaculties()
+    public function filterFaculty($filter)
     {
         $faculty_data_ae = Basic_Info::where('department', 'like', 'Agricultural Extension')->get();
         $faculty_data_am = Basic_Info::where('department', 'like', 'Agri-Management')->get();

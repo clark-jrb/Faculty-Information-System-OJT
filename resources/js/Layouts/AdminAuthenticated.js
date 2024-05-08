@@ -63,7 +63,7 @@ export default function AdminAuthenticated({ children }) {
                             </NavLink>
                         </li>
                         <li className="mb-4">
-                            <NavLink href={route('admin.departments')} active={admin_faculty_active}>
+                            <NavLink href={route('admin.faculties')} active={admin_faculty_active}>
                                 <i className="fa-solid fa-users"></i> &nbsp;Faculties
                             </NavLink>
                         </li>

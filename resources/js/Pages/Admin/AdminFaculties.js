@@ -7,6 +7,7 @@ import { useNotifContext } from "@/Contexts/Notification";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Switch } from "@headlessui/react";
 import { useEditContext } from "@/Contexts/EditButtons";
+import AdminDepartments from "./AdminDepartments";
 
 export default function AdminFaculties({ children }) {
     const { notif, message } = useNotifContext()
@@ -178,7 +179,8 @@ export default function AdminFaculties({ children }) {
                     </div>
                 </div>
                 
-                <div className="admin-faculties-cont">
+                <div className="admin-faculties-cont d-flex gap-3">
+                    <AdminDepartments></AdminDepartments>
                     { children }
                 </div>
             </div>

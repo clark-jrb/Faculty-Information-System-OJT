@@ -1,5 +1,6 @@
 import React from "react";
 import AdminDepartments from "../AdminDepartments";
+import AdminFaculties from "../AdminFaculties";
 import { usePage } from "@inertiajs/inertia-react";
 import { useEditContext } from "@/Contexts/EditButtons";
 import { InertiaLink } from "@inertiajs/inertia-react";
@@ -14,7 +15,7 @@ export default function DAM() {
     }
 
     return (
-        <AdminDepartments>
+        <AdminFaculties>
             <div className="admin-dept-am-cont h-100">
                 <div className="admin-dept-am-title">
                     <p>Agri-Management</p>
@@ -68,6 +69,6 @@ export default function DAM() {
                     )}
                 </div>
             </div>
-        </AdminDepartments>
+        </AdminFaculties>
     )
 }

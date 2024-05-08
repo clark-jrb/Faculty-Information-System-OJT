@@ -196,7 +196,7 @@ export default function FacultyInfo({ children }) {
             <div className="admin-create-faculty-cont m-4">
                 {/* HEADER  */}
                 <div className="d-flex align-items-center">
-                    <NavLink href={route('admin.departments')}>
+                    <NavLink href={route('admin.faculties')}>
                         <div className="admin-create-cont-title">
                             <p className="m-0">Faculties/&nbsp;</p>
                         </div>

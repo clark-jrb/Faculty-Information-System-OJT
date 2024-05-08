@@ -1,5 +1,6 @@
 import React from "react";
 import AdminDepartments from "../AdminDepartments";
+import AdminFaculties from "../AdminFaculties";
 import { usePage } from "@inertiajs/inertia-react";
 import { useEditContext } from "@/Contexts/EditButtons";
 import { InertiaLink } from "@inertiajs/inertia-react";
@@ -14,7 +15,7 @@ export default function DAE() {
     }
 
     return (
-        <AdminDepartments>
+        <AdminFaculties>
             <div className="admin-dept-ae-cont h-100">
                 <div className="admin-dept-ae-title">
                     <p>Agricultural Extension</p>
@@ -69,6 +70,6 @@ export default function DAE() {
                 </div>
 
             </div>
-        </AdminDepartments>
+        </AdminFaculties>
     )
 }

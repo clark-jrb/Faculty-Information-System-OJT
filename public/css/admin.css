@@ -218,7 +218,12 @@
     flex: 1;
 }
 
-.admin-faculties-table-cont table tbody tr:hover {
+.admin-dept-ae-cont table tbody tr:hover,
+.admin-dept-am-cont table tbody tr:hover,
+.admin-dept-as-cont table tbody tr:hover,
+.admin-dept-cp-cont table tbody tr:hover,
+.admin-dept-cs-cont table tbody tr:hover,
+.admin-dept-ss-cont table tbody tr:hover {
     cursor: pointer;
     background-color: #dee2e6;
 }
@@ -363,4 +368,13 @@
 
 .faculty-per-table {
     width: 400px;
+}
+
+.admin-dept-ae-cont,
+.admin-dept-am-cont,
+.admin-dept-as-cont,
+.admin-dept-cp-cont,
+.admin-dept-cs-cont,
+.admin-dept-ss-cont {
+    flex: 1;
 }

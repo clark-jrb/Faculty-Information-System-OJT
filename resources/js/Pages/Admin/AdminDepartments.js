@@ -2,14 +2,13 @@ import React, { useEffect } from "react";
 import AdminFaculties from "./AdminFaculties";
 import NavLink from "@/Components/NavLink";
 
-export default function AdminDepartments({ children }) {
+export default function AdminDepartments() {
 
     // useEffect(() => {
     //     console.log(facultyData);
     // }, [facultyData]);
 
     return (
-        <AdminFaculties>
             <div className="admin-departments-cont h-100">
                 <div className="admin-departments-lists">
                     <div className="admin-departments-title">
@@ -83,15 +82,9 @@ export default function AdminDepartments({ children }) {
                     </NavLink>
                 </div>
                 
-                <div className="admin-faculties-table-cont">
-                    {/* <Table2 
-                        cp_data={facultyData.faculty_data_cp}
-                        cs_data={facultyData.faculty_data_cs}
-                        ss_data={facultyData.faculty_data_ss}
-                    /> */}
+                {/* <div className="admin-faculties-table-cont">
                     { children }
-                </div>
+                </div> */}
             </div>
-        </AdminFaculties>
     )
 }
