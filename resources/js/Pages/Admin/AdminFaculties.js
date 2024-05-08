@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AdminAuthenticated from "@/Layouts/AdminAuthenticated";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -8,22 +8,26 @@ import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Switch } from "@headlessui/react";
 import { useEditContext } from "@/Contexts/EditButtons";
 import AdminDepartments from "./AdminDepartments";
+import { useForm } from "@inertiajs/inertia-react";
+import { filter } from "lodash";
+import { Inertia } from "@inertiajs/inertia";
+import { useFilterDataContext } from "@/Contexts/FilterData";
 
 export default function AdminFaculties({ children }) {
     const { notif, message } = useNotifContext()
     const { checked, handleChecked } = useEditContext()
     const [filterName, setFilterName] = useState('');
     const [isSearchBoxActive, setIsSearchBoxActive] = useState(false);
-    const [selectedRank, setSelectedRank] = useState('');
-    const [selectedDegree, setSelectedDegree] = useState('');
-
-    const handleSelectedRank = (e) => {
-        setSelectedRank(e.target.value);
-    };
-
-    const handleSelectedDegree = (e) => {
-        setSelectedDegree(e.target.value);
-    };
+    // const [selectedRank, setSelectedRank] = useState('');
+    // const [selectedDegree, setSelectedDegree] = useState('');
+    const { 
+        selectedRank, 
+        selectedDegree, 
+        handleSelectedRank, 
+        handleSelectedDegree,
+        filters,
+        handleResetFilter
+    } = useFilterDataContext()
 
     const handleFilterName = (e) => {
         setFilterName(e.target.value);
@@ -38,9 +42,22 @@ export default function AdminFaculties({ children }) {
     };
 
     const resetFilter = () => {
-        setSelectedRank('')
-        setSelectedDegree('')
+        handleResetFilter()
+        Inertia.visit(route('admin.faculties'))
     }
+
+    const filterFacultyData = () => {
+        // console.log('filters: ' + filters);
+        Inertia.get('/admin/faculties', filters)
+    }
+
+    // useEffect(() => {
+    //     filterFacultyData()
+    // }, [filters]);
+
+    // useEffect(() => {
+    //     console.log(filters);
+    // }, [filters]);
     
     return (
         <AdminAuthenticated>
@@ -125,16 +142,16 @@ export default function AdminFaculties({ children }) {
                     </div> */}
 
                     {/* Filter degree and rank  */}
-                    <div className="d-flex gap-3">
+                    <div className="d-flex gap-3 align-items-center">
                         {selectedRank !== '' || selectedDegree !== '' ? 
-                        <>
+                        <div>
                         <button id="resetFilter" className="filter-reset d-flex p-1 px-2" onClick={() => resetFilter()}>
                             <i className="fa-solid fa-rotate-right"></i>
                             <p className="m-0">
                                 &nbsp;Reset
                             </p>
                         </button>
-                        </> : 
+                        </div> : 
                         <>
                         </>}
 
@@ -147,7 +164,7 @@ export default function AdminFaculties({ children }) {
                                 onChange={handleSelectedRank}
                             >
                                 <option disabled value="">Select Rank</option>
-                                <option value="College Dean">Dean</option>
+                                {/* <option value="College Dean">Dean</option> */}
                                 <option value="Professor">Professor</option>
                                 <option value="Associate Professor">Associate Professor</option>
                                 <option value="Assistant Professor">Assistant Professor</option>
@@ -169,6 +186,18 @@ export default function AdminFaculties({ children }) {
                                 <option value="bachelor">Bachelor</option>
                             </select>
                         </div>
+
+                        {selectedRank !== '' || selectedDegree !== '' ? 
+                        <div>
+                            <button className="filter-btn d-flex p-1 px-2" onClick={() => filterFacultyData()}>
+                                <i className="fa-solid fa-filter"></i>
+                                <p className="m-0">
+                                    &nbsp;Filter
+                                </p>
+                            </button>
+                        </div> :
+                        <></>
+                        }
                     </div>
                     
                     {/* Add faculty button  */}
@@ -180,7 +209,7 @@ export default function AdminFaculties({ children }) {
                 </div>
                 
                 <div className="admin-faculties-cont d-flex gap-3">
-                    <AdminDepartments></AdminDepartments>
+                    <AdminDepartments/>
                     { children }
                 </div>
             </div>

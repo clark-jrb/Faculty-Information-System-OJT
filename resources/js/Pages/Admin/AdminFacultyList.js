@@ -7,12 +7,7 @@ import { Inertia } from "@inertiajs/inertia";
 
 export default function AdminFacultyList() {
     const {
-        faculty_data_ae,
-        faculty_data_am,
-        faculty_data_as,
-        faculty_data_cp,
-        faculty_data_cs,
-        faculty_data_ss
+        faculty_data
     } = usePage().props;
 
     const { checked } = useEditContext()
@@ -22,8 +17,8 @@ export default function AdminFacultyList() {
     }
 
     // useEffect(() => {
-    //     console.log(faculty_data_ae);
-    // }, [faculty_data_ae]);
+    //     console.log(faculty_data.fd_agricultural_extension);
+    // }, [faculty_data]);
 
     return (
         <AdminFaculties>
@@ -33,7 +28,7 @@ export default function AdminFacultyList() {
                     <p>Agricultural Extension</p>
                 </div>
                 <div className="agri-dept-ae-table-cont mb-3">
-                    {faculty_data_ae.length === 0 ? (
+                    {faculty_data.fd_agricultural_extension.length === 0 ? (
                         <div className="d-flex justify-content-center align-items-center h-100">
                             <p className="m-0">No data to show</p>
                         </div>
@@ -48,7 +43,7 @@ export default function AdminFacultyList() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {faculty_data_ae.map((faculty, index) => (
+                                {faculty_data.fd_agricultural_extension.map((faculty, index) => (
                                     <tr 
                                         key={index}
                                         onClick={() => checked ? null : handleRowClick(faculty.id)}
@@ -86,7 +81,7 @@ export default function AdminFacultyList() {
                     <p>Agri-Management</p>
                 </div>
                 <div className="agri-dept-am-table-cont mb-3">
-                    {faculty_data_am.length === 0 ? (
+                    {faculty_data.fd_agri_management.length === 0 ? (
                         <div className="d-flex justify-content-center align-items-center h-100">
                             <p className="m-0">No data to show</p>
                         </div>
@@ -101,7 +96,7 @@ export default function AdminFacultyList() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {faculty_data_am.map((faculty, index) => (
+                                {faculty_data.fd_agri_management.map((faculty, index) => (
                                     <tr 
                                         key={index}
                                         onClick={() => checked ? null : handleRowClick(faculty.id)}
@@ -139,7 +134,7 @@ export default function AdminFacultyList() {
                     <p>Animal Science</p>
                 </div>
                 <div className="agri-dept-as-table-cont mb-3">
-                    {faculty_data_as.length === 0 ? (
+                    {faculty_data.fd_animal_science.length === 0 ? (
                         <div className="d-flex justify-content-center align-items-center h-100">
                             <p className="m-0">No data to show</p>
                         </div>
@@ -154,7 +149,7 @@ export default function AdminFacultyList() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {faculty_data_as.map((faculty, index) => (
+                                {faculty_data.fd_animal_science.map((faculty, index) => (
                                     <tr 
                                         key={index}
                                         onClick={() => checked ? null : handleRowClick(faculty.id)}
@@ -192,7 +187,7 @@ export default function AdminFacultyList() {
                     <p>Crop Protection</p>
                 </div>
                 <div className="agri-dept-cp-table-cont mb-3">
-                    {faculty_data_cp.length === 0 ? (
+                    {faculty_data.fd_crop_protection.length === 0 ? (
                         <div className="d-flex justify-content-center align-items-center h-100">
                             <p className="m-0">No data to show</p>
                         </div>
@@ -207,7 +202,7 @@ export default function AdminFacultyList() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {faculty_data_cp.map((faculty, index) => (
+                                {faculty_data.fd_crop_protection.map((faculty, index) => (
                                     <tr 
                                         key={index}
                                         onClick={() => checked ? null : handleRowClick(faculty.id)}
@@ -245,7 +240,7 @@ export default function AdminFacultyList() {
                     <p>Crop Science</p>
                 </div>
                 <div className="agri-dept-cs-table-cont mb-3">
-                    {faculty_data_cs.length === 0 ? (
+                    {faculty_data.fd_crop_science.length === 0 ? (
                         <div className="d-flex justify-content-center align-items-center h-100">
                             <p className="m-0">No data to show</p>
                         </div>
@@ -260,7 +255,7 @@ export default function AdminFacultyList() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {faculty_data_cs.map((faculty, index) => (
+                                {faculty_data.fd_crop_science.map((faculty, index) => (
                                     <tr 
                                         key={index}
                                         onClick={() => checked ? null : handleRowClick(faculty.id)}
@@ -298,7 +293,7 @@ export default function AdminFacultyList() {
                     <p>Soil Science</p>
                 </div>
                 <div className="agri-dept-ss-table-cont mb-3">
-                    {faculty_data_ss.length === 0 ? (
+                    {faculty_data.fd_soil_science.length === 0 ? (
                         <div className="d-flex justify-content-center align-items-center h-100">
                             <p className="m-0">No data to show</p>
                         </div>
@@ -313,7 +308,7 @@ export default function AdminFacultyList() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {faculty_data_ss.map((faculty, index) => (
+                                {faculty_data.fd_soil_science.map((faculty, index) => (
                                     <tr 
                                         key={index}
                                         onClick={() => checked ? null : handleRowClick(faculty.id)}
