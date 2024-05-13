@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import AdminFaculties from './AdminFaculties';
 import { usePage } from '@inertiajs/inertia-react';
 import { useEditContext } from '@/Contexts/EditButtons';
 import { InertiaLink } from "@inertiajs/inertia-react";
 import { Inertia } from "@inertiajs/inertia";
+import { Modal } from 'react-bootstrap';
 
 export default function AdminFacultyList() {
     const {
@@ -11,6 +12,8 @@ export default function AdminFacultyList() {
     } = usePage().props;
 
     const { checked } = useEditContext()
+    const [selectedID, setSelectedID] = useState(null)
+    const [showModal, setShowModal] = useState(false);
 
     const handleRowClick = (id) => {
         Inertia.visit(route('admin.faculty.show', { id: id }));
@@ -20,8 +23,30 @@ export default function AdminFacultyList() {
     //     console.log(faculty_data);
     // }, [faculty_data]);
 
+    const handleConfirmDel = (id) => {
+        setSelectedID(id)
+        setShowModal(true)
+    }
+
+    const handleCloseModal = () => { setShowModal(false) }
+
+    const handleDelete = () => {
+        Inertia.delete(route('admin.destroy', { id: selectedID }))
+        setSelectedID(null)
+    }
+
+    useEffect(() => {
+        console.log('selected id: ' + selectedID);
+    }, [selectedID]);
+
     return (
         <AdminFaculties>
+            <Modal show={showModal} onHide={handleCloseModal} centered>
+                <Modal.Body>
+                    <button onClick={() => handleDelete()}>Yes</button>
+                    <button onClick={() => handleCloseModal()}>no</button>
+                </Modal.Body>
+            </Modal>
             <div className='lists-of-faculties flex-fill'>
                 {/* Agricultural Extension Table  */}
                 {faculty_data.fd_agricultural_extension && (
@@ -58,14 +83,9 @@ export default function AdminFacultyList() {
                                             <td className="p-2 ps-3">
                                                 { checked ? 
                                                 <>
-                                                    <InertiaLink 
-                                                        method="delete"
-                                                        href={route('admin.destroy', { id: faculty.id })} 
-                                                        className="p-0"
-                                                        as="button"
-                                                    >
+                                                    <button onClick={() => handleConfirmDel(faculty.id)}>
                                                         <i className="fa-solid fa-trash-can"></i>
-                                                    </InertiaLink>
+                                                    </button>
                                                 </> : 
                                                 <>
                                                     <i className="fa-solid fa-chevron-right"></i>
@@ -117,14 +137,9 @@ export default function AdminFacultyList() {
                                             <td className="p-2 ps-3">
                                                 { checked ? 
                                                 <>
-                                                    <InertiaLink 
-                                                        method="delete"
-                                                        href={route('admin.destroy', { id: faculty.id })} 
-                                                        className="p-0"
-                                                        as="button"
-                                                    >
+                                                    <button onClick={() => handleConfirmDel(faculty.id)}>
                                                         <i className="fa-solid fa-trash-can"></i>
-                                                    </InertiaLink>
+                                                    </button>
                                                 </> : 
                                                 <>
                                                     <i className="fa-solid fa-chevron-right"></i>
@@ -177,14 +192,9 @@ export default function AdminFacultyList() {
                                             <td className="p-2 ps-3">
                                                 { checked ? 
                                                 <>
-                                                    <InertiaLink 
-                                                        method="delete"
-                                                        href={route('admin.destroy', { id: faculty.id })} 
-                                                        className="p-0"
-                                                        as="button"
-                                                    >
+                                                    <button onClick={() => handleConfirmDel(faculty.id)}>
                                                         <i className="fa-solid fa-trash-can"></i>
-                                                    </InertiaLink>
+                                                    </button>
                                                 </> : 
                                                 <>
                                                     <i className="fa-solid fa-chevron-right"></i>
@@ -236,14 +246,9 @@ export default function AdminFacultyList() {
                                             <td className="p-2 ps-3">
                                                 { checked ? 
                                                 <>
-                                                    <InertiaLink 
-                                                        method="delete"
-                                                        href={route('admin.destroy', { id: faculty.id })} 
-                                                        className="p-0"
-                                                        as="button"
-                                                    >
+                                                    <button onClick={() => handleConfirmDel(faculty.id)}>
                                                         <i className="fa-solid fa-trash-can"></i>
-                                                    </InertiaLink>
+                                                    </button>
                                                 </> : 
                                                 <>
                                                     <i className="fa-solid fa-chevron-right"></i>
@@ -294,14 +299,9 @@ export default function AdminFacultyList() {
                                             <td className="p-2 ps-3">
                                                 { checked ? 
                                                 <>
-                                                    <InertiaLink 
-                                                        method="delete"
-                                                        href={route('admin.destroy', { id: faculty.id })} 
-                                                        className="p-0"
-                                                        as="button"
-                                                    >
+                                                    <button onClick={() => handleConfirmDel(faculty.id)}>
                                                         <i className="fa-solid fa-trash-can"></i>
-                                                    </InertiaLink>
+                                                    </button>
                                                 </> : 
                                                 <>
                                                     <i className="fa-solid fa-chevron-right"></i>
@@ -353,14 +353,9 @@ export default function AdminFacultyList() {
                                             <td className="p-2 ps-3">
                                                 { checked ? 
                                                 <>
-                                                    <InertiaLink 
-                                                        method="delete"
-                                                        href={route('admin.destroy', { id: faculty.id })} 
-                                                        className="p-0"
-                                                        as="button"
-                                                    >
+                                                    <button onClick={() => handleConfirmDel(faculty.id)}>
                                                         <i className="fa-solid fa-trash-can"></i>
-                                                    </InertiaLink>
+                                                    </button>
                                                 </> : 
                                                 <>
                                                     <i className="fa-solid fa-chevron-right"></i>
