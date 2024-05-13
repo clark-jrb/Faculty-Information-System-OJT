@@ -189,12 +189,12 @@
     text-decoration: none;
 }
 
-.admin-departments-lists a.active .admin-department-ae, 
-.admin-departments-lists a.active .admin-department-am,
-.admin-departments-lists a.active .admin-department-as,
-.admin-departments-lists a.active .admin-department-cp,
-.admin-departments-lists a.active .admin-department-cs,
-.admin-departments-lists a.active .admin-department-ss {
+.admin-departments-lists .admin-department-ae.active, 
+.admin-departments-lists .admin-department-am.active,
+.admin-departments-lists .admin-department-as.active,
+.admin-departments-lists .admin-department-cp.active,
+.admin-departments-lists .admin-department-cs.active,
+.admin-departments-lists .admin-department-ss.active {
     background-color: var(--dark-green);
 }
 

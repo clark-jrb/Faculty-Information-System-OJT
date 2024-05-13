@@ -6,6 +6,7 @@ export const FilterDataProvider = ({ children }) => {
     const [selectedRank, setSelectedRank] = useState('');
     const [selectedDegree, setSelectedDegree] = useState('');
     const [selectedDepartment, setSelectedDepartment] = useState('');
+    const [activeDept, setActiveDept] = useState('');
     const [filters, setFilters] = useState([{ rank: '', degree: '', department: '' }]);
 
     const handleSelectedRank = (e) => {
@@ -36,12 +37,17 @@ export const FilterDataProvider = ({ children }) => {
         setSelectedRank('')
         setSelectedDegree('')
         setSelectedDepartment('')
+        setActiveDept('')
         setFilters(prevState => ({
             ...prevState,
             rank: '',
             degree: '',
             department: ''
         }))
+    }
+
+    const handleActiveDept = (e) => {
+        setActiveDept(e)
     }
 
     // useEffect(() => {
@@ -53,9 +59,11 @@ export const FilterDataProvider = ({ children }) => {
             selectedRank,
             selectedDegree,
             selectedDepartment,
+            activeDept,
             handleSelectedRank,
             handleSelectedDegree,
             handleSelectedDepartment,
+            handleActiveDept,
             filters,
             handleResetFilter
         }}>
