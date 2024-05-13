@@ -5,7 +5,8 @@ const FilterDataContext = createContext();
 export const FilterDataProvider = ({ children }) => {
     const [selectedRank, setSelectedRank] = useState('');
     const [selectedDegree, setSelectedDegree] = useState('');
-    const [filters, setFilters] = useState([{ rank: '', degree: ''}]);
+    const [selectedDepartment, setSelectedDepartment] = useState('');
+    const [filters, setFilters] = useState([{ rank: '', degree: '', department: '' }]);
 
     const handleSelectedRank = (e) => {
         setSelectedRank(e.target.value);
@@ -23,22 +24,34 @@ export const FilterDataProvider = ({ children }) => {
         }))
     };
 
+    const handleSelectedDepartment = (dept) => {
+        setSelectedDepartment(dept);
+        setFilters(prevState => ({
+            ...prevState,
+            department: dept
+        }))
+    };
+
     const handleResetFilter = () => {
         setSelectedRank('')
         setSelectedDegree('')
-        setFilters(prevState => ({
-            ...prevState,
-            rank: '',
-            degree: ''
-        }))
+        setSelectedDepartment('')
+        // setFilters(prevState => ({
+        //     ...prevState,
+        //     rank: '',
+        //     degree: '',
+        //     department: ''
+        // }))
     }
 
     return (
         <FilterDataContext.Provider value={{ 
             selectedRank,
             selectedDegree,
+            selectedDepartment,
             handleSelectedRank,
             handleSelectedDegree,
+            handleSelectedDepartment,
             filters,
             handleResetFilter
         }}>

@@ -8,12 +8,27 @@ import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Switch } from "@headlessui/react";
 import { useEditContext } from "@/Contexts/EditButtons";
 import AdminDepartments from "./AdminDepartments";
-import { useForm } from "@inertiajs/inertia-react";
+import { usePage } from "@inertiajs/inertia-react";
 import { filter } from "lodash";
 import { Inertia } from "@inertiajs/inertia";
 import { useFilterDataContext } from "@/Contexts/FilterData";
 
 export default function AdminFaculties({ children }) {
+    const deptRoutes = [
+        'admin.departments.ae',
+        'admin.departments.as',
+        'admin.departments.am',
+        'admin.departments.cp',
+        'admin.departments.cs',
+        'admin.departments.ss',
+    ];
+
+    const {
+        faculty_data
+    } = usePage().props;
+
+    const toDisable = deptRoutes.includes(route().current());
+
     const { notif, message } = useNotifContext()
     const { checked, handleChecked } = useEditContext()
     const [filterName, setFilterName] = useState('');
@@ -23,6 +38,7 @@ export default function AdminFaculties({ children }) {
     const { 
         selectedRank, 
         selectedDegree, 
+        selectedDepartment,
         handleSelectedRank, 
         handleSelectedDegree,
         filters,
@@ -51,13 +67,15 @@ export default function AdminFaculties({ children }) {
         Inertia.get('/admin/faculties', filters)
     }
 
+    // const searchResults = faculty_data.map(({ data }) => ({
+    //     results: searchFaculty(data, filterName)
+    // }));
+
+
     // useEffect(() => {
     //     filterFacultyData()
     // }, [filters]);
 
-    // useEffect(() => {
-    //     console.log(filters);
-    // }, [filters]);
     
     return (
         <AdminAuthenticated>
@@ -143,7 +161,7 @@ export default function AdminFaculties({ children }) {
 
                     {/* Filter degree and rank  */}
                     <div className="d-flex gap-3 align-items-center">
-                        {selectedRank !== '' || selectedDegree !== '' ? 
+                        {selectedRank !== '' || selectedDegree !== '' || selectedDepartment !== '' ? 
                         <div>
                         <button id="resetFilter" className="filter-reset d-flex p-1 px-2" onClick={() => resetFilter()}>
                             <i className="fa-solid fa-rotate-right"></i>
@@ -162,6 +180,7 @@ export default function AdminFaculties({ children }) {
                                 aria-label="Default select example"
                                 value={selectedRank}
                                 onChange={handleSelectedRank}
+                                // disabled={toDisable}
                             >
                                 <option disabled value="">Select Rank</option>
                                 {/* <option value="College Dean">Dean</option> */}
@@ -179,6 +198,7 @@ export default function AdminFaculties({ children }) {
                                 aria-label="Default select example"
                                 value={selectedDegree}
                                 onChange={handleSelectedDegree}
+                                // disabled={toDisable}
                             >
                                 <option disabled value="">Select Degree</option>
                                 <option value="doctoral">Doctoral</option>
