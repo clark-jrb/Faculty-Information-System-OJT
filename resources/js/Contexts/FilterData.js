@@ -44,9 +44,9 @@ export const FilterDataProvider = ({ children }) => {
         }))
     }
 
-    useEffect(() => {
-        console.log(filters);
-    }, [filters]);
+    // useEffect(() => {
+    //     console.log(filters);
+    // }, [filters]);
 
     return (
         <FilterDataContext.Provider value={{ 

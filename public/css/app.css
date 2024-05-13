@@ -689,6 +689,9 @@ select {
 .top-0 {
   top: 0px;
 }
+.start-0 {
+  inset-inline-start: 0px;
+}
 .z-0 {
   z-index: 0;
 }

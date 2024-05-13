@@ -107,8 +107,9 @@
     background-color: white;
     position: absolute;
     left: 0;
-    top: 85%;
+    top: 100%;
     border: whitesmoke solid 1px;
+    border-radius: 2px;
 }
 
 .search-box:focus {
@@ -120,22 +121,24 @@
 }
 
 .search-box {
-    width: 100%;
+    width: 350px;
     border: #dee2e6 solid 1px;
-    border-radius: 0.375rem;
+    border-radius: 2px;
     height: 100%;
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
 }
 
 .search-box:focus {
     box-shadow: none;
     border-color: transparent;
-    border: var(--green) solid 2px;
+    border: var(--green) solid 1px;
     transition: border-color 0.3s ease; /* Add transition for border-color */
 }
 
 .search-box::after {
     content: '';
-    border: solid 2px var(--green);  
+    border: solid 1px var(--green);  
     transform: scaleX(0);  
     transition: transform 150ms ease-in-out;
     position: absolute; /* Add position property */
@@ -147,8 +150,12 @@
     transform: scaleX(1);
 } */
 
+.searched-data {
+    border-radius: 2px;
+    transition: 0.2s;
+}
 .searched-data:hover {
-    background-color: whitesmoke;
+    background-color: #dee2e6;
     cursor: pointer;
 }
 
@@ -156,14 +163,14 @@
     left: 0;
     position: absolute;
     /* width: 10%; */
-    height: 70%;
+    height: 100%;
     background-color: white;
-    border-radius: 0.375rem;
-    border: var(--dark-green) solid 3px;
+    border-radius: 2px;
+    border: var(--dark-green) solid 2px;
     transition: .2s border;
     color: var(--grey);
 }
 
 .search-icon:active {
-    border: var(--light-green) solid 3px;
+    border: var(--light-green) solid 2px;
 }

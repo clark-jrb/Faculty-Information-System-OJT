@@ -99,7 +99,7 @@ export default function AdminFaculties({ children }) {
     
     return (
         <AdminAuthenticated>
-            <div className="admin-faculty-cont m-4">
+            <div className="admin-faculty-cont p-4">
                 {/* Title and delete switch  */}
                 <div className="admin-faculty-cont-title d-flex justify-content-between">
                     <p className="m-0">Faculties</p>
@@ -130,13 +130,13 @@ export default function AdminFaculties({ children }) {
                 {/* Filters  */}
                 <div className="admin-filter-add-cont justify-content-between mb-3 w-100">
                     {/* Search faculty  */}
-                    <div className="search-faculty h-100">
+                    <div className="search-faculty h-100 align-items-center justify-content-center">
                         <button className="search-icon px-2">
                             <i className="fa-solid fa-magnifying-glass fa-sm"></i>
                         </button>
                         <input 
                             type="text" 
-                            className="search-box px-5 py-1" 
+                            className="search-box px-5" 
                             placeholder="Search faculty..."
                             value={filterName}
                             onChange={handleFilterName}
@@ -180,7 +180,7 @@ export default function AdminFaculties({ children }) {
                     </div> */}
 
                     {/* Filter degree and rank  */}
-                    <div className="d-flex gap-3 align-items-center">
+                    <div className="d-flex gap-3 align-items-center flex-fill justify-content-center">
                         {selectedRank !== '' || selectedDegree !== '' || selectedDepartment !== '' ? 
                         <div>
                         <button id="resetFilter" className="filter-reset d-flex p-1 px-2" onClick={() => resetFilter()}>
@@ -196,7 +196,7 @@ export default function AdminFaculties({ children }) {
                         <div className="filter-rank">
                             <select 
                                 id="rankFilter" 
-                                className="form-select" 
+                                className="form-select-admin" 
                                 aria-label="Default select example"
                                 value={selectedRank}
                                 onChange={handleSelectedRank}
@@ -214,7 +214,7 @@ export default function AdminFaculties({ children }) {
                         <div className="filter-degree">
                             <select 
                                 id="degreeFilter" 
-                                className="form-select" 
+                                className="form-select-admin" 
                                 aria-label="Default select example"
                                 value={selectedDegree}
                                 onChange={handleSelectedDegree}
