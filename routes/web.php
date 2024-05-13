@@ -84,7 +84,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         // Route::get('/admin/faculties/departments/cs', [AdminController::class, 'getCS'])->name('admin.departments.cs');
         // Route::get('/admin/faculties/departments/ss', [AdminController::class, 'getSS'])->name('admin.departments.ss');
 
-        Route::get('/admin/faculties/filter/{value}', [AdminController::class, 'filterFaculty'])->name('admin.faculty.filter');
+        // Route::get('/admin/faculties/filter/{value}', [AdminController::class, 'filterFaculty'])->name('admin.faculty.filter');
     });
 });
 

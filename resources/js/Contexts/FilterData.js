@@ -36,13 +36,17 @@ export const FilterDataProvider = ({ children }) => {
         setSelectedRank('')
         setSelectedDegree('')
         setSelectedDepartment('')
-        // setFilters(prevState => ({
-        //     ...prevState,
-        //     rank: '',
-        //     degree: '',
-        //     department: ''
-        // }))
+        setFilters(prevState => ({
+            ...prevState,
+            rank: '',
+            degree: '',
+            department: ''
+        }))
     }
+
+    useEffect(() => {
+        console.log(filters);
+    }, [filters]);
 
     return (
         <FilterDataContext.Provider value={{ 

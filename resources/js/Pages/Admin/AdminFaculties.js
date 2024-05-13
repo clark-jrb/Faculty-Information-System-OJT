@@ -12,6 +12,7 @@ import { usePage } from "@inertiajs/inertia-react";
 import { filter } from "lodash";
 import { Inertia } from "@inertiajs/inertia";
 import { useFilterDataContext } from "@/Contexts/FilterData";
+import { searchFaculty } from "@/utils/filters";
 
 export default function AdminFaculties({ children }) {
     const deptRoutes = [
@@ -71,10 +72,29 @@ export default function AdminFaculties({ children }) {
     //     results: searchFaculty(data, filterName)
     // }));
 
+    const facultyNames = [
+        { data: faculty_data.fd_agricultural_extension, key: 'AE' },
+        { data: faculty_data.fd_agri_management, key: 'AM' },
+        { data: faculty_data.fd_animal_science, key: 'AS' },
+        { data: faculty_data.fd_crop_protection, key: 'CP' },
+        { data: faculty_data.fd_crop_science, key: 'CS' },
+        { data: faculty_data.fd_soil_science, key: 'SS' }
+    ];
+
+    const searchResults = facultyNames.map(({ data, key }) => ({
+        key,
+        results: searchFaculty(data, filterName)
+    }));
+
+    const handleClickSearched = (e, id) => {
+        e.preventDefault();
+        // console.log('click');
+        Inertia.visit(route('admin.faculty.show', { id: id }))
+    }
 
     // useEffect(() => {
-    //     filterFacultyData()
-    // }, [filters]);
+    //     console.log(facultyNames);
+    // }, [facultyNames]);
 
     
     return (
@@ -123,7 +143,7 @@ export default function AdminFaculties({ children }) {
                             onFocus={handleSearchBoxFocus} // Set isSearchBoxActive to true when focused
                             onBlur={handleSearchBoxBlur}
                         />
-                        {/* {isSearchBoxActive && filterName !== '' && (
+                        {isSearchBoxActive && filterName !== '' && (
                             <div className='searches-container'>
                                 {searchResults.map(({ key, results }) => (
                                     results.length > 0 && 
@@ -143,7 +163,7 @@ export default function AdminFaculties({ children }) {
                                     </div>
                                 ))}
                             </div>
-                        )} */}
+                        )}
                     </div>
 
                     {/* <div className="admin-filter-search">
