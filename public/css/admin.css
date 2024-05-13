@@ -146,7 +146,8 @@
 .admin-add-faculty button, 
 .go-to-files-btn button, 
 .update-prof-btn button,
-.add-file-btn button {
+.add-file-btn button,
+.yes-btn {
     font-size: medium;
     background-color: var(--light-green);
     border: none;
@@ -158,7 +159,8 @@
 .admin-add-faculty button:active, 
 .go-to-files-btn button:active, 
 .update-prof-btn button:active, 
-.add-file-btn button:active {
+.add-file-btn button:active,
+.yes-btn:active {
     border-bottom: 1px solid var(--dark-green);
 }
 
@@ -292,7 +294,8 @@
 
 .remove-field-btn button, 
 .cancel-add-btn button,
-.delete-doc-btn button {
+.delete-doc-btn button,
+.no-btn {
     display: grid;
     align-items: center;
     font-size: small;
@@ -303,9 +306,14 @@
     border-bottom: 3px solid var(--dark-red);
 }
 
+.no-btn {
+    font-size: medium;
+}
+
 .remove-field-btn button:active,
 .cancel-add-btn button:active,
-.delete-doc-btn button:active {
+.delete-doc-btn button:active,
+.no-btn:active {
     border-bottom: 1px solid var(--dark-red);
 }
 
@@ -379,7 +387,19 @@
 }
 
 .tb-fullname {
-    width: 250px;
+    width: 300px;
+}
+
+.tb-no {
+    width: 70px;
+}
+
+.tb-role {
+    width: 180px;
+}
+
+.tb-rank {
+    width: 200px;
 }
 
 .form-select-admin {

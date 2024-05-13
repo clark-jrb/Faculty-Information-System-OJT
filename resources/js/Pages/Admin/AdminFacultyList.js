@@ -43,9 +43,14 @@ export default function AdminFacultyList() {
         <AdminFaculties>
             <Modal show={showModal} onHide={handleCloseModal} centered>
                 <Modal.Body>
-                    <button onClick={() => handleDelete()}>Yes</button>
-                    <button onClick={() => handleCloseModal()}>no</button>
+                    Are you sure you want to delete this faculty data?
                 </Modal.Body>
+                <Modal.Footer>
+                    <div className="d-flex w-100 justify-content-center align-items-center gap-3">
+                        <button className='yes-btn p-1 px-3' onClick={() => handleDelete()}>Yes</button>
+                        <button className='no-btn p-1 px-3' onClick={() => handleCloseModal()}>No</button>
+                    </div>
+                </Modal.Footer>
             </Modal>
             <div className='lists-of-faculties flex-fill'>
                 {/* Agricultural Extension Table  */}
@@ -64,10 +69,10 @@ export default function AdminFacultyList() {
                             <table className="admin-table">
                                 <thead>
                                     <tr>
-                                        <th scope="col" className="p-3 pb-2">#</th>
+                                        <th scope="col" className="p-3 pb-2 tb-no">#</th>
                                         <th scope="col" className="p-3 pb-2 tb-fullname">Full Name</th>
-                                        <th scope="col" className="p-3 pb-2">Role</th>
-                                        <th scope="col" className="p-3 pb-2">Rank</th>
+                                        <th scope="col" className="p-3 pb-2 tb-role">Role</th>
+                                        <th scope="col" className="p-3 pb-2 tb-rank">Rank</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -76,10 +81,10 @@ export default function AdminFacultyList() {
                                             key={index}
                                             onClick={() => checked ? null : handleRowClick(faculty.id)}
                                         >
-                                            <th className="p-2 ps-3">{index + 1}</th>
+                                            <th className="p-2 ps-3 tb-no">{index + 1}</th>
                                             <td className="p-2 ps-3 tb-fullname">{`${faculty.lname}, ${faculty.fname}`}</td>
-                                            <td className="p-2 ps-3">{faculty.role}</td>
-                                            <td className="p-2 ps-3">{faculty.position}</td>
+                                            <td className="p-2 ps-3 tb-role">{faculty.role}</td>
+                                            <td className="p-2 ps-3 tb-rank">{faculty.position}</td>
                                             <td className="p-2 ps-3">
                                                 { checked ? 
                                                 <>
@@ -118,10 +123,10 @@ export default function AdminFacultyList() {
                             <table className="admin-table">
                                 <thead>
                                     <tr>
-                                        <th scope="col" className="p-3 pb-2">#</th>
+                                        <th scope="col" className="p-3 pb-2 tb-no">#</th>
                                         <th scope="col" className="p-3 pb-2 tb-fullname">Full Name</th>
-                                        <th scope="col" className="p-3 pb-2">Role</th>
-                                        <th scope="col" className="p-3 pb-2">Rank</th>
+                                        <th scope="col" className="p-3 pb-2 tb-role">Role</th>
+                                        <th scope="col" className="p-3 pb-2 tb-rank">Rank</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -130,10 +135,10 @@ export default function AdminFacultyList() {
                                             key={index}
                                             onClick={() => checked ? null : handleRowClick(faculty.id)}
                                         >
-                                            <th className="p-2 ps-3">{index + 1}</th>
+                                            <th className="p-2 ps-3 tb-no">{index + 1}</th>
                                             <td className="p-2 ps-3 tb-fullname">{`${faculty.lname}, ${faculty.fname}`}</td>
-                                            <td className="p-2 ps-3">{faculty.role}</td>
-                                            <td className="p-2 ps-3">{faculty.position}</td>
+                                            <td className="p-2 ps-3 tb-role">{faculty.role}</td>
+                                            <td className="p-2 ps-3 tb-rank">{faculty.position}</td>
                                             <td className="p-2 ps-3">
                                                 { checked ? 
                                                 <>
@@ -173,10 +178,10 @@ export default function AdminFacultyList() {
                             <table className="admin-table">
                                 <thead>
                                     <tr>
-                                        <th scope="col" className="p-3 pb-2">#</th>
+                                        <th scope="col" className="p-3 pb-2 tb-no">#</th>
                                         <th scope="col" className="p-3 pb-2 tb-fullname">Full Name</th>
-                                        <th scope="col" className="p-3 pb-2">Role</th>
-                                        <th scope="col" className="p-3 pb-2">Rank</th>
+                                        <th scope="col" className="p-3 pb-2 tb-role">Role</th>
+                                        <th scope="col" className="p-3 pb-2 tb-rank">Rank</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -185,10 +190,10 @@ export default function AdminFacultyList() {
                                             key={index}
                                             onClick={() => checked ? null : handleRowClick(faculty.id)}
                                         >
-                                            <th className="p-2 ps-3">{index + 1}</th>
+                                            <th className="p-2 ps-3 tb-no">{index + 1}</th>
                                             <td className="p-2 ps-3 tb-fullname">{`${faculty.lname}, ${faculty.fname}`}</td>
-                                            <td className="p-2 ps-3">{faculty.role}</td>
-                                            <td className="p-2 ps-3">{faculty.position}</td>
+                                            <td className="p-2 ps-3 tb-role">{faculty.role}</td>
+                                            <td className="p-2 ps-3 tb-rank">{faculty.position}</td>
                                             <td className="p-2 ps-3">
                                                 { checked ? 
                                                 <>
@@ -227,10 +232,10 @@ export default function AdminFacultyList() {
                             <table className="admin-table">
                                 <thead>
                                     <tr>
-                                        <th scope="col" className="p-3 pb-2">#</th>
+                                        <th scope="col" className="p-3 pb-2 tb-no">#</th>
                                         <th scope="col" className="p-3 pb-2 tb-fullname">Full Name</th>
-                                        <th scope="col" className="p-3 pb-2">Role</th>
-                                        <th scope="col" className="p-3 pb-2">Rank</th>
+                                        <th scope="col" className="p-3 pb-2 tb-role">Role</th>
+                                        <th scope="col" className="p-3 pb-2 tb-rank">Rank</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -239,10 +244,10 @@ export default function AdminFacultyList() {
                                             key={index}
                                             onClick={() => checked ? null : handleRowClick(faculty.id)}
                                         >
-                                            <th className="p-2 ps-3">{index + 1}</th>
+                                            <th className="p-2 ps-3 tb-no">{index + 1}</th>
                                             <td className="p-2 ps-3 tb-fullname">{`${faculty.lname}, ${faculty.fname}`}</td>
-                                            <td className="p-2 ps-3">{faculty.role}</td>
-                                            <td className="p-2 ps-3">{faculty.position}</td>
+                                            <td className="p-2 ps-3 tb-role">{faculty.role}</td>
+                                            <td className="p-2 ps-3 tb-rank">{faculty.position}</td>
                                             <td className="p-2 ps-3">
                                                 { checked ? 
                                                 <>
@@ -280,10 +285,10 @@ export default function AdminFacultyList() {
                             <table className="admin-table">
                                 <thead>
                                     <tr>
-                                        <th scope="col" className="p-3 pb-2">#</th>
+                                        <th scope="col" className="p-3 pb-2 tb-no">#</th>
                                         <th scope="col" className="p-3 pb-2 tb-fullname">Full Name</th>
-                                        <th scope="col" className="p-3 pb-2">Role</th>
-                                        <th scope="col" className="p-3 pb-2">Rank</th>
+                                        <th scope="col" className="p-3 pb-2 tb-role">Role</th>
+                                        <th scope="col" className="p-3 pb-2 tb-rank">Rank</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -292,10 +297,10 @@ export default function AdminFacultyList() {
                                             key={index}
                                             onClick={() => checked ? null : handleRowClick(faculty.id)}
                                         >
-                                            <th className="p-2 ps-3">{index + 1}</th>
+                                            <th className="p-2 ps-3 tb-no">{index + 1}</th>
                                             <td className="p-2 ps-3 tb-fullname">{`${faculty.lname}, ${faculty.fname}`}</td>
-                                            <td className="p-2 ps-3">{faculty.role}</td>
-                                            <td className="p-2 ps-3">{faculty.position}</td>
+                                            <td className="p-2 ps-3 tb-role">{faculty.role}</td>
+                                            <td className="p-2 ps-3 tb-rank">{faculty.position}</td>
                                             <td className="p-2 ps-3">
                                                 { checked ? 
                                                 <>
@@ -334,10 +339,10 @@ export default function AdminFacultyList() {
                             <table className="admin-table">
                                 <thead>
                                     <tr>
-                                        <th scope="col" className="p-3 pb-2">#</th>
+                                        <th scope="col" className="p-3 pb-2 tb-no">#</th>
                                         <th scope="col" className="p-3 pb-2 tb-fullname">Full Name</th>
-                                        <th scope="col" className="p-3 pb-2">Role</th>
-                                        <th scope="col" className="p-3 pb-2">Rank</th>
+                                        <th scope="col" className="p-3 pb-2 tb-role">Role</th>
+                                        <th scope="col" className="p-3 pb-2 tb-rank">Rank</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -346,10 +351,10 @@ export default function AdminFacultyList() {
                                             key={index}
                                             onClick={() => checked ? null : handleRowClick(faculty.id)}
                                         >
-                                            <th className="p-2 ps-3">{index + 1}</th>
+                                            <th className="p-2 ps-3 tb-no">{index + 1}</th>
                                             <td className="p-2 ps-3 tb-fullname">{`${faculty.lname}, ${faculty.fname}`}</td>
-                                            <td className="p-2 ps-3">{faculty.role}</td>
-                                            <td className="p-2 ps-3">{faculty.position}</td>
+                                            <td className="p-2 ps-3 tb-role">{faculty.role}</td>
+                                            <td className="p-2 ps-3 tb-rank">{faculty.position}</td>
                                             <td className="p-2 ps-3">
                                                 { checked ? 
                                                 <>

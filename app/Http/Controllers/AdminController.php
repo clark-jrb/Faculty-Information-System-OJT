@@ -215,6 +215,7 @@ class AdminController extends Controller
             'birth_date' => $request->input('birth_date'),
             'age' => $request->input('age'),
             'department' => $request->input('department'),
+            'high_degree' => $request->input('high_degree'),
             'position' => $request->input('position'),
             'role' => $request->input('role'),
             'specialization' => $request->input('specialization'),
@@ -342,7 +343,7 @@ class AdminController extends Controller
             }
         }
 
-        return redirect('/admin/faculties/departments');
+        return redirect('/admin/faculties');
     }
 
     public function addDocument(Request $request, $id)
