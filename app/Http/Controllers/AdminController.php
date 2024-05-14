@@ -149,45 +149,6 @@ class AdminController extends Controller
         ]);
     }
 
-
-
-    // Agricultural Extension
-    public function getAE()
-    {
-        $ae = Basic_info::where('department', 'like', 'Agricultural Extension')->get();
-        return Inertia::render('Admin/Departments/DAE', ['ae' => $ae]);
-    }
-    // Agri-Management
-    public function getAM()
-    {
-        $am = Basic_info::where('department', 'like', 'Agri-Management')->get();
-        return Inertia::render('Admin/Departments/DAM', ['am' => $am]);
-    }
-    // Animal Science
-    public function getAS()
-    {
-        $as = Basic_info::where('department', 'like', 'Animal Science')->get();
-        return Inertia::render('Admin/Departments/DAS', ['as' => $as]);
-    }
-    // Crop Protection
-    public function getCP()
-    {
-        $cp = Basic_info::where('department', 'like', 'Crop Protection')->get();
-        return Inertia::render('Admin/Departments/DCP', ['cp' => $cp]);
-    }
-    // Crop Science
-    public function getCS()
-    {
-        $cs = Basic_info::where('department', 'like', 'Crop Science')->get();
-        return Inertia::render('Admin/Departments/DCS', ['cs' => $cs]);
-    }
-    // Soil Science
-    public function getSS()
-    {
-        $ss = Basic_info::where('department', 'like', 'Soil Science')->get();
-        return Inertia::render('Admin/Departments/DSS', ['ss' => $ss]);
-    }
-
     /**
      * Show the form for creating a new resource.
      *

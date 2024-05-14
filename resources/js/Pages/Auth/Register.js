@@ -9,14 +9,18 @@ import { Dropdown } from 'react-bootstrap';
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
-        name: '',
+        // name: '',
+        fname: '',
+        mname: '',
+        lname: '',
         email: '',
-        role: '',
+        role: 'faculty',
+        department: '',
         password: '',
         password_confirmation: '',
     });
 
-    const [selectedRole, setSelectedRole] = useState('');
+    const [selectedDept, setSelectedDept] = useState('');
 
     useEffect(() => {
         return () => {
@@ -25,17 +29,14 @@ export default function Register() {
     }, []);
 
     const onHandleChange = (event) => {
-        setData(event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value);
+        const { name, value } = event.target;
+        setData(name, value);
     };
 
-    const handleRoleChange = (eventKey) => {
-        setSelectedRole(eventKey);
-        setData('role', eventKey); // Update form data with selected role
+    const handleDeptChange = (e) => {
+        setSelectedDept(e);
+        setData('department', e); // Update form data with selected role
     };
-
-    useEffect(() => {
-        console.log('Selected role: ' + selectedRole);
-    }, [selectedRole]);
 
     const submit = (e) => {
         e.preventDefault();
@@ -50,44 +51,51 @@ export default function Register() {
             <ValidationErrors errors={errors} />
 
             <form onSubmit={submit}>
-                <div>
-                    <Label forInput="name" value="Name" />
-
-                    {/* <Input
-                        type="text"
-                        name="name"
-                        value={data.name}
-                        className="mt-1 block w-full"
-                        autoComplete="name"
-                        isFocused={true}
-                        handleChange={onHandleChange}
-                        required
-                    /> */}
+                <div className="mt-3">
+                    <Label forInput="fname" value="First Name" />
                     <input 
                         type="text" 
-                        name="name"
-                        value={data.name}
-                        autoComplete="name"
+                        name="fname"
+                        value={data.fname}
+                        autoComplete="fname"
                         className="input-cred-box my-1" 
                         onChange={onHandleChange}
-                        placeholder="Name"
+                        placeholder="first name"
                         required
                     />
                 </div>
 
-                <div className="mt-4">
-                    <Label forInput="email" value="Email" />
-
-                    {/* <Input
-                        type="email"
-                        name="email"
-                        value={data.email}
-                        autoComplete="username"
-                        className="mt-1 block w-full"
-                        handleChange={onHandleChange}
-                        placeholder="Email"
+                <div className="mt-3">
+                    <Label forInput="mname" value="Middle Name" />
+                    <input 
+                        type="text" 
+                        name="mname"
+                        value={data.mname}
+                        autoComplete="mname"
+                        className="input-cred-box my-1" 
+                        onChange={onHandleChange}
+                        placeholder="middle name"
                         required
-                    /> */}
+                    />
+                </div>
+
+                <div className="mt-3">
+                    <Label forInput="lname" value="Last Name" />
+                    <input 
+                        type="text" 
+                        name="lname"
+                        value={data.lname}
+                        autoComplete="lname"
+                        className="input-cred-box my-1" 
+                        onChange={onHandleChange}
+                        placeholder="last name"
+                        required
+                    />
+                </div>
+
+                <div className="mt-3">
+                    <Label forInput="email" value="Email" />
+                    
                     <input 
                         type="email" 
                         name="email"
@@ -100,22 +108,26 @@ export default function Register() {
                     />
                 </div>
 
-                <div className="for-dropdown-cont mt-4">
-                    <Label forInput="role" value="Role" />
+                <div className="for-dropdown-cont mt-3">
+                    <Label forInput="dept" value="Department" />
 
-                    <Dropdown onSelect={handleRoleChange}>
-                        <Dropdown.Toggle variant="success" id="dropdown-basic" className='px-3'>
-                            {selectedRole || 'Select Role'}
+                    <Dropdown onSelect={handleDeptChange}>
+                        <Dropdown.Toggle variant="success" id="dropdown-basic" className='px-3 w-100'>
+                            {selectedDept || 'Select Department'}
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
-                            <Dropdown.Item eventKey="admin">Admin</Dropdown.Item>
-                            <Dropdown.Item eventKey="viewer">Viewer</Dropdown.Item>
+                            <Dropdown.Item eventKey="Agricultural Extension">Agricultural Extension</Dropdown.Item>
+                            <Dropdown.Item eventKey="Agri-Management">Agri-Management</Dropdown.Item>
+                            <Dropdown.Item eventKey="Animal Science">Animal Science</Dropdown.Item>
+                            <Dropdown.Item eventKey="Crop Protection">Crop Protection</Dropdown.Item>
+                            <Dropdown.Item eventKey="Crop Science">Crop Science</Dropdown.Item>
+                            <Dropdown.Item eventKey="Soil Science">Soil Science</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                 </div>
 
-                <div className="mt-4">
+                <div className="mt-3">
                     <Label forInput="password" value="Password" />
 
                     <input 
@@ -130,7 +142,7 @@ export default function Register() {
                     />
                 </div>
 
-                <div className="mt-4">
+                <div className="mt-3">
                     <Label forInput="password_confirmation" value="Confirm Password" />
 
                     <input 
@@ -145,7 +157,7 @@ export default function Register() {
                     />
                 </div>
 
-                <div className="other-link-cont flex items-center justify-end mt-4 gap-3">
+                <div className="other-link-cont flex items-center justify-end mt-3 gap-3">
                     <Link href={route('login')} className="underline text-sm text-gray-600 hover:text-gray-900">
                         Already registered?
                     </Link>

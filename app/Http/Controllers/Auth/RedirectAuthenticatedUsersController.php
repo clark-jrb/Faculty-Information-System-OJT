@@ -9,7 +9,7 @@ class RedirectAuthenticatedUsersController extends Controller
 {
     public function home()
     {
-        if (auth()->user()->role == 'viewer') {
+        if (auth()->user()->role == 'faculty') {
             return redirect('/facilities');
         }
         elseif(auth()->user()->role == 'admin'){

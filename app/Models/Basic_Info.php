@@ -11,7 +11,9 @@ class Basic_Info extends Model
     protected $table = "basic__infos";
     public $timestamps = true;
     protected $fillable = [
+        'faculty_id',
         'fname', 
+        'mname',
         'lname', 
         'gender', 
         'birth_date', 
