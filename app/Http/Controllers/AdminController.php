@@ -74,9 +74,9 @@ class AdminController extends Controller
         //
     }
 
-    public function showProfile($id)
+    public function showProfile()
     {
-        $faculty_data = Basic_Info::findOrFail($id);
+        $faculty_data = Basic_Info::where('faculty_id', auth()->user()->id)->firstOrFail();
 
         return Inertia::render('Profile', [
             'faculty_data' => $faculty_data,

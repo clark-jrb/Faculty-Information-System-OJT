@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import clsu_logo from '../../../public/images/clsu_logo.png';
@@ -14,6 +14,13 @@ export default function Authenticated({ auth, children }) {
         'extensions',
         'faculties'
     ];
+
+    // useEffect(() => {
+    //     console.log(auth);
+    // }, [auth]);
+
+    // const userID = auth.user.id
+
     const active = routeNames.includes(route().current());
 
     return (
@@ -56,13 +63,13 @@ export default function Authenticated({ auth, children }) {
                                     <i className="fa-solid fa-bars-staggered"></i> Faculty
                             </NavLink>
                         </li> */}
-                        {/* <li className="px-3" >
-                            <NavLink href={route('basic')} active={active}>
+                        <li className="px-3" >
+                            <NavLink href={route('profile')} active={active}>
                                 <p className="p-1 m-0">
                                     <i className="fa-solid fa-address-card"></i> Profile
                                 </p>
                             </NavLink>
-                        </li>     */}
+                        </li>    
                     </ul>
                 </div>
                 {/* Sign Out Button */}

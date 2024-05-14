@@ -1,23 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Authenticated from '@/Layouts/Authenticated';
 import agri_logo from '../../../public/images/agri_logo.png'
 import NavLink from '@/Components/NavLink';
 import { usePage } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
 
-export default function Profile({ children }) {
+export default function Profile(props) {
     const { 
         faculty_data
     } = usePage().props;
 
-    const handleGoBack = () => {
-        Inertia.visit(route('faculties'))
-    }
+    // const handleGoBack = () => {
+    //     Inertia.visit(route('faculties'))
+    // }
+    
+    // useEffect(() => {
+    //     console.log(faculty_data);
+    // }, [faculty_data]);
 
     return (
         <Authenticated
-            // auth={props.auth}
-            // errors={props.errors}
+            auth={props.auth}
+            errors={props.errors}
             // header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Dashboard</h2>}
         >
 
@@ -25,9 +29,9 @@ export default function Profile({ children }) {
                 <div className="profile-container">
                     {/* <!-- Profile  --> */}
                     <div className="profile-section p-4">
-                        <div className='go-back-btn' onClick={() => handleGoBack()}>
+                        {/* <div className='go-back-btn' onClick={() => handleGoBack()}>
                             <i className="fa-solid fa-arrow-left-long fa-xl"></i>
-                        </div>
+                        </div> */}
                         <div className="profile-pic-cont p-4">
                             <div className="first-layer p-2">
                                 <div className="second-layer">
@@ -62,17 +66,17 @@ export default function Profile({ children }) {
                                 Edit Profile
                             </button>
                         </div> */}
-                        <div className="print-data-cont">
+                        {/* <div className="print-data-cont">
                             <button className="print-data-btn py-1">
                                 <i className="fa-solid fa-print"></i>
                                 &nbsp;Print Data
                             </button>
-                        </div>
+                        </div> */}
 
                     </div>
 
                     {/* <!-- Profile Informations --> */}
-                    <div className="profile-info-section">
+                    {/* <div className="profile-info-section">
                         <div className="profile-ribbon">
                             <ul>
                                 <li className={`basic-tab px-3 ${route().current('basic') ? 'active' : ''}`} id="basic">
@@ -116,7 +120,7 @@ export default function Profile({ children }) {
                             <img src={agri_logo} alt="agri-logo"/>
                         </div>
                         
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </Authenticated>
