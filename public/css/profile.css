@@ -321,3 +321,8 @@
 .cancel-btn:active {
     border-bottom: 1px solid var(--dark-red);
 }
+
+.p-email {
+    word-break: break-all;
+    overflow-wrap: break-word;
+}

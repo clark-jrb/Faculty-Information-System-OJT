@@ -202,23 +202,6 @@ export default function Basic(){
                             </>}
                         </div>
                         <div className="flex-fill w-25">
-                            <p className="m-0 data-label">Email:</p>
-                            {edit ? 
-                            <>
-                                <input 
-                                    type="email" 
-                                    name='email' 
-                                    placeholder="email"
-                                    value={data.email}
-                                    onChange={(e) => handleChange(e)}
-                                    required
-                                />
-                            </> : 
-                            <>
-                                <p className="m-0 mt-1" style={{ fontSize: 'large' }}>{faculty_data.email}</p>
-                            </>}
-                        </div>
-                        <div className="flex-fill w-25">
                             <p className="m-0 data-label">Contact Number:</p>
                             {edit ? 
                             <>
@@ -233,6 +216,23 @@ export default function Basic(){
                             </> : 
                             <>
                                 <p className="m-0 mt-1" style={{ fontSize: 'large' }}>{faculty_data.contact_no}</p>
+                            </>}
+                        </div>
+                        <div className="flex-fill w-25">
+                            <p className="m-0 data-label">Email:</p>
+                            {edit ? 
+                            <>
+                                <input 
+                                    type="email" 
+                                    name='email' 
+                                    placeholder="email"
+                                    value={data.email}
+                                    onChange={(e) => handleChange(e)}
+                                    required
+                                />
+                            </> : 
+                            <>
+                                <p className="p-email m-0 mt-1" style={{ fontSize: 'large' }}>{faculty_data.email}</p>
                             </>}
                         </div>
                     </div>

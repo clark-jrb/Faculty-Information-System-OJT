@@ -43,7 +43,7 @@ export default function Profile({ children, ...props }) {
                                 <i className="fa-solid fa-building-wheat" style={{ color: 'var(--dark-green)'}}></i>
                                 &nbsp;&nbsp;{faculty_data.department}
                             </p>    
-                            <p className="m-0 pb-2">
+                            <p className="p-email m-0 pb-2">
                                 <i className="fa-regular fa-envelope fa-lg" style={{color: "var(--dark-green)"}}></i>
                                 &nbsp;&nbsp;{faculty_data.email}
                             </p>    
