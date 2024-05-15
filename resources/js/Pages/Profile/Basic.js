@@ -7,9 +7,9 @@ export default function Basic(){
         faculty_data
     } = usePage().props;
 
-    useEffect(() => {
-        console.log(faculty_data);
-    }, [faculty_data]);
+    // useEffect(() => {
+    //     console.log(faculty_data);
+    // }, [faculty_data]);
     
     return (
         <Profile>

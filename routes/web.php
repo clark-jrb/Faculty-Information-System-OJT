@@ -36,11 +36,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::prefix('/profile')->group(function () {
         Route::get('/', [AdminController::class, 'showProfile'])->name('profile');
         Route::get('/basic', [AdminController::class, 'showBasic'])->name('basic');
-        // Route::get('/research', [AdminController::class, 'showResearch'])->name('research');
-        // Route::get('/academic', [AdminController::class, 'showAcademic'])->name('academic');
-        // Route::get('/publication', [AdminController::class, 'showPublications'])->name('publication');
-        // Route::get('/documents', [AdminController::class, 'showDocuments'])->name('documents');
-        // Route::get('/extensions', [AdminController::class, 'showExtensions'])->name('extensions');
+        Route::get('/research', [AdminController::class, 'showResearch'])->name('research');
+        Route::get('/academic', [AdminController::class, 'showAcademic'])->name('academic');
+        Route::get('/publication', [AdminController::class, 'showPublications'])->name('publication');
+        Route::get('/documents', [AdminController::class, 'showDocuments'])->name('documents');
+        Route::get('/extensions', [AdminController::class, 'showExtensions'])->name('extensions');
+
+        Route::get('/data', [AdminController::class, 'showData'])->name('facultyData');
     });
 
     // Faculty Route

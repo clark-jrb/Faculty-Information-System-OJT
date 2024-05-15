@@ -10,14 +10,6 @@ export default function Profile({ children, ...props }) {
         faculty_data
     } = usePage().props;
 
-    // const handleGoBack = () => {
-    //     Inertia.visit(route('faculties'))
-    // }
-    
-    useEffect(() => {
-        console.log(faculty_data);
-    }, [faculty_data]);
-
     return (
         <Authenticated
             auth={props.auth}
@@ -84,7 +76,7 @@ export default function Profile({ children, ...props }) {
                                         <p className='m-0 p-2'>Basic</p>
                                     </NavLink>
                                 </li>
-                                {/* <li className={`academic-tab px-3 ${route().current('academic') ? 'active' : ''}`} id="academic">
+                                <li className={`academic-tab px-3 ${route().current('academic') ? 'active' : ''}`} id="academic">
                                     <NavLink href={route('academic')} >
                                         <p className='m-0 p-2'>Academic</p>
                                     </NavLink>
@@ -108,7 +100,7 @@ export default function Profile({ children, ...props }) {
                                     <NavLink href={route('documents')} >
                                         <p className='m-0 p-2'>Documents</p>
                                     </NavLink>
-                                </li> */}
+                                </li>
                                 <li className="blank-tab"></li>
                             </ul>
                         </div>

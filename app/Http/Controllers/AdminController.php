@@ -76,78 +76,55 @@ class AdminController extends Controller
 
     public function showProfile()
     {
-        $faculty_data = Basic_Info::where('faculty_id', auth()->user()->id)->firstOrFail();
-
-        return Inertia::render('Profile', [
-            'faculty_data' => $faculty_data,
-        ]);
+        return $this->renderProfileView('Profile');
     }
 
     public function showBasic()
     {
-        $faculty_data = Basic_Info::where('faculty_id', auth()->user()->id)->firstOrFail();
+        return $this->renderProfileView('Profile/Basic');
+    }
 
-        return Inertia::render('Profile/Basic', [
-            'faculty_data' => $faculty_data,
+    public function showAcademic()
+    {
+        return $this->renderProfileView('Profile/Academic', [
+            'acadEduc_data' => Acad_Education::where('faculty_id', auth()->user()->id)->get(),
+            'acadWork_data' => Acad_WorkExp::where('faculty_id', auth()->user()->id)->get(),
         ]);
     }
 
-    // public function showAcademic($id)
-    // {
-    //     $acadEduc_data = Acad_Education::where('faculty_id', '=', $id)->get();
-    //     $acadWork_data = Acad_WorkExp::where('faculty_id', '=', $id)->get();
-    //     $faculty_data = Basic_Info::findOrFail($id);
+    public function showPublications()
+    {
+        return $this->renderProfileView('Profile/Publication', [
+            'publication_data' => Publication::where('faculty_id', auth()->user()->id)->get(),
+        ]);
+    }
 
-    //     return Inertia::render('Profile/Academic', [
-    //         'faculty_data' => $faculty_data,
-    //         'acadEduc_data' => $acadEduc_data,
-    //         'acadWork_data' => $acadWork_data
-    //     ]);
-    // }
+    public function showResearch()
+    {
+        return $this->renderProfileView('Profile/Research', [
+            'research_data' => ResActivity::where('faculty_id', auth()->user()->id)->get(),
+        ]);
+    }
 
-    // public function showPublications($id)
-    // {
-    //     $publication_data = Publication::where('faculty_id', '=', $id)->get();
-    //     $faculty_data = Basic_Info::findOrFail($id);
+    public function showExtensions()
+    {
+        return $this->renderProfileView('Profile/Extensions', [
+            'extension_data' => Ext_Activity::where('faculty_id', auth()->user()->id)->get(),
+        ]);
+    }
 
-    //     return Inertia::render('Profile/Publication', [
-    //         'faculty_data' => $faculty_data,
-    //         'publication_data' => $publication_data
-    //     ]);
-    // }
+    public function showDocuments()
+    {
+        return $this->renderProfileView('Profile/Documents', [
+            'document_data' => Document::where('faculty_id', auth()->user()->id)->get(),
+        ]);
+    }
 
-    // public function showResearch($id)
-    // {
-    //     $research_data = ResActivity::where('faculty_id', '=', $id)->get();
-    //     $faculty_data = Basic_Info::findOrFail($id);
-
-    //     return Inertia::render('Profile/Research', [
-    //         'faculty_data' => $faculty_data,
-    //         'research_data' => $research_data
-    //     ]);
-    // }
-
-    // public function showExtensions($id)
-    // {
-    //     $extention_data = Ext_Activity::where('faculty_id', '=', $id)->get();
-    //     $faculty_data = Basic_Info::findOrFail($id);
-
-    //     return Inertia::render('Profile/Extensions', [
-    //         'extension_data' => $extention_data,
-    //         'faculty_data' => $faculty_data
-    //     ]);
-    // }
-
-    // public function showDocuments($id)
-    // {
-    //     $document_data = Document::where('faculty_id', '=', $id)->get();
-    //     $faculty_data = Basic_Info::findOrFail($id);
-
-    //     return Inertia::render('Profile/Documents', [
-    //         'faculty_data' => $faculty_data,
-    //         'document_data' => $document_data
-    //     ]);
-    // }
+    private function renderProfileView($view, $data = [])
+    {
+        $faculty_data = Basic_Info::where('faculty_id', auth()->user()->id)->firstOrFail();
+        return Inertia::render($view, array_merge(['faculty_data' => $faculty_data], $data));
+    }
 
     /**
      * Show the form for creating a new resource.
