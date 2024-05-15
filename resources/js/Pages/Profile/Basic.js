@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Profile from '../Profile';
 import { usePage } from '@inertiajs/inertia-react';
 
@@ -6,6 +6,10 @@ export default function Basic(){
     const { 
         faculty_data
     } = usePage().props;
+
+    useEffect(() => {
+        console.log(faculty_data);
+    }, [faculty_data]);
     
     return (
         <Profile>

@@ -5,7 +5,7 @@ import NavLink from '@/Components/NavLink';
 import { usePage } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
 
-export default function Profile(props) {
+export default function Profile({ children, ...props }) {
     const { 
         faculty_data
     } = usePage().props;
@@ -14,9 +14,9 @@ export default function Profile(props) {
     //     Inertia.visit(route('faculties'))
     // }
     
-    // useEffect(() => {
-    //     console.log(faculty_data);
-    // }, [faculty_data]);
+    useEffect(() => {
+        console.log(faculty_data);
+    }, [faculty_data]);
 
     return (
         <Authenticated
@@ -76,39 +76,39 @@ export default function Profile(props) {
                     </div>
 
                     {/* <!-- Profile Informations --> */}
-                    {/* <div className="profile-info-section">
+                    <div className="profile-info-section">
                         <div className="profile-ribbon">
                             <ul>
                                 <li className={`basic-tab px-3 ${route().current('basic') ? 'active' : ''}`} id="basic">
-                                    <NavLink href={route('basic', { id: faculty_data.id })}>
+                                    <NavLink href={route('basic')}>
                                         <p className='m-0 p-2'>Basic</p>
                                     </NavLink>
                                 </li>
-                                <li className={`academic-tab px-3 ${route().current('academic') ? 'active' : ''}`} id="academic">
-                                    <NavLink href={route('academic', { id: faculty_data.id })} >
+                                {/* <li className={`academic-tab px-3 ${route().current('academic') ? 'active' : ''}`} id="academic">
+                                    <NavLink href={route('academic')} >
                                         <p className='m-0 p-2'>Academic</p>
                                     </NavLink>
                                 </li>
                                 <li className={`publication-tab px-3 ${route().current('publication') ? 'active' : ''}`} id="publication">
-                                    <NavLink href={route('publication', { id: faculty_data.id })} >
+                                    <NavLink href={route('publication')} >
                                         <p className='m-0 p-2'>Publications</p>
                                     </NavLink>
                                 </li>
                                 <li className={`research-tab px-3 ${route().current('research') ? 'active' : ''}`} id="research">
-                                    <NavLink href={route('research', { id: faculty_data.id })} >
+                                    <NavLink href={route('research')} >
                                         <p className='m-0 p-2'>Research</p>
                                     </NavLink>
                                 </li>
                                 <li className={`subject-tab px-3 ${route().current('extensions') ? 'active' : ''}`} id="subjects">
-                                    <NavLink href={route('extensions', { id: faculty_data.id })} >
+                                    <NavLink href={route('extensions')} >
                                         <p className='m-0 p-2'>Extensions</p>
                                     </NavLink>
                                 </li>
                                 <li className={`subject-tab px-3 ${route().current('documents') ? 'active' : ''}`} id="subjects">
-                                    <NavLink href={route('documents', { id: faculty_data.id })} >
+                                    <NavLink href={route('documents')} >
                                         <p className='m-0 p-2'>Documents</p>
                                     </NavLink>
-                                </li>
+                                </li> */}
                                 <li className="blank-tab"></li>
                             </ul>
                         </div>
@@ -120,7 +120,7 @@ export default function Profile(props) {
                             <img src={agri_logo} alt="agri-logo"/>
                         </div>
                         
-                    </div> */}
+                    </div>
                 </div>
             </div>
         </Authenticated>

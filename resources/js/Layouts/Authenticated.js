@@ -64,7 +64,7 @@ export default function Authenticated({ auth, children }) {
                             </NavLink>
                         </li> */}
                         <li className="px-3" >
-                            <NavLink href={route('profile')} active={active}>
+                            <NavLink href={route('basic')} active={active}>
                                 <p className="p-1 m-0">
                                     <i className="fa-solid fa-address-card"></i> Profile
                                 </p>
