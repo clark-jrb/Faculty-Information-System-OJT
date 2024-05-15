@@ -7,16 +7,36 @@ export default function Basic(){
         faculty_data
     } = usePage().props;
 
+    const [edit, setEdit] = useState(false);
+
+    const handleEdit = (e) => {
+        setEdit(e)
+    }
+
     // useEffect(() => {
-    //     console.log(faculty_data);
-    // }, [faculty_data]);
+    //     console.log(edit);
+    // }, [edit]);
     
     return (
         <Profile>
             <div className="p-3 px-4 basic-content">
                 <div className="title-info-content pb-2">
                     <p className="m-0">Basic Information</p>
-                    
+                    <div className='edit-profile-container ms-auto'>
+                        {edit ? 
+                            <div className='d-flex gap-2 align-items-center'>
+                                <button className='edit-profile p-1 px-2'>
+                                    <i className="fa-regular fa-pen-to-square"></i> Update
+                                </button>
+                                <button className='cancel-btn p-1 px-2' onClick={() => handleEdit(false)}>
+                                    <i className="fa-solid fa-xmark"></i> Cancel
+                                </button>
+                            </div> : 
+                            <button className='edit-profile p-1 px-2' onClick={() => handleEdit(true)}>
+                                <i className="fa-regular fa-pen-to-square"></i> Edit
+                            </button>
+                        }
+                    </div>
                 </div>
 
                 <div className='d-flex p-3' style={{ position: 'relative' }}>

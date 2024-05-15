@@ -288,3 +288,36 @@
     cursor: pointer;
     color: var(--light-green);
 }
+
+.edit-profile-container {
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+    font-size: small;
+}
+
+.edit-profile {
+    /* font-size: medium; */
+    background-color: var(--light-green);
+    border: none;
+    border-radius: 3px;
+    color: white;
+    border-bottom: 3px solid var(--dark-green);
+}
+
+.edit-profile:active {
+    border-bottom: 1px solid var(--dark-green);
+}
+
+.cancel-btn {
+    /* font-size: medium; */
+    background-color: var(--red);
+    border: none;
+    border-radius: 3px;
+    color: white;
+    border-bottom: 3px solid var(--dark-red);
+}
+
+.cancel-btn:active {
+    border-bottom: 1px solid var(--dark-red);
+}
