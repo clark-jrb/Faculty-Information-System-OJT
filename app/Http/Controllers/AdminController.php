@@ -22,7 +22,7 @@ class AdminController extends Controller
             'lname' => 'required',
             'gender' => 'required',
             'birth_date' => 'required|date',
-            'age' => 'required|integer',
+            'age' => 'required',
             'department' => 'required',
             'position' => 'required',
             'high_degree' => 'required',
@@ -482,14 +482,16 @@ class AdminController extends Controller
         $model::where('faculty_id', $id)->whereNotIn('id', $updatedIds)->delete();
     }
 
-    protected function updateBasicInfo(Request $request, $id)
+    protected function updateBasicInfo(Request $request)
     {
         // dd('Function called', $id, $request->all());
-        $basicInfo = Basic_Info::findOrFail($id);
+        // $basicInfo = Basic_Info::findOrFail($id);
+        $basicInfo = Basic_Info::where('faculty_id', auth()->user()->id)->firstOrFail();
 
         // Validate the request data for basic info
         $validatedBasic = $request->only([
             'fname', 
+            'mname',
             'lname', 
             'gender', 
             'birth_date', 
@@ -505,7 +507,11 @@ class AdminController extends Controller
         $basicInfo->save();
         $basicInfo->update($validatedBasic);
 
-        return redirect('/admin/faculties/departments')->with('success', 'Basic info updated successfully.');
+        $faculty_data = Basic_Info::get();
+
+        // return Inertia::render('Profile/Basic', ['faculty_data' => $faculty_data]);
+        return redirect()->back()->with(['faculty_data' => $faculty_data]);
+
     }
 
     protected function updateProfilePicture(Request $request, $id)

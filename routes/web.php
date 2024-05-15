@@ -42,7 +42,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/documents', [AdminController::class, 'showDocuments'])->name('documents');
         Route::get('/extensions', [AdminController::class, 'showExtensions'])->name('extensions');
 
-        Route::get('/data', [AdminController::class, 'showData'])->name('facultyData');
+        Route::post('/updateBasic', [AdminController::class, 'updateBasicInfo'])->name('update.basic');
     });
 
     // Faculty Route

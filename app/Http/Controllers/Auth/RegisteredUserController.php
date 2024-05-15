@@ -60,6 +60,13 @@ class RegisteredUserController extends Controller
             'mname' => $request->mname,
             'lname' => $request->lname,
             'email' => $request->email,
+            'gender' => '',
+            'age' => '',
+            'position' => '',
+            'high_degree' => '',
+            'role' => '',
+            'specialization' => '',
+            'contact_no' => '',
             'department' => $request->department,
         ]);
 
