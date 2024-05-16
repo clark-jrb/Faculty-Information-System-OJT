@@ -74,58 +74,6 @@ class AdminController extends Controller
         //
     }
 
-    public function showProfile()
-    {
-        return $this->renderProfileView('Profile');
-    }
-
-    public function showBasic()
-    {
-        return $this->renderProfileView('Profile/Basic');
-    }
-
-    public function showAcademic()
-    {
-        return $this->renderProfileView('Profile/Academic', [
-            'acadEduc_data' => Acad_Education::where('faculty_id', auth()->user()->id)->get(),
-            'acadWork_data' => Acad_WorkExp::where('faculty_id', auth()->user()->id)->get(),
-        ]);
-    }
-
-    public function showPublications()
-    {
-        return $this->renderProfileView('Profile/Publication', [
-            'publication_data' => Publication::where('faculty_id', auth()->user()->id)->get(),
-        ]);
-    }
-
-    public function showResearch()
-    {
-        return $this->renderProfileView('Profile/Research', [
-            'research_data' => ResActivity::where('faculty_id', auth()->user()->id)->get(),
-        ]);
-    }
-
-    public function showExtensions()
-    {
-        return $this->renderProfileView('Profile/Extensions', [
-            'extension_data' => Ext_Activity::where('faculty_id', auth()->user()->id)->get(),
-        ]);
-    }
-
-    public function showDocuments()
-    {
-        return $this->renderProfileView('Profile/Documents', [
-            'document_data' => Document::where('faculty_id', auth()->user()->id)->get(),
-        ]);
-    }
-
-    private function renderProfileView($view, $data = [])
-    {
-        $faculty_data = Basic_Info::where('faculty_id', auth()->user()->id)->firstOrFail();
-        return Inertia::render($view, array_merge(['faculty_data' => $faculty_data], $data));
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -480,38 +428,6 @@ class AdminController extends Controller
 
         // Delete records not present in the updated request
         $model::where('faculty_id', $id)->whereNotIn('id', $updatedIds)->delete();
-    }
-
-    protected function updateBasicInfo(Request $request)
-    {
-        // dd('Function called', $id, $request->all());
-        // $basicInfo = Basic_Info::findOrFail($id);
-        $basicInfo = Basic_Info::where('faculty_id', auth()->user()->id)->firstOrFail();
-
-        // Validate the request data for basic info
-        $validatedBasic = $request->only([
-            'fname', 
-            'mname',
-            'lname', 
-            'gender', 
-            'birth_date', 
-            'age', 
-            'department', 
-            'position', 
-            'high_degree', 
-            'role', 
-            'specialization', 
-            'email', 
-            'contact_no'
-        ]);
-        $basicInfo->save();
-        $basicInfo->update($validatedBasic);
-
-        $faculty_data = Basic_Info::get();
-
-        // return Inertia::render('Profile/Basic', ['faculty_data' => $faculty_data]);
-        return redirect()->back()->with(['faculty_data' => $faculty_data]);
-
     }
 
     protected function updateProfilePicture(Request $request, $id)

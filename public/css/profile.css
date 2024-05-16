@@ -296,7 +296,7 @@
     font-size: small;
 }
 
-.edit-profile {
+.edit-profile, .add-btn {
     /* font-size: medium; */
     background-color: var(--light-green);
     border: none;
@@ -305,7 +305,7 @@
     border-bottom: 3px solid var(--dark-green);
 }
 
-.edit-profile:active {
+.edit-profile:active, .add-btn:active {
     border-bottom: 1px solid var(--dark-green);
 }
 
@@ -326,3 +326,9 @@
     word-break: break-all;
     overflow-wrap: break-word;
 }
+
+/* .educ-modal-head {
+    background-color: red;
+    border-top-left-radius: 2px !important;
+    border-top-right-radius: 2px !important;
+} */

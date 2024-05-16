@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\Auth\RedirectAuthenticatedUsersController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FacultyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,15 +35,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Profile Routes
     Route::prefix('/profile')->group(function () {
-        Route::get('/', [AdminController::class, 'showProfile'])->name('profile');
-        Route::get('/basic', [AdminController::class, 'showBasic'])->name('basic');
-        Route::get('/research', [AdminController::class, 'showResearch'])->name('research');
-        Route::get('/academic', [AdminController::class, 'showAcademic'])->name('academic');
-        Route::get('/publication', [AdminController::class, 'showPublications'])->name('publication');
-        Route::get('/documents', [AdminController::class, 'showDocuments'])->name('documents');
-        Route::get('/extensions', [AdminController::class, 'showExtensions'])->name('extensions');
+        Route::get('/', [FacultyController::class, 'showProfile'])->name('profile');
+        Route::get('/basic', [FacultyController::class, 'showBasic'])->name('basic');
+        Route::get('/research', [FacultyController::class, 'showResearch'])->name('research');
+        Route::get('/academic', [FacultyController::class, 'showAcademic'])->name('academic');
+        Route::get('/publication', [FacultyController::class, 'showPublications'])->name('publication');
+        Route::get('/documents', [FacultyController::class, 'showDocuments'])->name('documents');
+        Route::get('/extensions', [FacultyController::class, 'showExtensions'])->name('extensions');
 
-        Route::post('/updateBasic', [AdminController::class, 'updateBasicInfo'])->name('update.basic');
+        Route::post('/updateBasic', [FacultyController::class, 'updateBasicInfo'])->name('update.basic');
+        Route::post('/addEduc', [FacultyController::class, 'addEduc'])->name('add.educ');
     });
 
     // Faculty Route
