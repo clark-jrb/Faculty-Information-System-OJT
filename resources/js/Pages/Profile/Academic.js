@@ -6,6 +6,7 @@ import { useForm } from '@inertiajs/inertia-react';
 import { addField, handleFieldChange } from '@/utils/forms';
 import Label from '@/Components/Label';
 import { Form } from 'react-bootstrap';
+import { Inertia } from '@inertiajs/inertia';
 
 export default function Academic(){
     const {
@@ -16,21 +17,20 @@ export default function Academic(){
     const [showModalEduc, setShowModalEduc] = useState(false);
     const [showModalEducUpd, setShowModalEducUpd] = useState(false);
     const [selectedID, setSelectedID] = useState(null);
-    const [selectedEducData, setSelectedEducData] = useState([]);
 
     const { data, setData, post, processing } = useForm({
         academic_educ: [{ 
             degree: '', 
             institution: '', 
-            educ_date: '', 
-            educ_location: ''
+            date: '', 
+            location: ''
         }],
     })
 
     const handleAddEducField = () => {
         addField(
             'academic_educ',
-            { degree: '', institution: '', educ_date: '', educ_location: '' },
+            { degree: '', institution: '', date: '', location: '' },
             setData,
             data
         );
@@ -55,34 +55,18 @@ export default function Academic(){
             academic_educ: [{ 
                 degree: '', 
                 institution: '', 
-                educ_date: '', 
-                educ_location: ''
+                date: '', 
+                location: ''
             }]
         })
     };
 
     const handleUpdEducSubmit = (e) => {
         e.preventDefault();
-        console.log(selectedEducData);
-        post(route('add.educ', selectedEducData))
-        setShowModalEduc(false)
-        setData({
-            academic_educ: [{ 
-                degree: '', 
-                institution: '', 
-                educ_date: '', 
-                educ_location: ''
-            }]
-        })
+        console.log(data);
+        post(route('update.educ', data))
+        setShowModalEducUpd(false)
     };
-
-    // useEffect(() => {
-    //     console.log(acadEduc_data[1]);
-    // }, [acadEduc_data]);
-
-    // useEffect(() => {
-    //     console.log('acad work: ' + acadWork_data);
-    // }, [acadWork_data]);
 
     const handleCloseModalEduc = () => { setShowModalEduc(false) }
     const handleCloseModalEducUpd = () => { setShowModalEducUpd(false) }
@@ -91,15 +75,21 @@ export default function Academic(){
         setSelectedID(e)
         setShowModalEducUpd(true)
     }
+    
+    const selectEduc = acadEduc_data.find(educ => educ.id === selectedID)
 
     useEffect(() => {
-        const selectEduc = acadEduc_data.find(educ => educ.id === selectedID)
-        setSelectedEducData(selectEduc)
-    }, [selectedID]);
+        if (selectEduc) {
+            setData(prevData => ({
+                ...prevData,
+                academic_educ: [selectEduc]
+            }));
+        }
+    }, [selectEduc]);
 
     // useEffect(() => {
-    //     console.log(selectedEducData);
-    // }, [selectedEducData]);
+    //     console.log(data);
+    // }, [data]);
 
     return (
         <Profile>
@@ -129,20 +119,20 @@ export default function Academic(){
                                     <Label forInput="location" value="Location:" />
                                     <Form.Control
                                         type="text"
-                                        name="educ_location"
+                                        name="location"
                                         placeholder="Location"
-                                        value={academicEduc.educ_location}
+                                        value={academicEduc.location}
                                         onChange={(e) => handleEducChange(e, index)}
                                     />
                                 </div>
 
                                 <div className="flex-fill p-2">
-                                    <Label forInput="educ_date" value="Year Graduated:" />
+                                    <Label forInput="date" value="Year Graduated:" />
                                     <Form.Control   
                                         type="text"
-                                        name="educ_date"
+                                        name="date"
                                         placeholder="YYYY"
-                                        value={academicEduc.educ_date}
+                                        value={academicEduc.date}
                                         onChange={(e) => handleEducChange(e, index)}
                                     />
                                 </div>
@@ -187,18 +177,15 @@ export default function Academic(){
             </Modal>
             {/* UPDATE MODAL  */}
             <Modal className="academic-modal" show={showModalEducUpd} onHide={handleCloseModalEducUpd} centered size='xl'>
-                <form onSubmit={handleEducSubmit}>
+                <form onSubmit={handleUpdEducSubmit}>
                     <Modal.Header className='educ-modal-head' closeButton>
                         <div className="acf-title m-2 px-3" style={{ color: 'white' }}>
                             Add Background Education
                         </div>
                     </Modal.Header>
                     <Modal.Body>
-                        {acadEduc_data
-                            .filter((academicEduc) => academicEduc.id === selectedID)
-                            .map((academicEduc, index) => (
+                        {data.academic_educ.map((academicEduc, index) => (
                             <div className="acad-educ-flex d-flex py-2" key={index}>
-                                <p>{academicEduc.id}</p>
                                 <div className="flex-fill p-2">
                                     <Label forInput="institution" value="Institution/School:" />
                                     <Form.Control
@@ -214,7 +201,7 @@ export default function Academic(){
                                     <Label forInput="location" value="Location:" />
                                     <Form.Control
                                         type="text"
-                                        name="educ_location"
+                                        name="location"
                                         placeholder="Location"
                                         value={academicEduc.location}
                                         onChange={(e) => handleEducChange(e, index)}
@@ -222,10 +209,10 @@ export default function Academic(){
                                 </div>
 
                                 <div className="flex-fill p-2">
-                                    <Label forInput="educ_date" value="Year Graduated:" />
+                                    <Label forInput="date" value="Year Graduated:" />
                                     <Form.Control   
                                         type="text"
-                                        name="educ_date"
+                                        name="date"
                                         placeholder="YYYY"
                                         value={academicEduc.date}
                                         onChange={(e) => handleEducChange(e, index)}
@@ -235,19 +222,31 @@ export default function Academic(){
                                 <div className="flex-fill p-2">
                                     <Label forInput="degree" value="Degree/Masteral/Doctorate Title:" />
                                     <Form.Control
-                                        type="text" 
+                                        type="text"
                                         name="degree"
                                         placeholder="ex. MS in Crop Protection"
                                         value={academicEduc.degree}
                                         onChange={(e) => handleEducChange(e, index)}
                                     />
                                 </div>
+
+                                <div className="remove-field-btn flex-fill p-2 d-flex align-items-end ">
+                                    {data.academic_educ.length > 1 && ( // Only render the remove button if the academic background is not empty
+                                        <button type="button" className="px-2 py-1" onClick={() => setData(prevData => ({
+                                        ...prevData,
+                                        academic_educ: prevData.academic_educ.filter((_, i) => i !== index),
+                                        }))}>
+                                            <i className="fa-solid fa-minus"></i>
+                                        </button>
+                                    )}
+                                </div>
+                                
                             </div>
                         ))}
                     </Modal.Body>
                     <Modal.Footer>
                         <button className='add-btn p-1 px-2' type='submit'>
-                            <i className="fa-regular fa-plus"></i> Add
+                            <i className="fa-regular fa-pen-to-square"></i> Update
                         </button>
                     </Modal.Footer>
                 </form>
@@ -271,24 +270,30 @@ export default function Academic(){
                         {acadEduc_data.map((educ, index) => (
                             <div className="p-3" key={index} style={{ borderBottom: '#ccc 1px solid', position: 'relative' }}>
                                 <div className="bg-data"></div>
-                                <button className='edit-profile p-1 px-2' onClick={() => handleSelectIdEduc(educ.id)}>
-                                    <i className="fa-regular fa-pen-to-square"></i>
-                                </button>
+
+                                <div className='for-edit-btn'>
+                                    <button className='edit-educ-btn p-1 px-2' onClick={() => handleSelectIdEduc(educ.id)}>
+                                        <i className="fa-regular fa-pen-to-square fa-lg"></i>
+                                    </button>
+                                </div>
+                                
                                 <div className="acad-row1">
                                     <i className="fa-solid fa-graduation-cap" style={{ color: 'var(--light-green)' }}></i>
                                     &nbsp;
                                     <p className="m-0">{educ.degree}</p>
                                 </div>
-                                <div className="acad-row2">
+
+                                <div className="acad-row2 py-2">
                                     <p className="m-0">{educ.institution}</p>
                                 </div>
+
                                 <div className="d-flex gap-3">
-                                    <div>
+                                    <div className='w-25'>
                                         <i className="fa-regular fa-calendar-check"></i>
                                         &nbsp;
                                         {educ.date}
                                     </div>
-                                    <div>
+                                    <div className='w-75'>
                                         <i className="fa-solid fa-location-dot"></i>
                                         &nbsp;
                                         {educ.location}

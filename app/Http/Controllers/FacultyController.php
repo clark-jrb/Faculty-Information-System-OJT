@@ -235,6 +235,33 @@ class FacultyController extends Controller
 
     }
 
+    public function updateEduc(Request $request)
+    {
+        // $acad_educ = Acad_Education::where('id', $request->id)->firstOrFail();
+        if ($request->filled('academic_educ')) {
+            foreach ($request->input('academic_educ') as $academicEducData) {
+                // Check if any of the fields in the academic education data is not null
+                if (!empty(array_filter($academicEducData))) {
+                    if (isset($academicEducData['id'])) {
+                        $acad_educ = Acad_Education::where('id', $academicEducData['id'])->firstOrFail();
+    
+                        // Update the academic education data
+                        $acad_educ->update([
+                            'degree' => $academicEducData['degree'] ?? $acad_educ->degree,
+                            'institution' => $academicEducData['institution'] ?? $acad_educ->institution,
+                            'date' => $academicEducData['date'] ?? $acad_educ->date,
+                            'location' => $academicEducData['location'] ?? $acad_educ->location
+                        ]);
+                    }
+                }
+            }
+        }
+
+        $new_acad_educ = Acad_Education::all();
+
+        return redirect()->back()->with(['acadEduc_data' => $new_acad_educ]);
+    }
+
     /**
      * Remove the specified resource from storage.
      *

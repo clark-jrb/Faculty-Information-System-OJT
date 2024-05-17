@@ -276,6 +276,7 @@
 }
 
 .datas-content-container {
+    position: relative;
     height: 90%;
     overflow-y: auto;
 }
@@ -333,3 +334,12 @@
     border-top-left-radius: 2px !important;
     border-top-right-radius: 2px !important;
 } */
+
+.for-edit-btn {
+    position: absolute;
+    right: 0;
+}
+
+.edit-educ-btn:hover {
+    color: var(--green);
+}
