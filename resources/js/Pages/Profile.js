@@ -101,7 +101,7 @@ export default function Profile({ children, ...props }) {
                                         <p className='m-0 p-2'>Documents</p>
                                     </NavLink>
                                 </li>
-                                <li className="blank-tab"></li>
+                                <li className="blank-tab" style={{ cursor: 'default' }}></li>
                             </ul>
                         </div>
 

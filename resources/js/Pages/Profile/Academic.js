@@ -14,6 +14,9 @@ export default function Academic(){
     } = usePage().props;
 
     const [showModalEduc, setShowModalEduc] = useState(false);
+    const [showModalEducUpd, setShowModalEducUpd] = useState(false);
+    const [selectedID, setSelectedID] = useState(null);
+    const [selectedEducData, setSelectedEducData] = useState([]);
 
     const { data, setData, post, processing } = useForm({
         academic_educ: [{ 
@@ -58,8 +61,23 @@ export default function Academic(){
         })
     };
 
+    const handleUpdEducSubmit = (e) => {
+        e.preventDefault();
+        console.log(selectedEducData);
+        post(route('add.educ', selectedEducData))
+        setShowModalEduc(false)
+        setData({
+            academic_educ: [{ 
+                degree: '', 
+                institution: '', 
+                educ_date: '', 
+                educ_location: ''
+            }]
+        })
+    };
+
     // useEffect(() => {
-    //     console.log('acad educ: ' + acadEduc_data);
+    //     console.log(acadEduc_data[1]);
     // }, [acadEduc_data]);
 
     // useEffect(() => {
@@ -67,9 +85,25 @@ export default function Academic(){
     // }, [acadWork_data]);
 
     const handleCloseModalEduc = () => { setShowModalEduc(false) }
+    const handleCloseModalEducUpd = () => { setShowModalEducUpd(false) }
+
+    const handleSelectIdEduc = (e) => {
+        setSelectedID(e)
+        setShowModalEducUpd(true)
+    }
+
+    useEffect(() => {
+        const selectEduc = acadEduc_data.find(educ => educ.id === selectedID)
+        setSelectedEducData(selectEduc)
+    }, [selectedID]);
+
+    // useEffect(() => {
+    //     console.log(selectedEducData);
+    // }, [selectedEducData]);
 
     return (
         <Profile>
+            {/* ADD MODAL  */}
             <Modal className="academic-modal" show={showModalEduc} onHide={handleCloseModalEduc} centered size='xl'>
                 <form onSubmit={handleEducSubmit}>
                     <Modal.Header className='educ-modal-head' closeButton>
@@ -151,6 +185,74 @@ export default function Academic(){
                     </Modal.Footer>
                 </form>
             </Modal>
+            {/* UPDATE MODAL  */}
+            <Modal className="academic-modal" show={showModalEducUpd} onHide={handleCloseModalEducUpd} centered size='xl'>
+                <form onSubmit={handleEducSubmit}>
+                    <Modal.Header className='educ-modal-head' closeButton>
+                        <div className="acf-title m-2 px-3" style={{ color: 'white' }}>
+                            Add Background Education
+                        </div>
+                    </Modal.Header>
+                    <Modal.Body>
+                        {acadEduc_data
+                            .filter((academicEduc) => academicEduc.id === selectedID)
+                            .map((academicEduc, index) => (
+                            <div className="acad-educ-flex d-flex py-2" key={index}>
+                                <p>{academicEduc.id}</p>
+                                <div className="flex-fill p-2">
+                                    <Label forInput="institution" value="Institution/School:" />
+                                    <Form.Control
+                                        type="text"
+                                        name="institution"
+                                        placeholder="Institution/School"
+                                        value={academicEduc.institution}
+                                        onChange={(e) => handleEducChange(e, index)}
+                                    />
+                                </div>
+
+                                <div className="flex-fill p-2">
+                                    <Label forInput="location" value="Location:" />
+                                    <Form.Control
+                                        type="text"
+                                        name="educ_location"
+                                        placeholder="Location"
+                                        value={academicEduc.location}
+                                        onChange={(e) => handleEducChange(e, index)}
+                                    />
+                                </div>
+
+                                <div className="flex-fill p-2">
+                                    <Label forInput="educ_date" value="Year Graduated:" />
+                                    <Form.Control   
+                                        type="text"
+                                        name="educ_date"
+                                        placeholder="YYYY"
+                                        value={academicEduc.date}
+                                        onChange={(e) => handleEducChange(e, index)}
+                                    />
+                                </div>
+
+                                <div className="flex-fill p-2">
+                                    <Label forInput="degree" value="Degree/Masteral/Doctorate Title:" />
+                                    <Form.Control
+                                        type="text" 
+                                        name="degree"
+                                        placeholder="ex. MS in Crop Protection"
+                                        value={academicEduc.degree}
+                                        onChange={(e) => handleEducChange(e, index)}
+                                    />
+                                </div>
+                            </div>
+                        ))}
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <button className='add-btn p-1 px-2' type='submit'>
+                            <i className="fa-regular fa-plus"></i> Add
+                        </button>
+                    </Modal.Footer>
+                </form>
+            </Modal>
+            {/* CONTENT  */}
             <div className="p-3 px-4 academic-content d-flex gap-5">
                 {/* EDUCATION  */}
                 <div className="acad-educ-content flex-fill w-50">
@@ -165,31 +267,37 @@ export default function Academic(){
                         </div>
                         
                     </div>
-                    {acadEduc_data.map((educ, index) => (
-                        <div className="p-3" key={index} style={{ borderBottom: '#ccc 1px solid', position: 'relative' }}>
-                            <div className="bg-data"></div>
-                            <div className="acad-row1">
-                                <i className="fa-solid fa-graduation-cap" style={{ color: 'var(--light-green)' }}></i>
-                                &nbsp;
-                                <p className="m-0">{educ.degree}</p>
-                            </div>
-                            <div className="acad-row2">
-                                <p className="m-0">{educ.institution}</p>
-                            </div>
-                            <div className="d-flex gap-3">
-                                <div>
-                                    <i className="fa-regular fa-calendar-check"></i>
+                    <div className="datas-content-container">
+                        {acadEduc_data.map((educ, index) => (
+                            <div className="p-3" key={index} style={{ borderBottom: '#ccc 1px solid', position: 'relative' }}>
+                                <div className="bg-data"></div>
+                                <button className='edit-profile p-1 px-2' onClick={() => handleSelectIdEduc(educ.id)}>
+                                    <i className="fa-regular fa-pen-to-square"></i>
+                                </button>
+                                <div className="acad-row1">
+                                    <i className="fa-solid fa-graduation-cap" style={{ color: 'var(--light-green)' }}></i>
                                     &nbsp;
-                                    {educ.date}
+                                    <p className="m-0">{educ.degree}</p>
                                 </div>
-                                <div>
-                                    <i className="fa-solid fa-location-dot"></i>
-                                    &nbsp;
-                                    {educ.location}
+                                <div className="acad-row2">
+                                    <p className="m-0">{educ.institution}</p>
+                                </div>
+                                <div className="d-flex gap-3">
+                                    <div>
+                                        <i className="fa-regular fa-calendar-check"></i>
+                                        &nbsp;
+                                        {educ.date}
+                                    </div>
+                                    <div>
+                                        <i className="fa-solid fa-location-dot"></i>
+                                        &nbsp;
+                                        {educ.location}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
+                    
                 </div>
                 
                 {/* WORK EXPERIENCE  */}
