@@ -112,7 +112,7 @@ export default function Research(){
         const handleCloseDelModal = () => { setShowDelModal(false) }
 
     // for select data by ID
-    const handleSelectIdEduc = (e) => {
+    const handleSelectId = (e) => {
         setSelectedID(e)
 
         setShowUpdModal(true)
@@ -344,7 +344,7 @@ export default function Research(){
                             <div className="bg-data"></div>
 
                             <div className='for-edit-btn d-flex flex-column'>
-                                <button className='edit-educ-btn p-1 px-2' onClick={() => handleSelectIdEduc(res.id)}>
+                                <button className='edit-educ-btn p-1 px-2' onClick={() => handleSelectId(res.id)}>
                                     <i className="fa-regular fa-pen-to-square fa-lg"></i>
                                 </button>
                                 <button className='p-1 px-2' onClick={() => handleConfirmDel(res.id)}>
@@ -355,7 +355,13 @@ export default function Research(){
                             <p className="m-0 py-1 res-title">{res.res_title}</p>
 
                             <p className="m-0 py-1" style={{ fontSize: 'large' }}>
-                                <i className="fa-regular fa-calendar-check fa-xs"></i> {res.duration}
+                                <i className="fa-regular fa-calendar-check fa-xs"></i>
+                                &nbsp;
+                                <span style={{ fontSize: 'medium' }}>
+                                    Duration:
+                                </span> 
+                                &nbsp;
+                                {res.duration}
                             </p>
 
                             <p className="m-0 py-1" style={{ fontSize: 'large' }}>

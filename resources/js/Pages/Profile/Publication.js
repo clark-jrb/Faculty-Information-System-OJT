@@ -111,7 +111,7 @@ export default function Publications(){
         const handleCloseDelModal = () => { setShowDelModal(false) }
 
     // for select data by ID
-    const handleSelectIdEduc = (e) => {
+    const handleSelectId = (e) => {
         setSelectedID(e)
 
         setShowUpdModal(true)
@@ -336,7 +336,7 @@ export default function Publications(){
                             <div className="bg-data"></div>
 
                             <div className='for-edit-btn d-flex flex-column'>
-                                <button className='edit-educ-btn p-1 px-2' onClick={() => handleSelectIdEduc(pub.id)}>
+                                <button className='edit-educ-btn p-1 px-2' onClick={() => handleSelectId(pub.id)}>
                                     <i className="fa-regular fa-pen-to-square fa-lg"></i>
                                 </button>
                                 <button className='p-1 px-2' onClick={() => handleConfirmDel(pub.id)}>

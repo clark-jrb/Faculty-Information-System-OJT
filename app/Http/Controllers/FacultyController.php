@@ -189,6 +189,32 @@ class FacultyController extends Controller
         // return Inertia::render('Profile/Basic', ['faculty_data' => $faculty_data]);
         return redirect()->back()->with(['research_data' => $research_data]);
     }
+    
+    // Add EXTENSION ACTIVITY
+    public function addExtension(Request $request)
+    {
+        if ($request->filled('extensions')) {
+            foreach ($request->input('extensions') as $extensionData) {
+                // Check if any of the fields in the academic education data is not null
+                if (!empty(array_filter($extensionData))) {
+                    Ext_Activity::create([
+                        'faculty_id' => auth()->user()->id,
+                        'ext_title' => $extensionData['ext_title'],
+                        'lead' => $extensionData['lead'],
+                        'member' => $extensionData['member'],
+                        'sponsor' => $extensionData['sponsor'],
+                        'beneficiaries' => $extensionData['beneficiaries'],
+                        'duration' => $extensionData['duration']
+                    ]);
+                }
+            }
+        }
+
+        $extension_data = Ext_Activity::get();
+
+        // return Inertia::render('Profile/Basic', ['faculty_data' => $faculty_data]);
+        return redirect()->back()->with(['extension_data' => $extension_data]);
+    }
 
     /**
      * Display the specified resource.
@@ -421,6 +447,37 @@ class FacultyController extends Controller
         $new_res_data = ResActivity::all();
 
         return redirect()->back()->with(['research_data' => $new_res_data]);
+    }
+
+    // Update EXTENSION ACTIVITIES
+    public function updateExt(Request $request)
+    {
+        // $acad_educ = Acad_Education::where('id', $request->id)->firstOrFail();
+        if ($request->filled('extensions')) {
+            foreach ($request->input('extensions') as $extensionData) {
+                // Check if any of the fields in the academic education data is not null
+                if (!empty(array_filter($extensionData))) {
+                    // dd($extensionData['id']);
+                    if (isset($extensionData['id'])) {
+                        $ext_data = Ext_Activity::where('id', $extensionData['id'])->firstOrFail();
+    
+                        // Update the academic education data
+                        $ext_data->update([
+                            'ext_title' => $extensionData['ext_title'] ?? $ext_data->ext_title,
+                            'lead' => $extensionData['lead'] ?? $ext_data->lead,
+                            'member' => $extensionData['member'] ?? $ext_data->member,
+                            'duration' => $extensionData['duration'] ?? $ext_data->duration,
+                            'sponsor' => $extensionData['sponsor'] ?? $ext_data->sponsor,
+                            'beneficiaries' => $extensionData['beneficiaries'] ?? $ext_data->beneficiaries
+                        ]);
+                    }
+                }
+            }
+        }
+
+        $new_ext_data = Ext_Activity::all();
+
+        return redirect()->back()->with(['extension_data' => $new_ext_data]);
     }
 
     /**
