@@ -160,7 +160,7 @@ export default function Extensions(){
             <Modal show={showModalEduc} onHide={handleCloseAddModal} centered size='xl'>
                     <Modal.Header className='educ-modal-head'>
                         <div className="acf-title m-2 px-3" style={{ color: 'white' }}>
-                            Add Background Education
+                            Add Extension Activity
                         </div>
                         <button className='p-1 px-3 ms-auto' onClick={() => handleCloseAddModal()}>
                             <i className="fa-solid fa-xmark fa-xl"></i>
@@ -401,7 +401,7 @@ export default function Extensions(){
                         <div className='w-50'>
                             <div className="m-0 py-1 ext-title">
                                 <p className='m-0 data-label'>Extension Project Title:</p>
-                                <span style={{ fontSize: 'large' }}>
+                                <span style={{ fontSize: 'large', fontWeight: 'bold' }}>
                                     {ext.ext_title}
                                 </span>
                             </div>

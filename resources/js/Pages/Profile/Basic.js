@@ -104,7 +104,7 @@ export default function Basic(){
                                 />
                             </> : 
                             <>
-                                <p className="m-0 mt-1" style={{ fontSize: 'large' }}>{faculty_data.fname}</p>
+                                <p className="m-0 mt-1 basic-value">{faculty_data.fname}</p>
                             </>}
                         </div>
                         <div className="flex-fill w-25">
@@ -121,7 +121,7 @@ export default function Basic(){
                                 />
                             </> : 
                             <>
-                                <p className="m-0 mt-1" style={{ fontSize: 'large' }}>{faculty_data.mname}</p>
+                                <p className="m-0 mt-1 basic-value">{faculty_data.mname}</p>
                             </>}
                         </div>
                         <div className="flex-fill w-25">
@@ -138,7 +138,7 @@ export default function Basic(){
                                 />
                             </> : 
                             <>
-                                <p className="m-0 mt-1" style={{ fontSize: 'large' }}>{faculty_data.lname}</p>
+                                <p className="m-0 mt-1 basic-value">{faculty_data.lname}</p>
                             </>}
                         </div>
                         <div className="flex-fill w-25">
@@ -159,7 +159,7 @@ export default function Basic(){
                                 </select>
                             </> : 
                             <>
-                                <p className="m-0 mt-1" style={{ fontSize: 'large' }}>{faculty_data.gender}</p>
+                                <p className="m-0 mt-1 basic-value">{faculty_data.gender}</p>
                             </>} 
                         </div>
                     </div>
@@ -181,7 +181,7 @@ export default function Basic(){
                                 />
                             </> : 
                             <>
-                                <p className="m-0 mt-1" style={{ fontSize: 'large' }}>{faculty_data.birth_date}</p>
+                                <p className="m-0 mt-1 basic-value">{faculty_data.birth_date}</p>
                             </>}
                         </div>
                         <div className="flex-fill w-25">
@@ -198,7 +198,7 @@ export default function Basic(){
                                 />
                             </> : 
                             <>
-                                <p className="m-0 mt-1" style={{ fontSize: 'large' }}>{faculty_data.age}</p>
+                                <p className="m-0 mt-1 basic-value">{faculty_data.age}</p>
                             </>}
                         </div>
                         <div className="flex-fill w-25">
@@ -215,7 +215,7 @@ export default function Basic(){
                                 />
                             </> : 
                             <>
-                                <p className="m-0 mt-1" style={{ fontSize: 'large' }}>{faculty_data.contact_no}</p>
+                                <p className="m-0 mt-1 basic-value">{faculty_data.contact_no}</p>
                             </>}
                         </div>
                         <div className="flex-fill w-25">
@@ -232,7 +232,7 @@ export default function Basic(){
                                 />
                             </> : 
                             <>
-                                <p className="p-email m-0 mt-1" style={{ fontSize: 'large' }}>{faculty_data.email}</p>
+                                <p className="p-email m-0 mt-1 basic-value">{faculty_data.email}</p>
                             </>}
                         </div>
                     </div>
@@ -257,7 +257,7 @@ export default function Basic(){
                                 </select>
                             </> : 
                             <>
-                                <p className="m-0 mt-1" style={{ fontSize: 'large' }}>{faculty_data.position}</p>
+                                <p className="m-0 mt-1 basic-value">{faculty_data.position}</p>
                             </>}
                         </div>
                         <div className="flex-fill w-25">
@@ -274,7 +274,7 @@ export default function Basic(){
                                 />
                             </> : 
                             <>
-                                <p className="m-0 mt-1" style={{ fontSize: 'large' }}>{faculty_data.specialization}</p>
+                                <p className="m-0 mt-1 basic-value">{faculty_data.specialization}</p>
                             </>}
                         </div>
                         <div className="flex-fill w-25">
@@ -296,7 +296,7 @@ export default function Basic(){
                                 </select>
                             </> : 
                             <>
-                                <p className="m-0 mt-1" style={{ fontSize: 'large' }}>{faculty_data.high_degree}</p>
+                                <p className="m-0 mt-1 basic-value">{faculty_data.high_degree}</p>
                             </>}
                         </div>
                         <div className="flex-fill w-25">
@@ -318,7 +318,7 @@ export default function Basic(){
                                 </select>
                             </> : 
                             <>
-                                <p className="m-0 mt-1" style={{ fontSize: 'large' }}>{faculty_data.role}</p>
+                                <p className="m-0 mt-1 basic-value">{faculty_data.role}</p>
                             </>}
                         </div>
                     </div>
@@ -346,7 +346,7 @@ export default function Basic(){
                                 </select>
                             </> : 
                             <>
-                                <p className="m-0 mt-1" style={{ fontSize: 'large' }}>{faculty_data.department}</p>
+                                <p className="m-0 mt-1 basic-value">{faculty_data.department}</p>
                             </>}
                         </div>
                     </div>

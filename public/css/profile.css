@@ -350,3 +350,8 @@
 .edit-educ-btn:hover {
     color: var(--green);
 }
+
+.basic-value {
+    font-weight: bold;
+    font-size: large;
+}

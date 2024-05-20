@@ -147,7 +147,7 @@ export default function Publications(){
             <Modal show={showModalEduc} onHide={handleCloseAddModal} centered size='xl'>
                     <Modal.Header className='educ-modal-head'>
                         <div className="acf-title m-2 px-3" style={{ color: 'white' }}>
-                            Add Background Education
+                            Add Publication
                         </div>
                         <button className='p-1 px-3 ms-auto' onClick={() => handleCloseAddModal()}>
                             <i className="fa-solid fa-xmark fa-xl"></i>
