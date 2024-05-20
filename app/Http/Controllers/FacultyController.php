@@ -117,6 +117,29 @@ class FacultyController extends Controller
         return redirect()->back()->with(['acadEduc_data' => $acad_educ_data]);
     }
 
+    public function addWork(Request $request)
+    {
+        if ($request->filled('academic_work')) {
+            foreach ($request->input('academic_work') as $academicWorkData) {
+                // Check if any of the fields in the academic education data is not null
+                if (!empty(array_filter($academicWorkData))) {
+                    Acad_WorkExp::create([
+                        'faculty_id' => auth()->user()->id,
+                        'position' => $academicWorkData['position'],
+                        'work_loc' => $academicWorkData['institution'],
+                        'date' => $academicWorkData['date'],
+                        'location' => $academicWorkData['location']
+                    ]);
+                }
+            }
+        }
+
+        $acad_work_data = Acad_WorkExp::get();
+
+        // return Inertia::render('Profile/Basic', ['faculty_data' => $faculty_data]);
+        return redirect()->back()->with(['acadWork_data' => $acad_work_data]);
+    }
+
     /**
      * Display the specified resource.
      *
@@ -263,6 +286,34 @@ class FacultyController extends Controller
         return redirect()->back()->with(['acadEduc_data' => $new_acad_educ]);
     }
 
+    public function updateWork(Request $request)
+    {
+        // $acad_educ = Acad_Education::where('id', $request->id)->firstOrFail();
+        if ($request->filled('academic_work')) {
+            foreach ($request->input('academic_work') as $academicWorkData) {
+                // Check if any of the fields in the academic education data is not null
+                if (!empty(array_filter($academicWorkData))) {
+                    // dd($academicWorkData['id']);
+                    if (isset($academicWorkData['id'])) {
+                        $acad_educ = Acad_WorkExp::where('id', $academicWorkData['id'])->firstOrFail();
+    
+                        // Update the academic education data
+                        $acad_educ->update([
+                            'position' => $academicWorkData['position'] ?? $acad_educ->degree,
+                            'work_loc' => $academicWorkData['institution'] ?? $acad_educ->institution,
+                            'date' => $academicWorkData['date'] ?? $acad_educ->date,
+                            'location' => $academicWorkData['location'] ?? $acad_educ->location
+                        ]);
+                    }
+                }
+            }
+        }
+
+        $new_acad_educ = Acad_WorkExp::all();
+
+        return redirect()->back()->with(['acadEduc_data' => $new_acad_educ]);
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -279,5 +330,17 @@ class FacultyController extends Controller
         $new_acad_educ = Acad_Education::get();
 
         return redirect()->back()->with(['acadEduc_data' => $new_acad_educ]);
+    }
+
+    public function destroyWork($id)
+    {
+        //
+        $acad_work = Acad_WorkExp::findOrFail($id);
+        // dd($acad_work);
+        $acad_work->delete();
+
+        $new_acad_work = Acad_WorkExp::get();
+
+        return redirect()->back()->with(['acadWork_data' => $new_acad_work]);
     }
 }

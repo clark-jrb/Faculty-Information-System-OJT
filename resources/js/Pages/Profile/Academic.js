@@ -21,7 +21,7 @@ export default function Academic(){
     })
 
     const { data: workData, setData: workData_set, post: workData_post, processing: workData_pro } = useForm({
-        acadWork_data: [{ 
+        academic_work: [{ 
             position: '',
             institution: '',
             location: '',

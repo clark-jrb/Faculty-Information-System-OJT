@@ -276,7 +276,7 @@ export default function Education ({ data, acadEduc_data, setData, post }) {
             {/* DELETE MODAL  */}
             <Modal show={showModalDel} onHide={handleCloseModalDel} centered backdrop='static'>
                 <Modal.Body>
-                    Are you sure you want to delete this faculty data?
+                    Are you sure you want to delete this?
                 </Modal.Body>
                 <Modal.Footer>
                     <div className="d-flex w-100 justify-content-center align-items-center gap-3">

@@ -44,9 +44,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/extensions', [FacultyController::class, 'showExtensions'])->name('extensions');
 
         Route::post('/updateBasic', [FacultyController::class, 'updateBasicInfo'])->name('update.basic');
+
         Route::post('/addEduc', [FacultyController::class, 'addEduc'])->name('add.educ');
+        Route::post('/addWork', [FacultyController::class, 'addWork'])->name('add.work');
+
         Route::post('/updateEduc', [FacultyController::class, 'updateEduc'])->name('update.educ');
+        Route::post('/updateWork', [FacultyController::class, 'updateWork'])->name('update.work');
+
         Route::delete('/destroyEduc/{id}', [FacultyController::class, 'destroyEduc'])->name('destroy.educ');
+        Route::delete('/destroyWork/{id}', [FacultyController::class, 'destroyWork'])->name('destroy.work');
+
+
     });
 
     // Faculty Route
