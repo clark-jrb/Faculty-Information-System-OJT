@@ -1,14 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Authenticated from '@/Layouts/Authenticated';
 import agri_logo from '../../../public/images/agri_logo.png'
 import NavLink from '@/Components/NavLink';
-import { usePage } from '@inertiajs/inertia-react';
+import { usePage, useForm } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
+import { Modal } from 'react-bootstrap';
 
 export default function Profile({ children, ...props }) {
     const { 
         faculty_data
     } = usePage().props;
+
+    const [showEditPicModal, setShowEditPicModal] = useState(false);
+
+    const handleCloseEditPicModal = () => { setShowEditPicModal(false) }
+
+    // form
+    const { data, setData, post, processing} = useForm({
+        profile_pic: '',
+    })
 
     return (
         <Authenticated
@@ -16,6 +26,24 @@ export default function Profile({ children, ...props }) {
             errors={props.errors}
             // header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Dashboard</h2>}
         >
+            <Modal show={showEditPicModal} onHide={handleCloseEditPicModal} centered backdrop='static'>
+                <Modal.Header>
+                    <div className="acf-title m-2 px-3" style={{ color: 'white' }}>
+                        Edit Profile Picture
+                    </div>
+                    <button className='p-1 px-3 ms-auto' onClick={() => handleCloseEditPicModal()}>
+                        <i className="fa-solid fa-xmark fa-xl"></i>
+                    </button>
+                </Modal.Header>
+                <Modal.Body>
+                    <div className="d-flex w-100 justify-content-center align-items-center">
+                        Edit profile here
+                    </div>
+                </Modal.Body>
+                <Modal.Footer>
+                    
+                </Modal.Footer>
+            </Modal>
 
             <div className="profile-content pt-4">
                 <div className="profile-container">
@@ -26,10 +54,13 @@ export default function Profile({ children, ...props }) {
                         </div> */}
                         <div className="profile-pic-cont p-4">
                             <div className="first-layer p-2">
-                                <div className="second-layer">
+                                <div className="second-layer" onClick={() => setShowEditPicModal(true)}>
                                     {faculty_data.profile_pic && (
                                         <img src={`/images/faculty_images/${faculty_data.profile_pic}`} alt="profile picture" />
                                     )}
+                                    <div className='third-layer'>
+                                        <i className="fa-solid fa-pen-to-square"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>

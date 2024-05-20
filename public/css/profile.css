@@ -49,6 +49,18 @@
     height: 100%;
     border: var(--green) solid 1px;
     overflow: hidden;
+    position: relative;
+}
+
+.third-layer {
+    transition: .3s ease;
+    opacity: 0;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: xx-large;
 }
 
 .second-layer img {
@@ -60,6 +72,18 @@
 .first-layer, .second-layer {
     border-radius: 50%;
     
+}
+
+.second-layer:hover {
+    cursor: pointer;
+}
+
+.second-layer:hover img{
+    opacity: 0.3;
+}
+
+.second-layer:hover .third-layer{
+    opacity: 1;
 }
 
 .name-rank-cont {
@@ -236,12 +260,10 @@
     text-align: start;
 }
 
-/* .data-label { */
-    /* text-decoration: underline;
-    text-decoration-color: var(--light-green);
-    text-decoration-thickness: 2px;
-    color: var(--grey); */
-/* } */
+/* .data-label {
+    text-decoration: underline;
+    text-decoration-color: var(--yellow);
+} */
 
 .basic-content, 
 .academic-content,
