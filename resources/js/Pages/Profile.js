@@ -4,7 +4,8 @@ import agri_logo from '../../../public/images/agri_logo.png'
 import NavLink from '@/Components/NavLink';
 import { usePage, useForm } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
-import { Modal } from 'react-bootstrap';
+import { Modal, Form } from 'react-bootstrap';
+import Label from '@/Components/Label';
 
 export default function Profile({ children, ...props }) {
     const { 
@@ -17,8 +18,29 @@ export default function Profile({ children, ...props }) {
 
     // form
     const { data, setData, post, processing} = useForm({
-        profile_pic: '',
+        profile_pic: faculty_data.profile_pic,
     })
+
+    const handleUpdateProfPic = (e) => {
+        e.preventDefault();
+        try {
+            console.log(data);
+            post(route('update.profilePic', data));
+            setShowEditPicModal(false)
+            console.log('File uploaded successfully!');
+        } catch (error) {
+            console.error('Error uploading file:', error);
+            // Optionally, you can notify the user about the error, or handle it in another way.
+        }
+    }
+
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        setData(prevState => ({
+            ...prevState,
+            profile_pic: file 
+        }));
+    };
 
     return (
         <Authenticated
@@ -36,8 +58,36 @@ export default function Profile({ children, ...props }) {
                     </button>
                 </Modal.Header>
                 <Modal.Body>
-                    <div className="d-flex w-100 justify-content-center align-items-center">
-                        Edit profile here
+                    <div className="d-flex w-100 justify-content-center">
+                        <form onSubmit={handleUpdateProfPic}>
+                            <div className="admin-profile-pic-update-cont p-3">
+                                <div className="py-2 profile-image-cont">
+                                    <Label forInput="profile-image" value="Profile Picture:" />
+
+                                    <div className="d-flex justify-content-center py-2">
+                                        <img src={`/images/faculty_images/${data.profile_pic}`} alt="Faculty Profile" />
+                                    </div>
+
+                                    <div className="add-field-container w-100 p-2">
+                                        <Form.Control type="file" name="profile_pic" onChange={handleFileChange}/>
+                                    </div>
+
+                                    <div className="update-prof-btn px-2 d-flex align-items-center">
+                                        <div className="ms-auto">
+                                            <button type="submit" className="p-3 py-1" disabled={processing}>
+                                                Update
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    {processing && (
+                                        <>
+                                        <p>Processing upload...</p>
+                                        </>
+                                    )}
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </Modal.Body>
                 <Modal.Footer>

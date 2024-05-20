@@ -480,6 +480,45 @@ class FacultyController extends Controller
         return redirect()->back()->with(['extension_data' => $new_ext_data]);
     }
 
+    // Update PROFILE PICTURE
+    protected function updateProfPic(Request $request)
+    {
+        // Validate the request
+        $request->validate([
+            'profile_pic' => 'required|image|mimes:jpeg,png,jpg|max:100000', // Adjust the max file size as needed
+        ]);
+
+        $basicInfo = Basic_Info::where('faculty_id', auth()->user()->id)->firstOrFail();
+    
+        if ($request->hasFile('profile_pic')) {
+            $file = $request->file('profile_pic');
+    
+            if ($file->isValid()) {
+                $newFileName = uniqid() . '.' . $file->getClientOriginalExtension();
+
+                // Delete previous profile picture if exists
+                if ($basicInfo->profile_pic) {
+                    $previousFilePath = public_path('images/faculty_images/') . $basicInfo->profile_pic;
+                    if (file_exists($previousFilePath)) {
+                        unlink($previousFilePath);
+                    }
+                }
+    
+                $file->move(public_path('images/faculty_images'), $newFileName);
+    
+                $basicInfo->profile_pic = $newFileName; // Updated to use the filename directly
+            } else {
+                return redirect('/profile/basic')->with('error', 'Invalid file.');
+            }
+        }
+    
+        $basicInfo->save(); // Moved save operation outside the if-else block
+
+        // return redirect()->route('admin.faculty.show', ['id' => $id]);
+        return redirect()->back()->with(['faculty_data' => $basicInfo]);
+        // return redirect('/admin/faculty/' . $id)->with('success', 'Profile picture updated successfully.');
+    }
+
     /**
      * Remove the specified resource from storage.
      *

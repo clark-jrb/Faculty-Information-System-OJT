@@ -62,7 +62,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::delete('/destroyPub/{id}', [FacultyController::class, 'destroyPub'])->name('destroy.pub');
         Route::delete('/destroyExt/{id}', [FacultyController::class, 'destroyExt'])->name('destroy.ext');
 
-
+        Route::post('/updateProfPic', [FacultyController::class, 'updateProfPic'])->name('update.profilePic');
     });
 
     // Faculty Route
