@@ -94,6 +94,7 @@ class FacultyController extends Controller
         //
     }
 
+    // Add EDUCATION
     public function addEduc(Request $request)
     {
         if ($request->filled('academic_educ')) {
@@ -117,6 +118,7 @@ class FacultyController extends Controller
         return redirect()->back()->with(['acadEduc_data' => $acad_educ_data]);
     }
 
+    // Add WORK EXPERIENCE
     public function addWork(Request $request)
     {
         if ($request->filled('academic_work')) {
@@ -140,6 +142,7 @@ class FacultyController extends Controller
         return redirect()->back()->with(['acadWork_data' => $acad_work_data]);
     }
 
+    // Add PUBLICATION
     public function addPublication(Request $request)
     {
         if ($request->filled('publications')) {
@@ -249,10 +252,9 @@ class FacultyController extends Controller
         //
     }
 
+    // Update BASIC INFORMATION
     protected function updateBasicInfo(Request $request)
     {
-        // dd('Function called', $id, $request->all());
-        // $basicInfo = Basic_Info::findOrFail($id);
         $basicInfo = Basic_Info::where('faculty_id', auth()->user()->id)->firstOrFail();
 
         // Validate the request data for basic info
@@ -281,7 +283,7 @@ class FacultyController extends Controller
 
     }
 
-
+    // Update EDUCATION
     public function updateEduc(Request $request)
     {
         // $acad_educ = Acad_Education::where('id', $request->id)->firstOrFail();
@@ -310,7 +312,7 @@ class FacultyController extends Controller
         return redirect()->back()->with(['acadEduc_data' => $new_acad_educ]);
     }
 
-
+    // Update WORK EXPERIENCE
     public function updateWork(Request $request)
     {
         // $acad_educ = Acad_Education::where('id', $request->id)->firstOrFail();
@@ -339,7 +341,7 @@ class FacultyController extends Controller
         return redirect()->back()->with(['acadEduc_data' => $new_acad_educ]);
     }
 
-
+    // Update PUBLICATION
     public function updatePub(Request $request)
     {
         // $acad_educ = Acad_Education::where('id', $request->id)->firstOrFail();
@@ -374,6 +376,8 @@ class FacultyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    // Destroy EDUCATION
     public function destroyEduc($id)
     {
         //
@@ -386,6 +390,7 @@ class FacultyController extends Controller
         return redirect()->back()->with(['acadEduc_data' => $new_acad_educ]);
     }
 
+    // Destroy WORK EXPERIENCE
     public function destroyWork($id)
     {
         //
@@ -398,6 +403,7 @@ class FacultyController extends Controller
         return redirect()->back()->with(['acadWork_data' => $new_acad_work]);
     }
 
+    // Destroy PUBLICATION
     public function destroyPub($id)
     {
         //

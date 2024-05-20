@@ -364,7 +364,7 @@ export default function Publications(){
                             </p>
 
                             <p className="m-0 py-1">
-                                <i className="fa-solid fa-up-right-from-square"></i>
+                                <i className="fa-solid fa-up-right-from-square fa-sm"></i>
                                 &nbsp;
                                 DOI:
                                 &nbsp;
