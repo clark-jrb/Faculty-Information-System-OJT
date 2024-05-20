@@ -27,7 +27,9 @@ export default function Profile({ children, ...props }) {
                         <div className="profile-pic-cont p-4">
                             <div className="first-layer p-2">
                                 <div className="second-layer">
-                                    <img src={`/images/faculty_images/${faculty_data.profile_pic}`} alt="profile picture" />
+                                    {faculty_data.profile_pic && (
+                                        <img src={`/images/faculty_images/${faculty_data.profile_pic}`} alt="profile picture" />
+                                    )}
                                 </div>
                             </div>
                         </div>

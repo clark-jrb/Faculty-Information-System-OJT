@@ -140,6 +140,29 @@ class FacultyController extends Controller
         return redirect()->back()->with(['acadWork_data' => $acad_work_data]);
     }
 
+    public function addPublication(Request $request)
+    {
+        if ($request->filled('publications')) {
+            foreach ($request->input('publications') as $publicationData) {
+                // Check if any of the fields in the academic education data is not null
+                if (!empty(array_filter($publicationData))) {
+                    Publication::create([
+                        'faculty_id' => auth()->user()->id,
+                        'proj_title' => $publicationData['proj_title'],
+                        'authors' => $publicationData['authors'],
+                        'date' => $publicationData['date'],
+                        'doi' => $publicationData['doi']
+                    ]);
+                }
+            }
+        }
+
+        $publication_data = Publication::get();
+
+        // return Inertia::render('Profile/Basic', ['faculty_data' => $faculty_data]);
+        return redirect()->back()->with(['publication_data' => $publication_data]);
+    }
+
     /**
      * Display the specified resource.
      *
@@ -258,6 +281,7 @@ class FacultyController extends Controller
 
     }
 
+
     public function updateEduc(Request $request)
     {
         // $acad_educ = Acad_Education::where('id', $request->id)->firstOrFail();
@@ -286,6 +310,7 @@ class FacultyController extends Controller
         return redirect()->back()->with(['acadEduc_data' => $new_acad_educ]);
     }
 
+
     public function updateWork(Request $request)
     {
         // $acad_educ = Acad_Education::where('id', $request->id)->firstOrFail();
@@ -299,8 +324,8 @@ class FacultyController extends Controller
     
                         // Update the academic education data
                         $acad_educ->update([
-                            'position' => $academicWorkData['position'] ?? $acad_educ->degree,
-                            'work_loc' => $academicWorkData['institution'] ?? $acad_educ->institution,
+                            'position' => $academicWorkData['position'] ?? $acad_educ->position,
+                            'work_loc' => $academicWorkData['institution'] ?? $acad_educ->work_loc,
                             'date' => $academicWorkData['date'] ?? $acad_educ->date,
                             'location' => $academicWorkData['location'] ?? $acad_educ->location
                         ]);
@@ -312,6 +337,35 @@ class FacultyController extends Controller
         $new_acad_educ = Acad_WorkExp::all();
 
         return redirect()->back()->with(['acadEduc_data' => $new_acad_educ]);
+    }
+
+
+    public function updatePub(Request $request)
+    {
+        // $acad_educ = Acad_Education::where('id', $request->id)->firstOrFail();
+        if ($request->filled('publications')) {
+            foreach ($request->input('publications') as $publicationData) {
+                // Check if any of the fields in the academic education data is not null
+                if (!empty(array_filter($publicationData))) {
+                    // dd($publicationData['id']);
+                    if (isset($publicationData['id'])) {
+                        $pub_data = Publication::where('id', $publicationData['id'])->firstOrFail();
+    
+                        // Update the academic education data
+                        $pub_data->update([
+                            'proj_title' => $publicationData['proj_title'] ?? $pub_data->proj_title,
+                            'authors' => $publicationData['authors'] ?? $pub_data->authors,
+                            'date' => $publicationData['date'] ?? $pub_data->date,
+                            'doi' => $publicationData['doi'] ?? $pub_data->doi
+                        ]);
+                    }
+                }
+            }
+        }
+
+        $new_pub_data = Publication::all();
+
+        return redirect()->back()->with(['publication_data' => $new_pub_data]);
     }
 
     /**
@@ -342,5 +396,17 @@ class FacultyController extends Controller
         $new_acad_work = Acad_WorkExp::get();
 
         return redirect()->back()->with(['acadWork_data' => $new_acad_work]);
+    }
+
+    public function destroyPub($id)
+    {
+        //
+        $pub_data = Publication::findOrFail($id);
+        // dd($pub_data);
+        $pub_data->delete();
+
+        $new_pub_data = Publication::get();
+
+        return redirect()->back()->with(['publication_data' => $new_pub_data]);
     }
 }

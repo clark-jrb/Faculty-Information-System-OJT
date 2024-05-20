@@ -48,7 +48,7 @@ export default function Education ({ data, acadEduc_data, setData, post }) {
     // for handle submit buttons
         const handleEducSubmit = (e) => {
             e.preventDefault();
-            console.log(data);
+            // console.log(data);
             post(route('add.educ', data))
             setShowModalEduc(false)
 
@@ -286,6 +286,7 @@ export default function Education ({ data, acadEduc_data, setData, post }) {
                 </Modal.Footer>
             </Modal>
 
+            {/* CONTENT  */}
             <div className="acad-educ-content flex-fill w-50">
                 <div className="title-info-content-acad pb-2">
                     <p className="m-0">Education</p>

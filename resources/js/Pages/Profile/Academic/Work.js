@@ -48,7 +48,7 @@ export default function Work ({ data, acadWork_data, setData, post }) {
     // for handle submit buttons
         const handleWorkSubmit = (e) => {
             e.preventDefault();
-            console.log(data);
+            // console.log(data);
             post(route('add.work', data))
             setShowModalWork(false)
 
@@ -181,7 +181,7 @@ export default function Work ({ data, acadWork_data, setData, post }) {
                                     {data.academic_work.length > 1 && ( // Only render the remove button if the academic background is not empty
                                         <button type="button" className="px-2 py-1" onClick={() => setData(prevData => ({
                                         ...prevData,
-                                        academic_work: prevData.academic_educ.filter((_, i) => i !== index),
+                                        academic_work: prevData.academic_work.filter((_, i) => i !== index),
                                         }))}>
                                             <i className="fa-solid fa-minus"></i>
                                         </button>
