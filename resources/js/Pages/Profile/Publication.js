@@ -233,7 +233,6 @@ export default function Publications(){
                 </form>
             </Modal>
 
-
             {/* UPDATE MODAL  */}
             <Modal show={showUpdModal} onHide={handleCloseUpdModal} centered size='xl' backdrop='static'>
                     <Modal.Header className='educ-modal-head py-2'>
@@ -347,26 +346,30 @@ export default function Publications(){
 
                             <p className="m-0 py-1 res-title" style={{ width: '95%' }}>{pub.proj_title}</p>
 
-                            <p className="m-0 py-1" style={{ fontSize: 'large', width: '95%' }}>
-                                <i className="fa-solid fa-users fa-xs"></i>
+                            <p className="m-0 py-1" style={{ fontSize: 'large' }}>
+                                <i className="fa-regular fa-calendar-check fa-xs"></i>
                                 &nbsp;
+                                <span style={{ fontSize: 'medium' }}>
+                                    Date Published:
+                                </span>
+                                &nbsp;
+                                {pub.date}
+                            </p>
+
+                            <p className="m-0 py-1" style={{ fontSize: 'large', width: '95%' }}>
+                                {/* <i className="fa-solid fa-users fa-xs"></i> */}
+                                {/* &nbsp; */}
                                 <span style={{ color: 'var(--grey)', fontSize: 'medium' }}>Author(s):</span> 
                                 &nbsp;
                                 {pub.authors}
                             </p>
 
-                            <p className="m-0 py-1">
-                                <i className="fa-regular fa-calendar-check"></i>
+                            <p className="m-0 py-1" style={{ fontSize: 'large' }}>
+                                <i className="fa-solid fa-up-right-from-square fa-xs"></i>
                                 &nbsp;
-                                Date Published:
-                                &nbsp;
-                                {pub.date}
-                            </p>
-
-                            <p className="m-0 py-1">
-                                <i className="fa-solid fa-up-right-from-square fa-sm"></i>
-                                &nbsp;
-                                DOI:
+                                <span style={{ fontSize: 'medium' }}>
+                                    DOI:
+                                </span>
                                 &nbsp;
                                 {pub.doi}
                             </p>

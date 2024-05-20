@@ -48,14 +48,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/addEduc', [FacultyController::class, 'addEduc'])->name('add.educ');
         Route::post('/addWork', [FacultyController::class, 'addWork'])->name('add.work');
         Route::post('/addPublication', [FacultyController::class, 'addPublication'])->name('add.pub');
+        Route::post('/addResearch', [FacultyController::class, 'addResearch'])->name('add.res');
 
         Route::post('/updateEduc', [FacultyController::class, 'updateEduc'])->name('update.educ');
         Route::post('/updateWork', [FacultyController::class, 'updateWork'])->name('update.work');
         Route::post('/updatePub', [FacultyController::class, 'updatePub'])->name('update.pub');
+        Route::post('/updateRes', [FacultyController::class, 'updateRes'])->name('update.res');
 
         Route::delete('/destroyEduc/{id}', [FacultyController::class, 'destroyEduc'])->name('destroy.educ');
         Route::delete('/destroyWork/{id}', [FacultyController::class, 'destroyWork'])->name('destroy.work');
         Route::delete('/destroyPub/{id}', [FacultyController::class, 'destroyPub'])->name('destroy.pub');
+        Route::delete('/destroyRes/{id}', [FacultyController::class, 'destroyRes'])->name('destroy.res');
 
 
     });

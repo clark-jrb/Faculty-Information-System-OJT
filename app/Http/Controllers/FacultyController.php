@@ -166,6 +166,30 @@ class FacultyController extends Controller
         return redirect()->back()->with(['publication_data' => $publication_data]);
     }
 
+    // Add RESEARCH ACTIVITY
+    public function addResearch(Request $request)
+    {
+        if ($request->filled('research')) {
+            foreach ($request->input('research') as $researchData) {
+                // Check if any of the fields in the academic education data is not null
+                if (!empty(array_filter($researchData))) {
+                    ResActivity::create([
+                        'faculty_id' => auth()->user()->id,
+                        'res_title' => $researchData['title'],
+                        'status' => $researchData['status'],
+                        'duration' => $researchData['duration'],
+                        'researcher' => $researchData['researchers']
+                    ]);
+                }
+            }
+        }
+
+        $research_data = ResActivity::get();
+
+        // return Inertia::render('Profile/Basic', ['faculty_data' => $faculty_data]);
+        return redirect()->back()->with(['research_data' => $research_data]);
+    }
+
     /**
      * Display the specified resource.
      *
@@ -370,6 +394,35 @@ class FacultyController extends Controller
         return redirect()->back()->with(['publication_data' => $new_pub_data]);
     }
 
+    // Update RESEARCH ACTIVITIES
+    public function updateRes(Request $request)
+    {
+        // $acad_educ = Acad_Education::where('id', $request->id)->firstOrFail();
+        if ($request->filled('research')) {
+            foreach ($request->input('research') as $researchData) {
+                // Check if any of the fields in the academic education data is not null
+                if (!empty(array_filter($researchData))) {
+                    // dd($researchData['id']);
+                    if (isset($researchData['id'])) {
+                        $res_data = ResActivity::where('id', $researchData['id'])->firstOrFail();
+    
+                        // Update the academic education data
+                        $res_data->update([
+                            'res_title' => $researchData['title'] ?? $res_data->res_title,
+                            'status' => $researchData['status'] ?? $res_data->status,
+                            'duration' => $researchData['duration'] ?? $res_data->duration,
+                            'researcher' => $researchData['researchers'] ?? $res_data->researcher
+                        ]);
+                    }
+                }
+            }
+        }
+
+        $new_res_data = ResActivity::all();
+
+        return redirect()->back()->with(['research_data' => $new_res_data]);
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -414,5 +467,18 @@ class FacultyController extends Controller
         $new_pub_data = Publication::get();
 
         return redirect()->back()->with(['publication_data' => $new_pub_data]);
+    }
+
+    // Destroy RESEARCH ACTIVITY
+    public function destroyRes($id)
+    {
+        //
+        $res_data = ResActivity::findOrFail($id);
+        // dd($res_data);
+        $res_data->delete();
+
+        $new_res_data = ResActivity::get();
+
+        return redirect()->back()->with(['research_data' => $new_res_data]);
     }
 }
