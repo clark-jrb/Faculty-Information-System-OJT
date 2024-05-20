@@ -298,7 +298,7 @@
     font-size: small;
 }
 
-.edit-profile, .add-btn {
+.edit-profile, .add-btn, .del-btn {
     /* font-size: medium; */
     background-color: var(--light-green);
     border: none;
@@ -309,6 +309,15 @@
 
 .edit-profile:active, .add-btn:active {
     border-bottom: 1px solid var(--dark-green);
+}
+
+.del-btn {
+    background-color: var(--red);
+    border-bottom: 3px solid var(--dark-red);
+}
+
+.del-btn:active {
+    border-bottom: 1px solid var(--dark-red);
 }
 
 .cancel-btn {
@@ -331,8 +340,6 @@
 
 /* .educ-modal-head {
     background-color: red;
-    border-top-left-radius: 2px !important;
-    border-top-right-radius: 2px !important;
 } */
 
 .for-edit-btn {

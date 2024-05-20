@@ -1,5 +1,4 @@
 import React from 'react';
-import Profile from '../Trainings';
 
 export default function Trainings(){
     return (

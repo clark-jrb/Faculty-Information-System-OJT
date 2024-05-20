@@ -16,7 +16,11 @@ export default function Academic(){
 
     const [showModalEduc, setShowModalEduc] = useState(false);
     const [showModalEducUpd, setShowModalEducUpd] = useState(false);
+    const [showModalDel, setShowModalDel] = useState(false);
     const [selectedID, setSelectedID] = useState(null);
+    const [selectedData, setSelectedData] = useState({
+        academic_educ: []
+    });
 
     const { data, setData, post, processing } = useForm({
         academic_educ: [{ 
@@ -27,80 +31,123 @@ export default function Academic(){
         }],
     })
 
-    const handleAddEducField = () => {
-        addField(
-            'academic_educ',
-            { degree: '', institution: '', date: '', location: '' },
-            setData,
-            data
-        );
-    };
+    // handlel change fields
+        const handleAddEducField = () => {
+            addField(
+                'academic_educ',
+                { degree: '', institution: '', date: '', location: '' },
+                setData,
+                data
+            );
+        };
 
-    const handleEducChange = (e, index) => {
-        handleFieldChange(
-            'academic_educ',
-            e,
-            index,
-            setData,
-            data
-        );
-    };
+        const handleEducChange = (e, index) => {
+            handleFieldChange(
+                'academic_educ',
+                e,
+                index,
+                setData,
+                data
+            );
+        };
 
-    const handleEducSubmit = (e) => {
-        e.preventDefault();
-        console.log(data);
-        post(route('add.educ', data))
-        setShowModalEduc(false)
-        setData({
-            academic_educ: [{ 
-                degree: '', 
-                institution: '', 
-                date: '', 
-                location: ''
-            }]
-        })
-    };
+        const handleEducUpdateChange = (e, index) => {
+            handleFieldChange(
+                'academic_educ',
+                e,
+                index,
+                setSelectedData,
+                selectedData
+            );
+        };
 
-    const handleUpdEducSubmit = (e) => {
-        e.preventDefault();
-        console.log(data);
-        post(route('update.educ', data))
-        setShowModalEducUpd(false)
-    };
+    // for handle submit buttons
+        const handleEducSubmit = (e) => {
+            e.preventDefault();
+            console.log(data);
+            post(route('add.educ', data))
+            setShowModalEduc(false)
 
-    const handleCloseModalEduc = () => { setShowModalEduc(false) }
-    const handleCloseModalEducUpd = () => { setShowModalEducUpd(false) }
+            setData(({
+                academic_educ: [{ 
+                    degree: '', 
+                    institution: '', 
+                    date: '', 
+                    location: ''
+                }],
+            }))
+        };
 
-    const handleSelectIdEduc = (e) => {
-        setSelectedID(e)
-        setShowModalEducUpd(true)
-    }
-    
-    const selectEduc = acadEduc_data.find(educ => educ.id === selectedID)
+        const handleUpdEducSubmit = (e) => {
+            e.preventDefault();
+            console.log(selectedData);
+            Inertia.post(route('update.educ', selectedData))
 
-    useEffect(() => {
-        if (selectEduc) {
-            setData(prevData => ({
-                ...prevData,
-                academic_educ: [selectEduc]
-            }));
+            setShowModalEducUpd(false)
+        };
+
+        const handleDelete = () => {
+            Inertia.delete(route('destroy.educ', { id: selectedID }))
+            // setSelectedID(null)
+            setShowModalDel(false)
         }
-    }, [selectEduc]);
 
-    // useEffect(() => {
-    //     console.log(data);
-    // }, [data]);
+    // For close modals
+        const handleCloseModalEduc = () => { 
+            setShowModalEduc(false) 
+            Inertia.visit(route('academic'))
+        }
+        
+        const handleCloseModalDel = () => { setShowModalDel(false) }
+
+        const handleCloseModalEducUpd = () => { 
+            setShowModalEducUpd(false) 
+            Inertia.visit(route('academic'))
+        }
+
+    // for select data by ID
+        const handleSelectIdEduc = (e) => {
+            setSelectedID(e)
+            setShowModalEducUpd(true)
+        }
+    
+    // find specific data
+        const selectEduc = acadEduc_data.find(educ => educ.id === selectedID)
+
+    // runs every time whenever selectedEduc changes
+        useEffect(() => {
+            if (selectEduc) {
+                setSelectedData({
+                    academic_educ: [{
+                        id: selectEduc.id,
+                        degree: selectEduc.degree,
+                        institution: selectEduc.institution,
+                        date: selectEduc.date,
+                        location: selectEduc.location
+                    }]
+                });
+            }
+        }, [selectEduc]);
+
+    // confirm delete if delete btn is selected
+        const handleConfirmDel = (id) => {
+            setSelectedID(id)
+            setShowModalDel(true)
+        }
 
     return (
         <Profile>
             {/* ADD MODAL  */}
             <Modal className="academic-modal" show={showModalEduc} onHide={handleCloseModalEduc} centered size='xl'>
-                <form onSubmit={handleEducSubmit}>
-                    <Modal.Header className='educ-modal-head' closeButton>
+                    <Modal.Header className='educ-modal-head'>
                         <div className="acf-title m-2 px-3" style={{ color: 'white' }}>
                             Add Background Education
                         </div>
+                        <button className='p-1 px-3 ms-auto' onClick={() => handleCloseModalEduc()}>
+                            <i className="fa-solid fa-xmark fa-xl"></i>
+                        </button>
                     </Modal.Header>
+                <form onSubmit={handleEducSubmit}>
                     <Modal.Body>
                         {data.academic_educ.map((academicEduc, index) => (
                             <div className="acad-educ-flex d-flex py-2" key={index}>
@@ -175,16 +222,20 @@ export default function Academic(){
                     </Modal.Footer>
                 </form>
             </Modal>
+
             {/* UPDATE MODAL  */}
-            <Modal className="academic-modal" show={showModalEducUpd} onHide={handleCloseModalEducUpd} centered size='xl'>
-                <form onSubmit={handleUpdEducSubmit}>
-                    <Modal.Header className='educ-modal-head' closeButton>
+            <Modal className="academic-modal" show={showModalEducUpd} onHide={handleCloseModalEducUpd} centered size='xl' backdrop='static'>
+                    <Modal.Header className='educ-modal-head py-2'>
                         <div className="acf-title m-2 px-3" style={{ color: 'white' }}>
-                            Add Background Education
+                            Edit Background Education
                         </div>
+                        <button className='p-1 px-3 ms-auto' onClick={() => handleCloseModalEducUpd()}>
+                            <i className="fa-solid fa-xmark fa-xl"></i>
+                        </button>
                     </Modal.Header>
+                <form onSubmit={handleUpdEducSubmit}>
                     <Modal.Body>
-                        {data.academic_educ.map((academicEduc, index) => (
+                        {selectedData.academic_educ.map((academicEduc, index) => (
                             <div className="acad-educ-flex d-flex py-2" key={index}>
                                 <div className="flex-fill p-2">
                                     <Label forInput="institution" value="Institution/School:" />
@@ -193,7 +244,7 @@ export default function Academic(){
                                         name="institution"
                                         placeholder="Institution/School"
                                         value={academicEduc.institution}
-                                        onChange={(e) => handleEducChange(e, index)}
+                                        onChange={(e) => handleEducUpdateChange(e, index)}
                                     />
                                 </div>
 
@@ -204,7 +255,7 @@ export default function Academic(){
                                         name="location"
                                         placeholder="Location"
                                         value={academicEduc.location}
-                                        onChange={(e) => handleEducChange(e, index)}
+                                        onChange={(e) => handleEducUpdateChange(e, index)}
                                     />
                                 </div>
 
@@ -215,7 +266,7 @@ export default function Academic(){
                                         name="date"
                                         placeholder="YYYY"
                                         value={academicEduc.date}
-                                        onChange={(e) => handleEducChange(e, index)}
+                                        onChange={(e) => handleEducUpdateChange(e, index)}
                                     />
                                 </div>
 
@@ -226,31 +277,34 @@ export default function Academic(){
                                         name="degree"
                                         placeholder="ex. MS in Crop Protection"
                                         value={academicEduc.degree}
-                                        onChange={(e) => handleEducChange(e, index)}
+                                        onChange={(e) => handleEducUpdateChange(e, index)}
                                     />
-                                </div>
-
-                                <div className="remove-field-btn flex-fill p-2 d-flex align-items-end ">
-                                    {data.academic_educ.length > 1 && ( // Only render the remove button if the academic background is not empty
-                                        <button type="button" className="px-2 py-1" onClick={() => setData(prevData => ({
-                                        ...prevData,
-                                        academic_educ: prevData.academic_educ.filter((_, i) => i !== index),
-                                        }))}>
-                                            <i className="fa-solid fa-minus"></i>
-                                        </button>
-                                    )}
                                 </div>
                                 
                             </div>
                         ))}
                     </Modal.Body>
                     <Modal.Footer>
-                        <button className='add-btn p-1 px-2' type='submit'>
+                        <button className='add-btn p-1 px-2' type='submit' style={{ fontSize: 'small' }}>
                             <i className="fa-regular fa-pen-to-square"></i> Update
                         </button>
                     </Modal.Footer>
                 </form>
             </Modal>
+            
+            {/* DELETE MODAL  */}
+            <Modal show={showModalDel} onHide={handleCloseModalDel} centered backdrop='static'>
+                <Modal.Body>
+                    Are you sure you want to delete this faculty data?
+                </Modal.Body>
+                <Modal.Footer>
+                    <div className="d-flex w-100 justify-content-center align-items-center gap-3">
+                        <button className='yes-btn p-1 px-3' onClick={() => handleDelete()}>Yes</button>
+                        <button className='no-btn p-1 px-3' onClick={() => handleCloseModalDel()}>No</button>
+                    </div>
+                </Modal.Footer>
+            </Modal>
+
             {/* CONTENT  */}
             <div className="p-3 px-4 academic-content d-flex gap-5">
                 {/* EDUCATION  */}
@@ -271,9 +325,12 @@ export default function Academic(){
                             <div className="p-3" key={index} style={{ borderBottom: '#ccc 1px solid', position: 'relative' }}>
                                 <div className="bg-data"></div>
 
-                                <div className='for-edit-btn'>
+                                <div className='for-edit-btn d-flex flex-column'>
                                     <button className='edit-educ-btn p-1 px-2' onClick={() => handleSelectIdEduc(educ.id)}>
                                         <i className="fa-regular fa-pen-to-square fa-lg"></i>
+                                    </button>
+                                    <button className='p-1 px-2' onClick={() => handleConfirmDel(educ.id)}>
+                                        <i className="fa-solid fa-trash-can"></i>
                                     </button>
                                 </div>
                                 

@@ -46,6 +46,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/updateBasic', [FacultyController::class, 'updateBasicInfo'])->name('update.basic');
         Route::post('/addEduc', [FacultyController::class, 'addEduc'])->name('add.educ');
         Route::post('/updateEduc', [FacultyController::class, 'updateEduc'])->name('update.educ');
+        Route::delete('/destroyEduc/{id}', [FacultyController::class, 'destroyEduc'])->name('destroy.educ');
     });
 
     // Faculty Route

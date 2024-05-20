@@ -104,8 +104,8 @@ class FacultyController extends Controller
                         'faculty_id' => auth()->user()->id,
                         'degree' => $academicEducData['degree'],
                         'institution' => $academicEducData['institution'],
-                        'date' => $academicEducData['educ_date'],
-                        'location' => $academicEducData['educ_location']
+                        'date' => $academicEducData['date'],
+                        'location' => $academicEducData['location']
                     ]);
                 }
             }
@@ -242,6 +242,7 @@ class FacultyController extends Controller
             foreach ($request->input('academic_educ') as $academicEducData) {
                 // Check if any of the fields in the academic education data is not null
                 if (!empty(array_filter($academicEducData))) {
+                    // dd($academicEducData['id']);
                     if (isset($academicEducData['id'])) {
                         $acad_educ = Acad_Education::where('id', $academicEducData['id'])->firstOrFail();
     
@@ -268,8 +269,15 @@ class FacultyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyEduc($id)
     {
         //
+        $acad_educ = Acad_Education::findOrFail($id);
+        // dd($acad_educ);
+        $acad_educ->delete();
+
+        $new_acad_educ = Acad_Education::get();
+
+        return redirect()->back()->with(['acadEduc_data' => $new_acad_educ]);
     }
 }
