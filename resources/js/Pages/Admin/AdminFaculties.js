@@ -254,7 +254,7 @@ export default function AdminFaculties({ children }) {
 
                     <div className="admin-add-faculty">
                         <button className="px-2 py-1" onClick={() => handlePrint()}>
-                            <i className="fa-solid fa-print"></i> Print
+                            <i className="fa-solid fa-print fa-sm"></i> Print
                         </button>
                     </div>
                 </div>

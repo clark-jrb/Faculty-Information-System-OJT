@@ -147,7 +147,7 @@
 .go-to-files-btn button, 
 .update-prof-btn button,
 .add-file-btn button,
-.print-btn-cont button,
+.print-btn,
 .yes-btn {
     font-size: medium;
     background-color: var(--light-green);
