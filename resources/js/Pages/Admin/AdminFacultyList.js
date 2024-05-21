@@ -163,7 +163,6 @@ export default function AdminFacultyList() {
                     </>
                 )}
                 
-                
 
                 {/* Animal Science Table */}
                 {faculty_data.fd_animal_science && (

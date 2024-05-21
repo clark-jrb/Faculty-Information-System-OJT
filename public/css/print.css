@@ -10,3 +10,7 @@
         margin: 1in;
     }
 }
+
+.print-header {
+    border-bottom: var(--dark-green) solid 2px;
+}

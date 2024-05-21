@@ -14,7 +14,7 @@ export default function PrintPage() {
 
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
-        documentTitle: 'Faculties'
+        documentTitle: 'CAg Faculties'
     });
 
     useEffect(() => {
@@ -27,7 +27,9 @@ export default function PrintPage() {
                 Print page here
                 <button className="btn btn-primary" onClick={handlePrint}>Print</button>
 
-                <Print ref={componentRef} />
+                <div className="px-4">
+                    <Print ref={componentRef} data={faculty_data}/>
+                </div>
             </div>
         </AdminAuthenticated>
     )
