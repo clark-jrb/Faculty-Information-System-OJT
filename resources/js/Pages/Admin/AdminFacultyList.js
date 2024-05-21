@@ -33,6 +33,9 @@ export default function AdminFacultyList() {
     const handleDelete = () => {
         Inertia.delete(route('admin.destroy', { id: selectedID }))
         setSelectedID(null)
+        if (showModal) {
+            setShowModal(false)
+        }
     }
 
     useEffect(() => {
@@ -88,7 +91,7 @@ export default function AdminFacultyList() {
                                             <td className="p-2 ps-3">
                                                 { checked ? 
                                                 <>
-                                                    <button onClick={() => handleConfirmDel(faculty.id)}>
+                                                    <button onClick={() => handleConfirmDel(faculty.faculty_id)}>
                                                         <i className="fa-solid fa-trash-can"></i>
                                                     </button>
                                                 </> : 
@@ -142,7 +145,7 @@ export default function AdminFacultyList() {
                                             <td className="p-2 ps-3">
                                                 { checked ? 
                                                 <>
-                                                    <button onClick={() => handleConfirmDel(faculty.id)}>
+                                                    <button onClick={() => handleConfirmDel(faculty.faculty_id)}>
                                                         <i className="fa-solid fa-trash-can"></i>
                                                     </button>
                                                 </> : 
@@ -197,7 +200,7 @@ export default function AdminFacultyList() {
                                             <td className="p-2 ps-3">
                                                 { checked ? 
                                                 <>
-                                                    <button onClick={() => handleConfirmDel(faculty.id)}>
+                                                    <button onClick={() => handleConfirmDel(faculty.faculty_id)}>
                                                         <i className="fa-solid fa-trash-can"></i>
                                                     </button>
                                                 </> : 
@@ -251,7 +254,7 @@ export default function AdminFacultyList() {
                                             <td className="p-2 ps-3">
                                                 { checked ? 
                                                 <>
-                                                    <button onClick={() => handleConfirmDel(faculty.id)}>
+                                                    <button onClick={() => handleConfirmDel(faculty.faculty_id)}>
                                                         <i className="fa-solid fa-trash-can"></i>
                                                     </button>
                                                 </> : 
@@ -304,7 +307,7 @@ export default function AdminFacultyList() {
                                             <td className="p-2 ps-3">
                                                 { checked ? 
                                                 <>
-                                                    <button onClick={() => handleConfirmDel(faculty.id)}>
+                                                    <button onClick={() => handleConfirmDel(faculty.faculty_id)}>
                                                         <i className="fa-solid fa-trash-can"></i>
                                                     </button>
                                                 </> : 
@@ -358,7 +361,7 @@ export default function AdminFacultyList() {
                                             <td className="p-2 ps-3">
                                                 { checked ? 
                                                 <>
-                                                    <button onClick={() => handleConfirmDel(faculty.id)}>
+                                                    <button onClick={() => handleConfirmDel(faculty.faculty_id)}>
                                                         <i className="fa-solid fa-trash-can"></i>
                                                     </button>
                                                 </> : 

@@ -10,6 +10,7 @@ use App\Models\ResActivity;
 use App\Models\Publication;
 use App\Models\Ext_Activity;
 use App\Models\Document;
+use App\Models\User;
 use Inertia\Inertia;
 
 class AdminController extends Controller
@@ -582,8 +583,11 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        $faculty = Basic_Info::findOrFail($id);
+        $user_account = User::findOrFail($id);
+        $faculty = Basic_Info::where('faculty_id', $id)->firstOrFail();
+
         $faculty->delete();
+        $user_account->delete();
         
         // Delete associated records
         Acad_Education::where('faculty_id', $id)->delete();
@@ -593,7 +597,8 @@ class AdminController extends Controller
         Ext_Activity::where('faculty_id', $id)->delete();
         Document::where('faculty_id', $id)->delete();
 
-        return redirect('/admin/faculties/departments');
+        // return redirect('/admin/faculties/departments');
+        return redirect()->back()->with(['facultly_data' => $faculty]);
     }
 
     public function deleteDocument($id)
