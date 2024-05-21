@@ -52,9 +52,9 @@ export default function Authenticated({ auth, children }) {
                 <div className="flex-fill w-25">
                     <ul className="px-4 h-100">
                         <li className="px-3" >
-                            <NavLink href={route('facilities')} active={route().current('facilities')}>
+                            <NavLink href={route('home')} active={route().current('home')}>
                                 <p className="p-1 m-0">
-                                    <i className="fa-solid fa-building-wheat"></i> Facilities
+                                    <i className="fa-solid fa-building-wheat"></i> Home
                                 </p>
                             </NavLink>
                         </li>

@@ -70,7 +70,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/faculty', [AdminController::class, 'showFaculties'])->name('faculties');
 
     // Facility Route
-    Route::get('/facilities', fn () => Inertia::render('Facilities'))->name('facilities');
+    Route::get('/home', fn () => Inertia::render('Home'))->name('home');
     
     // For Admin
     // Route::middleware(['auth', 'verified'])->group(function () {

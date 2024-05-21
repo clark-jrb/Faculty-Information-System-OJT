@@ -7,7 +7,7 @@ import Modal1 from '@/Components/Modals/Modal1';
 import Modal2 from '@/Components/Modals/Modal2';
 import Modal3 from '@/Components/Modals/Modal3';
 
-export default function Facilities(props) {
+export default function Home(props) {
     const [showModal1, setShowModal1] = useState(false);
     const [showModal2, setShowModal2] = useState(false);
     const [showModal3, setShowModal3] = useState(false);
