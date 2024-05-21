@@ -23,11 +23,14 @@ export default function PrintPage() {
 
     return (
         <AdminAuthenticated>
-            <div>
-                Print page here
-                <button className="btn btn-primary" onClick={handlePrint}>Print</button>
+            <div className='h-100'>
+                <div className="print-btn-cont px-4 w-75 d-flex align-items-center py-2 mb-2">
+                    <button className='ms-auto px-2 py-1' onClick={handlePrint}>
+                        <i className="fa-solid fa-print"></i> Print
+                    </button>
+                </div>
 
-                <div className="px-4">
+                <div className="px-4 w-75">
                     <Print ref={componentRef} data={faculty_data}/>
                 </div>
             </div>

@@ -6,8 +6,9 @@
 
 @media print {
     @page {
-        size: letter;
+        /* size: legal; */
         margin: .5in;
+        /* margin: 0; */
     }
 }
 
