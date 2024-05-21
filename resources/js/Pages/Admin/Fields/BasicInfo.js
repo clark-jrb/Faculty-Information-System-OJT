@@ -47,36 +47,6 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
         setSpecToMap(specToMap);
     }, [data.department]);
 
-    useEffect(() => {
-        // Split the specialization string into an array
-        const selectedSpecializations = data.specialization.split(',').map(spec => spec.trim());
-        setSelectedItems(selectedSpecializations);
-    }, [data.specialization]);
-
-    const handleCheckboxChange = (e) => {
-        const value = e.target.value;
-        let updatedSpecializations;
-
-        if (e.target.checked) {
-            // If checkbox is checked, add the value to the selectedItems array
-            updatedSpecializations = [...selectedItems, value];
-        } else {
-            // If checkbox is unchecked, remove the value from the selectedItems array
-            updatedSpecializations = selectedItems.filter(item => item !== value);
-        }
-
-        // Update the 'specializations' field in the 'data' object
-        const updatedData = {
-            ...data,
-            specialization: updatedSpecializations.join(', ')
-        };
-
-        // Update the state of selectedItems
-        setSelectedItems(updatedSpecializations);
-        // Update form data using setData()
-        setData(updatedData);
-    };
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setData(prevState => ({
@@ -113,8 +83,8 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
     };
 
     // useEffect(() => {
-    //     console.log(profilePic);
-    // }, [profilePic]);
+    //     console.log(data);
+    // }, [data]);
 
     return (
         <div className={`create-basic-fields ${route().current('admin.create') ? 'w-75' : 'w-100'} p-3`}>
@@ -262,20 +232,15 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                     
                 </div>
                 <div className="flex-fill p-2 w-50">
-                    <Label forInput="special" value="Specialization:" />
-                    {specToMap.map((item) => (
-                        <div key={item.id} className="mb-3">
-                            <Form.Check // prettier-ignore
-                                type="checkbox"
-                                name="specialization"
-                                id={`default-${item.id}`}
-                                label={item.label}
-                                value={item.value}
-                                onChange={handleCheckboxChange}
-                                checked={selectedItems.includes(item.value)}
-                            />
-                        </div>
-                    ))}
+                    <Label forInput="specialization" value="Specialization:" />
+                    <Form.Control
+                        type="text"
+                        name="specialization"
+                        placeholder="specialization"
+                        value={data.specialization}
+                        onChange={(e) => handleChange(e)}
+                        required
+                    />
                 </div>
             </div>
 {/* Upload Profile Image / Highest Degree  */}

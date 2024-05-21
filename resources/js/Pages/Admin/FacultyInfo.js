@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavLink from "@/Components/NavLink";
 import { Form } from "react-bootstrap";
 import { useForm, usePage, InertiaLink } from "@inertiajs/inertia-react";
@@ -145,7 +145,7 @@ export default function FacultyInfo({ children }) {
         const { value } = e.target;
         setAddFilesData(prevState => ({
             ...prevState,
-            faculty_id: faculty_data.id,
+            faculty_id: faculty_data.faculty_id,
             label: value
         }));
     };
@@ -161,7 +161,7 @@ export default function FacultyInfo({ children }) {
     const handleAddFileSubmit = (e) => {
         e.preventDefault()
         console.log(addFilesData);
-        postAddFilesData(`/admin/addDocument/${faculty_data.id}`, addFilesData);
+        postAddFilesData(`/admin/addDocument/${faculty_data.faculty_id}`, addFilesData);
         setAddFileCont(false)
     }
 
@@ -169,7 +169,7 @@ export default function FacultyInfo({ children }) {
         e.preventDefault();
         try {
             // console.log(profilePicData);
-            postProfPicData(`/admin/updateProfilePic/${faculty_data.id}`, profilePicData);
+            postProfPicData(`/admin/updateProfilePic/${faculty_data.faculty_id}`, profilePicData);
             console.log('File uploaded successfully!');
         } catch (error) {
             console.error('Error uploading file:', error);
@@ -181,7 +181,7 @@ export default function FacultyInfo({ children }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(data);
-        post(`/admin/update/${faculty_data.id}`, data)
+        // post(`/admin/update/${faculty_data.id}`, data)
 
         updateNotif(true); 
         updateMessage('Faculty Updated!')
@@ -190,6 +190,10 @@ export default function FacultyInfo({ children }) {
             updateMessage(''); // Clears the message
         }, 5000); 
     };
+
+    // useEffect(() => {
+    //     console.log(faculty_data.map(data => data.fname));
+    // }, [faculty_data]);
 
     return (
         <AdminAuthenticated>
@@ -217,7 +221,7 @@ export default function FacultyInfo({ children }) {
                                 data={data} 
                                 setData={setData} 
                                 profile_pic={faculty_data.profile_pic}
-                                faculty_id={faculty_data.id}
+                                faculty_id={faculty_data.faculty_id}
                             />
                         {/* ACADEMIC FIELDS */}
                             <div className="acf-title my-3 px-3">
@@ -245,9 +249,9 @@ export default function FacultyInfo({ children }) {
                             </div>
                             <Documents data={data} setData={setData}/> */}
                         {/* SUBMIT BUTTON  */}
-                            <div className="admin-add-faculty d-flex justify-content-end py-3">
+                            {/* <div className="admin-add-faculty d-flex justify-content-end py-3">
                                 <button className="p-3 py-2" type="submit" disabled={processing}>Update faculty</button>
-                            </div>
+                            </div> */}
                         </form>
                     </div>
                     <div className="admin-faculty-files-panel w-25 mt-2">
@@ -263,7 +267,7 @@ export default function FacultyInfo({ children }) {
                                     <div className="d-flex justify-content-center py-2">
                                         <img src={`/images/faculty_images/${faculty_data.profile_pic}`} alt="Faculty Profile" />
                                     </div>
-                                    {fileInput && (
+                                    {/* {fileInput && (
                                         <>
                                         <div className="add-field-container w-100 p-2">
                                             <Form.Control type="file" name="profile_pic" onChange={handleFileChange}/>
@@ -302,7 +306,7 @@ export default function FacultyInfo({ children }) {
                                                 <i className="fa-solid fa-xmark"></i> Cancel Edit
                                             </button>
                                         </div>
-                                    )}
+                                    )} */}
                                 </div>
                             </div>
                         </form>
@@ -334,7 +338,7 @@ export default function FacultyInfo({ children }) {
                             </div>
                         ))}
 
-                        {addFileCont && 
+                        {/* {addFileCont && 
                         <>
                             <div className="admin-file-update-cont p-3">
                                 <form onSubmit={handleAddFileSubmit}>
@@ -369,13 +373,13 @@ export default function FacultyInfo({ children }) {
                                 </form>
                             </div>
                         </>
-                        }
+                        } */}
 
-                        <div className="add-field-container w-100 py-2">
+                        {/* <div className="add-field-container w-100 py-2">
                             <button type="button" className="add-field-btn w-100 py-2" onClick={() => setAddFileCont(true)}>
                                 <i className="fa-regular fa-image"></i> Add Image
                             </button>
-                        </div>
+                        </div> */}
                     </div>  
                 </div>
             </div>

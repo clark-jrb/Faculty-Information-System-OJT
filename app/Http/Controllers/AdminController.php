@@ -272,7 +272,7 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        $faculty_data = Basic_Info::findOrFail($id);
+        $faculty_data = Basic_Info::where('faculty_id', $id)->firstOrFail();
 
         // Retrieve related data for the faculty
         $acadEduc_data = Acad_Education::where('faculty_id', '=', $id)->get();

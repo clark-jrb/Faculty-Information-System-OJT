@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Form } from "react-bootstrap";
 import Label from "@/Components/Label";
 import { addField, handleFieldChange } from "@/utils/forms";
@@ -41,6 +41,10 @@ export default function Academic({ data, setData }) {
             data
         );
     };
+
+    // useEffect(() => {
+    //     console.log(data);
+    // }, [data]);
 
     return (
         <div className={`create-academic-fields ${route().current('admin.create') ? 'w-75' : 'w-100'} p-3`}>

@@ -79,7 +79,7 @@ export default function AdminFacultyList() {
                                     {faculty_data.fd_agricultural_extension.map((faculty, index) => (
                                         <tr 
                                             key={index}
-                                            onClick={() => checked ? null : handleRowClick(faculty.id)}
+                                            onClick={() => checked ? null : handleRowClick(faculty.faculty_id)}
                                         >
                                             <th className="p-2 ps-3 tb-no">{index + 1}</th>
                                             <td className="p-2 ps-3 tb-fullname">{`${faculty.lname}, ${faculty.fname}`}</td>
@@ -133,7 +133,7 @@ export default function AdminFacultyList() {
                                     {faculty_data.fd_agri_management.map((faculty, index) => (
                                         <tr 
                                             key={index}
-                                            onClick={() => checked ? null : handleRowClick(faculty.id)}
+                                            onClick={() => checked ? null : handleRowClick(faculty.faculty_id)}
                                         >
                                             <th className="p-2 ps-3 tb-no">{index + 1}</th>
                                             <td className="p-2 ps-3 tb-fullname">{`${faculty.lname}, ${faculty.fname}`}</td>
@@ -188,7 +188,7 @@ export default function AdminFacultyList() {
                                     {faculty_data.fd_animal_science.map((faculty, index) => (
                                         <tr 
                                             key={index}
-                                            onClick={() => checked ? null : handleRowClick(faculty.id)}
+                                            onClick={() => checked ? null : handleRowClick(faculty.faculty_id)}
                                         >
                                             <th className="p-2 ps-3 tb-no">{index + 1}</th>
                                             <td className="p-2 ps-3 tb-fullname">{`${faculty.lname}, ${faculty.fname}`}</td>
@@ -242,7 +242,7 @@ export default function AdminFacultyList() {
                                     {faculty_data.fd_crop_protection.map((faculty, index) => (
                                         <tr 
                                             key={index}
-                                            onClick={() => checked ? null : handleRowClick(faculty.id)}
+                                            onClick={() => checked ? null : handleRowClick(faculty.faculty_id)}
                                         >
                                             <th className="p-2 ps-3 tb-no">{index + 1}</th>
                                             <td className="p-2 ps-3 tb-fullname">{`${faculty.lname}, ${faculty.fname}`}</td>
@@ -295,7 +295,7 @@ export default function AdminFacultyList() {
                                     {faculty_data.fd_crop_science.map((faculty, index) => (
                                         <tr 
                                             key={index}
-                                            onClick={() => checked ? null : handleRowClick(faculty.id)}
+                                            onClick={() => checked ? null : handleRowClick(faculty.faculty_id)}
                                         >
                                             <th className="p-2 ps-3 tb-no">{index + 1}</th>
                                             <td className="p-2 ps-3 tb-fullname">{`${faculty.lname}, ${faculty.fname}`}</td>
@@ -349,7 +349,7 @@ export default function AdminFacultyList() {
                                     {faculty_data.fd_soil_science.map((faculty, index) => (
                                         <tr 
                                             key={index}
-                                            onClick={() => checked ? null : handleRowClick(faculty.id)}
+                                            onClick={() => checked ? null : handleRowClick(faculty.faculty_id)}
                                         >
                                             <th className="p-2 ps-3 tb-no">{index + 1}</th>
                                             <td className="p-2 ps-3 tb-fullname">{`${faculty.lname}, ${faculty.fname}`}</td>

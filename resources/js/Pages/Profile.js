@@ -179,11 +179,11 @@ export default function Profile({ children, ...props }) {
                                         <p className='m-0 p-2'>Extensions</p>
                                     </NavLink>
                                 </li>
-                                <li className={`subject-tab px-3 ${route().current('documents') ? 'active' : ''}`} id="subjects">
+                                {/* <li className={`subject-tab px-3 ${route().current('documents') ? 'active' : ''}`} id="subjects">
                                     <NavLink href={route('documents')} >
                                         <p className='m-0 p-2'>Documents</p>
                                     </NavLink>
-                                </li>
+                                </li> */}
                                 <li className="blank-tab" style={{ cursor: 'default' }}></li>
                             </ul>
                         </div>
