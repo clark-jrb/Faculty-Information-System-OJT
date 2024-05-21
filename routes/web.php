@@ -99,14 +99,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::delete('/admin/delete/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
         Route::get('/admin/faculty/{id}', [AdminController::class, 'show'])->name('admin.faculty.show');
 
-        // Route::get('/admin/faculties/departments/ae', [AdminController::class, 'getAE'])->name('admin.departments.ae');
-        // Route::get('/admin/faculties/departments/am', [AdminController::class, 'getAM'])->name('admin.departments.am');
-        // Route::get('/admin/faculties/departments/as', [AdminController::class, 'getAS'])->name('admin.departments.as');
-        // Route::get('/admin/faculties/departments/cp', [AdminController::class, 'getCP'])->name('admin.departments.cp');
-        // Route::get('/admin/faculties/departments/cs', [AdminController::class, 'getCS'])->name('admin.departments.cs');
-        // Route::get('/admin/faculties/departments/ss', [AdminController::class, 'getSS'])->name('admin.departments.ss');
-
-        // Route::get('/admin/faculties/filter/{value}', [AdminController::class, 'filterFaculty'])->name('admin.faculty.filter');
+        Route::get('/admin/print', [AdminController::class, 'showFacultiesOnPrint'])->name('print');
     });
 });
 

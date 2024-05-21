@@ -68,6 +68,11 @@ export default function AdminFaculties({ children }) {
         Inertia.get('/admin/faculties', filters)
     }
 
+    const handlePrint = () => {
+        // console.log('filters: ' + filters);
+        Inertia.get('/admin/print', filters)
+    }
+
     // const searchResults = faculty_data.map(({ data }) => ({
     //     results: searchFaculty(data, filterName)
     // }));
@@ -246,6 +251,12 @@ export default function AdminFaculties({ children }) {
                             Add Faculty
                         </ResponsiveNavLink>
                     </div> */}
+
+                    <div className="admin-add-faculty">
+                        <button onClick={() => handlePrint()}>
+                            Print
+                        </button>
+                    </div>
                 </div>
                 
                 <div className="admin-faculties-cont d-flex gap-3">

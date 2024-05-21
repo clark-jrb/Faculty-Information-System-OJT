@@ -349,6 +349,53 @@ class AdminController extends Controller
         return Inertia::render('Admin/AdminFacultyList', ['faculty_data' => $facultyData]);
     }
 
+    public function showFacultiesOnPrint(Request $request)
+    {
+        $rank = $request->input('rank', null);
+        $degree = $request->input('degree', null);
+        $department = $request->input('department', null); // Add department filter
+
+        $departments = [
+            'Agricultural Extension',
+            'Agri-Management',
+            'Animal Science',
+            'Crop Protection',
+            'Crop Science',
+            'Soil Science'
+        ];
+
+        $facultyData = [];
+
+        foreach ($departments as $dept) {
+            if ($department && $department !== $dept) {
+                continue; // Skip if department filter doesn't match
+            }
+
+            $formattedDepartment = strtolower(str_replace([' ', '-'], ['_', '_'], $dept));
+
+            $query = Basic_Info::where('department', 'like', $dept)
+                ->where('high_degree', 'like', '%' . $degree . '%');
+
+            switch ($rank) {
+                case 'Assistant Professor':
+                    $query->where('position', 'like', 'Assistant Professor %');
+                    break;
+                case 'Associate Professor':
+                    $query->where('position', 'like', 'Associate Professor %');
+                    break;
+                case 'Professor':
+                    $query->where('position', 'like', 'Professor %');
+                    break;
+                default:
+                    $query->where('position', 'like', '%' . $rank . '%');
+                    break;
+            }
+
+            $facultyData['fd_' . $formattedDepartment] = $query->get();
+        }
+
+        return Inertia::render('PrintPage', ['faculty_data' => $facultyData]);
+    }
     // public function filterFaculties(Request $request)
     // {
     //     $rank = $request->input('rank');

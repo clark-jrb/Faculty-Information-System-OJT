@@ -1,0 +1,12 @@
+
+
+.print-page-paper {
+    background-color: white;
+}
+
+@media print {
+    @page {
+        size: letter;
+        margin: 1in;
+    }
+}
