@@ -3,7 +3,7 @@ import '../../../public/css/print.css'
 
 const Print = React.forwardRef(({ data }, ref) => (
     
-    <div className='print-page-paper' ref={ref}>
+    <div className='print-page-paper p-4' ref={ref}>
         <div className='print-header mb-3'>
             <h1>CAg Faculties 2024</h1>
         </div>
@@ -11,7 +11,7 @@ const Print = React.forwardRef(({ data }, ref) => (
 
         <div>
             {/* Agricultural Extension Table  */}
-            {data.fd_agricultural_extension && (
+            {data.fd_agricultural_extension.length !== 0 && (
                 <>
                 <div className="admin-dept-ae-title">
                     <p>Agricultural Extension</p>
@@ -51,7 +51,7 @@ const Print = React.forwardRef(({ data }, ref) => (
             )}
 
             {/* Agri-Management Table */}
-            {data.fd_agri_management && (
+            {data.fd_agri_management.length !== 0 && (
                 <>
                 <div className="admin-dept-am-title">
                     <p>Agri-Management</p>
@@ -91,7 +91,7 @@ const Print = React.forwardRef(({ data }, ref) => (
             )}
 
             {/* Animal Science Table */}
-            {data.fd_animal_science && (
+            {data.fd_animal_science.length !== 0 && (
                 <>
                 <div className="admin-dept-as-title">
                     <p>Animal Science</p>
@@ -131,7 +131,7 @@ const Print = React.forwardRef(({ data }, ref) => (
             )}
 
             {/* Crop Protection Table */}
-            {data.fd_crop_protection && (
+            {data.fd_crop_protection.length !== 0 && (
                 <>
                 <div className="admin-dept-cp-title">
                     <p className='m-0'>Crop Protection</p>
@@ -171,7 +171,7 @@ const Print = React.forwardRef(({ data }, ref) => (
             )}
 
             {/* Crop Science Table */}
-            {data.fd_crop_science && (
+            {data.fd_crop_science.length !== 0 && (
                 <>
                 <div className="admin-dept-cs-title">
                     <p className='m-0'>Crop Science</p>
@@ -211,7 +211,7 @@ const Print = React.forwardRef(({ data }, ref) => (
             )}
 
             {/* Soil Science Table */}
-            {data.fd_soil_science && (
+            {data.fd_soil_science.length !== 0 && (
                 <>
                 <div className="admin-dept-ss-title">
                     <p>Soil Science</p>

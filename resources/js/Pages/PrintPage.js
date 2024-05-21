@@ -17,9 +17,9 @@ export default function PrintPage() {
         documentTitle: 'CAg Faculties'
     });
 
-    useEffect(() => {
-        console.log(faculty_data);
-    }, [faculty_data]);
+    // useEffect(() => {
+    //     console.log(faculty_data);
+    // }, [faculty_data]);
 
     return (
         <AdminAuthenticated>
