@@ -37,7 +37,8 @@ export default function Extensions({ data, setData }) {
                                 name="ext_title"
                                 placeholder="Title"
                                 value={ext.ext_title}
-                                onChange={(e) => handleChange(e, index)}
+                                // onChange={(e) => handleChange(e, index)}
+                                readOnly
                             />
                         </div>
                         <div className="flex-fill w-25">
@@ -47,7 +48,8 @@ export default function Extensions({ data, setData }) {
                                 name="lead_faculty"
                                 placeholder="Lead Faculty"
                                 value={ext.lead_faculty}
-                                onChange={(e) => handleChange(e, index)}
+                                // onChange={(e) => handleChange(e, index)}
+                                readOnly
                             />
                         </div>
                         <div className="flex-fill w-25">
@@ -57,7 +59,8 @@ export default function Extensions({ data, setData }) {
                                 name="ext_duration"
                                 placeholder="ex. 2 Years or On Going/Complete"
                                 value={ext.ext_duration}
-                                onChange={(e) => handleChange(e, index)}
+                                // onChange={(e) => handleChange(e, index)}
+                                readOnly
                             />
                         </div>
                     </div>
@@ -70,7 +73,8 @@ export default function Extensions({ data, setData }) {
                                 name="beneficiaries"
                                 placeholder="Beneficiaries"
                                 value={ext.beneficiaries}
-                                onChange={(e) => handleChange(e, index)}
+                                // onChange={(e) => handleChange(e, index)}
+                                readOnly
                             />
                         </div>
                         <div className="flex-fill w-25">
@@ -81,7 +85,8 @@ export default function Extensions({ data, setData }) {
                                 name="sponsor"
                                 placeholder="Sponsor(s) (required to put , if more than one)"
                                 value={ext.sponsor}
-                                onChange={(e) => handleChange(e, index)}
+                                // onChange={(e) => handleChange(e, index)}
+                                readOnly
                             />
                         </div>
                         <div className="flex-fill w-50">
@@ -92,12 +97,13 @@ export default function Extensions({ data, setData }) {
                                 name="members"
                                 placeholder="ex. Dr. John Doe, JM Cruz, Mr. Juan Dela Cruz (required to put ,)"
                                 value={ext.members}
-                                onChange={(e) => handleChange(e, index)}
+                                // onChange={(e) => handleChange(e, index)}
+                                readOnly
                             />
                         </div>
                     </div>
 
-                    <div className="remove-field-btn flex-fill p-2 d-flex justify-content-end">
+                    {/* <div className="remove-field-btn flex-fill p-2 d-flex justify-content-end">
                         {data.extensions.length > 1 && ( // Only render the remove button if the academic background is not empty
                             <button type="button" className="px-2 py-1" onClick={() => setData(prevData => ({
                             ...prevData,
@@ -106,17 +112,17 @@ export default function Extensions({ data, setData }) {
                                 <i className="fa-solid fa-minus"></i>
                             </button>
                         )}
-                    </div>
+                    </div> */}
                     
                 </div>
             ))}
 
             {/* Add field button */}
-            <div className="add-field-container w-100 px-2">
+            {/* <div className="add-field-container w-100 px-2">
                 <button type="button" className="add-field-btn w-100 py-2" onClick={handleAddField}>
                     <i className="fa-solid fa-plus"></i> Add extension activity
                 </button>
-            </div>
+            </div> */}
         </div>
     )
 }

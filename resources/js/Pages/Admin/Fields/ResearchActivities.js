@@ -36,7 +36,8 @@ export default function ResearchActivities({ data, setData }) {
                                 name="title"
                                 placeholder="Research Title"
                                 value={res.title}
-                                onChange={(e) => handleResActChange(e, index)}
+                                // onChange={(e) => handleResActChange(e, index)}
+                                readOnly
                             />
                         </div>
                         <div className="flex-fill w-25">
@@ -45,7 +46,8 @@ export default function ResearchActivities({ data, setData }) {
                                 type="text"
                                 name="status"
                                 value={res.status}
-                                onChange={(e) => handleResActChange(e, index)}
+                                // onChange={(e) => handleResActChange(e, index)}
+                                readOnly
                             >
                                 <option disabled value="">Status</option>
                                 <option value="On Going">On going</option>
@@ -62,7 +64,8 @@ export default function ResearchActivities({ data, setData }) {
                                 name="duration"
                                 placeholder="ex. 3 Years or YYYY-YYYY"
                                 value={res.duration}
-                                onChange={(e) => handleResActChange(e, index)}
+                                // onChange={(e) => handleResActChange(e, index)}
+                                readOnly
                             />
                         </div>
                         <div className="flex-fill w-75">
@@ -73,12 +76,13 @@ export default function ResearchActivities({ data, setData }) {
                                 name="researchers"
                                 placeholder="ex. Dr. John Doe, Ms. Jane Doe, JM Cruz, Mr. Juan Dela Cruz"
                                 value={res.researchers}
-                                onChange={(e) => handleResActChange(e, index)}
+                                // onChange={(e) => handleResActChange(e, index)}
+                                readOnly
                             />
                         </div>
                     </div>
 
-                    <div className="remove-field-btn flex-fill p-2 d-flex justify-content-end">
+                    {/* <div className="remove-field-btn flex-fill p-2 d-flex justify-content-end">
                         {data.research.length > 1 && ( // Only render the remove button if the academic background is not empty
                             <button type="button" className="px-2 py-1" onClick={() => setData(prevData => ({
                             ...prevData,
@@ -87,17 +91,17 @@ export default function ResearchActivities({ data, setData }) {
                                 <i className="fa-solid fa-minus"></i>
                             </button>
                         )}
-                    </div>
+                    </div> */}
                     
                 </div>
             ))}
 
             {/* Add field button */}
-            <div className="add-field-container w-100 px-2">
+            {/* <div className="add-field-container w-100 px-2">
                 <button type="button" className="add-field-btn w-100 py-2" onClick={handleAddRAField}>
                     <i className="fa-solid fa-plus"></i> Add research activity
                 </button>
-            </div>
+            </div> */}
         </div>
     )
 }

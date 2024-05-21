@@ -97,8 +97,19 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                         name="fname"
                         placeholder="First Name"
                         value={data.fname}
-                        onChange={(e) => handleChange(e)}
-                        required
+                        // onChange={(e) => handleChange(e)}
+                        readOnly
+                    />
+                </div>
+                <div className="flex-fill p-2">
+                    <Label forInput="mname" value="Middle Name:" />
+                    <Form.Control
+                        type="text"
+                        name="mname"
+                        placeholder="Middle Name"
+                        value={data.mname}
+                        // onChange={(e) => handleChange(e)}
+                        readOnly
                     />
                 </div>
                 <div className="flex-fill p-2">
@@ -108,27 +119,28 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                         name="lname"
                         placeholder="Last Name"
                         value={data.lname}
-                        onChange={(e) => handleChange(e)}
-                        required
+                        // onChange={(e) => handleChange(e)}
+                        readOnly
                     />
                 </div>
+
+            </div>
+{/* Email / Contact / Age  */}
+            <div className="basic2-flex d-flex py-2">
                 <div className="flex-fill p-2">
                     <Label forInput="gender" value="Gender:" />
                     <Form.Select
                         type="text"
                         name="gender"
                         value={data.gender}
-                        onChange={(e) => handleChange(e)}
-                        required
+                        // onChange={(e) => handleChange(e)}
+                        readOnly
                     >
                         <option disabled value="">Gender</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                     </Form.Select>
                 </div>
-            </div>
-{/* Email / Contact / Age  */}
-            <div className="basic2-flex d-flex py-2">
                 <div className="flex-fill p-2">
                     <Label forInput="email" value="Email:" />
                     <Form.Control
@@ -136,8 +148,8 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                         name="email"
                         placeholder="Email"
                         value={data.email}
-                        onChange={(e) => handleChange(e)}
-                        required
+                        // onChange={(e) => handleChange(e)}
+                        readOnly
                     />
                 </div>
                 <div className="flex-fill p-2">
@@ -147,10 +159,14 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                         name="contact_no"
                         placeholder="Contact"
                         value={data.contact_no}
-                        onChange={(e) => handleChange(e)}
-                        required
+                        // onChange={(e) => handleChange(e)}
+                        readOnly
                     />
                 </div>
+            </div>
+{/* Birth / Role / Rank  */}
+            <div className="basic3-flex d-flex py-2">
+                
                 <div className="flex-fill p-2">
                     <Label forInput="age" value="Age:" />
                     <Form.Control
@@ -159,13 +175,10 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                         name="age"
                         placeholder="Age"
                         value={data.age}
-                        onChange={(e) => handleChange(e)}
-                        required
+                        // onChange={(e) => handleChange(e)}
+                        readOnly
                     />
                 </div>
-            </div>
-{/* Birth / Role / Rank  */}
-            <div className="basic3-flex d-flex py-2">
                 <div className="flex-fill p-2">
                     <Label forInput="date" value="Date of Birth: " />
                     <ReactDatePicker 
@@ -173,9 +186,8 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                         name="birth_date" 
                         placeholderText="MM/DD/YYYY"
                         selected={startDate}
-                        onChange={handleDateChange}
-                        isClearable 
-                        required
+                        // onChange={handleDateChange}
+                        readOnly
                     />
                 </div>
                 <div className="flex-fill p-2">
@@ -184,28 +196,13 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                         type="text"
                         name="role"
                         value={data.role}
-                        onChange={(e) => handleChange(e)}
-                        required
+                        // onChange={(e) => handleChange(e)}
+                        readOnly
                     >
                         <option disabled value="">Role</option>
                         <option value="College Dean">College Dean</option>
                         <option value="Department Head">Department Head</option>
                         <option value="Faculty">Faculty</option>
-                    </Form.Select>
-                </div>
-                <div className="flex-fill p-2">
-                    <Label forInput="rank" value="Rank:" />
-                    <Form.Select
-                        type="text" 
-                        name="position"
-                        value={data.position}
-                        onChange={(e) => handleChange(e)}
-                        required
-                    >
-                        <option disabled value="">Rank</option>
-                        {faculty_ranks.map((rank) => (
-                            <option key={rank.id} value={rank.rank}>{rank.rank}</option>
-                        ))}
                     </Form.Select>
                 </div>
             </div>
@@ -217,8 +214,8 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                         type="text"
                         name="department"
                         value={data.department}
-                        onChange={(e) => handleChange(e)}
-                        required
+                        // onChange={(e) => handleChange(e)}
+                        readOnly
                     >
                         <option disabled value="">Department</option>
                         <option value="Agricultural Extension">Agricultural Extension</option>
@@ -238,21 +235,37 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                         name="specialization"
                         placeholder="specialization"
                         value={data.specialization}
-                        onChange={(e) => handleChange(e)}
-                        required
+                        // onChange={(e) => handleChange(e)}
+                        readOnly
                     />
                 </div>
             </div>
 {/* Upload Profile Image / Highest Degree  */}
                 <div className="basic4-flex d-flex py-2">
-                    <div className="p-2 w-25">
+                    <div className="flex-fill p-2">
+                        <Label forInput="rank" value="Rank:" />
+                        <Form.Select
+                            type="text" 
+                            name="position"
+                            value={data.position}
+                            // onChange={(e) => handleChange(e)}
+                            readOnly
+                        >
+                            <option disabled value="">Rank</option>
+                            {faculty_ranks.map((rank) => (
+                                <option key={rank.id} value={rank.rank}>{rank.rank}</option>
+                            ))}
+                        </Form.Select>
+                    </div>
+
+                    <div className="flex-fill p-2">
                         <Label forInput="high_degree" value="Highest Degree:" />
                         <Form.Select
                             type="text"
                             name="high_degree"
                             value={data.high_degree}
-                            onChange={(e) => handleChange(e)}
-                            required
+                            // onChange={(e) => handleChange(e)}
+                            readOnly
                             >
                             <option disabled value="">Degree</option>
                             <option value="doctoral">Doctoral</option>
@@ -261,13 +274,13 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                         </Form.Select>
                     </div>
 
-                    {route().current('admin.create') ? <>
+                    {/* {route().current('admin.create') ? <>
                     <div className="profile-pic-cont w-75 p-2">
                         <Label forInput="profile_pic" value="Upload profile picture &#40;Optional&#41;:" />
-                        <Form.Control type="file" name="profile_pic" onChange={handleFileChange}/>
+                        <Form.Control type="file" name="profile_pic" onChange={handleFileChange}/> */}
                         {/* {profilePic && <p className="m-0 py-2">Selected file: {profilePic.name || profilePic}</p>} */}
-                    </div>
-                    </> : <></>}
+                    {/* </div>
+                    </> : <></>} */}
                 </div>
         </div>
     )

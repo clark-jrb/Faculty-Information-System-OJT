@@ -241,11 +241,11 @@ export default function AdminFaculties({ children }) {
                     </div>
                     
                     {/* Add faculty button  */}
-                    <div className="admin-add-faculty">
+                    {/* <div className="admin-add-faculty">
                         <ResponsiveNavLink href={route('admin.create')} as="button">
                             Add Faculty
                         </ResponsiveNavLink>
-                    </div>
+                    </div> */}
                 </div>
                 
                 <div className="admin-faculties-cont d-flex gap-3">

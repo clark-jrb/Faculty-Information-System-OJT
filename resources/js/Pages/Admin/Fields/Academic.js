@@ -61,7 +61,8 @@ export default function Academic({ data, setData }) {
                             name="institution"
                             placeholder="Institution/School"
                             value={academicEduc.institution}
-                            onChange={(e) => handleEducChange(e, index)}
+                            // onChange={(e) => handleEducChange(e, index)}
+                            readOnly
                         />
                     </div>
 
@@ -72,7 +73,8 @@ export default function Academic({ data, setData }) {
                             name="educ_location"
                             placeholder="Location"
                             value={academicEduc.educ_location}
-                            onChange={(e) => handleEducChange(e, index)}
+                            // onChange={(e) => handleEducChange(e, index)}
+                            readOnly
                         />
                     </div>
 
@@ -83,7 +85,8 @@ export default function Academic({ data, setData }) {
                             name="educ_date"
                             placeholder="YYYY"
                             value={academicEduc.educ_date}
-                            onChange={(e) => handleEducChange(e, index)}
+                            // onChange={(e) => handleEducChange(e, index)}
+                            readOnly
                         />
                     </div>
 
@@ -94,11 +97,12 @@ export default function Academic({ data, setData }) {
                             name="degree"
                             placeholder="ex. MS in Crop Protection"
                             value={academicEduc.degree}
-                            onChange={(e) => handleEducChange(e, index)}
+                            // onChange={(e) => handleEducChange(e, index)}
+                            readOnly
                         />
                     </div>
 
-                    <div className="remove-field-btn flex-fill p-2 d-flex align-items-end ">
+                    {/* <div className="remove-field-btn flex-fill p-2 d-flex align-items-end ">
                         {data.academic_educ.length > 1 && ( // Only render the remove button if the academic background is not empty
                             <button type="button" className="px-2 py-1" onClick={() => setData(prevData => ({
                             ...prevData,
@@ -107,16 +111,16 @@ export default function Academic({ data, setData }) {
                                 <i className="fa-solid fa-minus"></i>
                             </button>
                         )}
-                    </div>
+                    </div> */}
                     
                 </div>
             ))}
             {/* Add button */}
-            <div className="add-field-container w-100 px-2">
+            {/* <div className="add-field-container w-100 px-2">
                 <button type="button" className="add-field-btn w-100 py-2" onClick={handleAddEducField}>
                     <i className="fa-solid fa-plus"></i> Add education background
                 </button>
-            </div>
+            </div> */}
             
     {/* Work Experience  */}
             <div className="acf-title m-2 px-3">
@@ -131,7 +135,8 @@ export default function Academic({ data, setData }) {
                             name="work_institution"
                             placeholder="Institution/Organization"
                             value={academicWork.work_institution}
-                            onChange={(e) => handleWorkChange(e, index)}
+                            // onChange={(e) => handleWorkChange(e, index)}
+                            readOnly
                         />
                     </div>
 
@@ -142,7 +147,8 @@ export default function Academic({ data, setData }) {
                             name="work_location"
                             placeholder="Work location"
                             value={academicWork.work_location}
-                            onChange={(e) => handleWorkChange(e, index)}
+                            // onChange={(e) => handleWorkChange(e, index)}
+                            readOnly
                         />
                     </div>
 
@@ -153,7 +159,8 @@ export default function Academic({ data, setData }) {
                             name="work_date"
                             placeholder="YYYY-(YYYY/Present)"
                             value={academicWork.work_date}
-                            onChange={(e) => handleWorkChange(e, index)}
+                            // onChange={(e) => handleWorkChange(e, index)}
+                            readOnly
                         />
                     </div>
 
@@ -164,11 +171,12 @@ export default function Academic({ data, setData }) {
                             name="work_position"
                             placeholder="Position"
                             value={academicWork.work_position}
-                            onChange={(e) => handleWorkChange(e, index)}
+                            // onChange={(e) => handleWorkChange(e, index)}
+                            readOnly
                         />
                     </div>
 
-                    <div className="remove-field-btn flex-fill p-2 d-flex align-items-end ">
+                    {/* <div className="remove-field-btn flex-fill p-2 d-flex align-items-end ">
                         {data.academic_work.length > 1 && ( // Only render the remove button if the academic background is not empty
                             <button type="button" className="px-2 py-1" onClick={() => setData(prevData => ({
                             ...prevData,
@@ -177,17 +185,17 @@ export default function Academic({ data, setData }) {
                                 <i className="fa-solid fa-minus"></i>
                             </button>
                         )}
-                    </div>
+                    </div> */}
                     
                 </div>
             ))}
 
             {/* Add field button */}
-            <div className="add-field-container w-100 px-2">
+            {/* <div className="add-field-container w-100 px-2">
                 <button type="button" className="add-field-btn w-100 py-2" onClick={handleAddWorkField}>
                     <i className="fa-solid fa-plus"></i> Add work experience
                 </button>
-            </div>
+            </div> */}
         </div>
     )
 }

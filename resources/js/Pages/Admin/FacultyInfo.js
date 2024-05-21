@@ -74,6 +74,7 @@ export default function FacultyInfo({ children }) {
 
     const { data, setData, post, processing, errors, reset } = useForm({
         fname: faculty_data.fname,
+        mname: faculty_data.mname,
         lname: faculty_data.lname,
         gender: faculty_data.gender,
         birth_date: faculty_data.birth_date,
