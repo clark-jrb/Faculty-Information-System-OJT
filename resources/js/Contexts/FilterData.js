@@ -11,7 +11,7 @@ export const FilterDataProvider = ({ children }) => {
     const [filters, setFilters] = useState([{ rank: '', degree: '', department: '' }]);
 
     useEffect(() => {
-        if (selectedRank === '' && selectedDegree === '' && selectedDepartment === '') {
+        if (!selectedRank && !selectedDegree && !selectedDepartment) {
             // console.log('Nothing to filter');
             return
         } else {

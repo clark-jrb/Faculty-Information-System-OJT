@@ -146,7 +146,14 @@ export default function Basic(props){
                             </>}
                         </div>
                         <div className="flex-fill w-25">
-                            <p className="m-0 data-label">Gender:</p>
+                            <p className="m-0 data-label">
+                                Gender:
+                                &nbsp;
+                                {data.gender ? '' : 
+                                <>
+                                    <i className="fa-solid fa-circle-exclamation fa-shake" style={{ color: 'var(--yellow)'}}></i>
+                                </>}
+                            </p>
                             {edit ? 
                             <>
                                 <select
@@ -171,7 +178,14 @@ export default function Basic(props){
                     <div className='d-flex p-3' style={{ position: 'relative' }}>
                         <div className="bg-data"></div>
                         <div className="flex-fill w-25">
-                            <p className="m-0 data-label">Date of Birth:</p>
+                            <p className="m-0 data-label">
+                                Date of Birth:
+                                &nbsp;
+                                {data.birth_date ? '' : 
+                                <>
+                                    <i className="fa-solid fa-circle-exclamation fa-shake" style={{ color: 'var(--yellow)'}}></i>
+                                </>}
+                            </p>
                             {edit ? 
                             <>
                                 <ReactDatePicker 
@@ -189,7 +203,14 @@ export default function Basic(props){
                             </>}
                         </div>
                         <div className="flex-fill w-25">
-                            <p className="m-0 data-label">Age:</p>
+                            <p className="m-0 data-label">
+                                Age:
+                                &nbsp;
+                                {data.birth_date ? '' : 
+                                <>
+                                    <i className="fa-solid fa-circle-exclamation fa-shake" style={{ color: 'var(--yellow)'}}></i>
+                                </>}
+                            </p>
                             {edit ? 
                             <>
                                 <input 
@@ -206,7 +227,14 @@ export default function Basic(props){
                             </>}
                         </div>
                         <div className="flex-fill w-25">
-                            <p className="m-0 data-label">Contact Number:</p>
+                            <p className="m-0 data-label">
+                                Contact Number:
+                                &nbsp;
+                                {data.birth_date ? '' : 
+                                <>
+                                    <i className="fa-solid fa-circle-exclamation fa-shake" style={{ color: 'var(--yellow)'}}></i>
+                                </>}
+                            </p>
                             {edit ? 
                             <>
                                 <input
@@ -244,7 +272,14 @@ export default function Basic(props){
                     <div className='d-flex p-3' style={{ position: 'relative' }}>
                         <div className="bg-data"></div>
                         <div className="flex-fill w-25">
-                            <p className="m-0 data-label">Rank:</p>
+                            <p className="m-0 data-label">
+                                Rank:
+                                &nbsp;
+                                {data.birth_date ? '' : 
+                                <>
+                                    <i className="fa-solid fa-circle-exclamation fa-shake" style={{ color: 'var(--yellow)'}}></i>
+                                </>}
+                            </p>
                             {edit ? 
                             <>
                                 <select
@@ -265,7 +300,14 @@ export default function Basic(props){
                             </>}
                         </div>
                         <div className="flex-fill w-25">
-                            <p className="m-0 data-label">Specialization:</p>
+                            <p className="m-0 data-label">
+                                Specialization:
+                                &nbsp;
+                                {data.birth_date ? '' : 
+                                <>
+                                    <i className="fa-solid fa-circle-exclamation fa-shake" style={{ color: 'var(--yellow)'}}></i>
+                                </>}
+                            </p>
                             {edit ? 
                             <>
                                 <input 
@@ -282,7 +324,14 @@ export default function Basic(props){
                             </>}
                         </div>
                         <div className="flex-fill w-25">
-                            <p className="m-0 data-label">Highest Degree:</p>
+                            <p className="m-0 data-label">
+                                Highest Degree:
+                                &nbsp;
+                                {data.birth_date ? '' : 
+                                <>
+                                    <i className="fa-solid fa-circle-exclamation fa-shake" style={{ color: 'var(--yellow)'}}></i>
+                                </>}
+                            </p>
                             {edit ? 
                             <>
                                 <select
@@ -304,7 +353,14 @@ export default function Basic(props){
                             </>}
                         </div>
                         <div className="flex-fill w-25">
-                            <p className="m-0 data-label">Role:</p>
+                            <p className="m-0 data-label">
+                                Role:
+                                &nbsp;
+                                {data.birth_date ? '' : 
+                                <>
+                                    <i className="fa-solid fa-circle-exclamation fa-shake" style={{ color: 'var(--yellow)'}}></i>
+                                </>}
+                            </p>
                             {edit ?
                             <>
                                 <select
