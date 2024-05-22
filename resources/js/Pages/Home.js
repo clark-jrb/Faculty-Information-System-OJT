@@ -43,7 +43,6 @@ export default function Home(props) {
                             <p className="univText text-start">Central Luzon State University</p>
                         </div>
                         <div className="collegeTextContainer">
-                            
                             <h1 className="collegeText">COLLEGE OF AGRICULTURE</h1>
                         </div>
                         <div className='w-100 d-flex'>
@@ -68,45 +67,59 @@ export default function Home(props) {
                     </div>
                 </div>
             </div>
+
             {/* Facilities Section */}
             <div className="facilitiesSection">
                 <div className="facilitiesHeader">
                         <h2 className='facilitiesTitle'>Facilities</h2>
                 </div>
-                <div className='facilitiesContainer'>
-                    <div className="facility-tables row">
-                        <div className="col-md-4">
-                            <div className="facility-item">
-                                <div className="image-box">
-                                    <div className="image-overlay" onClick={handleOpenModal1}></div> 
-                                    <img src="/images/facility1.jpg" alt="Facility 1"/>
-                                    <p className="facility-text">Facility 1</p>
-                                    <Modal1 show={showModal1} handleClose={handleCloseModal1} />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-4">
-                            <div className="facility-item">
-                                <div className="image-box">
-                                    <div className="image-overlay" onClick={handleOpenModal2}></div> 
-                                    <img src="/images/facility2.jpg" alt="Facility 2"/>
-                                    <p className="facility-text">Facility 2</p>
-                                    <Modal2 show={showModal2} handleClose={handleCloseModal2} />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-4">
-                            <div className="facility-item">
-                                <div className="image-box">
-                                    <div className="image-overlay" onClick={handleOpenModal3}></div> 
-                                    <img src="/images/facility3.jpg" alt="Facility 3"/>
-                                    <p className="facility-text">Facility 3</p>
-                                    <Modal3 show={showModal3} handleClose={handleCloseModal3} />
+                {/* DAE */}
+                <div>
+                    <div className="AEHeader">
+                        <h2 className='AETitle'>Agricultural Extension</h2>
+                    </div>
+                    <div className='facilitiesContainer'>
+                        <div className="facility-tables row">
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                {/* DAM */}
+                <div>
+                    <div className="AMHeader">
+                        <h2 className='AMTitle'>Agricultural Extension</h2>
+                    </div>
+                    <div className='facilitiesContainer'>
+                        <div className="facility-tables row">
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* DAS */}
+
+                {/* DCP */}
+
+                {/* DCS */}
+
+                {/* DSS */}
             </div>
             <div className="footer">
                 <div className="footer-content">
