@@ -34,17 +34,21 @@ export default function Home(props) {
             auth={props.auth}
             errors={props.errors}
         >
-            <div className="container">
+            <div className="">
                 {/* Background Image Section */}
                 <div className="backgroundSection" style={{ backgroundImage: 'url("/images/home_bg.jpg")' }}>
-                    <div className="textContainer">
-                        <img src="/images/clsu_logo.png" alt="University Logo" className="univLogo" />
-                        <h1 className="univText">Central Luzon State University</h1>
+                    <div>
+                        <div className='d-flex align-items-start'>
+                            <img src="/images/clsu_logo.png" alt="University Logo" className="univLogo" />
+                            <p className="univText text-start">Central Luzon State University</p>
+                        </div>
                         <div className="collegeTextContainer">
                             
                             <h1 className="collegeText">COLLEGE OF AGRICULTURE</h1>
                         </div>
-                        <h1 className="subText">Dedicated to Equitable Growth and Sustainable Development</h1>
+                        <div className='w-100 d-flex'>
+                            <p className="subText ms-auto mb-0 w-50">Dedicated to Equitable Growth and Sustainable Development</p>
+                        </div>
                     </div>
                 </div>
                 

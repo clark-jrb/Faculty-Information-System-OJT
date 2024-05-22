@@ -94,7 +94,7 @@ export default function Profile({ children, ...props }) {
                 </Modal.Footer>
             </Modal>
 
-            <div className="profile-content pt-4">
+            <div className="profile-content pt-4 px-4">
                 <div className="profile-container">
                     {/* <!-- Profile  --> */}
                     <div className="profile-section p-4">

@@ -90,7 +90,7 @@ export default function Authenticated({ auth, children }) {
             </div>
 
             {/* Main Content */}
-            <main className="px-4">
+            <main>
                 {children}
             </main>
         </div>
