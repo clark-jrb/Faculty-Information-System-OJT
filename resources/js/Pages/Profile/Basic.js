@@ -8,10 +8,14 @@ import moment from "moment";
 import faculty_ranks from '../../../json/faculty_ranks.json'
 import { useForm } from '@inertiajs/inertia-react';
 
-export default function Basic(){
+export default function Basic(props){
     const { 
         faculty_data
     } = usePage().props;
+
+    // useEffect(() => {
+    //     console.log(props.auth);
+    // }, [props]);
 
     const { data, setData, post, processing, errors, reset } = useForm({
         fname: faculty_data.fname,
@@ -55,7 +59,7 @@ export default function Basic(){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(data);
+        // console.log(data);
         post(route('update.basic', data))
     };
 
@@ -66,7 +70,7 @@ export default function Basic(){
     }, [processing]);
     
     return (
-        <Profile>
+        <Profile auth={props.auth}>
             <div className="p-3 px-4 basic-content">
                 <form onSubmit={handleSubmit}>
                     <div className="title-info-content pb-2">

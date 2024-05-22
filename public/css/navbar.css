@@ -11,7 +11,9 @@
 }
 
 .navbar-agri {
-    background-color: var(--green);
+    /* background-color: var(--dark-green); */
+    background: rgb(0,95,0);
+    background: linear-gradient(90deg, rgba(0,95,0,1) 0%, rgba(3,131,3,1) 100%);
     height: 60px;
     display: flex;
     position: absolute;
@@ -20,17 +22,21 @@
     box-shadow: 0 1.5px 3px 0 #ccc;
 }
 
+
 .nav-logo-label-cont {
+    width: 27.5dvw;
     align-items: center;
+    background-color: var(--green);
+    border-right: var(--yellow) solid 2px;
 }
 
 .nav-logo-label {
-    color: white;
+    color: whitesmoke;
     line-height: 1.2;
 }
 
 .nav-logo-cont img {
-    height: 45px;
+    height: 35px;
 }
 
 .navbar-agri ul {
@@ -75,12 +81,19 @@
 }
 
 .sign-out-cont {
-    display: grid;
+    display: flex;
     justify-content: end;
     align-items: center;
+    color: whitesmoke;
 }
 
-.sign-out-cont button {
+.user-name-cont:hover {
+    cursor: pointer;
+    color: var(--very-light-green);
+    transition: .3s ease;
+}
+
+/* .sign-out-cont button {
     font-size: medium;
     background-color: var(--light-green);
     border: none;
@@ -92,7 +105,7 @@
 .sign-out-cont button:active {
     border-bottom: 1px solid var(--dark-green);
 
-}
+} */
 
 .search-faculty {
     display: flex;
