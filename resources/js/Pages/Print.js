@@ -18,7 +18,7 @@ const Print = React.forwardRef(({ data }, ref) => (
                     ) : (
                         <div className="agri-dept-ae-table-cont mb-3">
                             <div className="admin-dept-ae-title">
-                                <p>Agricultural Extension</p>
+                                <p className='m-0'>Agricultural Extension</p>
                             </div>
                             <table className="admin-table">
                                 <thead>
@@ -55,7 +55,7 @@ const Print = React.forwardRef(({ data }, ref) => (
                     ) : (
                         <div className="agri-dept-am-table-cont mb-3">
                             <div className="admin-dept-am-title">
-                                <p>Agri-Management</p>
+                                <p className='m-0'>Agri-Management</p>
                             </div>
                             <table className="admin-table">
                                 <thead>
@@ -92,7 +92,7 @@ const Print = React.forwardRef(({ data }, ref) => (
                     ) : (
                         <div className="agri-dept-as-table-cont mb-3">
                             <div className="admin-dept-as-title">
-                                <p>Animal Science</p>
+                                <p className='m-0'>Animal Science</p>
                             </div>
                             <table className="admin-table">
                                 <thead>
@@ -204,7 +204,7 @@ const Print = React.forwardRef(({ data }, ref) => (
                     ) : (
                         <div className="agri-dept-ss-table-cont mb-3">
                             <div className="admin-dept-ss-title">
-                                <p>Soil Science</p>
+                                <p className='m-0'>Soil Science</p>
                             </div>
                             <table className="admin-table">
                                 <thead>

@@ -9,7 +9,7 @@ import { useForm } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
 import { duration } from 'moment';
 
-export default function Research(){
+export default function Research(props){
     // data fetch
     const {
         research_data
@@ -143,7 +143,7 @@ export default function Research(){
     }
 
     return (
-        <Profile>
+        <Profile auth={props.auth}>
             {/* ADD MODAL  */}
             <Modal show={showModalEduc} onHide={handleCloseAddModal} centered size='xl'>
                     <Modal.Header className='educ-modal-head'>

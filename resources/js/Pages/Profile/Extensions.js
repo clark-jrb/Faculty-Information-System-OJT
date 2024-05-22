@@ -8,7 +8,7 @@ import { Form } from 'react-bootstrap';
 import { useForm } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
 
-export default function Extensions(){
+export default function Extensions(props){
     // data fetch
     const {
         extension_data
@@ -155,7 +155,7 @@ export default function Extensions(){
     }
 
     return (
-        <Profile>
+        <Profile auth={props.auth}>
             {/* ADD MODAL  */}
             <Modal show={showModalEduc} onHide={handleCloseAddModal} centered size='xl'>
                     <Modal.Header className='educ-modal-head'>

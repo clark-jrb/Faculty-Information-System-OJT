@@ -5,7 +5,7 @@ import { useForm } from '@inertiajs/inertia-react';
 import Education from './Academic/Education';
 import Work from './Academic/Work';
 
-export default function Academic(){
+export default function Academic(props){
     const {
         acadEduc_data,
         acadWork_data
@@ -30,7 +30,7 @@ export default function Academic(){
     })
 
     return (
-        <Profile>
+        <Profile auth={props.auth}>
             {/* CONTENT  */}
             <div className="p-3 px-4 academic-content d-flex gap-5">
                 {/* EDUCATION  */}
