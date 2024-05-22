@@ -63,10 +63,10 @@ export default function AdminFaculties({ children }) {
         Inertia.visit(route('admin.faculties'))
     }
 
-    const filterFacultyData = () => {
-        // console.log('filters: ' + filters);
-        Inertia.get('/admin/faculties', filters)
-    }
+    // const filterFacultyData = () => {
+    //     // console.log('filters: ' + filters);
+    //     Inertia.get('/admin/faculties', filters)
+    // }
 
     const handlePrint = () => {
         // console.log('filters: ' + filters);
@@ -152,9 +152,9 @@ export default function AdminFaculties({ children }) {
                             <div className='searches-container'>
                                 {searchResults.map(({ key, results }) => (
                                     results.length > 0 && 
-                                    <div key={key} className='searched-data'>
+                                    <div key={key}>
                                         {results.map(faculty => (
-                                            <div key={faculty.id} className='p-3 d-flex align-items-center' onMouseDown={(e) => handleClickSearched(e, faculty.id)}>
+                                            <div key={faculty.id} className='p-3 d-flex align-items-center searched-data' onMouseDown={(e) => handleClickSearched(e, faculty.faculty_id)}>
                                                 {`${faculty.fname} ${faculty.lname}`}
                                                 <i 
                                                 className="fa-solid fa-user ms-auto fa-sm" 
@@ -232,7 +232,7 @@ export default function AdminFaculties({ children }) {
                             </select>
                         </div>
 
-                        {selectedRank !== '' || selectedDegree !== '' ? 
+                        {/* {selectedRank !== '' || selectedDegree !== '' ? 
                         <div>
                             <button className="filter-btn d-flex p-1 px-2" onClick={() => filterFacultyData()}>
                                 <i className="fa-solid fa-filter"></i>
@@ -242,7 +242,7 @@ export default function AdminFaculties({ children }) {
                             </button>
                         </div> :
                         <></>
-                        }
+                        } */}
                     </div>
                     
                     {/* Add faculty button  */}

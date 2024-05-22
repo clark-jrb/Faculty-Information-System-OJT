@@ -48,7 +48,7 @@ export default function Profile({ children, ...props }) {
             errors={props.errors}
         >
             <Modal show={showEditPicModal} onHide={handleCloseEditPicModal} centered backdrop='static'>
-                <Modal.Header>
+                <Modal.Header className='educ-modal-head py-2'>
                     <div className="acf-title m-2 px-3" style={{ color: 'white' }}>
                         Edit Profile Picture
                     </div>
@@ -89,9 +89,6 @@ export default function Profile({ children, ...props }) {
                         </form>
                     </div>
                 </Modal.Body>
-                <Modal.Footer>
-                    
-                </Modal.Footer>
             </Modal>
 
             <div className="profile-content pt-4 px-4">

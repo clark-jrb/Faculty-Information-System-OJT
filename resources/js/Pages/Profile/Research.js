@@ -146,7 +146,7 @@ export default function Research(props){
         <Profile auth={props.auth}>
             {/* ADD MODAL  */}
             <Modal show={showModalEduc} onHide={handleCloseAddModal} centered size='xl'>
-                    <Modal.Header className='educ-modal-head'>
+                    <Modal.Header className='educ-modal-head py-2'>
                         <div className="acf-title m-2 px-3" style={{ color: 'white' }}>
                             Add Research Activity
                         </div>
@@ -241,7 +241,7 @@ export default function Research(props){
             <Modal show={showUpdModal} onHide={handleCloseUpdModal} centered size='xl' backdrop='static'>
                     <Modal.Header className='educ-modal-head py-2'>
                         <div className="acf-title m-2 px-3" style={{ color: 'white' }}>
-                            Edit Background Education
+                            Edit Research Activity
                         </div>
                         <button className='p-1 px-3 ms-auto' onClick={() => handleCloseUpdModal()}>
                             <i className="fa-solid fa-xmark fa-xl"></i>

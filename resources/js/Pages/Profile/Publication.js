@@ -144,8 +144,8 @@ export default function Publications(props){
     return (
         <Profile auth={props.auth}>
             {/* ADD MODAL  */}
-            <Modal show={showModalEduc} onHide={handleCloseAddModal} centered size='xl'>
-                    <Modal.Header className='educ-modal-head'>
+            <Modal className='profile-modal' show={showModalEduc} onHide={handleCloseAddModal} centered size='xl'>
+                    <Modal.Header className='educ-modal-head py-2'>
                         <div className="acf-title m-2 px-3" style={{ color: 'white' }}>
                             Add Publication
                         </div>
@@ -237,7 +237,7 @@ export default function Publications(props){
             <Modal show={showUpdModal} onHide={handleCloseUpdModal} centered size='xl' backdrop='static'>
                     <Modal.Header className='educ-modal-head py-2'>
                         <div className="acf-title m-2 px-3" style={{ color: 'white' }}>
-                            Edit Background Education
+                            Edit Publication
                         </div>
                         <button className='p-1 px-3 ms-auto' onClick={() => handleCloseUpdModal()}>
                             <i className="fa-solid fa-xmark fa-xl"></i>

@@ -121,7 +121,7 @@ export default function Work ({ data, acadWork_data, setData, post }) {
         <>
             {/* ADD MODAL  */}
             <Modal className="academic-modal" show={showModalWork} onHide={handleCloseModalWork} centered size='xl'>
-                    <Modal.Header className='educ-modal-head'>
+                    <Modal.Header className='educ-modal-head py-2'>
                         <div className="acf-title m-2 px-3" style={{ color: 'white' }}>
                             Add Work Experience
                         </div>
