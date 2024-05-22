@@ -120,7 +120,7 @@ export default function Education ({ data, acadEduc_data, setData, post }) {
         <>
             {/* ADD MODAL  */}
             <Modal className="academic-modal" show={showModalEduc} onHide={handleCloseModalEduc} centered size='xl'>
-                    <Modal.Header className='educ-modal-head'>
+                    <Modal.Header className='educ-modal-head py-2'>
                         <div className="acf-title m-2 px-3" style={{ color: 'white' }}>
                             Add Background Education
                         </div>
@@ -192,7 +192,7 @@ export default function Education ({ data, acadEduc_data, setData, post }) {
                         {/* Add button */}
                         <div className="add-field-container w-100 px-2">
                             <button type="button" className="add-field-btn w-100 py-2" onClick={handleAddEducField}>
-                                <i className="fa-solid fa-plus"></i> Add education background
+                                <i className="fa-solid fa-plus"></i> Add background education
                             </button>
                         </div>
                     </Modal.Body>

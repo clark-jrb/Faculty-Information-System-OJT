@@ -361,9 +361,7 @@
     overflow-wrap: break-word;
 }
 
-/* .educ-modal-head {
-    background-color: red;
-} */
+
 
 .for-edit-btn {
     position: absolute;
@@ -378,3 +376,19 @@
     font-weight: bold;
     font-size: large;
 }
+
+.modal-content {
+    border-radius: 5px !important;
+    border: none !important;
+}
+
+.modal-header {
+    background-color: var(--dark-green);
+    border-top-left-radius: 5px !important;
+    border-top-right-radius: 5px !important;
+}
+
+/* .modal-footer {
+    border-bottom-right-radius: 2px !important;
+    border-bottom-left-radius: 2px !important;
+} */
