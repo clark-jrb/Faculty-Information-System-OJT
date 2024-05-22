@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
         <link href="{{ asset('css/lists.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/facilities.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/home.css') }}" rel="stylesheet">
         <link href="{{ asset('css/modal.css') }}" rel="stylesheet">
         <link href="{{ asset('css/login.css') }}" rel="stylesheet">
         <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
