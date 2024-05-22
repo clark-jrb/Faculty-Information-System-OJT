@@ -152,9 +152,9 @@ export default function AdminFaculties({ children }) {
                             <div className='searches-container'>
                                 {searchResults.map(({ key, results }) => (
                                     results.length > 0 && 
-                                    <div key={key} className='searched-data'>
+                                    <div key={key}>
                                         {results.map(faculty => (
-                                            <div key={faculty.id} className='p-3 d-flex align-items-center' onMouseDown={(e) => handleClickSearched(e, faculty.faculty_id)}>
+                                            <div key={faculty.id} className='p-3 d-flex align-items-center searched-data' onMouseDown={(e) => handleClickSearched(e, faculty.faculty_id)}>
                                                 {`${faculty.fname} ${faculty.lname}`}
                                                 <i 
                                                 className="fa-solid fa-user ms-auto fa-sm" 

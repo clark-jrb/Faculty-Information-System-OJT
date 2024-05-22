@@ -38,9 +38,9 @@ export default function AdminFacultyList() {
         }
     }
 
-    useEffect(() => {
-        console.log('selected id: ' + selectedID);
-    }, [selectedID]);
+    // useEffect(() => {
+    //     console.log('selected id: ' + selectedID);
+    // }, [selectedID]);
 
     return (
         <AdminFaculties>

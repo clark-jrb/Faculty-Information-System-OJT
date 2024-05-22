@@ -12,7 +12,8 @@ export const FilterDataProvider = ({ children }) => {
 
     useEffect(() => {
         if (selectedRank === '' && selectedDegree === '' && selectedDepartment === '') {
-            console.log('Nothing to filter');
+            // console.log('Nothing to filter');
+            return
         } else {
             Inertia.get('/admin/faculties', filters)
         }
