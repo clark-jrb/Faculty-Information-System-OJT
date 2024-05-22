@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { Inertia } from '@inertiajs/inertia';
 
 const FilterDataContext = createContext();
 
@@ -8,6 +9,14 @@ export const FilterDataProvider = ({ children }) => {
     const [selectedDepartment, setSelectedDepartment] = useState('');
     const [activeDept, setActiveDept] = useState('');
     const [filters, setFilters] = useState([{ rank: '', degree: '', department: '' }]);
+
+    useEffect(() => {
+        if (selectedRank === '' && selectedDegree === '' && selectedDepartment === '') {
+            console.log('Nothing to filter');
+        } else {
+            Inertia.get('/admin/faculties', filters)
+        }
+    }, [filters]);
 
     const handleSelectedRank = (e) => {
         setSelectedRank(e.target.value);
