@@ -743,9 +743,6 @@ select {
 .m-4 {
   margin: 1rem;
 }
-.m-auto {
-  margin: auto;
-}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -975,9 +972,6 @@ select {
 .text-wrap {
   text-wrap: wrap;
 }
-.break-all {
-  word-break: break-all;
-}
 .rounded {
   border-radius: 0.25rem;
 }
@@ -1126,9 +1120,6 @@ select {
 }
 .pt-8 {
   padding-top: 2rem;
-}
-.ps-4 {
-  padding-inline-start: 1rem;
 }
 .pe-4 {
   padding-inline-end: 1rem;
