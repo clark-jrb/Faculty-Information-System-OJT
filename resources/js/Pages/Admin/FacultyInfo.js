@@ -209,6 +209,15 @@ export default function FacultyInfo({ children }) {
                     <div className="admin-faculty-cont-title">
                         <p className="m-0">{faculty_data.fname + ' ' + faculty_data.lname}</p>
                     </div>
+
+                    <div className="ms-auto d-flex gap-2 align-items-center">
+                        <button className="print-btn py-1 px-2">
+                            <i className="fa-solid fa-print fa-sm"></i>&nbsp;Print data
+                        </button>
+                        <button className="print-btn py-1 px-2">
+                            <i className="fa-solid fa-print fa-sm"></i>&nbsp;Print publications
+                        </button>
+                    </div>
                 </div>
                 {/* FIELDS  */}
                 <div className="d-flex gap-3">
