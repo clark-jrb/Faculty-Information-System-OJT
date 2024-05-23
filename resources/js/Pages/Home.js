@@ -3,6 +3,7 @@ import Authenticated from '@/Layouts/Authenticated';
 import Modal1 from '@/Components/Modals/Modal1';
 import Modal2 from '@/Components/Modals/Modal2';
 import Modal3 from '@/Components/Modals/Modal3';
+import BackToTopButton from '@/Components/BackToTopButton';
 
 export default function Home(props) {
     const [showModal1, setShowModal1] = useState(false);
@@ -131,6 +132,8 @@ export default function Home(props) {
                     </div>
                 </div>
             </div>
+
+            <BackToTopButton/>
 
         </Authenticated>
     );

@@ -13,6 +13,7 @@ import { filter } from "lodash";
 import { Inertia } from "@inertiajs/inertia";
 import { useFilterDataContext } from "@/Contexts/FilterData";
 import { searchFaculty } from "@/utils/filters";
+import BackToTopButton from "@/Components/BackToTopButton";
 
 export default function AdminFaculties({ children }) {
     const deptRoutes = [
@@ -264,6 +265,7 @@ export default function AdminFaculties({ children }) {
                     { children }
                 </div>
             </div>
+            <BackToTopButton/>
         </AdminAuthenticated>
     )
 }
