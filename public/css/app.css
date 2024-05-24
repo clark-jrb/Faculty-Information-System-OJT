@@ -939,9 +939,6 @@ select {
 .text-wrap {
   text-wrap: wrap;
 }
-.break-all {
-  word-break: break-all;
-}
 .rounded {
   border-radius: 0.25rem;
 }

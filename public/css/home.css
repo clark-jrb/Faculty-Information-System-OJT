@@ -209,6 +209,10 @@
     z-index: 2;
 }
 
+.facility-tables {
+    flex-wrap: nowrap !important;
+}
+
 .image-box {
     position: relative;
     border: 1px solid #ccc;
@@ -250,6 +254,12 @@
 
 .modal-title {
     color: white;
+}
+
+.home-carousel-item {
+    display: block;
+    margin-right: 0;
+    flex: 0 0 calc(100%/3);
 }
 
 
