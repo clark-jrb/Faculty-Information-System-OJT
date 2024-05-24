@@ -295,10 +295,16 @@ class AdminController extends Controller
         ]);
     }
 
-    public function showSearchFaculties()
+    // public function showSearchFaculties()
+    // {
+    //     $faculty_data = Basic_Info::get();
+    //     return Inertia::render('Admin/AdminFaculties', ['faculty_data' => $faculty_data]);
+    // }
+
+    public function showFacultiesDashboard()
     {
         $faculty_data = Basic_Info::get();
-        return Inertia::render('Admin/AdminFaculties', ['faculty_data' => $facultyData]);
+        return Inertia::render('Admin/AdminDashboard', ['faculty_data' => $faculty_data]);
     }
 
     public function showFaculties(Request $request)
