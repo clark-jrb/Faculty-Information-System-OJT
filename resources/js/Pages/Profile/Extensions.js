@@ -180,6 +180,7 @@ export default function Extensions(props){
                                             placeholder="Title"
                                             value={ext.ext_title}
                                             onChange={(e) => handleAddChange(e, index)}
+                                            required
                                         />
                                     </div>
                                     <div className="flex-fill w-25">
@@ -190,6 +191,7 @@ export default function Extensions(props){
                                             placeholder="Lead Faculty"
                                             value={ext.lead}
                                             onChange={(e) => handleAddChange(e, index)}
+                                            required
                                         />
                                     </div>
                                     <div className="flex-fill w-25">
@@ -200,6 +202,7 @@ export default function Extensions(props){
                                             placeholder="ex. 2 Years or On Going/Complete"
                                             value={ext.duration}
                                             onChange={(e) => handleAddChange(e, index)}
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -213,6 +216,7 @@ export default function Extensions(props){
                                             placeholder="Beneficiaries"
                                             value={ext.beneficiaries}
                                             onChange={(e) => handleAddChange(e, index)}
+                                            required
                                         />
                                     </div>
                                     <div className="flex-fill w-25">
@@ -224,6 +228,7 @@ export default function Extensions(props){
                                             placeholder="Sponsor(s) (required to put , if more than one)"
                                             value={ext.sponsor}
                                             onChange={(e) => handleAddChange(e, index)}
+                                            required
                                         />
                                     </div>
                                     <div className="flex-fill w-50">
@@ -235,6 +240,7 @@ export default function Extensions(props){
                                             placeholder="ex. Dr. John Doe, JM Cruz, Mr. Juan Dela Cruz (required to put ,)"
                                             value={ext.member}
                                             onChange={(e) => handleAddChange(e, index)}
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -376,7 +382,14 @@ export default function Extensions(props){
             {/* CONTENT  */}
             <div className="p-3 px-4 extensions-content">
                 <div className="title-info-content pb-2">
-                    <p className="m-0">Extensions</p>
+                    <p className="m-0">
+                        Extensions
+                        &nbsp;
+                        {extension_data.length > 0 ? '' : 
+                        <>
+                            <i className="fa-solid fa-circle-exclamation fa-sm" style={{ color: 'var(--yellow)'}}></i>
+                        </>}
+                    </p>
                     <div className='edit-profile-container ms-auto'>
                         <div className='d-flex gap-2 align-items-center'>
                             <button className='edit-profile p-1 px-2' onClick={() => setShowAddModal(true)}>

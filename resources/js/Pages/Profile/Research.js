@@ -168,6 +168,7 @@ export default function Research(props){
                                             placeholder="Research Title"
                                             value={res.title}
                                             onChange={(e) => handleAddChange(e, index)}
+                                            required
                                         />
                                     </div>
                                     <div className="flex-fill w-25">
@@ -177,6 +178,7 @@ export default function Research(props){
                                             name="status"
                                             value={res.status}
                                             onChange={(e) => handleAddChange(e, index)}
+                                            required
                                         >
                                             <option disabled value="">Status</option>
                                             <option value="On Going">On going</option>
@@ -194,6 +196,7 @@ export default function Research(props){
                                             placeholder="ex. 3 Years or YYYY-YYYY"
                                             value={res.duration}
                                             onChange={(e) => handleAddChange(e, index)}
+                                            required
                                         />
                                     </div>
                                     <div className="flex-fill w-75">
@@ -205,6 +208,7 @@ export default function Research(props){
                                             placeholder="ex. Dr. John Doe, Ms. Jane Doe, JM Cruz, Mr. Juan Dela Cruz"
                                             value={res.researchers}
                                             onChange={(e) => handleAddChange(e, index)}
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -329,7 +333,14 @@ export default function Research(props){
             {/* CONTENT  */}
             <div className="p-3 px-4 research-content">
                 <div className="title-info-content-res pb-2">
-                    <p className="m-0">Research Activities</p>
+                    <p className="m-0">
+                        Research Activities
+                        &nbsp;
+                        {research_data.length > 0 ? '' : 
+                        <>
+                            <i className="fa-solid fa-circle-exclamation fa-sm" style={{ color: 'var(--yellow)'}}></i>
+                        </>}
+                    </p>
                     <div className='edit-profile-container ms-auto'>
                         <div className='d-flex gap-2 align-items-center'>
                             <button className='edit-profile p-1 px-2' onClick={() => setShowAddModal(true)}>
