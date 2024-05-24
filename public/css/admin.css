@@ -98,9 +98,24 @@
 }
 
 /* DASHBOARD  */
-.admin-dash-cont {
+/* .admin-dash-cont {
     border: red solid 1px;
+} */
+
+.total-dept {
+    background-color: var(--light-green);
+    border-radius: 3px;
+    width: 300px;
+    color: whitesmoke;
+    border-bottom: var(--yellow) solid 2px;
+    box-shadow: 0 1.5px 3px 0 #ccc;
 }
+
+.dept-logo img {
+    height: 80px;
+}
+
+
 /* FACULTIES  */
 
 .admin-faculty-cont-title, .admin-doc-title {
