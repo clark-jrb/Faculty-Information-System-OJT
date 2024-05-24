@@ -34,7 +34,7 @@ export default function Home(props) {
             auth={props.auth}
             errors={props.errors}
         >
-            <div className="">
+            <div>
                 {/* Background Image Section */}
                 <div className="backgroundSection" style={{ backgroundImage: 'url("/images/home_bg.jpg")' }}>
                     <div>
@@ -96,7 +96,7 @@ export default function Home(props) {
                 {/* DAM */}
                 <div>
                     <div className="AMHeader">
-                        <h2 className='AMTitle'>Agricultural Extension</h2>
+                        <h2 className='AMTitle'>Agri-Management</h2>
                     </div>
                     <div className='facilitiesContainer'>
                         <div className="facility-tables row">
@@ -114,12 +114,349 @@ export default function Home(props) {
                     </div>
                 </div>
                 {/* DAS */}
-
+                <div>
+                    <div className="ASHeader">
+                        <h2 className='ASTitle'>Animal Science</h2>
+                    </div>
+                    <div className='facilitiesContainer'>
+                        <div className="facility-tables row">
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='facilitiesContainer'>
+                        <div className="facility-tables row">
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='facilitiesContainer'>
+                        <div className="facility-tables row">
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 {/* DCP */}
-
+                <div>
+                    <div className="CPHeader">
+                        <h2 className='CPTitle'>Crop Protection</h2>
+                    </div>
+                    <div className='facilitiesContainer'>
+                        <div className="facility-tables row">
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='facilitiesContainer'>
+                        <div className="facility-tables row">
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 {/* DCS */}
-
+                <div>
+                    <div className="CSHeader">
+                        <h2 className='CSTitle'>Crop Science</h2>
+                    </div>
+                    <div className='facilitiesContainer'>
+                        <div className="facility-tables row">
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='facilitiesContainer'>
+                        <div className="facility-tables row">
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='facilitiesContainer'>
+                        <div className="facility-tables row">
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 {/* DSS */}
+                <div>
+                    <div className="SSHeader">
+                        <h2 className='SSTitle'>Soil Science</h2>
+                    </div>
+                    <div className='facilitiesContainer'>
+                        <div className="facility-tables row">
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='facilitiesContainer'>
+                        <div className="facility-tables row">
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div className="footer">
                 <div className="footer-content">
