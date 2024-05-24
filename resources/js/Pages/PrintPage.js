@@ -5,11 +5,13 @@ import Print from './Print';
 import { usePage } from '@inertiajs/inertia-react';
 import '../../../public/css/print.css'
 import { Inertia } from '@inertiajs/inertia';
+import { useFilterDataContext } from '@/Contexts/FilterData';
 
 export default function PrintPage() {
     const {
         faculty_data
     } = usePage().props;
+    const { handleResetFilter } = useFilterDataContext()
 
     const componentRef = useRef();
 
@@ -20,6 +22,7 @@ export default function PrintPage() {
 
     const handleGoBack = () => {
         Inertia.visit(route('admin.faculties'))
+        handleResetFilter()
     }
 
     // useEffect(() => {

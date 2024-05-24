@@ -13,6 +13,7 @@ import { filter } from "lodash";
 import { Inertia } from "@inertiajs/inertia";
 import { useFilterDataContext } from "@/Contexts/FilterData";
 import { searchFaculty } from "@/utils/filters";
+import BackToTopButton from "@/Components/BackToTopButton";
 
 export default function AdminFaculties({ children }) {
     const deptRoutes = [
@@ -253,7 +254,7 @@ export default function AdminFaculties({ children }) {
                     </div> */}
 
                     <div className="admin-add-faculty">
-                        <button className="px-2 py-1" onClick={() => handlePrint()}>
+                        <button className="print-btn px-2 py-1" onClick={() => handlePrint()}>
                             <i className="fa-solid fa-print fa-sm"></i> Print
                         </button>
                     </div>
@@ -264,6 +265,7 @@ export default function AdminFaculties({ children }) {
                     { children }
                 </div>
             </div>
+            <BackToTopButton/>
         </AdminAuthenticated>
     )
 }
