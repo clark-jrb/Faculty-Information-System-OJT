@@ -167,6 +167,7 @@ export default function Publications(props){
                                             placeholder="Title"
                                             value={academicEduc.proj_title}
                                             onChange={(e) => handleAddChange(e, index)}
+                                            required
                                         />
                                     </div>
                                     <div className="flex-fill w-25">
@@ -177,6 +178,7 @@ export default function Publications(props){
                                             placeholder="ex. March 2020"
                                             value={academicEduc.date}
                                             onChange={(e) => handleAddChange(e, index)}
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -201,6 +203,7 @@ export default function Publications(props){
                                             placeholder="ex. Dr. John Doe, JM Cruz, Mr. Juan Dela Cruz (required to put ,)"
                                             value={academicEduc.authors}
                                             onChange={(e) => handleAddChange(e, index)}
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -321,7 +324,14 @@ export default function Publications(props){
             {/* CONTENT  */}
             <div className="p-3 px-4 publications-content">
                 <div className="title-info-content pb-2">
-                    <p className="m-0">Publications</p>
+                    <p className="m-0">
+                        Publications
+                        &nbsp;
+                        {publication_data.length > 0 ? '' : 
+                        <>
+                            <i className="fa-solid fa-circle-exclamation fa-sm" style={{ color: 'var(--yellow)'}}></i>
+                        </>}
+                    </p>
                     <div className='edit-profile-container ms-auto'>
                         <div className='d-flex gap-2 align-items-center'>
                             <button className='edit-profile p-1 px-2' onClick={() => setShowAddModal(true)}>

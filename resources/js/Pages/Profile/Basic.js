@@ -151,7 +151,7 @@ export default function Basic(props){
                                 &nbsp;
                                 {data.gender ? '' : 
                                 <>
-                                    <i className="fa-solid fa-circle-exclamation fa-shake" style={{ color: 'var(--yellow)'}}></i>
+                                    <i className="fa-solid fa-circle-exclamation" style={{ color: 'var(--yellow)'}}></i>
                                 </>}
                             </p>
                             {edit ? 
@@ -183,7 +183,7 @@ export default function Basic(props){
                                 &nbsp;
                                 {data.birth_date ? '' : 
                                 <>
-                                    <i className="fa-solid fa-circle-exclamation fa-shake" style={{ color: 'var(--yellow)'}}></i>
+                                    <i className="fa-solid fa-circle-exclamation" style={{ color: 'var(--yellow)'}}></i>
                                 </>}
                             </p>
                             {edit ? 
@@ -208,7 +208,7 @@ export default function Basic(props){
                                 &nbsp;
                                 {data.birth_date ? '' : 
                                 <>
-                                    <i className="fa-solid fa-circle-exclamation fa-shake" style={{ color: 'var(--yellow)'}}></i>
+                                    <i className="fa-solid fa-circle-exclamation" style={{ color: 'var(--yellow)'}}></i>
                                 </>}
                             </p>
                             {edit ? 
@@ -232,7 +232,7 @@ export default function Basic(props){
                                 &nbsp;
                                 {data.birth_date ? '' : 
                                 <>
-                                    <i className="fa-solid fa-circle-exclamation fa-shake" style={{ color: 'var(--yellow)'}}></i>
+                                    <i className="fa-solid fa-circle-exclamation" style={{ color: 'var(--yellow)'}}></i>
                                 </>}
                             </p>
                             {edit ? 
@@ -277,7 +277,7 @@ export default function Basic(props){
                                 &nbsp;
                                 {data.birth_date ? '' : 
                                 <>
-                                    <i className="fa-solid fa-circle-exclamation fa-shake" style={{ color: 'var(--yellow)'}}></i>
+                                    <i className="fa-solid fa-circle-exclamation" style={{ color: 'var(--yellow)'}}></i>
                                 </>}
                             </p>
                             {edit ? 
@@ -305,7 +305,7 @@ export default function Basic(props){
                                 &nbsp;
                                 {data.birth_date ? '' : 
                                 <>
-                                    <i className="fa-solid fa-circle-exclamation fa-shake" style={{ color: 'var(--yellow)'}}></i>
+                                    <i className="fa-solid fa-circle-exclamation" style={{ color: 'var(--yellow)'}}></i>
                                 </>}
                             </p>
                             {edit ? 
@@ -329,7 +329,7 @@ export default function Basic(props){
                                 &nbsp;
                                 {data.birth_date ? '' : 
                                 <>
-                                    <i className="fa-solid fa-circle-exclamation fa-shake" style={{ color: 'var(--yellow)'}}></i>
+                                    <i className="fa-solid fa-circle-exclamation" style={{ color: 'var(--yellow)'}}></i>
                                 </>}
                             </p>
                             {edit ? 
@@ -358,7 +358,7 @@ export default function Basic(props){
                                 &nbsp;
                                 {data.birth_date ? '' : 
                                 <>
-                                    <i className="fa-solid fa-circle-exclamation fa-shake" style={{ color: 'var(--yellow)'}}></i>
+                                    <i className="fa-solid fa-circle-exclamation" style={{ color: 'var(--yellow)'}}></i>
                                 </>}
                             </p>
                             {edit ?

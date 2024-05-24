@@ -141,6 +141,7 @@ export default function Work ({ data, acadWork_data, setData, post }) {
                                         placeholder="Institution/School"
                                         value={academicWork.institution}
                                         onChange={(e) => handleWorkChange(e, index)}
+                                        required
                                     />
                                 </div>
 
@@ -152,6 +153,7 @@ export default function Work ({ data, acadWork_data, setData, post }) {
                                         placeholder="Location"
                                         value={academicWork.location}
                                         onChange={(e) => handleWorkChange(e, index)}
+                                        required
                                     />
                                 </div>
 
@@ -163,6 +165,7 @@ export default function Work ({ data, acadWork_data, setData, post }) {
                                         placeholder="YYYY"
                                         value={academicWork.date}
                                         onChange={(e) => handleWorkChange(e, index)}
+                                        required
                                     />
                                 </div>
 
@@ -174,6 +177,7 @@ export default function Work ({ data, acadWork_data, setData, post }) {
                                         placeholder="Position"
                                         value={academicWork.position}
                                         onChange={(e) => handleWorkChange(e, index)}
+                                        required
                                     />
                                 </div>
 
@@ -289,7 +293,14 @@ export default function Work ({ data, acadWork_data, setData, post }) {
 
             <div className="acad-work-content flex-fill w-50">
                 <div className="title-info-content-acad pb-2">
-                    <p className="m-0">Work Experience</p>
+                    <p className="m-0">
+                        Work Experience
+                        &nbsp;
+                        {acadWork_data.length > 0 ? '' : 
+                        <>
+                            <i className="fa-solid fa-circle-exclamation fa-sm" style={{ color: 'var(--yellow)'}}></i>
+                        </>}
+                    </p>
                     <div className='edit-profile-container ms-auto'>
                         <div className='d-flex gap-2 align-items-center'>
                             <button className='edit-profile p-1 px-2' onClick={() => setShowModalWork(true)}>

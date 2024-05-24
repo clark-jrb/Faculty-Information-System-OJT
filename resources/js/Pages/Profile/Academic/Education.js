@@ -140,6 +140,7 @@ export default function Education ({ data, acadEduc_data, setData, post }) {
                                         placeholder="Institution/School"
                                         value={academicEduc.institution}
                                         onChange={(e) => handleEducChange(e, index)}
+                                        required
                                     />
                                 </div>
 
@@ -151,6 +152,7 @@ export default function Education ({ data, acadEduc_data, setData, post }) {
                                         placeholder="Location"
                                         value={academicEduc.location}
                                         onChange={(e) => handleEducChange(e, index)}
+                                        required
                                     />
                                 </div>
 
@@ -162,6 +164,7 @@ export default function Education ({ data, acadEduc_data, setData, post }) {
                                         placeholder="YYYY"
                                         value={academicEduc.date}
                                         onChange={(e) => handleEducChange(e, index)}
+                                        required
                                     />
                                 </div>
 
@@ -173,6 +176,7 @@ export default function Education ({ data, acadEduc_data, setData, post }) {
                                         placeholder="ex. MS in Crop Protection"
                                         value={academicEduc.degree}
                                         onChange={(e) => handleEducChange(e, index)}
+                                        required
                                     />
                                 </div>
 
@@ -289,7 +293,15 @@ export default function Education ({ data, acadEduc_data, setData, post }) {
             {/* CONTENT  */}
             <div className="acad-educ-content flex-fill w-50">
                 <div className="title-info-content-acad pb-2">
-                    <p className="m-0">Education</p>
+                    <p className="m-0">
+                        Education
+                        &nbsp;
+                        {acadEduc_data.length > 0 ? '' : 
+                        <>
+                            <i className="fa-solid fa-circle-exclamation fa-sm" style={{ color: 'var(--yellow)'}}></i>
+                        </>}
+                    </p>
+                    
                     <div className='edit-profile-container ms-auto'>
                         <div className='d-flex gap-2 align-items-center'>
                             <button className='edit-profile p-1 px-2' onClick={() => setShowModalEduc(true)}>
