@@ -247,6 +247,7 @@
 }
 
 [class^="admin-department-"]:hover {
+    transition: .2s;
     cursor: pointer;
     background-color: var(--green);
 }
