@@ -50,7 +50,7 @@ export default function AdminDashboard() {
                     </div>
                 </div>
                 {/* TOTALS 2 */}
-                <div className="d-flex gap-3">
+                <div className="d-flex gap-3 mb-3">
                     <div className="total-dept d-flex flex-fill p-3 px-4">
                         <div className="m-0">
                             <p className="m-0">Crop Protection</p>
@@ -88,6 +88,40 @@ export default function AdminDashboard() {
                     </div>
                 </div>
 
+                <div className="total-per-ranks d-flex gap-3">
+                    <div className="total-rank-data d-flex w-25 p-3">
+                        <div>
+                            <p className="m-0">Professors</p>
+                        </div>
+                        <div className="ms-auto">
+                            <p className="m-0 fs-4">3</p>
+                        </div>
+                    </div>
+                    <div className="total-rank-data d-flex w-25 p-3">
+                        <div>
+                            <p className="m-0">Associate Professors</p>
+                        </div>
+                        <div className="ms-auto">
+                            <p className="m-0 fs-4">3</p>
+                        </div>
+                    </div>
+                    <div className="total-rank-data d-flex w-25 p-3">
+                        <div>
+                            <p className="m-0">Assistant Professors</p>
+                        </div>
+                        <div className="ms-auto">
+                            <p className="m-0 fs-4">3</p>
+                        </div>
+                    </div>
+                    <div className="total-rank-data d-flex w-25 p-3">
+                        <div>
+                            <p className="m-0">Instructors</p>
+                        </div>
+                        <div className="ms-auto">
+                            <p className="m-0 fs-4">3</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </AdminAuthenticated>
     )

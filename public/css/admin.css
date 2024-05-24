@@ -105,7 +105,7 @@
 .total-dept {
     background-color: var(--light-green);
     border-radius: 3px;
-    width: 300px;
+    width: 100%;
     color: whitesmoke;
     border-bottom: var(--yellow) solid 2px;
     box-shadow: 0 1.5px 3px 0 #ccc;
@@ -115,7 +115,13 @@
     height: 80px;
 }
 
-
+.total-rank-data {
+    border-radius: 3px;
+    background-color: var(--very-light-grey);
+    border-left: var(--grey) solid 5px;
+    color: var(--grey);
+    /* border: var(--grey) solid 1px; */
+}
 /* FACULTIES  */
 
 .admin-faculty-cont-title, .admin-doc-title {
