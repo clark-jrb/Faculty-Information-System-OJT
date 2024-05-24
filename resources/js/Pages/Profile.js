@@ -13,6 +13,7 @@ export default function Profile({ children, ...props }) {
     } = usePage().props;
 
     const [showEditPicModal, setShowEditPicModal] = useState(false);
+    const [previewUrl, setPreviewUrl] = useState(null);
 
     const handleCloseEditPicModal = () => { setShowEditPicModal(false) }
 
@@ -40,6 +41,9 @@ export default function Profile({ children, ...props }) {
             ...prevState,
             profile_pic: file 
         }));
+        if (file) {
+            setPreviewUrl(URL.createObjectURL(file));
+        }
     };
 
     return (
@@ -64,7 +68,11 @@ export default function Profile({ children, ...props }) {
                                     <Label forInput="profile-image" value="Profile Picture:" />
 
                                     <div className="d-flex justify-content-center py-2">
-                                        <img src={`/images/faculty_images/${data.profile_pic}`} alt="Faculty Profile" />
+                                        {previewUrl ? 
+                                            <img src={previewUrl} alt="Image Preview"/>
+                                        :
+                                            <img src={`/images/faculty_images/${data.profile_pic}`} alt="Faculty Profile" />
+                                        }
                                     </div>
 
                                     <div className="add-field-container w-100 p-2">
