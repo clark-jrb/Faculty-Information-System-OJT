@@ -4,6 +4,7 @@ import Modal1 from '@/Components/Modals/Modal1';
 import Modal2 from '@/Components/Modals/Modal2';
 import Modal3 from '@/Components/Modals/Modal3';
 import BackToTopButton from '@/Components/BackToTopButton';
+import { Carousel } from 'react-bootstrap';
 
 export default function Home(props) {
     const [showModal1, setShowModal1] = useState(false);
@@ -119,7 +120,8 @@ export default function Home(props) {
                     <div className="ASHeader">
                         <h2 className='ASTitle'>Animal Science</h2>
                     </div>
-                    <div className='facilitiesContainer'>
+                    <Carousel>
+                        <Carousel.Item>
                         <div className="facility-tables row">
                             <div className="col-md-4">
                                 <div className="facility-item">
@@ -152,10 +154,10 @@ export default function Home(props) {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className='facilitiesContainer'>
+                        </Carousel.Item>
+                        <Carousel.Item>
                         <div className="facility-tables row">
-                            <div className="col-md-4">
+                        <div className="col-md-4">
                                 <div className="facility-item">
                                     <div className="image-box">
                                         <div className="image-overlay" onClick={handleOpenModal1}></div> 
@@ -186,10 +188,10 @@ export default function Home(props) {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className='facilitiesContainer'>
+                        </Carousel.Item>
+                        <Carousel.Item>
                         <div className="facility-tables row">
-                            <div className="col-md-4">
+                        <div className="col-md-4">
                                 <div className="facility-item">
                                     <div className="image-box">
                                         <div className="image-overlay" onClick={handleOpenModal1}></div> 
@@ -220,14 +222,16 @@ export default function Home(props) {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        </Carousel.Item>
+                    </Carousel>
                 </div>
                 {/* DCP */}
                 <div>
                     <div className="CPHeader">
                         <h2 className='CPTitle'>Crop Protection</h2>
                     </div>
-                    <div className='facilitiesContainer'>
+                    <Carousel>
+                        <Carousel.Item>
                         <div className="facility-tables row">
                             <div className="col-md-4">
                                 <div className="facility-item">
@@ -260,9 +264,19 @@ export default function Home(props) {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className='facilitiesContainer'>
+                        </Carousel.Item>
+                        <Carousel.Item>
                         <div className="facility-tables row">
+                        <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
                             <div className="col-md-4">
                                 <div className="facility-item">
                                     <div className="image-box">
@@ -284,14 +298,40 @@ export default function Home(props) {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                        <div className="facility-tables row">
+                        <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </Carousel.Item>
+                    </Carousel>
                 </div>
                 {/* DCS */}
                 <div>
                     <div className="CSHeader">
                         <h2 className='CSTitle'>Crop Science</h2>
                     </div>
-                    <div className='facilitiesContainer'>
+                    <Carousel>
+                        <Carousel.Item>
                         <div className="facility-tables row">
                             <div className="col-md-4">
                                 <div className="facility-item">
@@ -324,8 +364,8 @@ export default function Home(props) {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className='facilitiesContainer'>
+                        </Carousel.Item>
+                        <Carousel.Item>
                         <div className="facility-tables row">
                             <div className="col-md-4">
                                 <div className="facility-item">
@@ -358,8 +398,8 @@ export default function Home(props) {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className='facilitiesContainer'>
+                        </Carousel.Item>
+                        <Carousel.Item>
                         <div className="facility-tables row">
                             <div className="col-md-4">
                                 <div className="facility-item">
@@ -392,14 +432,16 @@ export default function Home(props) {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        </Carousel.Item>
+                    </Carousel>
                 </div>
                 {/* DSS */}
                 <div>
                     <div className="SSHeader">
                         <h2 className='SSTitle'>Soil Science</h2>
                     </div>
-                    <div className='facilitiesContainer'>
+                    <Carousel>
+                        <Carousel.Item>
                         <div className="facility-tables row">
                             <div className="col-md-4">
                                 <div className="facility-item">
@@ -432,8 +474,42 @@ export default function Home(props) {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className='facilitiesContainer'>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                        <div className="facility-tables row">
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <div className="facility-item">
+                                    <div className="image-box">
+                                        <div className="image-overlay" onClick={handleOpenModal1}></div> 
+                                        <img src="/images/facility1.jpg" alt="Facility 1"/>
+                                        <p className="facility-text">Facility 1</p>
+                                        <Modal1 show={showModal1} handleClose={handleCloseModal1} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </Carousel.Item>
+                        <Carousel.Item>
                         <div className="facility-tables row">
                             <div className="col-md-4">
                                 <div className="facility-item">
@@ -456,7 +532,8 @@ export default function Home(props) {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        </Carousel.Item>
+                    </Carousel>
                 </div>
             </div>
             <div className="footer">
