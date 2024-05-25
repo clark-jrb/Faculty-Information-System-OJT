@@ -11,6 +11,6 @@ class Trainings extends Model
     protected $table = "trainings";
     public $timestamps = true;
     protected $fillable = [
-        'faculty_id', 'role', 'title', 'location', 'date'
+        'faculty_id', 'role', 'title', 'location', 'start_date', 'end_date'
     ];
 }

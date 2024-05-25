@@ -51,6 +51,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/addPublication', [FacultyController::class, 'addPublication'])->name('add.pub');
         Route::post('/addResearch', [FacultyController::class, 'addResearch'])->name('add.res');
         Route::post('/addExtension', [FacultyController::class, 'addExtension'])->name('add.ext');
+        Route::post('/addTraining', [FacultyController::class, 'addTraining'])->name('add.train');
 
         Route::post('/updateEduc', [FacultyController::class, 'updateEduc'])->name('update.educ');
         Route::post('/updateWork', [FacultyController::class, 'updateWork'])->name('update.work');

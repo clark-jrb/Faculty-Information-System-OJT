@@ -11,6 +11,7 @@ use App\Models\Publication;
 use App\Models\Ext_Activity;
 use App\Models\Document;
 use App\Models\Trainings;
+use Carbon\Carbon;
 use Inertia\Inertia;
 
 class FacultyController extends Controller
@@ -215,6 +216,34 @@ class FacultyController extends Controller
 
         // return Inertia::render('Profile/Basic', ['faculty_data' => $faculty_data]);
         return redirect()->back()->with(['extension_data' => $extension_data]);
+    }
+
+    // Add TRAININGs/ SEMINARs
+    public function addTraining(Request $request)
+    {
+        if ($request->filled('trainings')) {
+            foreach ($request->input('trainings') as $trainingsData) {
+                // Check if any of the fields in the academic education data is not null
+                if (!empty(array_filter($trainingsData))) {
+                    $startDate = Carbon::parse($trainingsData['start_date'])->toDateString();
+                    $endDate = Carbon::parse($trainingsData['end_date'])->toDateString();
+
+                    Trainings::create([
+                        'faculty_id' => auth()->user()->id,
+                        'title' => $trainingsData['title'],
+                        'role' => $trainingsData['role'],
+                        'start_date' => $startDate,
+                        'end_date' => $endDate,
+                        'location' => $trainingsData['location']
+                    ]);
+                }
+            }
+        }
+
+        $trainings_data = Trainings::get();
+
+        // return Inertia::render('Profile/Basic', ['faculty_data' => $faculty_data]);
+        return redirect()->back()->with(['trainings_data' => $trainings_data]);
     }
 
     /**
