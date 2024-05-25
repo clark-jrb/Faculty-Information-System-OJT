@@ -42,6 +42,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/publication', [FacultyController::class, 'showPublications'])->name('publication');
         Route::get('/documents', [FacultyController::class, 'showDocuments'])->name('documents');
         Route::get('/extensions', [FacultyController::class, 'showExtensions'])->name('extensions');
+        Route::get('/trainings', [FacultyController::class, 'showTrainings'])->name('trainings');
 
         Route::post('/updateBasic', [FacultyController::class, 'updateBasicInfo'])->name('update.basic');
 

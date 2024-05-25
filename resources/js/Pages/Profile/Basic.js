@@ -71,7 +71,7 @@ export default function Basic(props){
     
     return (
         <Profile auth={props.auth}>
-            <div className="p-3 px-4 basic-content">
+            <div className="p-3 px-4 profile-info-content-child">
                 <form onSubmit={handleSubmit}>
                     <div className="title-info-content pb-2">
                         <p className="m-0">Basic Information</p>

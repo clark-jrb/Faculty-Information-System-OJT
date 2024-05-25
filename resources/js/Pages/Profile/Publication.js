@@ -322,7 +322,7 @@ export default function Publications(props){
             </Modal>
 
             {/* CONTENT  */}
-            <div className="p-3 px-4 publications-content">
+            <div className="p-3 px-4 profile-info-content-child">
                 <div className="title-info-content pb-2">
                     <p className="m-0">
                         Publications

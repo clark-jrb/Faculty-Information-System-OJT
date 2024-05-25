@@ -32,7 +32,7 @@ export default function Academic(props){
     return (
         <Profile auth={props.auth}>
             {/* CONTENT  */}
-            <div className="p-3 px-4 academic-content d-flex gap-5">
+            <div className="p-3 px-4 profile-info-content-child d-flex gap-5">
                 {/* EDUCATION  */}
                 <Education 
                     data={educData} 

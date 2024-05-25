@@ -10,6 +10,7 @@ use App\Models\ResActivity;
 use App\Models\Publication;
 use App\Models\Ext_Activity;
 use App\Models\Document;
+use App\Models\Trainings;
 use Inertia\Inertia;
 
 class FacultyController extends Controller
@@ -270,6 +271,13 @@ class FacultyController extends Controller
     {
         return $this->renderProfileView('Profile/Documents', [
             'document_data' => Document::where('faculty_id', auth()->user()->id)->get(),
+        ]);
+    }
+
+    public function showTrainings()
+    {
+        return $this->renderProfileView('Profile/Trainings', [
+            'trainings_data' => Trainings::where('faculty_id', auth()->user()->id)->get(),
         ]);
     }
 

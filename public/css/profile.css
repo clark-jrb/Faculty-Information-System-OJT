@@ -266,13 +266,7 @@
     text-decoration-color: var(--yellow);
 } */
 
-.basic-content, 
-.academic-content,
-.acad-educ-content, 
-.acad-work-content, 
-.research-content,
-.publications-content,
-.extensions-content {
+.profile-info-content-child {
     height: 100%;
     color: var(--grey);
 }

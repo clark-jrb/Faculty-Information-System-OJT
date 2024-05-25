@@ -331,7 +331,7 @@ export default function Research(props){
 
 
             {/* CONTENT  */}
-            <div className="p-3 px-4 research-content">
+            <div className="p-3 px-4 profile-info-content-child">
                 <div className="title-info-content-res pb-2">
                     <p className="m-0">
                         Research Activities
