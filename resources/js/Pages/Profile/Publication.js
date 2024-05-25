@@ -350,7 +350,7 @@ export default function Publications(props){
                                     <i className="fa-regular fa-pen-to-square fa-lg"></i>
                                 </button>
                                 <button className='p-1 px-2' onClick={() => handleConfirmDel(pub.id)}>
-                                    <i className="fa-solid fa-trash-can"></i>
+                                    <i className="fa-solid fa-trash-can fa-lg"></i>
                                 </button>
                             </div>
 
