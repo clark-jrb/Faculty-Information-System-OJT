@@ -10,7 +10,7 @@ import Academic from "./Fields/Academic";
 import ResearchActivities from "./Fields/ResearchActivities";
 import Publications from "./Fields/Publications";
 import Extensions from "./Fields/Extensions";
-import Documents from "./Fields/Documents";
+import Trainings from "./Fields/Trainings";
 import Label from "@/Components/Label";
 import { handleFieldChange } from "@/utils/forms";
 
@@ -22,7 +22,8 @@ export default function FacultyInfo({ children }) {
         research_data,
         publication_data,
         extention_data,
-        document_data
+        document_data,
+        trainings_data
     } = usePage().props;
 
     const AcadEducData = acadEduc_data.map(item => ({
@@ -72,6 +73,15 @@ export default function FacultyInfo({ children }) {
         file_name: item.file_name
     }));
 
+    const TrainingsData = trainings_data.map(item => ({
+        doc_id: item.id,
+        title: item.title,
+        role: item.role,
+        location: item.location,
+        start_date: item.start_date,
+        end_date: item.end_date,
+    }));
+
     const { data, setData, post, processing, errors, reset } = useForm({
         fname: faculty_data.fname,
         mname: faculty_data.mname,
@@ -92,7 +102,7 @@ export default function FacultyInfo({ children }) {
         research: ResearchActData,
         publications: PublicationData,
         extensions: ExtActData,
-        // documents: DocumentData
+        trainings: TrainingsData
     });
 
     const { data: profilePicData, setData: setProfPicData, post: postProfPicData, processing: profilePicProcess } = useForm({
@@ -254,10 +264,10 @@ export default function FacultyInfo({ children }) {
                             </div>
                             <Extensions data={data} setData={setData}/>
                         {/* DOCUMENTS  */}
-                            {/* <div className="acf-title my-3 px-3">
-                                Documents &#40;certificates etc.&#41; &#40;Not Required&#41; 
+                            <div className="acf-title my-3 px-3">
+                                Trainings/ Seminars Attended
                             </div>
-                            <Documents data={data} setData={setData}/> */}
+                            <Trainings data={data} setData={setData}/>
                         {/* SUBMIT BUTTON  */}
                             {/* <div className="admin-add-faculty d-flex justify-content-end py-3">
                                 <button className="p-3 py-2" type="submit" disabled={processing}>Update faculty</button>

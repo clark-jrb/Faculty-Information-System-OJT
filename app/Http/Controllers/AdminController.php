@@ -10,6 +10,7 @@ use App\Models\ResActivity;
 use App\Models\Publication;
 use App\Models\Ext_Activity;
 use App\Models\Document;
+use App\Models\Trainings;
 use App\Models\User;
 use Inertia\Inertia;
 
@@ -282,6 +283,7 @@ class AdminController extends Controller
         $publication_data = Publication::where('faculty_id', '=', $id)->get();
         $extention_data = Ext_Activity::where('faculty_id', '=', $id)->get();
         $document_data = Document::where('faculty_id', '=', $id)->get();
+        $trainings_data = Trainings::where('faculty_id', '=', $id)->get();
 
         // Pass the retrieved data to the Inertia view
         return Inertia::render('Admin/FacultyInfo', [
@@ -291,7 +293,8 @@ class AdminController extends Controller
             'research_data' => $research_data,
             'publication_data' => $publication_data,
             'extention_data' => $extention_data,
-            'document_data' => $document_data
+            'document_data' => $document_data,
+            'trainings_data' => $trainings_data
         ]);
     }
 
