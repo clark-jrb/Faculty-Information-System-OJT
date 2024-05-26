@@ -196,7 +196,7 @@ export default function Trainings(props){
                                         />
                                     </div>
                                     <div className="flex-fill w-25">
-                                        <Label forInput="date" value="Date:" />
+                                        <Label forInput="date" value="Date: (start date - end date)" />
                                         {/* <Form.Control
                                             type="text"
                                             name="date"
@@ -290,6 +290,62 @@ export default function Trainings(props){
                             </button>
                         </div>
                     </div>
+                </div>
+
+                <div className='datas-content-container'>
+                    {trainings_data.map((train, index) => (
+                        <div className="p-3 d-flex" key={index} style={{ borderBottom: '#ccc 1px solid', position: 'relative' }}>
+                            <div className="bg-data"></div>
+                            {/* EDIT BUTTONS  */}
+                            <div className='for-edit-btn d-flex flex-column'>
+                                <button className='edit-educ-btn p-1 px-2' onClick={() => handleSelectId(train.id)}>
+                                    <i className="fa-regular fa-pen-to-square fa-lg"></i>
+                                </button>
+                                <button className='p-1 px-2' onClick={() => handleConfirmDel(train.id)}>
+                                    <i className="fa-solid fa-trash-can fa-lg"></i>
+                                </button>
+                            </div>
+
+                            <div className="w-50">
+                                <p className="m-0 py-1" style={{ width: '95%' }}>
+                                    <span style={{ fontSize: 'medium' }}>
+                                        Role:
+                                    </span>
+                                    &nbsp;
+                                    <span className='res-title'>
+                                        {train.role}
+                                    </span>
+                                </p>
+
+                                <p className="m-0 py-1" style={{ fontSize: 'large', width: '95%' }}>
+                                    <i className="fa-solid fa-location-dot fa-sm"></i>
+                                    &nbsp;
+                                    <span style={{ color: 'var(--grey)', fontSize: 'medium' }}>Location:</span> 
+                                    &nbsp;
+                                    {train.location}
+                                </p>
+
+                                <p className="m-0 py-1" style={{ fontSize: 'large' }}>
+                                    <i className="fa-regular fa-calendar-check fa-sm"></i>
+                                    &nbsp;
+                                    <span style={{ fontSize: 'medium' }}>
+                                        Date:
+                                    </span>
+                                    &nbsp;
+                                    {moment(train.start_date).format('MMM DD') + ' - ' + moment(train.end_date).format('MMM DD, YYYY')}
+                                </p>
+                            </div>
+
+                            <div style={{ width: '40%' }}>
+                                <p className="m-0 py-1" style={{ fontSize: 'large' }}>
+                                    Title:
+                                    &nbsp;
+                                    {train.title}
+                                </p>
+                            </div>
+
+                        </div>
+                    ))}
                 </div>
             </div>
         </Profile>
