@@ -88,13 +88,14 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
 
     return (
         <div className={`create-basic-fields ${route().current('admin.create') ? 'w-75' : 'w-100'} p-3`}>
-{/* Full Name / Gender  */}
+        {/* Full Name / Gender  */}
             <div className="basic1-flex d-flex py-2">
                 <div className="flex-fill p-2">
                     <Label forInput="fname" value="First Name:" />
-                    <Form.Control
+                    <input
                         type="text"
                         name="fname"
+                        className="form-admin w-100" 
                         placeholder="First Name"
                         value={data.fname}
                         // onChange={(e) => handleChange(e)}
@@ -103,9 +104,10 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                 </div>
                 <div className="flex-fill p-2">
                     <Label forInput="mname" value="Middle Name:" />
-                    <Form.Control
+                    <input
                         type="text"
                         name="mname"
+                        className="form-admin w-100" 
                         placeholder="Middle Name"
                         value={data.mname}
                         // onChange={(e) => handleChange(e)}
@@ -114,9 +116,10 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                 </div>
                 <div className="flex-fill p-2">
                     <Label forInput="lname" value="Last Name:" />
-                    <Form.Control
+                    <input
                         type="text"
                         name="lname"
+                        className="form-admin w-100" 
                         placeholder="Last Name"
                         value={data.lname}
                         // onChange={(e) => handleChange(e)}
@@ -125,13 +128,14 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                 </div>
 
             </div>
-{/* Email / Contact / Age  */}
+        {/* Email / Contact / Age  */}
             <div className="basic2-flex d-flex py-2">
                 <div className="flex-fill p-2">
                     <Label forInput="gender" value="Gender:" />
-                    <Form.Select
+                    <select
                         type="text"
                         name="gender"
+                        className="form-select-admin w-100" 
                         value={data.gender}
                         // onChange={(e) => handleChange(e)}
                         readOnly
@@ -139,13 +143,14 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                         <option disabled value="">Gender</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
-                    </Form.Select>
+                    </select>
                 </div>
                 <div className="flex-fill p-2">
                     <Label forInput="email" value="Email:" />
-                    <Form.Control
+                    <input
                         type="text"
                         name="email"
+                        className="form-admin w-100"
                         placeholder="Email"
                         value={data.email}
                         // onChange={(e) => handleChange(e)}
@@ -154,9 +159,10 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                 </div>
                 <div className="flex-fill p-2">
                     <Label forInput="contact" value="Contact:" />
-                    <Form.Control
+                    <input
                         type="text"
                         name="contact_no"
+                        className="form-admin w-100"
                         placeholder="Contact"
                         value={data.contact_no}
                         // onChange={(e) => handleChange(e)}
@@ -164,37 +170,39 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                     />
                 </div>
             </div>
-{/* Birth / Role / Rank  */}
+        {/* Birth / Role / Rank  */}
             <div className="basic3-flex d-flex py-2">
                 
-                <div className="flex-fill p-2">
+                <div className="p-2">
                     <Label forInput="age" value="Age:" />
-                    <Form.Control
+                    <input
                         id="age"
                         type="text"
                         name="age"
+                        className="form-admin"
                         placeholder="Age"
                         value={data.age}
                         // onChange={(e) => handleChange(e)}
                         readOnly
                     />
                 </div>
-                <div className="flex-fill p-2">
-                    <Label forInput="date" value="Date of Birth: " />
+                <div className="p-2">
+                    <Label forInput="date" value="Date of Birth: MM/DD/YYYY" />
                     <ReactDatePicker 
-                        className="date-picker"
-                        name="birth_date" 
+                        className="form-admin"
+                        name="birth_date"
                         placeholderText="MM/DD/YYYY"
                         selected={startDate}
                         // onChange={handleDateChange}
                         readOnly
                     />
                 </div>
-                <div className="flex-fill p-2">
+                <div className="p-2 w-50">
                     <Label forInput="role" value="Role:" />
-                    <Form.Select
+                    <select
                         type="text"
                         name="role"
+                        className="form-select-admin w-100" 
                         value={data.role}
                         // onChange={(e) => handleChange(e)}
                         readOnly
@@ -203,16 +211,17 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                         <option value="College Dean">College Dean</option>
                         <option value="Department Head">Department Head</option>
                         <option value="Faculty">Faculty</option>
-                    </Form.Select>
+                    </select>
                 </div>
             </div>
-{/* Department / Specialization  */}
+        {/* Department / Specialization  */}
             <div className="basic3-flex d-flex py-2">
-                <div className="flex-fill p-2 w-50">
+                <div className="p-2 w-50">
                     <Label forInput="department" value="Department:" />
-                    <Form.Select
+                    <select
                         type="text"
                         name="department"
+                        className="form-select-admin w-100" 
                         value={data.department}
                         // onChange={(e) => handleChange(e)}
                         readOnly
@@ -224,15 +233,16 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                         <option value="Crop Protection">Crop Protection</option>
                         <option value="Crop Science">Crop Science</option>
                         <option value="Soil Science">Soil Science</option>
-                    </Form.Select>
+                    </select>
                     
                     
                 </div>
-                <div className="flex-fill p-2 w-50">
+                <div className="p-2 w-50">
                     <Label forInput="specialization" value="Specialization:" />
-                    <Form.Control
+                    <input
                         type="text"
                         name="specialization"
+                        className="form-admin w-100"
                         placeholder="specialization"
                         value={data.specialization}
                         // onChange={(e) => handleChange(e)}
@@ -240,13 +250,14 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                     />
                 </div>
             </div>
-{/* Upload Profile Image / Highest Degree  */}
+        {/* Upload Profile Image / Highest Degree  */}
                 <div className="basic4-flex d-flex py-2">
-                    <div className="flex-fill p-2">
+                    <div className="p-2 w-50">
                         <Label forInput="rank" value="Rank:" />
-                        <Form.Select
+                        <select
                             type="text" 
                             name="position"
+                            className="form-select-admin w-100" 
                             value={data.position}
                             // onChange={(e) => handleChange(e)}
                             readOnly
@@ -255,14 +266,15 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                             {faculty_ranks.map((rank) => (
                                 <option key={rank.id} value={rank.rank}>{rank.rank}</option>
                             ))}
-                        </Form.Select>
+                        </select>
                     </div>
 
-                    <div className="flex-fill p-2">
+                    <div className="p-2 w-25">
                         <Label forInput="high_degree" value="Highest Degree:" />
-                        <Form.Select
+                        <select
                             type="text"
                             name="high_degree"
+                            className="form-select-admin w-100" 
                             value={data.high_degree}
                             // onChange={(e) => handleChange(e)}
                             readOnly
@@ -271,13 +283,13 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                             <option value="doctoral">Doctoral</option>
                             <option value="masteral">Masteral</option>
                             <option value="bachelor">Bachelor</option>
-                        </Form.Select>
+                        </select>
                     </div>
 
                     {/* {route().current('admin.create') ? <>
                     <div className="profile-pic-cont w-75 p-2">
                         <Label forInput="profile_pic" value="Upload profile picture &#40;Optional&#41;:" />
-                        <Form.Control type="file" name="profile_pic" onChange={handleFileChange}/> */}
+                        <input type="file" name="profile_pic" onChange={handleFileChange}/> */}
                         {/* {profilePic && <p className="m-0 py-2">Selected file: {profilePic.name || profilePic}</p>} */}
                     {/* </div>
                     </> : <></>} */}

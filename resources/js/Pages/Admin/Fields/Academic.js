@@ -49,58 +49,67 @@ export default function Academic({ data, setData }) {
     return (
         <div className={`create-academic-fields ${route().current('admin.create') ? 'w-75' : 'w-100'} p-3`}>
     {/* Education  */}
-            <div className="acf-title m-2 px-3">
+            <div className="acf-title my-2 px-3">
                 Education
             </div>
             {data.academic_educ.map((academicEduc, index) => (
-                <div className="acad-educ-flex d-flex py-2" key={index}>
-                    <div className="flex-fill p-2">
-                        <Label forInput="institution" value="Institution/School:" />
-                        <Form.Control
-                            type="text"
-                            name="institution"
-                            placeholder="Institution/School"
-                            value={academicEduc.institution}
-                            // onChange={(e) => handleEducChange(e, index)}
-                            readOnly
-                        />
-                    </div>
+                <div className="acad-flex py-2" key={index}>
+                    <div className="flex-fill d-flex">
+                        <div className="flex-fill p-2 w-50">
+                            <Label forInput="institution" value="Institution/School:" />
+                            <input
+                                type="text"
+                                name="institution"
+                                className="form-admin w-100"
+                                placeholder="Institution/School"
+                                value={academicEduc.institution}
+                                // onChange={(e) => handleEducChange(e, index)}
+                                readOnly
+                            />
+                        </div>
 
-                    <div className="flex-fill p-2">
-                        <Label forInput="location" value="Location:" />
-                        <Form.Control
-                            type="text"
-                            name="educ_location"
-                            placeholder="Location"
-                            value={academicEduc.educ_location}
-                            // onChange={(e) => handleEducChange(e, index)}
-                            readOnly
-                        />
+                        <div className="flex-fill p-2">
+                            <Label forInput="educ_date" value="Year Graduated:" />
+                            <input   
+                                type="text"
+                                name="educ_date"
+                                className="form-admin w-100"
+                                placeholder="YYYY"
+                                value={academicEduc.educ_date}
+                                // onChange={(e) => handleEducChange(e, index)}
+                                readOnly
+                            />
+                        </div>
                     </div>
+                    
+                    <div className="flex-fill d-flex">
+                        <div className="flex-fill p-2 w-50">
+                            <Label forInput="location" value="Location:" />
+                            <input
+                                type="text"
+                                name="educ_location"
+                                className="form-admin w-100"
+                                placeholder="Location"
+                                value={academicEduc.educ_location}
+                                // onChange={(e) => handleEducChange(e, index)}
+                                readOnly
+                            />
+                        </div>
 
-                    <div className="flex-fill p-2">
-                        <Label forInput="educ_date" value="Year Graduated:" />
-                        <Form.Control   
-                            type="text"
-                            name="educ_date"
-                            placeholder="YYYY"
-                            value={academicEduc.educ_date}
-                            // onChange={(e) => handleEducChange(e, index)}
-                            readOnly
-                        />
+                        <div className="flex-fill p-2">
+                            <Label forInput="degree" value="Degree/Masteral/Doctorate Title:" />
+                            <input
+                                type="text"
+                                name="degree"
+                                className="form-admin w-100"
+                                placeholder="ex. MS in Crop Protection"
+                                value={academicEduc.degree}
+                                // onChange={(e) => handleEducChange(e, index)}
+                                readOnly
+                            />
+                        </div>
                     </div>
-
-                    <div className="flex-fill p-2">
-                        <Label forInput="degree" value="Degree/Masteral/Doctorate Title:" />
-                        <Form.Control
-                            type="text"
-                            name="degree"
-                            placeholder="ex. MS in Crop Protection"
-                            value={academicEduc.degree}
-                            // onChange={(e) => handleEducChange(e, index)}
-                            readOnly
-                        />
-                    </div>
+                    
 
                     {/* <div className="remove-field-btn flex-fill p-2 d-flex align-items-end ">
                         {data.academic_educ.length > 1 && ( // Only render the remove button if the academic background is not empty
@@ -123,59 +132,67 @@ export default function Academic({ data, setData }) {
             </div> */}
             
     {/* Work Experience  */}
-            <div className="acf-title m-2 px-3">
+            <div className="acf-title my-2 px-3 mt-3">
                 Work Experience
             </div>
             {data.academic_work.map((academicWork, index) => (
-                <div className="acad-work-flex d-flex py-2" key={index}>
-                    <div className="flex-fill p-2">
-                        <Label forInput="work_institution" value="Institution/Organization:" />
-                        <Form.Control
-                            type="text"
-                            name="work_institution"
-                            placeholder="Institution/Organization"
-                            value={academicWork.work_institution}
-                            // onChange={(e) => handleWorkChange(e, index)}
-                            readOnly
-                        />
+                <div className="acad-flex py-2" key={index}>
+                    <div className="d-flex flex-fill">
+                        <div className="flex-fill p-2 w-50">
+                            <Label forInput="work_institution" value="Institution/Organization:" />
+                            <input
+                                type="text"
+                                name="work_institution"
+                                className="form-admin w-100"
+                                placeholder="Institution/Organization"
+                                value={academicWork.work_institution}
+                                // onChange={(e) => handleWorkChange(e, index)}
+                                readOnly
+                            />
+                        </div>
+
+                        <div className="flex-fill p-2">
+                            <Label forInput="work_date" value="Date:" />
+                            <input   
+                                type="text"
+                                name="work_date"
+                                className="form-admin w-100"
+                                placeholder="YYYY-(YYYY/Present)"
+                                value={academicWork.work_date}
+                                // onChange={(e) => handleWorkChange(e, index)}
+                                readOnly
+                            />
+                        </div>
                     </div>
 
-                    <div className="flex-fill p-2">
-                        <Label forInput="location" value="Work location:" />
-                        <Form.Control
-                            type="text"
-                            name="work_location"
-                            placeholder="Work location"
-                            value={academicWork.work_location}
-                            // onChange={(e) => handleWorkChange(e, index)}
-                            readOnly
-                        />
-                    </div>
+                    <div className="d-flex flex-fill">
+                        <div className="flex-fill p-2 w-50">
+                            <Label forInput="location" value="Work location:" />
+                            <input
+                                type="text"
+                                name="work_location"
+                                className="form-admin w-100"
+                                placeholder="Work location"
+                                value={academicWork.work_location}
+                                // onChange={(e) => handleWorkChange(e, index)}
+                                readOnly
+                            />
+                        </div>
 
-                    <div className="flex-fill p-2">
-                        <Label forInput="work_date" value="Date:" />
-                        <Form.Control   
-                            type="text"
-                            name="work_date"
-                            placeholder="YYYY-(YYYY/Present)"
-                            value={academicWork.work_date}
-                            // onChange={(e) => handleWorkChange(e, index)}
-                            readOnly
-                        />
+                        <div className="flex-fill p-2">
+                            <Label forInput="work_position" value="Position:" />
+                            <input
+                                type="text"
+                                name="work_position"
+                                className="form-admin w-100"
+                                placeholder="Position"
+                                value={academicWork.work_position}
+                                // onChange={(e) => handleWorkChange(e, index)}
+                                readOnly
+                            />
+                        </div>
                     </div>
-
-                    <div className="flex-fill p-2">
-                        <Label forInput="work_position" value="Position:" />
-                        <Form.Control
-                            type="text"
-                            name="work_position"
-                            placeholder="Position"
-                            value={academicWork.work_position}
-                            // onChange={(e) => handleWorkChange(e, index)}
-                            readOnly
-                        />
-                    </div>
-
+                    
                     {/* <div className="remove-field-btn flex-fill p-2 d-flex align-items-end ">
                         {data.academic_work.length > 1 && ( // Only render the remove button if the academic background is not empty
                             <button type="button" className="px-2 py-1" onClick={() => setData(prevData => ({
