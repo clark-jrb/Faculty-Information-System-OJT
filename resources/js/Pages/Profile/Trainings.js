@@ -387,7 +387,7 @@ export default function Trainings(props){
             <div className="p-3 px-4 profile-info-content-child">
                 <div className="title-info-content pb-2">
                     <p className="m-0">
-                        Trainings
+                        Relevant Training, Symposia, Seminar Attended/ Completed
                         &nbsp;
                         {trainings_data.length > 0 ? '' : 
                         <>
@@ -449,9 +449,13 @@ export default function Trainings(props){
 
                             <div style={{ width: '40%' }}>
                                 <p className="m-0 py-1" style={{ fontSize: 'large' }}>
+                                    <span style={{ fontSize: 'medium' }}>
                                     Title:
-                                    &nbsp;
-                                    {train.title}
+                                    </span>
+                                    <br />
+                                    <span style={{ fontWeight: 'bold' }}>
+                                        {train.title}
+                                    </span>
                                 </p>
                             </div>
 
