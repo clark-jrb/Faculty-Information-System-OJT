@@ -68,7 +68,7 @@ export default function Publications(props){
         // add
         const handleAddSubmit = (e) => {
             e.preventDefault();
-            console.log(data);
+            // console.log(data);
             post(route('add.pub', data))
             setShowAddModal(false)
 
@@ -85,7 +85,7 @@ export default function Publications(props){
         // update
         const handleUpdSubmit = (e) => {
             e.preventDefault();
-            console.log(selectedData);
+            // console.log(selectedData);
             Inertia.post(route('update.pub', selectedData))
             
             setShowUpdModal(false)

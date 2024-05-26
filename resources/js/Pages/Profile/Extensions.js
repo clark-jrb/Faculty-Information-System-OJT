@@ -77,7 +77,7 @@ export default function Extensions(props){
         // add
         const handleAddSubmit = (e) => {
             e.preventDefault();
-            console.log(data);
+            // console.log(data);
             post(route('add.ext', data))
             setShowAddModal(false)
 
@@ -96,7 +96,7 @@ export default function Extensions(props){
         // update
         const handleUpdSubmit = (e) => {    
             e.preventDefault();
-            console.log(selectedData);
+            // console.log(selectedData);
             Inertia.post(route('update.ext', selectedData))
             
             setShowUpdModal(false)

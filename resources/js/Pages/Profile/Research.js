@@ -86,7 +86,7 @@ export default function Research(props){
         // update
         const handleUpdSubmit = (e) => {
             e.preventDefault();
-            console.log(selectedData);
+            // console.log(selectedData);
             Inertia.post(route('update.res', selectedData))
             
             setShowUpdModal(false)

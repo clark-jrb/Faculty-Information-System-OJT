@@ -85,12 +85,34 @@ export default function Trainings(props){
             console.log(updateDate);
             setData('trainings', updateDate);
         };
+
+            // for update date
+        const handleUpdateDateChange = (dates, index) => {
+            const [start, end] = dates;
+
+            const updateDate = selectedData.trainings.map((training, i) => {
+                if (i === index) {
+                    return {
+                        ...training,
+                        start_date: start,
+                        end_date: end
+                    };
+                }
+                return training;
+            });
+
+            console.log(updateDate);
+            setSelectedData(prevData => ({
+                ...prevData,
+                trainings: updateDate
+            }));
+        };
         
     // for handle submit buttons
         // add
         const handleAddSubmit = (e) => {
             e.preventDefault();
-            console.log(data);
+            // console.log(data);
             post(route('add.train', data))
             setShowAddModal(false)
 
@@ -108,15 +130,15 @@ export default function Trainings(props){
         // update
         const handleUpdSubmit = (e) => {
             e.preventDefault();
-            console.log(selectedData);
-            Inertia.post(route('update.pub', selectedData))
+            // console.log(selectedData);
+            Inertia.post(route('update.train', selectedData))
             
             setShowUpdModal(false)
         };
 
         // delete
         const handleDelete = () => {
-            Inertia.delete(route('destroy.pub', { id: selectedID }))
+            Inertia.delete(route('destroy.train', { id: selectedID }))
 
             setShowDelModal(false)
         }
@@ -270,6 +292,95 @@ export default function Trainings(props){
                         </button>
                     </Modal.Footer>
                 </form>
+            </Modal>
+
+            {/* UPDATE MODAL  */}
+            <Modal show={showUpdModal} onHide={handleCloseUpdModal} centered size='xl' backdrop='static'>
+                    <Modal.Header className='educ-modal-head py-2'>
+                        <div className="acf-title m-2 px-3" style={{ color: 'white' }}>
+                            Edit Training/ Seminar
+                        </div>
+                        <button className='p-1 px-3 ms-auto' onClick={() => handleCloseUpdModal()}>
+                            <i className="fa-solid fa-xmark fa-xl"></i>
+                        </button>
+                    </Modal.Header>
+                <form onSubmit={handleUpdSubmit}>
+                    <Modal.Body>
+                        {selectedData.trainings.map((train, index) => (
+                            <div className="publications-flex d-flex py-2" key={index}>
+
+                                <div className="flex-fill d-flex p-2 gap-3">
+                                    <div className="flex-fill w-75">
+                                        <Label forInput="title" value="Title:" />
+                                        <Form.Control
+                                            type="text"
+                                            name="title"
+                                            placeholder="Title"
+                                            value={train.title}
+                                            onChange={(e) => handleUpdateChange(e, index)}
+                                            required
+                                        />
+                                    </div>
+                                    <div className="flex-fill w-25">
+                                        <Label forInput="date" value="Date: (start date - end date)" />
+                                        <ReactDatePicker 
+                                            name="dates" 
+                                            selectsRange={true}
+                                            startDate={train.start_date}
+                                            endDate={train.end_date}
+                                            onChange={(dates) => {handleUpdateDateChange(dates, index)}}
+                                            isClearable 
+                                            required
+                                        />
+                                    </div>
+                                </div>
+                                
+                                <div className="flex-fill d-flex p-2 gap-3">
+                                    <div className="flex-fill w-25">
+                                        <Label forInput="role" value="Role:" />
+                                        <Form.Control   
+                                            type="text"
+                                            name="role"
+                                            placeholder="Role"
+                                            value={train.role}
+                                            onChange={(e) => handleUpdateChange(e, index)}
+                                        />
+                                    </div>
+                                    <div className="flex-fill w-75">
+                                        <Label forInput="location" value="Location:" />
+                                        <Form.Control
+                                            type="text"
+                                            name="location"
+                                            placeholder="Location"
+                                            value={train.location}
+                                            onChange={(e) => handleUpdateChange(e, index)}
+                                            required
+                                        />
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        ))}
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <button className='add-btn p-1 px-2' type='submit' style={{ fontSize: 'small' }}>
+                            <i className="fa-regular fa-pen-to-square"></i> Update
+                        </button>
+                    </Modal.Footer>
+                </form>
+            </Modal>
+
+            {/* DELETE MODAL  */}
+            <Modal show={showDelModal} onHide={handleCloseDelModal} centered backdrop='static'>
+                <Modal.Body>
+                    Are you sure you want to delete this?
+                </Modal.Body>
+                <Modal.Footer>
+                    <div className="d-flex w-100 justify-content-center align-items-center gap-3">
+                        <button className='yes-btn p-1 px-3' onClick={() => handleDelete()}>Yes</button>
+                        <button className='no-btn p-1 px-3' onClick={() => handleCloseDelModal()}>No</button>
+                    </div>
+                </Modal.Footer>
             </Modal>
 
             

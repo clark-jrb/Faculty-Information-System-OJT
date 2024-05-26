@@ -64,7 +64,7 @@ export default function Work ({ data, acadWork_data, setData, post }) {
 
         const handleUpdWorkSubmit = (e) => {
             e.preventDefault();
-            console.log(selectedData);
+            // console.log(selectedData);
             Inertia.post(route('update.work', selectedData))
 
             setShowModalWorkUpd(false)

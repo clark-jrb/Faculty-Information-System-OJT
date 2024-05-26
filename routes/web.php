@@ -58,11 +58,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/updatePub', [FacultyController::class, 'updatePub'])->name('update.pub');
         Route::post('/updateRes', [FacultyController::class, 'updateRes'])->name('update.res');
         Route::post('/updateExt', [FacultyController::class, 'updateExt'])->name('update.ext');
+        Route::post('/updateTraining', [FacultyController::class, 'updateTraining'])->name('update.train');
 
         Route::delete('/destroyEduc/{id}', [FacultyController::class, 'destroyEduc'])->name('destroy.educ');
         Route::delete('/destroyWork/{id}', [FacultyController::class, 'destroyWork'])->name('destroy.work');
         Route::delete('/destroyPub/{id}', [FacultyController::class, 'destroyPub'])->name('destroy.pub');
+        Route::delete('/destroyRes/{id}', [FacultyController::class, 'destroyRes'])->name('destroy.res');
         Route::delete('/destroyExt/{id}', [FacultyController::class, 'destroyExt'])->name('destroy.ext');
+        Route::delete('/destroyTrain/{id}', [FacultyController::class, 'destroyTrain'])->name('destroy.train');
 
         Route::post('/updateProfPic', [FacultyController::class, 'updateProfPic'])->name('update.profilePic');
     });

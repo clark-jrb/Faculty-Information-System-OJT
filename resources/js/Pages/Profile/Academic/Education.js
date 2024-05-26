@@ -64,7 +64,7 @@ export default function Education ({ data, acadEduc_data, setData, post }) {
 
         const handleUpdEducSubmit = (e) => {
             e.preventDefault();
-            console.log(selectedData);
+            // console.log(selectedData);
             Inertia.post(route('update.educ', selectedData))
 
             setShowModalEducUpd(false)

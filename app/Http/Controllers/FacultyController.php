@@ -517,6 +517,40 @@ class FacultyController extends Controller
         return redirect()->back()->with(['extension_data' => $new_ext_data]);
     }
 
+    // Update TRAINING/ SEMINAR
+    public function updateTraining(Request $request)
+    {
+        // $acad_educ = Acad_Education::where('id', $request->id)->firstOrFail();
+        if ($request->filled('trainings')) {
+            foreach ($request->input('trainings') as $trainingsData) {
+                // Check if any of the fields in the academic education data is not null
+                if (!empty(array_filter($trainingsData))) {
+                    // dd($trainingsData['id']);
+                    $startDate = Carbon::parse($trainingsData['start_date'])->toDateString();
+                    $endDate = Carbon::parse($trainingsData['end_date'])->toDateString();
+
+                    if (isset($trainingsData['id'])) {
+                        $ext_data = Trainings::where('id', $trainingsData['id'])->firstOrFail();
+                        
+    
+                        // Update the academic education data
+                        $ext_data->update([
+                            'title' => $trainingsData['title'] ?? $ext_data->title,
+                            'role' => $trainingsData['role'] ?? $ext_data->role,
+                            'location' => $trainingsData['location'] ?? $ext_data->location,
+                            'start_date' => $startDate ?? $ext_data->start_date,
+                            'end_date' => $endDate ?? $ext_data->end_date
+                        ]);
+                    }
+                }
+            }
+        }
+
+        $new_training_data = Trainings::all();
+
+        return redirect()->back()->with(['trainings_data' => $new_training_data]);
+    }
+
     // Update PROFILE PICTURE
     protected function updateProfPic(Request $request)
     {
@@ -613,5 +647,31 @@ class FacultyController extends Controller
         $new_res_data = ResActivity::get();
 
         return redirect()->back()->with(['research_data' => $new_res_data]);
+    }
+
+    // Destroy EXTENSION ACTIVITY
+    public function destroyExt($id)
+    {
+        //
+        $ext_data = Ext_Activity::findOrFail($id);
+        // dd($ext_data);
+        $ext_data->delete();
+
+        $new_ext_data = Ext_Activity::get();
+
+        return redirect()->back()->with(['extension_data' => $new_ext_data]);
+    }
+
+    // Destroy TRAINING/ SEMINAR
+    public function destroyTrain($id)
+    {
+        //
+        $train_data = Trainings::findOrFail($id);
+        // dd($train_data);
+        $train_data->delete();
+
+        $new_train_data = Trainings::get();
+
+        return redirect()->back()->with(['trainings_data' => $new_train_data]);
     }
 }
