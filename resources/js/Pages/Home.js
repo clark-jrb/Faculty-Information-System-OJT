@@ -82,10 +82,10 @@ export default function Home(props) {
                             <h2 className='AETitle'>Agricultural Extension</h2>
                         </div>
                         <div className='facilitiesContainer'>
-                            <div className="facility-tables row">
+                            <div className="DAE-facility-tables row">
                                 <div className="col-md-4">
                                     <div className="facility-item">
-                                        <div className="image-box">
+                                        <div className="DAE-image-box">
                                             <div className="image-overlay" onClick={handleOpenModal1}></div> 
                                             <img src="/images/dept_previews/AE/ae_lab1.jpg" alt="Facility 1"/>
                                             <p className="facility-text">DAE Laboratory 1 & 2</p>
@@ -102,10 +102,10 @@ export default function Home(props) {
                             <h2 className='AMTitle'>Agri-Management</h2>
                         </div>
                         <div className='facilitiesContainer'>
-                            <div className="facility-tables row">
+                            <div className="DAM-facility-tables row">
                                 <div className="col-md-4">
                                     <div className="facility-item">
-                                        <div className="image-box">
+                                        <div className="DAM-image-box">
                                             <div className="image-overlay" onClick={handleOpenModal1}></div> 
                                             <img src="/images/dept_previews/AM/agribiz_lab1.jpg" alt="Facility 1"/>
                                             <p className="facility-text">Agribusiness Computer Laboratory</p>
