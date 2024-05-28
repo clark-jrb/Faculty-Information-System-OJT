@@ -32,9 +32,10 @@ export default function Extensions({ data, setData }) {
                     <div className="flex-fill d-flex p-2 gap-3">
                         <div className="flex-fill w-50">
                             <Label forInput="ext_title" value="Extension Project Title:" />
-                            <Form.Control
+                            <textarea
                                 type="text"
                                 name="ext_title"
+                                className="form-admin w-100"
                                 placeholder="Title"
                                 value={ext.ext_title}
                                 // onChange={(e) => handleChange(e, index)}
@@ -43,9 +44,10 @@ export default function Extensions({ data, setData }) {
                         </div>
                         <div className="flex-fill w-25">
                             <Label forInput="lead_faculty" value="Lead Faculty:" />
-                            <Form.Control
+                            <input
                                 type="text"
                                 name="lead_faculty"
+                                className="form-admin w-100"
                                 placeholder="Lead Faculty"
                                 value={ext.lead_faculty}
                                 // onChange={(e) => handleChange(e, index)}
@@ -54,9 +56,10 @@ export default function Extensions({ data, setData }) {
                         </div>
                         <div className="flex-fill w-25">
                             <Label forInput="ext_duration" value="Duration:" />
-                            <Form.Control
+                            <input
                                 type="text"
                                 name="ext_duration"
+                                className="form-admin w-100"
                                 placeholder="ex. 2 Years or On Going/Complete"
                                 value={ext.ext_duration}
                                 // onChange={(e) => handleChange(e, index)}
@@ -68,9 +71,10 @@ export default function Extensions({ data, setData }) {
                     <div className="flex-fill d-flex p-2 gap-3">
                         <div className="flex-fill w-25">
                             <Label forInput="beneficiaries" value="Beneficiaries (e.g. farmers, professionals, organization):" />
-                            <Form.Control   
+                            <input   
                                 type="text"
                                 name="beneficiaries"
+                                className="form-admin w-100"
                                 placeholder="Beneficiaries"
                                 value={ext.beneficiaries}
                                 // onChange={(e) => handleChange(e, index)}
@@ -79,10 +83,10 @@ export default function Extensions({ data, setData }) {
                         </div>
                         <div className="flex-fill w-25">
                             <Label forInput="sponsor" value="Sponsoring Department(s):" />
-                            <Form.Control   
+                            <textarea  
                                 type="text"
-                                as="textarea"
                                 name="sponsor"
+                                className="form-admin w-100"
                                 placeholder="Sponsor(s) (required to put , if more than one)"
                                 value={ext.sponsor}
                                 // onChange={(e) => handleChange(e, index)}
@@ -91,10 +95,10 @@ export default function Extensions({ data, setData }) {
                         </div>
                         <div className="flex-fill w-50">
                             <Label forInput="members" value="Team Members:" />
-                            <Form.Control
-                                as="textarea"
+                            <textarea
                                 type="text"
                                 name="members"
+                                className="form-admin w-100"
                                 placeholder="ex. Dr. John Doe, JM Cruz, Mr. Juan Dela Cruz (required to put ,)"
                                 value={ext.members}
                                 // onChange={(e) => handleChange(e, index)}

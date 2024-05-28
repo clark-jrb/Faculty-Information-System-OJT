@@ -313,6 +313,7 @@
     height: auto;
     background-color: white;
     border-radius: 3px;
+    box-shadow: 0 1.5px 3px 0 #ccc;
     /* display: flex; */
     /* flex-wrap: wrap; */
     /* justify-content: space-around; */
@@ -459,6 +460,11 @@
     word-wrap: normal;
 }
 
-.acad-flex {
+.acad-flex,
+.research-flex,
+.extensions-flex,
+.publications-flex {
     border-bottom: #ccc solid 1px;
+    box-shadow: 0 1.5px 3px 0 #ccc;
+    background-color: whitesmoke;
 }

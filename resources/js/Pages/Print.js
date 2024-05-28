@@ -5,7 +5,7 @@ const Print = React.forwardRef(({ data }, ref) => (
     
     <div className='print-page-paper p-4' ref={ref}>
         <div className='print-header mb-3'>
-            <h1>CAg Faculties 2024</h1>
+            <h1>College of Agriculture <br /> Faculty Members 2024</h1>
         </div>
 
 

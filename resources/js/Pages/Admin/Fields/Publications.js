@@ -31,9 +31,10 @@ export default function Publications({ data, setData }) {
                     <div className="flex-fill d-flex p-2 gap-3">
                         <div className="flex-fill w-75">
                             <Label forInput="proj_title" value="Title:" />
-                            <Form.Control
+                            <textarea
                                 type="text"
                                 name="proj_title"
+                                className="form-admin w-100"
                                 placeholder="Title"
                                 value={pub.proj_title}
                                 // onChange={(e) => handleChange(e, index)}
@@ -42,9 +43,10 @@ export default function Publications({ data, setData }) {
                         </div>
                         <div className="flex-fill w-25">
                             <Label forInput="proj_date" value="Date Published:" />
-                            <Form.Control
+                            <input
                                 type="text"
                                 name="proj_date"
+                                className="form-admin w-100"
                                 placeholder="ex. March 2020"
                                 value={pub.proj_date}
                                 // onChange={(e) => handleChange(e, index)}
@@ -56,9 +58,10 @@ export default function Publications({ data, setData }) {
                     <div className="flex-fill d-flex p-2 gap-3">
                         <div className="flex-fill w-25">
                             <Label forInput="doi" value="DOI:" />
-                            <Form.Control   
+                            <input   
                                 type="text"
                                 name="doi"
+                                className="form-admin w-100"
                                 placeholder="DOI"
                                 value={pub.doi}
                                 // onChange={(e) => handleChange(e, index)}
@@ -67,10 +70,10 @@ export default function Publications({ data, setData }) {
                         </div>
                         <div className="flex-fill w-75">
                             <Label forInput="authors" value="Authors:" />
-                            <Form.Control
-                                as="textarea"
+                            <textarea
                                 type="text"
                                 name="authors"
+                                className="form-admin w-100"
                                 placeholder="ex. Dr. John Doe, JM Cruz, Mr. Juan Dela Cruz (required to put ,)"
                                 value={pub.authors}
                                 // onChange={(e) => handleChange(e, index)}

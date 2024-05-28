@@ -250,7 +250,7 @@ export default function FacultyInfo({ children }) {
                             <Academic data={data} setData={setData}/>
                         {/* RESEARCH FIELDS  */}
                             <div className="acf-title my-3 px-3">
-                                Research
+                                Research Activities
                             </div>
                             <ResearchActivities data={data} setData={setData}/>
                         {/* PUBLICATIONS FIELDS  */}
@@ -281,7 +281,7 @@ export default function FacultyInfo({ children }) {
                         {/* Profile Picture  */}
                         <form onSubmit={handleUpdateProfPic}>
                             <div className="admin-profile-pic-update-cont p-3">
-                                <div className="py-2 profile-image-cont">
+                                <div className="p-2 profile-image-cont">
                                     <Label forInput="profile-image" value="Profile Picture:" />
 
                                     <div className="d-flex justify-content-center py-2">

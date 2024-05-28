@@ -31,9 +31,10 @@ export default function ResearchActivities({ data, setData }) {
                     <div className="flex-fill d-flex p-2 gap-3">
                         <div className="flex-fill w-75">
                             <Label forInput="title" value="Research Title:" />
-                            <Form.Control
+                            <textarea
                                 type="text"
                                 name="title"
+                                className="form-admin w-100"
                                 placeholder="Research Title"
                                 value={res.title}
                                 // onChange={(e) => handleResActChange(e, index)}
@@ -42,9 +43,10 @@ export default function ResearchActivities({ data, setData }) {
                         </div>
                         <div className="flex-fill w-25">
                             <Label forInput="status" value="Status:" />
-                            <Form.Select
+                            <select
                                 type="text"
                                 name="status"
+                                className="form-admin w-100"
                                 value={res.status}
                                 // onChange={(e) => handleResActChange(e, index)}
                                 readOnly
@@ -52,16 +54,17 @@ export default function ResearchActivities({ data, setData }) {
                                 <option disabled value="">Status</option>
                                 <option value="On Going">On going</option>
                                 <option value="Complete">Complete</option>
-                            </Form.Select>
+                            </select>
                         </div>
                     </div>
                     
                     <div className="flex-fill d-flex p-2 gap-3">
                         <div className="flex-fill w-25">
                             <Label forInput="duration" value="Duration:" />
-                            <Form.Control   
+                            <input   
                                 type="text"
                                 name="duration"
+                                className="form-admin w-100"
                                 placeholder="ex. 3 Years or YYYY-YYYY"
                                 value={res.duration}
                                 // onChange={(e) => handleResActChange(e, index)}
@@ -70,10 +73,11 @@ export default function ResearchActivities({ data, setData }) {
                         </div>
                         <div className="flex-fill w-75">
                             <Label forInput="researchers" value="Researcher(s):" />
-                            <Form.Control
+                            <input
                                 as="textarea"
                                 type="text"
                                 name="researchers"
+                                className="form-admin w-100"
                                 placeholder="ex. Dr. John Doe, Ms. Jane Doe, JM Cruz, Mr. Juan Dela Cruz"
                                 value={res.researchers}
                                 // onChange={(e) => handleResActChange(e, index)}
