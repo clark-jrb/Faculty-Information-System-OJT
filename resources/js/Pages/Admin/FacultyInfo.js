@@ -127,6 +127,7 @@ export default function FacultyInfo({ children }) {
     const [showProfileUpdBtn, setShowProfileUpdBtn] = useState(false);
     const [addFileCont, setAddFileCont] = useState(false);
     const [fileData, setFileData] = useState([]);
+    const [toPrint, setToPrint] = useState('');
 
     const handleRemoveUpdate = () => {
         setRemoveUpdatePF(false)
@@ -202,6 +203,10 @@ export default function FacultyInfo({ children }) {
         }, 5000); 
     };
 
+    const handleToPrint = (e) => {
+        setToPrint(e.target.value)
+    }
+
     return (
         <AdminAuthenticated>
             <div className="admin-create-faculty-cont m-4">
@@ -216,13 +221,45 @@ export default function FacultyInfo({ children }) {
                         <p className="m-0">{faculty_data.fname + ' ' + faculty_data.lname}</p>
                     </div>
 
-                    <div className="ms-auto d-flex gap-2 align-items-center">
-                        <button className="print-btn py-1 px-2">
-                            <i className="fa-solid fa-print fa-sm"></i>&nbsp;Print data
-                        </button>
-                        <button className="print-btn py-1 px-2">
-                            <i className="fa-solid fa-print fa-sm"></i>&nbsp;Print publications
-                        </button>
+                    <div className="ms-auto d-flex w-50 gap-2 align-items-center">
+                        <Label forInput="select-to-print" value="Print:" />
+                        <select 
+                            name="select-to-print"
+                            type="text"
+                            className="form-select-admin w-50" 
+                            value={toPrint}
+                            onChange={handleToPrint}
+                        >
+                            <option disabled value="">Select to print</option>
+                            <option value="education">Education</option>
+                            <option value="work">Work Experience</option>
+                            <option value="research">Research Activities</option>
+                            <option value="publications">Publications</option>
+                            <option value="trainings">Trainings/ Seminars</option>
+                        </select>
+                        <div className="px-2">
+                            {toPrint === 'education' && 
+                                <button className="print-btn py-1 px-2">
+                                    <i className="fa-solid fa-print fa-sm"></i>&nbsp;Print Education
+                                </button>}
+                            {toPrint === 'work' && 
+                                <button className="print-btn py-1 px-2">
+                                    <i className="fa-solid fa-print fa-sm"></i>&nbsp;Print Work Experience
+                                </button>}
+                            {toPrint === 'research' && 
+                                <button className="print-btn py-1 px-2">
+                                    <i className="fa-solid fa-print fa-sm"></i>&nbsp;Print Research Activities
+                                </button>}
+                            {toPrint === 'publications' && 
+                                <button className="print-btn py-1 px-2">
+                                    <i className="fa-solid fa-print fa-sm"></i>&nbsp;Print Publications
+                                </button>}
+                            {toPrint === 'trainings' && 
+                                <button className="print-btn py-1 px-2">
+                                    <i className="fa-solid fa-print fa-sm"></i>&nbsp;Print Trainings/ Seminars
+                                </button>}
+                        </div>
+                        
                     </div>
                 </div>
                 {/* FIELDS  */}
@@ -272,7 +309,7 @@ export default function FacultyInfo({ children }) {
                             <Extensions data={data} setData={setData}/>
                             </> : <></>}
                         {/* TRAININGS/ SEMINARS */}
-                            {TrainingsData > 0 ? 
+                            {TrainingsData.length > 0 ? 
                             <>
                             <div className="acf-title my-3 px-3">
                                 Trainings/ Seminars Attended
