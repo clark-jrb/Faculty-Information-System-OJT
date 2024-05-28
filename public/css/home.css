@@ -210,7 +210,7 @@
     z-index: 2;
 }
 
-.DAE-facility-tables, .DAM-facility-tables {
+.AE-facility-tables, .AM-facility-tables {
     flex-wrap: nowrap !important;
 }
 
@@ -218,7 +218,7 @@
     flex-wrap: nowrap !important;
 }
 
-.DAE-image-box, .DAM-image-box {
+.AE-image-box, .AM-image-box {
     position: relative;
     width: 470px;
     height: 350px;
@@ -238,7 +238,7 @@
     cursor: pointer;
 }
 
-.DAE-image-box img, .DAM-image-box img {
+.AE-image-box img, .AM-image-box img {
     width: 470px;
     height: 350px;
     transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);

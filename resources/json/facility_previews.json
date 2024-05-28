@@ -1,0 +1,94 @@
+[
+    {
+        "name": "Agricultural Extension",
+        "abbreviation": "AE",
+        "hasCarousel": false,
+        "facilities": [
+            { "id": 1, "name": "DAE Laboratory 1 & 2", "imgSrc": "/images/dept_previews/ae_lab1.jpg" }
+        ]
+    },
+    {
+        "name": "Agri-Management",
+        "abbreviation": "AM",
+        "hasCarousel": false,
+        "facilities": [
+            { "id": 2, "name": "Agribusiness Computer Laboratory", "imgSrc": "/images/dept_previews/agribiz_lab1.jpg" }
+        ]
+    },
+    {
+        "name": "Animal Science",
+        "abbreviation": "AS",
+        "hasCarousel": true,
+        "facilities": [
+            [
+                { "id": 3, "name": "Animal Nutrition Laboratory", "imgSrc": "/images/dept_previews/an_lab2.jpg" },
+                { "id": 4, "name": "Animal Anatomy and Physiology Laboratory", "imgSrc": "/images/dept_previews/anp_lab.jpg" },
+                { "id": 5, "name": "Beef Cattle and Sheep Module", "imgSrc": "/images/dept_previews/bcmodule1.jpg" }
+            ],
+            [
+                { "id": 6, "name": "Meat Processing Laboratory", "imgSrc": "/images/dept_previews/mp_lab1.jpg" },
+                { "id": 7, "name": "Poultry Module I", "imgSrc": "/images/dept_previews/pmodule1.jpg" },
+                { "id": 8, "name": "Broiler Production Project", "imgSrc": "/images/dept_previews/bpp1.jpg" }
+            ],
+            [
+                { "id": 9, "name": "Small Ruminant Center", "imgSrc": "/images/dept_previews/src1.jpg" },
+                { "id": 10, "name": "Swine Production Project", "imgSrc": "/images/dept_previews/spp1.jpg" },
+                { "id": 11, "name": "Free Range Chicken Module", "imgSrc": "/images/dept_previews/fcp1.jpg" }
+            ]
+        ]
+    },
+    {
+        "name": "Crop Protection",
+        "abbreviation": "CP",
+        "hasCarousel": true,
+        "facilities": [
+            [
+                { "id": 12, "name": "Plant Pathology Laboratory 1 & 2", "imgSrc": "/images/dept_previews/an_lab2.jpg" },
+                { "id": 13, "name": "Entomology Lab 1 & 2", "imgSrc": "/images/dept_previews/anp_lab.jpg" },
+                { "id": 14, "name": "Insect Taxonomy Laboratory", "imgSrc": "/images/dept_previews/bcmodule1.jpg" }
+            ],
+            [
+                { "id": 15, "name": "The Preparation Room", "imgSrc": "/images/dept_previews/mp_lab1.jpg" },
+                { "id": 16, "name": "Plant Health Clinic", "imgSrc": "/images/dept_previews/pmodule1.jpg" }
+            ]
+        ]
+    },
+    {
+        "name": "Crop Science",
+        "abbreviation": "CS",
+        "hasCarousel": true,
+        "facilities": [
+            [
+                { "id": 17, "name": "Laboratory Rooms 111 & 112", "imgSrc": "/images/dept_previews/an_lab2.jpg" },
+                { "id": 18, "name": "Postharvest Laboratory", "imgSrc": "/images/dept_previews/anp_lab.jpg" },
+                { "id": 19, "name": "Tissue Culture Laboratory", "imgSrc": "/images/dept_previews/bcmodule1.jpg" }
+            ],
+            [
+                { "id": 20, "name": "Vegetable Production Module", "imgSrc": "/images/dept_previews/mp_lab1.jpg" },
+                { "id": 21, "name": "Ornamental Plant Production Module", "imgSrc": "/images/dept_previews/pmodule1.jpg" },
+                { "id": 22, "name": "Mixed Orchard and Plantation Crops Module", "imgSrc": "/images/dept_previews/bpp1.jpg" }
+            ],
+            [
+                { "id": 23, "name": "Rice Production Module", "imgSrc": "/images/dept_previews/src1.jpg" },
+                { "id": 24, "name": "RM-CARES", "imgSrc": "/images/dept_previews/spp1.jpg" },
+                { "id": 25, "name": "PhilsCAT", "imgSrc": "/images/dept_previews/fcp1.jpg" }
+            ]
+        ]
+    },
+    {
+        "name": "Soil Science",
+        "abbreviation": "SS",
+        "hasCarousel": true,
+        "facilities": [
+            [
+                { "id": 26, "name": "Plant Pathology Laboratory 1 & 2", "imgSrc": "/images/dept_previews/an_lab2.jpg" },
+                { "id": 27, "name": "Entomology Lab 1 & 2", "imgSrc": "/images/dept_previews/anp_lab.jpg" },
+                { "id": 28, "name": "Insect Taxonomy Laboratory", "imgSrc": "/images/dept_previews/bcmodule1.jpg" }
+            ],
+            [
+                { "id": 29, "name": "The Preparation Room", "imgSrc": "/images/dept_previews/mp_lab1.jpg" },
+                { "id": 30, "name": "Plant Health Clinic", "imgSrc": "/images/dept_previews/pmodule1.jpg" }
+            ]
+        ]
+    }
+]
