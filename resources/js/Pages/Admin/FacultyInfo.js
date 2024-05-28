@@ -202,10 +202,6 @@ export default function FacultyInfo({ children }) {
         }, 5000); 
     };
 
-    // useEffect(() => {
-    //     console.log(faculty_data.map(data => data.fname));
-    // }, [faculty_data]);
-
     return (
         <AdminAuthenticated>
             <div className="admin-create-faculty-cont m-4">
@@ -244,30 +240,45 @@ export default function FacultyInfo({ children }) {
                                 faculty_id={faculty_data.faculty_id}
                             />
                         {/* ACADEMIC FIELDS */}
+                            {AcadEducData.length > 0 ? 
+                            <>
                             <div className="acf-title my-3 px-3">
                                 Academic
                             </div>
                             <Academic data={data} setData={setData}/>
+                            </> : <></>}
                         {/* RESEARCH FIELDS  */}
+                            {ResearchActData.length > 0 ? 
+                            <>
                             <div className="acf-title my-3 px-3">
                                 Research Activities
                             </div>
                             <ResearchActivities data={data} setData={setData}/>
+                            </> : <></>}
                         {/* PUBLICATIONS FIELDS  */}
+                            {PublicationData.length > 0 ? 
+                            <>
                             <div className="acf-title my-3 px-3">
                                 Publications
                             </div>
                             <Publications data={data} setData={setData}/>
+                            </> : <></>}
                         {/* EXTENSION ACTIVITIES  */}
+                            {ExtActData > 0 ?
+                            <>
                             <div className="acf-title my-3 px-3">
                                 Extension Activities
                             </div>
                             <Extensions data={data} setData={setData}/>
-                        {/* DOCUMENTS  */}
+                            </> : <></>}
+                        {/* TRAININGS/ SEMINARS */}
+                            {TrainingsData > 0 ? 
+                            <>
                             <div className="acf-title my-3 px-3">
                                 Trainings/ Seminars Attended
                             </div>
                             <Trainings data={data} setData={setData}/>
+                            </> : <></>}
                         {/* SUBMIT BUTTON  */}
                             {/* <div className="admin-add-faculty d-flex justify-content-end py-3">
                                 <button className="p-3 py-2" type="submit" disabled={processing}>Update faculty</button>
@@ -331,7 +342,7 @@ export default function FacultyInfo({ children }) {
                             </div>
                         </form>
                         {/* Documents */}
-                        <div className="acf-title my-3 px-3">
+                        {/* <div className="acf-title my-3 px-3">
                             Files <span className="in-parenthesis">(certificates etc.)</span>
                         </div>
                         {DocumentData.map((file, index) => (
@@ -356,7 +367,7 @@ export default function FacultyInfo({ children }) {
                                     
                                 </form>
                             </div>
-                        ))}
+                        ))} */}
 
                         {/* {addFileCont && 
                         <>
