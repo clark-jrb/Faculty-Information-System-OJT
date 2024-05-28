@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Carousel } from 'react-bootstrap';
 import Authenticated from '@/Layouts/Authenticated';
 import BackToTopButton from '@/Components/BackToTopButton';
@@ -18,18 +18,25 @@ export default function Home(props) {
 
     // Modal Loop
     const facilities = [];
-    for (let i = 1; i <= 30; i++) {
+    for (let i = 0; i < facility_details.length; i++) {
         const facility = {
-            title: facility_details.title[i],
-            images: [`/images/deptmodal_pics/sample${i}_1.jpg`, `/images/deptmodal_pics/sample${i}_2.jpg`,
-            `/images/deptmodal_pics/sample${i}_3.jpg`],
-            description: facility_details.description[i],
+            title: facility_details[i].title,
+            description: facility_details[i].description,
+            images: facility_details[i].images 
         };
+
         facilities.push(facility);
     }
 
+    useEffect(() => {
+        console.log(facilities[selectedFacility]);
+        // facilities.forEach((facility, index) => {
+        //     console.log(`Facility ${index + 1} Images:`, facility.images);
+        // });
+    }, [facilities]);
+
     const [showModal, setShowModal] = useState(false);
-    const [selectedFacility, setSelectedFacility] = useState(null);
+    const [selectedFacility, setSelectedFacility] = useState('');
 
     const handleCloseModal = () => {
         setShowModal(false);
@@ -104,7 +111,7 @@ export default function Home(props) {
                                                                 <div className="image-overlay" onClick={() => handleOpenModal(facility.id)}></div>
                                                                 <img src={facility.imgSrc} alt={facility.name} />
                                                                 <p className="facility-text">{facility.name}</p>
-                                                                <FacilityModal show={modalStates[facility.id]} handleClose={() => handleCloseModal(facility.id)} />
+                                                                <FacilityModal show={showModal} facility={selectedFacility} handleClose={() => handleCloseModal(facility.id)} />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -123,7 +130,7 @@ export default function Home(props) {
                                                         <div className="image-overlay" onClick={() => handleOpenModal(facility.id)}></div>
                                                         <img src={facility.imgSrc} alt={facility.name} />
                                                         <p className="facility-text">{facility.name}</p>
-                                                        <FacilityModal show={modalStates[facility.id]} handleClose={() => handleCloseModal(facility.id)} />
+                                                        <FacilityModal show={showModal} facility={selectedFacility} handleClose={() => handleCloseModal(facility.id)} />
                                                     </div>
                                                 </div>
                                             </div>

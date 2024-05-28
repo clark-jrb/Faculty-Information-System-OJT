@@ -1,7 +1,8 @@
 [
     {
         "title": "DAE Laboratory 1 & 2",
-        "description": "These serve as venues for practical and hands-on activities of the Agricultural Extension major students, such as conduct of extension communication activities, technology protocol demonstrations, and role playing of extension modalities/strategies like training, focus group discussion, key informant interviews, field/action research interviews, and development of knowledge products."
+        "description": "These serve as venues for practical and hands-on activities of the Agricultural Extension major students, such as conduct of extension communication activities, technology protocol demonstrations, and role playing of extension modalities/strategies like training, focus group discussion, key informant interviews, field/action research interviews, and development of knowledge products.",
+        "images": ["../../../public/images/deptmodal_pics/ae_lab/ae_lab2.jpg"]
     },
     {
         "title": "Agribusiness Computer Laboratory",

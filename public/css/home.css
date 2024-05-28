@@ -285,7 +285,7 @@
 }
 
 .scrollableContainer {
-    max-height: 650px;
+    max-height: 700px;
     overflow-y: auto;
 }
 

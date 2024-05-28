@@ -10,7 +10,8 @@ export default function FacilityModal({ show, handleClose, facility }) {
 
             <Modal.Body>
                 <Carousel>
-                    {facility.images.map((image, index) => (
+                    {/* {facility && 
+                    facility.images.map((image, index) => (
                         <Carousel.Item key={index} className="carousel-item">
                             <img
                                 className="d-block w-100 carousel-image"
@@ -18,7 +19,7 @@ export default function FacilityModal({ show, handleClose, facility }) {
                                 alt={`Facility ${index + 1}`}
                             />
                         </Carousel.Item>
-                    ))}
+                    ))} */}
                 </Carousel>
                 <div className="facility-info text-center">
                     <h6>Title: {facility.title}</h6>
