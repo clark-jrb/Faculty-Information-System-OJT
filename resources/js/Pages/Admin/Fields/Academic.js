@@ -42,10 +42,6 @@ export default function Academic({ data, setData }) {
         );
     };
 
-    // useEffect(() => {
-    //     console.log(data);
-    // }, [data]);
-
     return (
         <div className={`create-academic-fields ${route().current('admin.create') ? 'w-75' : 'w-100'} p-3`}>
     {/* Education  */}

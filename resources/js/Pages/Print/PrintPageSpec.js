@@ -8,14 +8,15 @@ import { Inertia } from '@inertiajs/inertia';
 
 export default function PrintPageSpec() {
     const {
-        faculty_data
+        faculty_data,
+        basic_info
     } = usePage().props;
 
     const { specific } = useFilterDataContext()
 
-    useEffect(() => {
-        console.log(faculty_data);
-    }, [faculty_data]);
+    // useEffect(() => {
+    //     console.log(faculty_data);
+    // }, [faculty_data]);
 
     const componentRef = useRef();
 
@@ -27,6 +28,10 @@ export default function PrintPageSpec() {
     const handleGoBack = () => {
         Inertia.visit(route('admin.faculty.show', { id: specific.faculty_id}))
     }
+
+    useEffect(() => {
+        console.log(basic_info.fname);
+    }, [basic_info]);
 
     return (
         <AdminAuthenticated>
@@ -41,7 +46,7 @@ export default function PrintPageSpec() {
                 </div>
 
                 <div className="px-4 w-75">
-                    <PageSpec ref={componentRef} data={faculty_data} specify={specific.toPrint}/>
+                    <PageSpec ref={componentRef} data={faculty_data} specify={specific.toPrint} basic={basic_info}/>
                 </div>
             </div>
         </AdminAuthenticated>
