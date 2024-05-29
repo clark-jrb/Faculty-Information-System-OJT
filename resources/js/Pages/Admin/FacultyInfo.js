@@ -130,7 +130,7 @@ export default function FacultyInfo({ children }) {
     const [addFileCont, setAddFileCont] = useState(false);
     const [fileData, setFileData] = useState([]);
 
-    const { handleToPrint, specific, toPrint } = useFilterDataContext()
+    const { handleToPrint, specific, toPrint, handleResetSpecific } = useFilterDataContext()
 
     const handleRemoveUpdate = () => {
         setRemoveUpdatePF(false)
@@ -209,6 +209,10 @@ export default function FacultyInfo({ children }) {
     const handleRedirectToPrint = () => {
         Inertia.get('/admin/printSpec', specific)
     }
+
+    useEffect(() => {
+        handleResetSpecific()
+    }, []);
 
     return (
         <AdminAuthenticated>
