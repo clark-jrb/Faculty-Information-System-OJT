@@ -13,6 +13,8 @@ import Extensions from "./Fields/Extensions";
 import Trainings from "./Fields/Trainings";
 import Label from "@/Components/Label";
 import { handleFieldChange } from "@/utils/forms";
+import { Inertia } from "@inertiajs/inertia";
+import { useFilterDataContext } from "@/Contexts/FilterData";
 
 export default function FacultyInfo({ children }) {
     const { 
@@ -127,7 +129,8 @@ export default function FacultyInfo({ children }) {
     const [showProfileUpdBtn, setShowProfileUpdBtn] = useState(false);
     const [addFileCont, setAddFileCont] = useState(false);
     const [fileData, setFileData] = useState([]);
-    const [toPrint, setToPrint] = useState('');
+
+    const { handleToPrint, specific, toPrint } = useFilterDataContext()
 
     const handleRemoveUpdate = () => {
         setRemoveUpdatePF(false)
@@ -203,8 +206,8 @@ export default function FacultyInfo({ children }) {
         }, 5000); 
     };
 
-    const handleToPrint = (e) => {
-        setToPrint(e.target.value)
+    const handleRedirectToPrint = () => {
+        Inertia.get('/admin/printSpec', specific)
     }
 
     return (
@@ -228,7 +231,7 @@ export default function FacultyInfo({ children }) {
                             type="text"
                             className="form-select-admin w-50" 
                             value={toPrint}
-                            onChange={handleToPrint}
+                            onChange={(e) => handleToPrint(e, faculty_data.faculty_id)}
                         >
                             <option disabled value="">Select to print</option>
                             <option value="education">Education</option>
@@ -239,23 +242,23 @@ export default function FacultyInfo({ children }) {
                         </select>
                         <div className="px-2">
                             {toPrint === 'education' && 
-                                <button className="print-btn py-1 px-2">
+                                <button className="print-btn py-1 px-2" onClick={() => handleRedirectToPrint()}>
                                     <i className="fa-solid fa-print fa-sm"></i>&nbsp;Print Education
                                 </button>}
                             {toPrint === 'work' && 
-                                <button className="print-btn py-1 px-2">
+                                <button className="print-btn py-1 px-2" onClick={() => handleRedirectToPrint()}>
                                     <i className="fa-solid fa-print fa-sm"></i>&nbsp;Print Work Experience
                                 </button>}
                             {toPrint === 'research' && 
-                                <button className="print-btn py-1 px-2">
+                                <button className="print-btn py-1 px-2" onClick={() => handleRedirectToPrint()}>
                                     <i className="fa-solid fa-print fa-sm"></i>&nbsp;Print Research Activities
                                 </button>}
                             {toPrint === 'publications' && 
-                                <button className="print-btn py-1 px-2">
+                                <button className="print-btn py-1 px-2" onClick={() => handleRedirectToPrint()}>
                                     <i className="fa-solid fa-print fa-sm"></i>&nbsp;Print Publications
                                 </button>}
                             {toPrint === 'trainings' && 
-                                <button className="print-btn py-1 px-2">
+                                <button className="print-btn py-1 px-2" onClick={() => handleRedirectToPrint()}>
                                     <i className="fa-solid fa-print fa-sm"></i>&nbsp;Print Trainings/ Seminars
                                 </button>}
                         </div>
