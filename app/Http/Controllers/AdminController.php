@@ -435,8 +435,12 @@ class AdminController extends Controller
         }
 
         $facultyData = $query->get();
+        $basicInfo = Basic_Info::where('faculty_id', $faculty_id)->firstOrFail();
 
-        return Inertia::render('Print/PrintPageSpec', ['faculty_data' => $facultyData]);
+        return Inertia::render('Print/PrintPageSpec', [
+            'faculty_data' => $facultyData, 
+            'basic_info' => $basicInfo
+        ]);
     }
 
     /**

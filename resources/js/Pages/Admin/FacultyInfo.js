@@ -41,8 +41,8 @@ export default function FacultyInfo({ children }) {
     const AcadWorkData = acadWork_data.map(item => ({
         id: item.id,
         work_position: item.position,
-        work_institution: item.location,
-        work_location: item.work_loc,
+        work_institution: item.work_loc,
+        work_location: item.location,
         work_date: item.date
     }));
 

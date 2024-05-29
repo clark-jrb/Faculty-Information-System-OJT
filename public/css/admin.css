@@ -468,3 +468,19 @@
     /* box-shadow: 0 1.5px 3px 0 #ccc; */
     background-color: whitesmoke;
 }
+
+.print-name {
+    /* text-decoration: underline; */
+    /* text-underline-offset: 5px; */
+    width: 100%;
+    border-bottom: var(--grey) solid 1px;
+}
+
+.admin-line {
+    width: 100%;
+    border: #92D12C solid 3px;
+}
+
+.page-spec-data {
+    border-bottom: #ccc solid 1px;
+}

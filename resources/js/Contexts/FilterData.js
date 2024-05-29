@@ -78,9 +78,9 @@ export const FilterDataProvider = ({ children }) => {
         setActiveDept(e)
     }
 
-    useEffect(() => {
-        console.log(specific);
-    }, [specific]);
+    // useEffect(() => {
+    //     console.log(specific);
+    // }, [specific]);
 
     return (
         <FilterDataContext.Provider value={{ 
