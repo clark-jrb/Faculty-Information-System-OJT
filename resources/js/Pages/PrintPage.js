@@ -17,7 +17,7 @@ export default function PrintPage() {
 
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
-        documentTitle: 'CAg Faculties'
+        documentTitle: 'CAg Faculty Members'
     });
 
     const handleGoBack = () => {

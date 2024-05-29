@@ -105,6 +105,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/admin/faculty/{id}', [AdminController::class, 'show'])->name('admin.faculty.show');
 
         Route::get('/admin/print', [AdminController::class, 'showFacultiesOnPrint'])->name('print');
+        Route::get('/admin/printSpec', [AdminController::class, 'printSpecific'])->name('printSpec');
     });
 });
 

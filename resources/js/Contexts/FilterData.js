@@ -9,6 +9,8 @@ export const FilterDataProvider = ({ children }) => {
     const [selectedDepartment, setSelectedDepartment] = useState('');
     const [activeDept, setActiveDept] = useState('');
     const [filters, setFilters] = useState([{ rank: '', degree: '', department: '' }]);
+    const [specific, setSpecific] = useState([{ faculty_id: '', toPrint: '' }]);
+    const [toPrint, setToPrint] = useState('');
 
     useEffect(() => {
         if (!selectedRank && !selectedDegree && !selectedDepartment) {
@@ -56,13 +58,29 @@ export const FilterDataProvider = ({ children }) => {
         }))
     }
 
+    const handleResetSpecific = () => {
+        setToPrint('')
+        setSpecific({
+            faculty_id: '',
+            toPrint: ''
+        })
+    }
+
+    const handleToPrint = (e, id) => {
+        setToPrint(e.target.value)
+        setSpecific({
+            faculty_id: id,
+            toPrint: e.target.value
+        })
+    }
+
     const handleActiveDept = (e) => {
         setActiveDept(e)
     }
 
-    // useEffect(() => {
-    //     console.log(filters);
-    // }, [filters]);
+    useEffect(() => {
+        console.log(specific);
+    }, [specific]);
 
     return (
         <FilterDataContext.Provider value={{ 
@@ -75,7 +93,11 @@ export const FilterDataProvider = ({ children }) => {
             handleSelectedDepartment,
             handleActiveDept,
             filters,
-            handleResetFilter
+            handleResetFilter,
+            specific,
+            handleToPrint,
+            toPrint,
+            handleResetSpecific
         }}>
             {children}
         </FilterDataContext.Provider>
