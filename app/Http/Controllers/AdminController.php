@@ -417,6 +417,18 @@ class AdminController extends Controller
             case 'education':
                 $query = Acad_Education::where('faculty_id', 'like', $faculty_id);
                 break;
+            case 'work':
+                $query = Acad_WorkExp::where('faculty_id', 'like', $faculty_id);
+                break;
+            case 'research':
+                $query = ResActivity::where('faculty_id', 'like', $faculty_id);
+                break;
+            case 'publications':
+                $query = Publication::where('faculty_id', 'like', $faculty_id);
+                break;
+            case 'trainings':
+                $query = Trainings::where('faculty_id', 'like', $faculty_id);
+                break;
             default:
                 $query = Basic_Info::where('faculty_id', $faculty_id);
                 break;

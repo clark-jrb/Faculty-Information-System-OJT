@@ -246,19 +246,19 @@ export default function FacultyInfo({ children }) {
                                     <i className="fa-solid fa-print fa-sm"></i>&nbsp;Print Education
                                 </button>}
                             {toPrint === 'work' && 
-                                <button className="print-btn py-1 px-2">
+                                <button className="print-btn py-1 px-2" onClick={() => handleRedirectToPrint()}>
                                     <i className="fa-solid fa-print fa-sm"></i>&nbsp;Print Work Experience
                                 </button>}
                             {toPrint === 'research' && 
-                                <button className="print-btn py-1 px-2">
+                                <button className="print-btn py-1 px-2" onClick={() => handleRedirectToPrint()}>
                                     <i className="fa-solid fa-print fa-sm"></i>&nbsp;Print Research Activities
                                 </button>}
                             {toPrint === 'publications' && 
-                                <button className="print-btn py-1 px-2">
+                                <button className="print-btn py-1 px-2" onClick={() => handleRedirectToPrint()}>
                                     <i className="fa-solid fa-print fa-sm"></i>&nbsp;Print Publications
                                 </button>}
                             {toPrint === 'trainings' && 
-                                <button className="print-btn py-1 px-2">
+                                <button className="print-btn py-1 px-2" onClick={() => handleRedirectToPrint()}>
                                     <i className="fa-solid fa-print fa-sm"></i>&nbsp;Print Trainings/ Seminars
                                 </button>}
                         </div>

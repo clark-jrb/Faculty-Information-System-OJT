@@ -11,11 +11,11 @@ export default function PrintPageSpec() {
         faculty_data
     } = usePage().props;
 
-    const { toPrint, specific } = useFilterDataContext()
+    const { specific } = useFilterDataContext()
 
     useEffect(() => {
-        console.log(specific);
-    }, [specific]);
+        console.log(faculty_data);
+    }, [faculty_data]);
 
     const componentRef = useRef();
 
@@ -41,7 +41,7 @@ export default function PrintPageSpec() {
                 </div>
 
                 <div className="px-4 w-75">
-                    <PageSpec ref={componentRef} data={faculty_data}/>
+                    <PageSpec ref={componentRef} data={faculty_data} specify={specific.toPrint}/>
                 </div>
             </div>
         </AdminAuthenticated>
