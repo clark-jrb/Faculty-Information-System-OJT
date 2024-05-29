@@ -78,11 +78,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/', fn () => Inertia::render('Home'))->name('home');
         // Dept Facility Route
         Route::get('/agricultural-extension', fn () => Inertia::render('HomeDept/AEFacility'))->name('agricultural.extension');
-        Route::get('/agri-management', fn () => Inertia::render('HomeDept/AMFacilty'))->name('agri.management');
-        Route::get('/animal-science', fn () => Inertia::render('HomeDept/ASFacilty'))->name('animal.science');
-        Route::get('/crop-protection', fn () => Inertia::render('HomeDept/CPFacilty'))->name('crop.protection');
-        Route::get('/crop-science', fn () => Inertia::render('HomeDept/CSFacilty'))->name('crop.science');
-        Route::get('/soil-science', fn () => Inertia::render('HomeDept/SSFacilty'))->name('soil.science');
+        Route::get('/agri-management', fn () => Inertia::render('HomeDept/AMFacility'))->name('agri.management');
+        Route::get('/animal-science', fn () => Inertia::render('HomeDept/ASFacility'))->name('animal.science');
+        Route::get('/crop-protection', fn () => Inertia::render('HomeDept/CPFacility'))->name('crop.protection');
+        Route::get('/crop-science', fn () => Inertia::render('HomeDept/CSFacility'))->name('crop.science');
+        Route::get('/soil-science', fn () => Inertia::render('HomeDept/SSFacility'))->name('soil.science');
     });
     
     // For Admin
