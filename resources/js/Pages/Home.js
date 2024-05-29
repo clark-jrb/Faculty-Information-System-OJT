@@ -87,62 +87,6 @@ export default function Home(props) {
                 </div>
             </div>
 
-            {/* Facilities Section */}
-            <div className="scrollableContainer">
-                <div className="facilitiesSection">
-                    <div className="facilitiesHeader">
-                            <h2 className='facilitiesTitle'>Facilities</h2>
-                    </div>
-                    {/* Department Facilities */}
-                    {facility_previews.map((department, deptIndex) => (
-                        <div key={deptIndex}>
-                            <div className={`${department.abbreviation}Header`}>
-                                <h2 className={`${department.abbreviation}Title`}>{department.name}</h2>
-                            </div>
-                            {department.hasCarousel ? (
-                                <Carousel>
-                                    {department.facilities.map((facilityBatch, batchIndex) => (
-                                        <Carousel.Item key={batchIndex}>
-                                            <div className="facility-tables row">
-                                                {facilityBatch.map((facility, index) => (
-                                                    <div key={index} className="col-md-4">
-                                                        <div className="facility-item">
-                                                            <div className={`${department.abbreviation}-image-box`}>
-                                                                <div className="image-overlay" onClick={() => handleOpenModal(facility.id)}></div>
-                                                                <img src={facility.imgSrc} alt={facility.name} />
-                                                                <p className="facility-text">{facility.name}</p>
-                                                                <FacilityModal show={showModal} facility={selectedFacility} handleClose={() => handleCloseModal(facility.id)} />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        </Carousel.Item>
-                                    ))}
-                                </Carousel>
-                            ) : (
-                                <div className='facilitiesContainer'>
-                                    <div className={`${department.abbreviation}-facility-tables row`}>
-                                        {department.facilities.map((facility, index) => (
-                                            <div key={index} className="col-md-4">
-                                                <div className="facility-item">
-                                                    <div className={`${department.abbreviation}-image-box`}>
-                                                        <div className="image-overlay" onClick={() => handleOpenModal(facility.id)}></div>
-                                                        <img src={facility.imgSrc} alt={facility.name} />
-                                                        <p className="facility-text">{facility.name}</p>
-                                                        <FacilityModal show={showModal} facility={selectedFacility} handleClose={() => handleCloseModal(facility.id)} />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-                    ))}
-                </div>
-            </div>
-
             {/* Footer Section */}
             <div className="footer">
                 <div className="footer-content">

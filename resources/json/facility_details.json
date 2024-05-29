@@ -2,122 +2,193 @@
     {
         "title": "DAE Laboratory 1 & 2",
         "description": "These serve as venues for practical and hands-on activities of the Agricultural Extension major students, such as conduct of extension communication activities, technology protocol demonstrations, and role playing of extension modalities/strategies like training, focus group discussion, key informant interviews, field/action research interviews, and development of knowledge products.",
-        "images": ["../../../public/images/deptmodal_pics/ae_lab/ae_lab2.jpg"]
+        "images": ["../../../public/images/deptmodal_pics/AE/ae_lab1.jpg", 
+        "../../../public/images/deptmodal_pics/AE/ae_lab2.jpg"]
     },
     {
         "title": "Agribusiness Computer Laboratory",
-        "description": "The computer laboratory is basically for instructional purposes, where statistical as well as economics and financial analyses can be illustrated to students using available software. It also provides services to students for data encoding and analyses whenever no classes are held in the room."
+        "description": "The computer laboratory is basically for instructional purposes, where statistical as well as economics and financial analyses can be illustrated to students using available software. It also provides services to students for data encoding and analyses whenever no classes are held in the room.",
+        "images": ["../../../public/images/deptmodal_pics/AM/agribiz_lab1.jpg", 
+        "../../../public/images/deptmodal_pics/AM/agribiz_lab2.jpg"]
     },
     {
         "title": "Animal Nutrition Laboratory",
-        "description": "The laboratory supports the practical class works in animal science subjects. At present, it is equipped with facilities for moisture analysis, crude fat and feed microscopy. It has a set of weighing scales, feed mixers, stereoscopes and compound microscopes."
+        "description": "The laboratory supports the practical class works in animal science subjects. At present, it is equipped with facilities for moisture analysis, crude fat and feed microscopy. It has a set of weighing scales, feed mixers, stereoscopes and compound microscopes.",
+        "images": ["../../../public/images/deptmodal_pics/AS/an_lab1.jpg", 
+        "../../../public/images/deptmodal_pics/AS/an_lab2.jpg"]
     },
     {
-        "title": "Animal Anatomy and Physiology",
-        "description": "The laboratory is a learning place for the different body systems and organs of domestic animals. Mounted skeleton and live specimens are available for demo in class."
+        "title": "Animal Anatomy and Physiology Laboratory",
+        "description": "The laboratory is a learning place for the different body systems and organs of domestic animals. Mounted skeleton and live specimens are available for demo in class.",
+        "images": ["../../../public/images/deptmodal_pics/AS/app_lab1.jpg"]
     },
     {
         "title": "Beef Cattle and Sheep Module",
-        "description": "The project occupies an area of about 40 hectares. It has a newly-constructed shed for animals, feedlot fattening and coral. The project is being operated as a breeding-fattening enterprise with 20 breeding cows which is used for instructional purposes."
+        "description": "The project occupies an area of about 40 hectares. It has a newly-constructed shed for animals, feedlot fattening and coral. The project is being operated as a breeding-fattening enterprise with 20 breeding cows which is used for instructional purposes.",
+        "images": ["../../../public/images/deptmodal_pics/AS/bcmodule1.jpg", 
+        "../../../public/images/deptmodal_pics/AS/bcmodule2.jpg"]
     },
     {
         "title": "Meat Processing Laboratory",
-        "description": "The laboratory supports the activities in the subject Slaughter of Animals and Processing of their Products. It is provided with refrigerators, freezers, meat grinder, and cooking facilities/utensils."
+        "description": "The laboratory supports the activities in the subject Slaughter of Animals and Processing of their Products. It is provided with refrigerators, freezers, meat grinder, and cooking facilities/utensils.",
+        "images": ["../../../public/images/deptmodal_pics/AS/mp_lab1.jpg", 
+        "../../../public/images/deptmodal_pics/AS/map_lab2.jpg"]
     },
     {
         "title": "Poultry Module I",
-        "description": "The project supports laboratory activities in Poultry Production and student research. It is also one of the venues for in-campus major practice under poultry productionThe project occupies an area of about 0.70 hectares. It is engaged in the production of chicken eggs (6000 layers), and replacement pullets (3,000 per batch). The project supports laboratory activities in Poultry Production and student research. It is also one of the venues for in-campus major practice under poultry production."
+        "description": "The project supports laboratory activities in Poultry Production and student research. It is also one of the venues for in-campus major practice under poultry productionThe project occupies an area of about 0.70 hectares. It is engaged in the production of chicken eggs (6000 layers), and replacement pullets (3,000 per batch). The project supports laboratory activities in Poultry Production and student research. It is also one of the venues for in-campus major practice under poultry production.",
+        "images": ["../../../public/images/deptmodal_pics/AS/pmodule1.jpg", 
+        "../../../public/images/deptmodal_pics/AS/pmodule2.jpg",
+        "../../../public/images/deptmodal_pics/AS/pmodule3.jpg"]
     },
     {
         "title": "Broiler Production Project",
-        "description": "The project occupies an area of almost 2.0 hectares with tub tunnel ventilated houses with capacity of 50,000 heads per cycle. It is used primarily for in-campus major practice in poultry production."
+        "description": "The project occupies an area of almost 2.0 hectares with tub tunnel ventilated houses with capacity of 50,000 heads per cycle. It is used primarily for in-campus major practice in poultry production.",
+        "images": ["../../../public/images/deptmodal_pics/AS/bpp1.jpg", 
+        "../../../public/images/deptmodal_pics/AS/bpp2.jpg",
+        "../../../public/images/deptmodal_pics/AS/bpp3.jpg"]
     },
     {
         "title": "Small Ruminant Center",
-        "description": "The small ruminant production project consists of various genotypes of goats and a few heads of island-born sheep. It is used primarily to support laboratory activities in Animal Science and as a venue for student research and major practice in small ruminant production."
+        "description": "The small ruminant production project consists of various genotypes of goats and a few heads of island-born sheep. It is used primarily to support laboratory activities in Animal Science and as a venue for student research and major practice in small ruminant production.",
+        "images": ["../../../public/images/deptmodal_pics/AS/src1.jpg", 
+        "../../../public/images/deptmodal_pics/AS/src2.jpg",
+        "../../../public/images/deptmodal_pics/AS/src3.jpg"]
     },
     {
         "title": "Swine Production Project",
-        "description": "The project occupies an area of 0.50 hectare and is operated as a breeding-weanling-fattening enterprise, with 50 sow level. It supports the laboratory activities in Animal Science, and serves as venues for student research and in-campus major practice of swine production."
+        "description": "The project occupies an area of 0.50 hectare and is operated as a breeding-weanling-fattening enterprise, with 50 sow level. It supports the laboratory activities in Animal Science, and serves as venues for student research and in-campus major practice of swine production.",
+        "images": ["../../../public/images/deptmodal_pics/AS/spp1.jpg", 
+        "../../../public/images/deptmodal_pics/AS/spp2.jpg"]
     },
     {
         "title": "Free Range Chicken Module",
-        "description": "The project consists of two different breeds of free range chicken (Rhode Island Red and Plymouth Rock) which primarily subsist on forage grasses and supplements of rice bran, occasional commercial feeds, and other alternative feed ingredients."
+        "description": "The project consists of two different breeds of free range chicken (Rhode Island Red and Plymouth Rock) which primarily subsist on forage grasses and supplements of rice bran, occasional commercial feeds, and other alternative feed ingredients.",
+        "images": ["../../../public/images/deptmodal_pics/AS/fcp1.jpg", 
+        "../../../public/images/deptmodal_pics/AS/fcp2.jpg"]
     },
     {
         "title": "Plant Pathology Laboratory 1 & 2",
-        "description": "Laboratory classes for basic and major courses in Crop Protection are conducted in this room."
+        "description": "Laboratory classes for basic and major courses in Crop Protection are conducted in this room.",
+        "images": ["../../../public/images/deptmodal_pics/CP/pp_lab1.jpg"]
     },
     {
         "title": "Entomology Laboratory 1 & 2",
-        "description": "The Entomology Lab 1 is used for a class with a small group of students. On the other hand, Entomology Lab 2 can occupy a bigger class with 25-30 students. Both laboratory rooms have a storage room used for keeping the visual aids, insect collections and other instructional materials used for Crop Protection basic and major courses and serve as working areas for the laboratory classes of students enrolled in crop protection subjects."
+        "description": "The Entomology Lab 1 is used for a class with a small group of students. On the other hand, Entomology Lab 2 can occupy a bigger class with 25-30 students. Both laboratory rooms have a storage room used for keeping the visual aids, insect collections and other instructional materials used for Crop Protection basic and major courses and serve as working areas for the laboratory classes of students enrolled in crop protection subjects.",
+        "images": ["../../../public/images/deptmodal_pics/CP/ento_lab1.jpg"]
     },
     {
         "title": "Insect Taxonomy Laboratory",
-        "description": "This room is provided to the students who are interested in the field of insect taxonomy. Inside the room is a faculty office, wall fans are available to provide comfort to students."
+        "description": "This room is provided to the students who are interested in the field of insect taxonomy. Inside the room is a faculty office, wall fans are available to provide comfort to students.",
+        "images": ["../../../public/images/deptmodal_pics/CP/it_lab1.jpg", 
+        "../../../public/images/deptmodal_pics/CP/it_lab2.jpg"]
     },
     {
         "title": "The Preparation Room",
-        "description": "This room caters the needs of the laboratory activities of students in the department. Such activities include preparation and sterilization of culture media, preparation of reagents and other materials, washing and sterilization of glassware, and issuance of microscopes."
+        "description": "This room caters the needs of the laboratory activities of students in the department. Such activities include preparation and sterilization of culture media, preparation of reagents and other materials, washing and sterilization of glassware, and issuance of microscopes.",
+        "images": ["../../../public/images/deptmodal_pics/CP/pr1.jpg", 
+        "../../../public/images/deptmodal_pics/CP/pr2.jpg",
+        "../../../public/images/deptmodal_pics/CP/pr3.jpg"]
     },
     {
         "title": "Plant Health Clinic (PHC)",
-        "description": "Also known as Plant Pests and Diseases Clinic Surveillance Research Center (PPDCSRC), focuses on the holistic and multidisciplinary approach in plant health by ensuring the development of nature-positive, innovative, and sensible solutions to attain plant health and contribute to sustainable food systems."
+        "description": "Also known as Plant Pests and Diseases Clinic Surveillance Research Center (PPDCSRC), focuses on the holistic and multidisciplinary approach in plant health by ensuring the development of nature-positive, innovative, and sensible solutions to attain plant health and contribute to sustainable food systems.",
+        "images": ["../../../public/images/deptmodal_pics/CP/phc1.jpg", 
+        "../../../public/images/deptmodal_pics/CP/phc2.jpg",
+        "../../../public/images/deptmodal_pics/CP/phc3.jpg"]
     },
     {
         "title": "Laboratory Rooms 111 and 112",
-        "description": "These laboratory rooms Laboratory Rooms serve as venues for the conduct of the following activities such as: weighing of plant samples, e.g.seed/grain samples; seed testing such as seed purity, germination, seed moisture, and seed vigor; and experiments on plant growth and development."
+        "description": "These laboratory rooms Laboratory Rooms serve as venues for the conduct of the following activities such as: weighing of plant samples, e.g.seed/grain samples; seed testing such as seed purity, germination, seed moisture, and seed vigor; and experiments on plant growth and development.",
+        "images": ["../../../public/images/deptmodal_pics/CS/lab112_1.jpg", 
+        "../../../public/images/deptmodal_pics/CS/lab112_2.jpg",
+        "../../../public/images/deptmodal_pics/CS/lab112_3.jpg"]
     },
     {
         "title": "Postharvest Laboratory",
-        "description": "Postharvest Laboratory is a specialized laboratory catering the conduct of researches and experiments on the storability of major perishables commodities mainly fruits and vegetables."
+        "description": "Postharvest Laboratory is a specialized laboratory catering the conduct of researches and experiments on the storability of major perishables commodities mainly fruits and vegetables.",
+        "images": ["../../../public/images/deptmodal_pics/CS/ph_lab1.jpg", 
+        "../../../public/images/deptmodal_pics/CS/ph_lab2.jpg"]
     },
     {
         "title": "Tissue Culture Laboratory",
-        "description": "Tissue Culture Laboratory is a specialized laboratory in which asexual propagation, through tissue culture, of major high value crops especially banana is being done."
+        "description": "Tissue Culture Laboratory is a specialized laboratory in which asexual propagation, through tissue culture, of major high value crops especially banana is being done.",
+        "images": ["../../../public/images/deptmodal_pics/CS/tc_lab1.jpg", 
+        "../../../public/images/deptmodal_pics/CS/tc_lab2.jpg",
+        "../../../public/images/deptmodal_pics/CS/tc_lab3.jpg"]
     },
     {
         "title": "Vegetable Production Module",
-        "description": "The vegetable production module has an area of almost 2.2 hectares planted with different kinds of lowland vegetables such as tomato, eggplant, pepper, luffa, mungbean, bitter gourd and stringbeans. The area is used by students for actual performance of exercises on the cultural management practices of each crop and venue for the major practice in vegetable production."
+        "description": "The vegetable production module has an area of almost 2.2 hectares planted with different kinds of lowland vegetables such as tomato, eggplant, pepper, luffa, mungbean, bitter gourd and stringbeans. The area is used by students for actual performance of exercises on the cultural management practices of each crop and venue for the major practice in vegetable production.",
+        "images": ["../../../public/images/deptmodal_pics/CS/vp_module1.jpg", 
+        "../../../public/images/deptmodal_pics/CS/vp_module2.jpg"]
     },
     {
         "title": "Ornamental Plant Production Module",
-        "description": "Various plant collections in the module serve as instructional materials. The plants serve as guides in the identification of ornamental plants. Students also perform hands-on preparation of soil mixture, potting/repotting of ornamental plants, and vegetable/asexual plant propagation (marcotting, grafting, and stem/leaf cutting)."
+        "description": "Various plant collections in the module serve as instructional materials. The plants serve as guides in the identification of ornamental plants. Students also perform hands-on preparation of soil mixture, potting/repotting of ornamental plants, and vegetable/asexual plant propagation (marcotting, grafting, and stem/leaf cutting).",
+        "images": ["../../../public/images/deptmodal_pics/CS/opp_module1.jpg", 
+        "../../../public/images/deptmodal_pics/CS/opp_module2.jpg"]
     },
     {
         "title": "Mixed Orchard and Plantation Crops Module",
-        "description": "The area is planted and maintained with different fruit trees like mango, rambutan, cacao, coffee, lanzones, and chico. The orchard serves as an instructional area, where students taking-up Fruits and Plantation Crops (HORT 3310) and Practices in Crop Production (CRSCI 1105) perform different actual hands-on cultural management practices such as maintenance and asexual propagation. It also serves as a germplasm collection for identification and propagation."
+        "description": "The area is planted and maintained with different fruit trees like mango, rambutan, cacao, coffee, lanzones, and chico. The orchard serves as an instructional area, where students taking-up Fruits and Plantation Crops (HORT 3310) and Practices in Crop Production (CRSCI 1105) perform different actual hands-on cultural management practices such as maintenance and asexual propagation. It also serves as a germplasm collection for identification and propagation.",
+        "images": ["../../../public/images/deptmodal_pics/CS/mopc_module1.jpg", 
+        "../../../public/images/deptmodal_pics/CS/mopc_module2.jpg",
+        "../../../public/images/deptmodal_pics/CS/mopc_module3.jpg"]
     },
     {
         "title": "Rice Production Module",
-        "description": "During the dry season the land area for rice production reaches to about 8 hectares. Inbred and Hybrid varieties of palay and sometimes traditional varieties like pigmented and glutinous rice are planted in the module. The module employs conventional ways of farming, from land preparation to harvesting."
+        "description": "During the dry season the land area for rice production reaches to about 8 hectares. Inbred and Hybrid varieties of palay and sometimes traditional varieties like pigmented and glutinous rice are planted in the module. The module employs conventional ways of farming, from land preparation to harvesting.",
+        "images": ["../../../public/images/deptmodal_pics/CS/rp_module1.jpg", 
+        "../../../public/images/deptmodal_pics/CS/rp_module2.jpg",
+        "../../../public/images/deptmodal_pics/CS/rp_module3.jpg"]
     },
     {
         "title": "RM-CARES",
-        "description": "Also known as Ramon Magsaysay Center for Agricultural Resources and Environment Studies, it leads in the pursuit of environmentally sustainable and best practice technologies in waste and resource management and organic farming in CLSU and in the region. It undertakes rigorous capacity building of all the stakeholders including students through training and immersions to build their competencies and consciousness in organic farming practices."
+        "description": "Also known as Ramon Magsaysay Center for Agricultural Resources and Environment Studies, it leads in the pursuit of environmentally sustainable and best practice technologies in waste and resource management and organic farming in CLSU and in the region. It undertakes rigorous capacity building of all the stakeholders including students through training and immersions to build their competencies and consciousness in organic farming practices.",
+        "images": ["../../../public/images/deptmodal_pics/CS/rmc1.jpg", 
+        "../../../public/images/deptmodal_pics/CS/rmc2.jpg",
+        "../../../public/images/deptmodal_pics/CS/rmc3.jpg"]
     },
     {
         "title": "PhilsCAT",
-        "description": "PhilSCAT focuses on appropriate aspects of agricultural mechanization, hybrid rice and biogas technologies through research, development, capability building and knowledge management."
+        "description": "PhilSCAT focuses on appropriate aspects of agricultural mechanization, hybrid rice and biogas technologies through research, development, capability building and knowledge management.",
+        "images": ["../../../public/images/deptmodal_pics/CS/philscat1.jpg", 
+        "../../../public/images/deptmodal_pics/CS/philscat2.jpg",
+        "../../../public/images/deptmodal_pics/CS/philscat3.jpg"]
     },
     {
         "title": "Laboratory Rooms 1 & 2 - Rm 103 & 104",
-        "description": "The two rooms are used for laboratory classes in Soil Science. All the laboratory experiments are conducted in these rooms for the basic soil science subjects, except for the field trials. Experiments on field are conducted at the experimental area (1.5 ha) and at the Compost Production Module area."
+        "description": "The two rooms are used for laboratory classes in Soil Science. All the laboratory experiments are conducted in these rooms for the basic soil science subjects, except for the field trials. Experiments on field are conducted at the experimental area (1.5 ha) and at the Compost Production Module area.",
+        "images": ["../../../public/images/deptmodal_pics/SS/lab103_1.jpg", 
+        "../../../public/images/deptmodal_pics/SS/lab104_2.jpg",
+        "../../../public/images/deptmodal_pics/SS/lab104_3.jpg"]
     },
     {
         "title": "Soil Museum",
-        "description": "The museum is used particularly to showcase the different kinds of identified and classified rocks and minerals. Included in the museum are displays of ideal soil profiles in different soil orders found in the Philippines and other countries in Asia as well as samples of various soil structures and textures. The rocks and minerals serve as instructional materials for Soil Science subjects."
+        "description": "The museum is used particularly to showcase the different kinds of identified and classified rocks and minerals. Included in the museum are displays of ideal soil profiles in different soil orders found in the Philippines and other countries in Asia as well as samples of various soil structures and textures. The rocks and minerals serve as instructional materials for Soil Science subjects.",
+        "images": ["../../../public/images/deptmodal_pics/SS/smr106_1.jpg", 
+        "../../../public/images/deptmodal_pics/SS/smr106_2.jpg",
+        "../../../public/images/deptmodal_pics/SS/smr106_3.jpg"]
     },
     {
         "title": "Soil Biology and Biotechnology Laboratory",
-        "description": "It is situated at the Central Laboratory of the College of Agriculture. This room is used for conducting laboratory classes in Soil Biology and Biotechnology (SOILS 3300) as well as a venue for students and faculty to perform their research and projects."
+        "description": "It is situated at the Central Laboratory of the College of Agriculture. This room is used for conducting laboratory classes in Soil Biology and Biotechnology (SOILS 3300) as well as a venue for students and faculty to perform their research and projects.",
+        "images": ["../../../public/images/deptmodal_pics/SS/sbb_lab1.jpg", 
+        "../../../public/images/deptmodal_pics/SS/sbb_lab2.jpg",
+        "../../../public/images/deptmodal_pics/SS/sbb_lab3.jpg"]
     },
     {
         "title": "Soil and Plant Tissue Analytical Laboratory",
-        "description": "It is adjacent to the Soil Biology and Biotechnology Laboratory. This room is equipped with digital and analytical balances for weighing chemical reagents that are needed for soil and plant tissue analyses. A wooden cabinet can be found in this room where small laboratory tools for weighing and measurements are kept."
+        "description": "It is adjacent to the Soil Biology and Biotechnology Laboratory. This room is equipped with digital and analytical balances for weighing chemical reagents that are needed for soil and plant tissue analyses. A wooden cabinet can be found in this room where small laboratory tools for weighing and measurements are kept.",
+        "images": ["../../../public/images/deptmodal_pics/SS/spta_lab1.jpg", 
+        "../../../public/images/deptmodal_pics/SS/spta_lab2.jpg",
+        "../../../public/images/deptmodal_pics/SS/spta_lab3.jpg"]
     },
     {
         "title": "Geographic Information System (GIS) Laboratory",
-        "description": "This room is equipped with a Smart TV with ready internet connection for class demonstration of the GIS mapping and application for the soil survey classes. It is equipped with a wall-mounted air conditioning system and chairs which are usually sufficient for soils science major students to conduct their GIS-related laboratory activities."
+        "description": "This room is equipped with a Smart TV with ready internet connection for class demonstration of the GIS mapping and application for the soil survey classes. It is equipped with a wall-mounted air conditioning system and chairs which are usually sufficient for soils science major students to conduct their GIS-related laboratory activities.",
+        "images": ["../../../public/images/deptmodal_pics/SS/gis_lab1.jpg", 
+        "../../../public/images/deptmodal_pics/SS/gis_lab2.jpg"]
     }
 ]
