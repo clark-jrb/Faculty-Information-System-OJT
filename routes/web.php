@@ -74,8 +74,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Route::get('/faculty', fn () => Inertia::render('Faculty'))->name('faculty');
     Route::get('/faculty', [AdminController::class, 'showFaculties'])->name('faculties');
 
-    // Facility Route
-    Route::get('/home', fn () => Inertia::render('Home'))->name('home');
+    Route::prefix('/home')->group(function () {
+        Route::get('/', fn () => Inertia::render('Home'))->name('home');
+        // Dept Facility Route
+        Route::get('/agricultural-extension', fn () => Inertia::render('HomeDept/AEFacility'))->name('agricultural.extension');
+        Route::get('/agri-management', fn () => Inertia::render('HomeDept/AMFacilty'))->name('agri.management');
+        Route::get('/animal-science', fn () => Inertia::render('HomeDept/ASFacilty'))->name('animal.science');
+        Route::get('/crop-protection', fn () => Inertia::render('HomeDept/CPFacilty'))->name('crop.protection');
+        Route::get('/crop-science', fn () => Inertia::render('HomeDept/CSFacilty'))->name('crop.science');
+        Route::get('/soil-science', fn () => Inertia::render('HomeDept/SSFacilty'))->name('soil.science');
+    });
     
     // For Admin
     // Route::middleware(['auth', 'verified'])->group(function () {

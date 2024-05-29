@@ -1,15 +1,16 @@
 import React from 'react';
 import Authenticated from '@/Layouts/Authenticated';
 import BackToTopButton from '@/Components/BackToTopButton';
+import { InertiaLink } from '@inertiajs/inertia-react';
 
 export default function Home(props) {
     const icons = [
-        { src: '/images/dept_logo/agri_extension.png', text: 'Agricultural Extension' },
-        { src: '/images/dept_logo/agri_management.png', text: 'Agri-Management' },
-        { src: '/images/dept_logo/animal_sci.png', text: 'Animal Science' },
-        { src: '/images/dept_logo/crop_protect.png', text: 'Crop Protection' },
-        { src: '/images/dept_logo/crop_sci.png', text: 'Crop Science' },
-        { src: '/images/dept_logo/soil_sci.png', text: 'Soil Science' },
+        { src: '/images/dept_logo/agri_extension.png', text: 'Agricultural Extension', link: 'agricultural.extension'},
+        { src: '/images/dept_logo/agri_management.png', text: 'Agri-Management', link: 'agri.management' },
+        { src: '/images/dept_logo/animal_sci.png', text: 'Animal Science', link: 'animal.science' },
+        { src: '/images/dept_logo/crop_protect.png', text: 'Crop Protection', link: 'crop.protection' },
+        { src: '/images/dept_logo/crop_sci.png', text: 'Crop Science', link: 'crop.science' },
+        { src: '/images/dept_logo/soil_sci.png', text: 'Soil Science', link: 'soil.science' },
     ];
 
     return (
@@ -42,7 +43,9 @@ export default function Home(props) {
                     <div className="iconsContainer">
                         {icons.map((icon, index) => (
                             <div key={index} className="iconContainer">
-                                <img src={icon.src} alt={`icon${index + 1}`} className="icon" />
+                                <InertiaLink href={route(icon.link)}>
+                                    <img src={icon.src} alt={`icon${index + 1}`} className="icon" />
+                                </InertiaLink>
                                 <div className="line" />
                                 <p className="iconText">{icon.text}</p>
                             </div>
