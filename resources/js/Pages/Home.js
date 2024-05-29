@@ -1,10 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Carousel } from 'react-bootstrap';
+import React from 'react';
 import Authenticated from '@/Layouts/Authenticated';
 import BackToTopButton from '@/Components/BackToTopButton';
-import FacilityModal from '@/Components/FacilityModal';
-import facility_details from '../../json/facility_details.json'
-import facility_previews from '../../json/facility_previews.json'
 
 export default function Home(props) {
     const icons = [
@@ -15,38 +11,6 @@ export default function Home(props) {
         { src: '/images/dept_logo/crop_sci.png', text: 'Crop Science' },
         { src: '/images/dept_logo/soil_sci.png', text: 'Soil Science' },
     ];
-
-    // Modal Loop
-    const facilities = [];
-    for (let i = 0; i < facility_details.length; i++) {
-        const facility = {
-            title: facility_details[i].title,
-            description: facility_details[i].description,
-            images: facility_details[i].images 
-        };
-
-        facilities.push(facility);
-    }
-
-    useEffect(() => {
-        console.log(facilities[selectedFacility]);
-        // facilities.forEach((facility, index) => {
-        //     console.log(`Facility ${index + 1} Images:`, facility.images);
-        // });
-    }, [facilities]);
-
-    const [showModal, setShowModal] = useState(false);
-    const [selectedFacility, setSelectedFacility] = useState('');
-
-    const handleCloseModal = () => {
-        setShowModal(false);
-        setSelectedFacility(null);
-    };
-
-    const handleOpenModal = (facility) => {
-        setSelectedFacility(facility);
-        setShowModal(true);
-    };
 
     return (
         <Authenticated
