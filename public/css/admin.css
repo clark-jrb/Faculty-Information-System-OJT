@@ -422,15 +422,15 @@
 }
 
 .tb-fullname {
-    width: 300px;
+    width: 250px;
 }
 
 .tb-no {
-    width: 70px;
+    width: 50px;
 }
 
-.tb-role {
-    width: 180px;
+.tb-degree {
+    width: 200px;
 }
 
 .tb-rank {
@@ -464,9 +464,9 @@
 .research-flex,
 .extensions-flex,
 .publications-flex {
-    border-bottom: #ccc solid 1px;
+    border-bottom: var(--green) solid 1px;
     /* box-shadow: 0 1.5px 3px 0 #ccc; */
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
 }
 
 .print-name {

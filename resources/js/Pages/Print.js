@@ -25,7 +25,7 @@ const Print = React.forwardRef(({ data }, ref) => (
                                     <tr>
                                         <th scope="col" className="p-3 pb-2 tb-no">#</th>
                                         <th scope="col" className="p-3 pb-2 tb-fullname">Full Name</th>
-                                        {/* <th scope="col" className="p-3 pb-2 tb-role">Role</th> */}
+                                        <th scope="col" className="p-3 pb-2 tb-degree">Highest Degree</th>
                                         <th scope="col" className="p-3 pb-2 tb-rank">Rank</th>
                                     </tr>
                                 </thead>
@@ -36,7 +36,7 @@ const Print = React.forwardRef(({ data }, ref) => (
                                         >
                                             <th className="p-2 ps-3 tb-no">{index + 1}</th>
                                             <td className="p-2 ps-3 tb-fullname">{`${faculty.lname}, ${faculty.fname}`}</td>
-                                            {/* <td className="p-2 ps-3 tb-role">{faculty.role}</td> */}
+                                            <td className="p-2 ps-3 tb-degree">{faculty.high_degree.charAt(0).toUpperCase() + faculty.high_degree.slice(1)}</td>
                                             <td className="p-2 ps-3 tb-rank">{faculty.position}</td>
                                         </tr>
                                     ))}
@@ -62,7 +62,7 @@ const Print = React.forwardRef(({ data }, ref) => (
                                     <tr>
                                         <th scope="col" className="p-3 pb-2 tb-no">#</th>
                                         <th scope="col" className="p-3 pb-2 tb-fullname">Full Name</th>
-                                        {/* <th scope="col" className="p-3 pb-2 tb-role">Role</th> */}
+                                        <th scope="col" className="p-3 pb-2 tb-degree">Highest Degree</th>
                                         <th scope="col" className="p-3 pb-2 tb-rank">Rank</th>
                                     </tr>
                                 </thead>
@@ -73,7 +73,7 @@ const Print = React.forwardRef(({ data }, ref) => (
                                         >
                                             <th className="p-2 ps-3 tb-no">{index + 1}</th>
                                             <td className="p-2 ps-3 tb-fullname">{`${faculty.lname}, ${faculty.fname}`}</td>
-                                            {/* <td className="p-2 ps-3 tb-role">{faculty.role}</td> */}
+                                            <td className="p-2 ps-3 tb-degree">{faculty.high_degree.charAt(0).toUpperCase() + faculty.high_degree.slice(1)}</td>
                                             <td className="p-2 ps-3 tb-rank">{faculty.position}</td>
                                         </tr>
                                     ))}
@@ -99,7 +99,7 @@ const Print = React.forwardRef(({ data }, ref) => (
                                     <tr>
                                         <th scope="col" className="p-3 pb-2 tb-no">#</th>
                                         <th scope="col" className="p-3 pb-2 tb-fullname">Full Name</th>
-                                        {/* <th scope="col" className="p-3 pb-2 tb-role">Role</th> */}
+                                        <th scope="col" className="p-3 pb-2 tb-degree">Highest Degree</th>
                                         <th scope="col" className="p-3 pb-2 tb-rank">Rank</th>
                                     </tr>
                                 </thead>
@@ -110,7 +110,7 @@ const Print = React.forwardRef(({ data }, ref) => (
                                         >
                                             <th className="p-2 ps-3 tb-no">{index + 1}</th>
                                             <td className="p-2 ps-3 tb-fullname">{`${faculty.lname}, ${faculty.fname}`}</td>
-                                            {/* <td className="p-2 ps-3 tb-role">{faculty.role}</td> */}
+                                            <td className="p-2 ps-3 tb-degree">{faculty.high_degree.charAt(0).toUpperCase() + faculty.high_degree.slice(1)}</td>
                                             <td className="p-2 ps-3 tb-rank">{faculty.position}</td>
                                         </tr>
                                     ))}
@@ -136,7 +136,7 @@ const Print = React.forwardRef(({ data }, ref) => (
                                     <tr>
                                         <th scope="col" className="p-3 pb-2 tb-no">#</th>
                                         <th scope="col" className="p-3 pb-2 tb-fullname">Full Name</th>
-                                        {/* <th scope="col" className="p-3 pb-2 tb-role">Role</th> */}
+                                        <th scope="col" className="p-3 pb-2 tb-degree">Highest Degree</th>
                                         <th scope="col" className="p-3 pb-2 tb-rank">Rank</th>
                                     </tr>
                                 </thead>
@@ -147,7 +147,7 @@ const Print = React.forwardRef(({ data }, ref) => (
                                         >
                                             <th className="p-2 ps-3 tb-no">{index + 1}</th>
                                             <td className="p-2 ps-3 tb-fullname">{`${faculty.lname}, ${faculty.fname}`}</td>
-                                            {/* <td className="p-2 ps-3 tb-role">{faculty.role}</td> */}
+                                            <td className="p-2 ps-3 tb-degree">{faculty.high_degree.charAt(0).toUpperCase() + faculty.high_degree.slice(1)}</td>
                                             <td className="p-2 ps-3 tb-rank">{faculty.position}</td>
                                         </tr>
                                     ))}
@@ -173,7 +173,7 @@ const Print = React.forwardRef(({ data }, ref) => (
                                     <tr>
                                         <th scope="col" className="p-3 pb-2 tb-no">#</th>
                                         <th scope="col" className="p-3 pb-2 tb-fullname">Full Name</th>
-                                        {/* <th scope="col" className="p-3 pb-2 tb-role">Role</th> */}
+                                        <th scope="col" className="p-3 pb-2 tb-degree">Highest Degree</th>
                                         <th scope="col" className="p-3 pb-2 tb-rank">Rank</th>
                                     </tr>
                                 </thead>
@@ -185,7 +185,7 @@ const Print = React.forwardRef(({ data }, ref) => (
                                         >
                                             <th className="p-2 ps-3 tb-no">{index + 1}</th>
                                             <td className="p-2 ps-3 tb-fullname">{`${faculty.lname}, ${faculty.fname}`}</td>
-                                            {/* <td className="p-2 ps-3 tb-role">{faculty.role}</td> */}
+                                            <td className="p-2 ps-3 tb-degree">{faculty.high_degree.charAt(0).toUpperCase() + faculty.high_degree.slice(1)}</td>
                                             <td className="p-2 ps-3 tb-rank">{faculty.position}</td>
                                         </tr>
                                     ))}
@@ -211,7 +211,7 @@ const Print = React.forwardRef(({ data }, ref) => (
                                     <tr>
                                         <th scope="col" className="p-3 pb-2 tb-no">#</th>
                                         <th scope="col" className="p-3 pb-2 tb-fullname">Full Name</th>
-                                        {/* <th scope="col" className="p-3 pb-2 tb-role">Role</th> */}
+                                        <th scope="col" className="p-3 pb-2 tb-degree">Highest Degree</th>
                                         <th scope="col" className="p-3 pb-2 tb-rank">Rank</th>
                                     </tr>
                                 </thead>
@@ -222,7 +222,7 @@ const Print = React.forwardRef(({ data }, ref) => (
                                         >
                                             <th className="p-2 ps-3 tb-no">{index + 1}</th>
                                             <td className="p-2 ps-3 tb-fullname">{`${faculty.lname}, ${faculty.fname}`}</td>
-                                            {/* <td className="p-2 ps-3 tb-role">{faculty.role}</td> */}
+                                            <td className="p-2 ps-3 tb-degree">{faculty.high_degree.charAt(0).toUpperCase() + faculty.high_degree.slice(1)}</td>
                                             <td className="p-2 ps-3 tb-rank">{faculty.position}</td>
                                         </tr>
                                     ))}

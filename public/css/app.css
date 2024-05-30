@@ -726,10 +726,6 @@ select {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
 }
-.my-4 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
 .-ml-px {
   margin-left: -1px;
 }
@@ -943,6 +939,9 @@ select {
 .text-wrap {
   text-wrap: wrap;
 }
+.break-all {
+  word-break: break-all;
+}
 .rounded {
   border-radius: 0.25rem;
 }
@@ -1094,9 +1093,6 @@ select {
 }
 .pt-8 {
   padding-top: 2rem;
-}
-.pb-1 {
-  padding-bottom: 0.25rem;
 }
 .text-left {
   text-align: left;
