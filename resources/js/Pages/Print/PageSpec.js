@@ -73,7 +73,7 @@ const PageSpec = React.forwardRef(({ data, specify, basic }, ref) => (
                     {data.map((info, index) => (
                         <div key={index} className='page-spec-data pt-3'>
                             <p style={{ fontSize: 'x-large' }}>{info.position}</p>
-                            <p>{info.date}</p>
+                            <p>Duration: {info.date}</p>
                             <p>{info.work_loc}, {info.location}</p>
                         </div>
                     ))}

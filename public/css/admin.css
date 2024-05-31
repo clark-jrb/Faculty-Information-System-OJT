@@ -484,3 +484,7 @@
 .page-spec-data {
     border-bottom: #ccc solid 1px;
 }
+
+.react-datepicker-wrapper  {
+    width: 100%;
+}

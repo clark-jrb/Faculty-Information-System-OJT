@@ -11,6 +11,6 @@ class Acad_WorkExp extends Model
     protected $table = "acad__work_exps";
     public $timestamps = true;
     protected $fillable = [
-        'faculty_id' ,'position', 'work_loc', 'date', 'location'
+        'faculty_id' ,'position', 'work_loc', 'start_date', 'end_date', 'location'
     ];
 }

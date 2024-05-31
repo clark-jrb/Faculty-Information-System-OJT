@@ -4,6 +4,9 @@ import { addField, handleFieldChange } from '@/utils/forms';
 import Label from '@/Components/Label';
 import { Form } from 'react-bootstrap';
 import { Inertia } from '@inertiajs/inertia';
+import ReactDatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css'
+import moment from 'moment';
 
 export default function Work ({ data, acadWork_data, setData, post }) {
     const [showModalWork, setShowModalWork] = useState(false);
@@ -18,7 +21,7 @@ export default function Work ({ data, acadWork_data, setData, post }) {
         const handleAddWorkField = () => {
             addField(
                 'academic_work',
-                { position: '', institution: '', date: '', location: '' },
+                { position: '', institution: '', start_date: '', end_date: '', location: '' },
                 setData,
                 data
             );
@@ -44,6 +47,42 @@ export default function Work ({ data, acadWork_data, setData, post }) {
             );
         };
 
+        // for date
+        const handleDateChange = (date, index) => {
+
+            const addDate = data.academic_work.map((work, i) => {
+                if (i === index) {
+                    return {
+                        ...work,
+                        start_date: date
+                    };
+                }
+                return work;
+            });
+
+            console.log(addDate);
+            setData('academic_work', addDate);
+        };
+        // for update date change
+        const handleUpdateDateChange = (date, index) => {
+
+            const updateDate = selectedData.academic_work.map((work, i) => {
+                if (i === index) {
+                    return {
+                        ...work,
+                        start_date: date,
+                    };
+                }
+                return work;
+            });
+
+            console.log(updateDate);
+            setSelectedData(prevData => ({
+                ...prevData,
+                academic_work: updateDate
+            }));
+        };
+
     
     // for handle submit buttons
         const handleWorkSubmit = (e) => {
@@ -56,7 +95,8 @@ export default function Work ({ data, acadWork_data, setData, post }) {
                 academic_work: [{ 
                     position: '', 
                     institution: '', 
-                    date: '', 
+                    start_date: '', 
+                    end_date: '', 
                     location: ''
                 }],
             }))
@@ -104,7 +144,8 @@ export default function Work ({ data, acadWork_data, setData, post }) {
                         id: selectWork.id,
                         position: selectWork.position,
                         institution: selectWork.work_loc,
-                        date: selectWork.date,
+                        start_date: selectWork.start_date,
+                        end_date: selectWork.end_date,
                         location: selectWork.location
                     }]
                 });
@@ -132,54 +173,82 @@ export default function Work ({ data, acadWork_data, setData, post }) {
                 <form onSubmit={handleWorkSubmit}>
                     <Modal.Body>
                         {data.academic_work.map((academicWork, index) => (
-                            <div className="acad-educ-flex d-flex py-2" key={index}>
-                                <div className="flex-fill p-2">
-                                    <Label forInput="institution" value="Institution/School:" />
-                                    <Form.Control
-                                        type="text"
-                                        name="institution"
-                                        placeholder="Institution/School"
-                                        value={academicWork.institution}
-                                        onChange={(e) => handleWorkChange(e, index)}
-                                        required
-                                    />
+                            <div className="acad-educ-flex py-2" key={index}>
+                                <div className='d-flex '>
+                                    <div className="flex-fill p-2">
+                                        <Label forInput="institution" value="Institution/School:" />
+                                        <input
+                                            type="text"
+                                            className="form-admin w-100"
+                                            name="institution"
+                                            placeholder="Institution/School"
+                                            value={academicWork.institution}
+                                            onChange={(e) => handleWorkChange(e, index)}
+                                            required
+                                        />
+                                    </div>
+
+                                    <div className="flex-fill p-2">
+                                        <Label forInput="location" value="Location:" />
+                                        <input
+                                            className="form-admin w-100"
+                                            type="text"
+                                            name="location"
+                                            placeholder="Location"
+                                            value={academicWork.location}
+                                            onChange={(e) => handleWorkChange(e, index)}
+                                            required
+                                        />
+                                    </div>
+                                </div>
+                                
+                                <div className='d-flex'>
+                                    <div className="flex-fill p-2">
+                                        <Label forInput="date" value="Start date:" />
+                                        <ReactDatePicker 
+                                            className="form-admin w-100"
+                                            name="date" 
+                                            placeholderText="MMMM/YYYY"
+                                            selected={academicWork.start_date}
+                                            dateFormat="MM/yyyy"
+                                            showMonthYearPicker
+                                            showFullMonthYearPicker
+                                            onChange={(date) => {handleDateChange(date, index)}}
+                                            isClearable 
+                                            required
+                                        />
+                                    </div>
+
+                                    <div className="flex-fill p-2">
+                                        <Label forInput="end_date" value="End Date:" />
+                                        <input
+                                            className='form-admin w-100'
+                                            type="text"
+                                            name="end_date"
+                                            placeholder="ex. March 2007 or Present"
+                                            value={academicWork.end_date}
+                                            onChange={(e) => handleWorkChange(e, index)}
+                                        />
+                                    </div>
+
+                                    <div className="flex-fill p-2">
+                                        <Label forInput="position" value="Position:" />
+                                        <input
+                                            type="text"
+                                            className='form-admin w-100'
+                                            name="position"
+                                            placeholder="Position"
+                                            value={academicWork.position}
+                                            onChange={(e) => handleWorkChange(e, index)}
+                                            required
+                                        />
+                                    </div>
                                 </div>
 
-                                <div className="flex-fill p-2">
-                                    <Label forInput="location" value="Location:" />
-                                    <Form.Control
-                                        type="text"
-                                        name="location"
-                                        placeholder="Location"
-                                        value={academicWork.location}
-                                        onChange={(e) => handleWorkChange(e, index)}
-                                        required
-                                    />
-                                </div>
 
-                                <div className="flex-fill p-2">
-                                    <Label forInput="date" value="Year Graduated:" />
-                                    <Form.Control   
-                                        type="text"
-                                        name="date"
-                                        placeholder="YYYY"
-                                        value={academicWork.date}
-                                        onChange={(e) => handleWorkChange(e, index)}
-                                        required
-                                    />
-                                </div>
+                                
 
-                                <div className="flex-fill p-2">
-                                    <Label forInput="position" value="Position:" />
-                                    <Form.Control
-                                        type="text"
-                                        name="position"
-                                        placeholder="Position"
-                                        value={academicWork.position}
-                                        onChange={(e) => handleWorkChange(e, index)}
-                                        required
-                                    />
-                                </div>
+                                
 
                                 <div className="remove-field-btn flex-fill p-2 d-flex align-items-end ">
                                     {data.academic_work.length > 1 && ( // Only render the remove button if the academic background is not empty
@@ -246,12 +315,35 @@ export default function Work ({ data, acadWork_data, setData, post }) {
                                 </div>
 
                                 <div className="flex-fill p-2">
-                                    <Label forInput="date" value="Year Graduated:" />
-                                    <Form.Control   
+                                    <Label forInput="date" value="Duration:" />
+                                    {/* <Form.Control   
                                         type="text"
                                         name="date"
                                         placeholder="YYYY"
                                         value={academicWork.date}
+                                        onChange={(e) => handleWorkUpdateChange(e, index)}
+                                    /> */}
+                                    <ReactDatePicker 
+                                        // className="date-picker"
+                                        name="date" 
+                                        placeholderText="MMMM/YYYY"
+                                        selected={academicWork.start_date}
+                                        dateFormat="MM/yyyy"
+                                        showMonthYearPicker
+                                        showFullMonthYearPicker
+                                        onChange={(date) => {handleUpdateDateChange(date, index)}}
+                                        isClearable 
+                                        required
+                                    />
+                                </div>
+
+                                <div className="flex-fill p-2">
+                                    <Label forInput="end_date" value="End Date:" />
+                                    <Form.Control
+                                        type="text"
+                                        name="end_date"
+                                        placeholder="ex. March 2007 or Present"
+                                        value={academicWork.end_date}
                                         onChange={(e) => handleWorkUpdateChange(e, index)}
                                     />
                                 </div>
@@ -335,7 +427,7 @@ export default function Work ({ data, acadWork_data, setData, post }) {
                                 <div>
                                     <i className="fa-regular fa-calendar-check"></i>
                                     &nbsp;
-                                    {work.date}
+                                    {moment(work.start_date).format('MMMM YYYY')} - {work.end_date}
                                 </div>
                                 <div>
                                     <i className="fa-solid fa-location-dot"></i>
