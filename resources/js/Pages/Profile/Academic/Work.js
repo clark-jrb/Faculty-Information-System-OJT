@@ -174,7 +174,7 @@ export default function Work ({ data, acadWork_data, setData, post }) {
                     <Modal.Body>
                         {data.academic_work.map((academicWork, index) => (
                             <div className="acad-educ-flex py-2" key={index}>
-                                <div className='d-flex '>
+                                <div className='d-flex'>
                                     <div className="flex-fill p-2">
                                         <Label forInput="institution" value="Institution/School:" />
                                         <input
@@ -291,74 +291,82 @@ export default function Work ({ data, acadWork_data, setData, post }) {
                 <form onSubmit={handleUpdWorkSubmit}>
                     <Modal.Body>
                         {selectedData.academic_work.map((academicWork, index) => (
-                            <div className="acad-educ-flex d-flex py-2" key={index}>
-                                <div className="flex-fill p-2">
-                                    <Label forInput="institution" value="Institution/School:" />
-                                    <Form.Control
-                                        type="text"
-                                        name="institution"
-                                        placeholder="Institution/School"
-                                        value={academicWork.institution}
-                                        onChange={(e) => handleWorkUpdateChange(e, index)}
-                                    />
+                            <div className="acad-educ-flex py-2" key={index}>
+                                <div className="d-flex">
+                                    <div className="flex-fill p-2">
+                                        <Label forInput="institution" value="Institution/School:" />
+                                        <input
+                                            type="text"
+                                            name="institution"
+                                            className="form-admin w-100"
+                                            placeholder="Institution/School"
+                                            value={academicWork.institution}
+                                            onChange={(e) => handleWorkUpdateChange(e, index)}
+                                        />
+                                    </div>
+
+                                    <div className="flex-fill p-2">
+                                        <Label forInput="location" value="Location:" />
+                                        <input
+                                            type="text"
+                                            name="location"
+                                            className="form-admin w-100"
+                                            placeholder="Location"
+                                            value={academicWork.location}
+                                            onChange={(e) => handleWorkUpdateChange(e, index)}
+                                        />
+                                    </div>
                                 </div>
 
-                                <div className="flex-fill p-2">
-                                    <Label forInput="location" value="Location:" />
-                                    <Form.Control
-                                        type="text"
-                                        name="location"
-                                        placeholder="Location"
-                                        value={academicWork.location}
-                                        onChange={(e) => handleWorkUpdateChange(e, index)}
-                                    />
-                                </div>
+                                <div className="d-flex">
+                                    <div className="flex-fill p-2">
+                                        <Label forInput="date" value="Duration:" />
+                                        {/* <input   
+                                            type="text"
+                                            name="date"
+                                            placeholder="YYYY"
+                                            value={academicWork.date}
+                                            onChange={(e) => handleWorkUpdateChange(e, index)}
+                                        /> */}
+                                        <ReactDatePicker 
+                                            // className="date-picker"
+                                            name="date" 
+                                            className="form-admin w-100"
+                                            placeholderText="MMMM/YYYY"
+                                            selected={academicWork.start_date}
+                                            dateFormat="MM/yyyy"
+                                            showMonthYearPicker
+                                            showFullMonthYearPicker
+                                            onChange={(date) => {handleUpdateDateChange(date, index)}}
+                                            isClearable 
+                                            required
+                                        />
+                                    </div>
 
-                                <div className="flex-fill p-2">
-                                    <Label forInput="date" value="Duration:" />
-                                    {/* <Form.Control   
-                                        type="text"
-                                        name="date"
-                                        placeholder="YYYY"
-                                        value={academicWork.date}
-                                        onChange={(e) => handleWorkUpdateChange(e, index)}
-                                    /> */}
-                                    <ReactDatePicker 
-                                        // className="date-picker"
-                                        name="date" 
-                                        placeholderText="MMMM/YYYY"
-                                        selected={academicWork.start_date}
-                                        dateFormat="MM/yyyy"
-                                        showMonthYearPicker
-                                        showFullMonthYearPicker
-                                        onChange={(date) => {handleUpdateDateChange(date, index)}}
-                                        isClearable 
-                                        required
-                                    />
-                                </div>
+                                    <div className="flex-fill p-2">
+                                        <Label forInput="end_date" value="End Date:" />
+                                        <input
+                                            type="text"
+                                            name="end_date"
+                                            className="form-admin w-100"
+                                            placeholder="ex. March 2007 or Present"
+                                            value={academicWork.end_date}
+                                            onChange={(e) => handleWorkUpdateChange(e, index)}
+                                        />
+                                    </div>
 
-                                <div className="flex-fill p-2">
-                                    <Label forInput="end_date" value="End Date:" />
-                                    <Form.Control
-                                        type="text"
-                                        name="end_date"
-                                        placeholder="ex. March 2007 or Present"
-                                        value={academicWork.end_date}
-                                        onChange={(e) => handleWorkUpdateChange(e, index)}
-                                    />
+                                    <div className="flex-fill p-2">
+                                        <Label forInput="position" value="Position:" />
+                                        <input
+                                            type="text"
+                                            name="position"
+                                            className="form-admin w-100"
+                                            placeholder="Position"
+                                            value={academicWork.position}
+                                            onChange={(e) => handleWorkUpdateChange(e, index)}
+                                        />
+                                    </div>
                                 </div>
-
-                                <div className="flex-fill p-2">
-                                    <Label forInput="position" value="Position:" />
-                                    <Form.Control
-                                        type="text"
-                                        name="position"
-                                        placeholder="Position"
-                                        value={academicWork.position}
-                                        onChange={(e) => handleWorkUpdateChange(e, index)}
-                                    />
-                                </div>
-                                
                             </div>
                         ))}
                     </Modal.Body>

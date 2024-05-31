@@ -180,7 +180,8 @@ class FacultyController extends Controller
                         'faculty_id' => auth()->user()->id,
                         'res_title' => $researchData['title'],
                         'status' => $researchData['status'],
-                        'duration' => $researchData['duration'],
+                        'start_date' => $researchData['start_date'],
+                        'end_date' => $researchData['end_date'],
                         'researcher' => $researchData['researchers']
                     ]);
                 }
@@ -200,6 +201,7 @@ class FacultyController extends Controller
             foreach ($request->input('extensions') as $extensionData) {
                 // Check if any of the fields in the academic education data is not null
                 if (!empty(array_filter($extensionData))) {
+
                     Ext_Activity::create([
                         'faculty_id' => auth()->user()->id,
                         'ext_title' => $extensionData['ext_title'],
@@ -207,7 +209,8 @@ class FacultyController extends Controller
                         'member' => $extensionData['member'],
                         'sponsor' => $extensionData['sponsor'],
                         'beneficiaries' => $extensionData['beneficiaries'],
-                        'duration' => $extensionData['duration']
+                        'start_date' => $extensionData['start_date'],
+                        'end_date' => $extensionData['end_date']
                     ]);
                 }
             }
@@ -475,7 +478,8 @@ class FacultyController extends Controller
                         $res_data->update([
                             'res_title' => $researchData['title'] ?? $res_data->res_title,
                             'status' => $researchData['status'] ?? $res_data->status,
-                            'duration' => $researchData['duration'] ?? $res_data->duration,
+                            'start_date' => $researchData['start_date'] ?? $res_data->start_date,
+                            'end_date' => $researchData['end_date'] ?? $res_data->end_date,
                             'researcher' => $researchData['researchers'] ?? $res_data->researcher
                         ]);
                     }
@@ -497,6 +501,7 @@ class FacultyController extends Controller
                 // Check if any of the fields in the academic education data is not null
                 if (!empty(array_filter($extensionData))) {
                     // dd($extensionData['id']);
+
                     if (isset($extensionData['id'])) {
                         $ext_data = Ext_Activity::where('id', $extensionData['id'])->firstOrFail();
     
@@ -505,7 +510,8 @@ class FacultyController extends Controller
                             'ext_title' => $extensionData['ext_title'] ?? $ext_data->ext_title,
                             'lead' => $extensionData['lead'] ?? $ext_data->lead,
                             'member' => $extensionData['member'] ?? $ext_data->member,
-                            'duration' => $extensionData['duration'] ?? $ext_data->duration,
+                            'start_date' => $extensionData['start_date'] ?? $ext_data->start_date,
+                            'end_date' => $extensionData['end_date'] ?? $ext_data->end_date,
                             'sponsor' => $extensionData['sponsor'] ?? $ext_data->sponsor,
                             'beneficiaries' => $extensionData['beneficiaries'] ?? $ext_data->beneficiaries
                         ]);
@@ -532,16 +538,16 @@ class FacultyController extends Controller
                     $endDate = Carbon::parse($trainingsData['end_date'])->toDateString();
 
                     if (isset($trainingsData['id'])) {
-                        $ext_data = Trainings::where('id', $trainingsData['id'])->firstOrFail();
+                        $train_data = Trainings::where('id', $trainingsData['id'])->firstOrFail();
                         
     
                         // Update the academic education data
-                        $ext_data->update([
-                            'title' => $trainingsData['title'] ?? $ext_data->title,
-                            'role' => $trainingsData['role'] ?? $ext_data->role,
-                            'location' => $trainingsData['location'] ?? $ext_data->location,
-                            'start_date' => $startDate ?? $ext_data->start_date,
-                            'end_date' => $endDate ?? $ext_data->end_date
+                        $train_data->update([
+                            'title' => $trainingsData['title'] ?? $train_data->title,
+                            'role' => $trainingsData['role'] ?? $train_data->role,
+                            'location' => $trainingsData['location'] ?? $train_data->location,
+                            'start_date' => $startDate ?? $train_data->start_date,
+                            'end_date' => $endDate ?? $train_data->end_date
                         ]);
                     }
                 }

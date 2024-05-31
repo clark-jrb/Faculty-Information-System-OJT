@@ -119,7 +119,7 @@ export default function Education ({ data, acadEduc_data, setData, post }) {
     return (
         <>
             {/* ADD MODAL  */}
-            <Modal className="academic-modal" show={showModalEduc} onHide={handleCloseModalEduc} centered size='xl'>
+            <Modal className="academic-modal" show={showModalEduc} onHide={handleCloseModalEduc} centered size='lg'>
                     <Modal.Header className='educ-modal-head py-2'>
                         <div className="acf-title m-2 px-3" style={{ color: 'white' }}>
                             Add Background Education
@@ -131,56 +131,64 @@ export default function Education ({ data, acadEduc_data, setData, post }) {
                 <form onSubmit={handleEducSubmit}>
                     <Modal.Body>
                         {data.academic_educ.map((academicEduc, index) => (
-                            <div className="acad-educ-flex d-flex py-2" key={index}>
-                                <div className="flex-fill p-2">
-                                    <Label forInput="institution" value="Institution/School:" />
-                                    <Form.Control
-                                        type="text"
-                                        name="institution"
-                                        placeholder="Institution/School"
-                                        value={academicEduc.institution}
-                                        onChange={(e) => handleEducChange(e, index)}
-                                        required
-                                    />
+                            <div className="acad-educ-flex py-2" key={index}>
+                                <div className="d-flex">
+                                    <div className="flex-fill p-2" style={{ width: '60%' }}>
+                                        <Label forInput="institution" value="Institution/School:" />
+                                        <input
+                                            type="text"
+                                            name="institution"
+                                            className="form-admin w-100"
+                                            placeholder="Institution/School"
+                                            value={academicEduc.institution}
+                                            onChange={(e) => handleEducChange(e, index)}
+                                            required
+                                        />
+                                    </div>
+
+                                    <div className="flex-fill p-2" style={{ width: '40%' }}>
+                                        <Label forInput="date" value="Year Graduated:" />
+                                        <input   
+                                            type="text"
+                                            name="date"
+                                            className="form-admin w-100"
+                                            placeholder="YYYY"
+                                            value={academicEduc.date}
+                                            onChange={(e) => handleEducChange(e, index)}
+                                            required
+                                        />
+                                    </div>
                                 </div>
 
-                                <div className="flex-fill p-2">
-                                    <Label forInput="location" value="Location:" />
-                                    <Form.Control
-                                        type="text"
-                                        name="location"
-                                        placeholder="Location"
-                                        value={academicEduc.location}
-                                        onChange={(e) => handleEducChange(e, index)}
-                                        required
-                                    />
+                                <div className="d-flex">
+                                    <div className="flex-fill p-2" style={{ width: '60%' }}>
+                                        <Label forInput="location" value="Location:" />
+                                        <input
+                                            type="text"
+                                            name="location"
+                                            className="form-admin w-100"
+                                            placeholder="Location"
+                                            value={academicEduc.location}
+                                            onChange={(e) => handleEducChange(e, index)}
+                                            required
+                                        />
+                                    </div>
+
+                                    <div className="flex-fill p-2" style={{ width: '40%' }}>
+                                        <Label forInput="degree" value="Degree(MS, PhD etc.) Title:" />
+                                        <input
+                                            type="text"
+                                            name="degree"
+                                            className="form-admin w-100"
+                                            placeholder="ex. MS in Crop Protection"
+                                            value={academicEduc.degree}
+                                            onChange={(e) => handleEducChange(e, index)}
+                                            required
+                                        />
+                                    </div>
                                 </div>
 
-                                <div className="flex-fill p-2">
-                                    <Label forInput="date" value="Year Graduated:" />
-                                    <Form.Control   
-                                        type="text"
-                                        name="date"
-                                        placeholder="YYYY"
-                                        value={academicEduc.date}
-                                        onChange={(e) => handleEducChange(e, index)}
-                                        required
-                                    />
-                                </div>
-
-                                <div className="flex-fill p-2">
-                                    <Label forInput="degree" value="Degree/Masteral/Doctorate Title:" />
-                                    <Form.Control
-                                        type="text"
-                                        name="degree"
-                                        placeholder="ex. MS in Crop Protection"
-                                        value={academicEduc.degree}
-                                        onChange={(e) => handleEducChange(e, index)}
-                                        required
-                                    />
-                                </div>
-
-                                <div className="remove-field-btn flex-fill p-2 d-flex align-items-end ">
+                                <div className="remove-field-btn flex-fill p-2 d-flex justify-content-end ">
                                     {data.academic_educ.length > 1 && ( // Only render the remove button if the academic background is not empty
                                         <button type="button" className="px-2 py-1" onClick={() => setData(prevData => ({
                                         ...prevData,
@@ -209,7 +217,7 @@ export default function Education ({ data, acadEduc_data, setData, post }) {
             </Modal>
 
             {/* UPDATE MODAL  */}
-            <Modal className="academic-modal" show={showModalEducUpd} onHide={handleCloseModalEducUpd} centered size='xl' backdrop='static'>
+            <Modal className="academic-modal" show={showModalEducUpd} onHide={handleCloseModalEducUpd} centered size='lg' backdrop='static'>
                     <Modal.Header className='educ-modal-head py-2'>
                         <div className="acf-title m-2 px-3" style={{ color: 'white' }}>
                             Edit Background Education
@@ -221,51 +229,59 @@ export default function Education ({ data, acadEduc_data, setData, post }) {
                 <form onSubmit={handleUpdEducSubmit}>
                     <Modal.Body>
                         {selectedData.academic_educ.map((academicEduc, index) => (
-                            <div className="acad-educ-flex d-flex py-2" key={index}>
-                                <div className="flex-fill p-2">
-                                    <Label forInput="institution" value="Institution/School:" />
-                                    <Form.Control
-                                        type="text"
-                                        name="institution"
-                                        placeholder="Institution/School"
-                                        value={academicEduc.institution}
-                                        onChange={(e) => handleEducUpdateChange(e, index)}
-                                    />
+                            <div className="acad-educ-flex py-2" key={index}>
+                                <div className="d-flex">
+                                    <div className="flex-fill p-2" style={{ width: '60%' }}>
+                                        <Label forInput="institution" value="Institution/School:" />
+                                        <input
+                                            type="text"
+                                            name="institution"
+                                            className="form-admin w-100"
+                                            placeholder="Institution/School"
+                                            value={academicEduc.institution}
+                                            onChange={(e) => handleEducUpdateChange(e, index)}
+                                        />
+                                    </div>
+
+                                    <div className="flex-fill p-2" style={{ width: '40%' }}>
+                                        <Label forInput="date" value="Year Graduated:" />
+                                        <input   
+                                            type="text"
+                                            name="date"
+                                            className="form-admin w-100"
+                                            placeholder="YYYY"
+                                            value={academicEduc.date}
+                                            onChange={(e) => handleEducUpdateChange(e, index)}
+                                        />
+                                    </div>
                                 </div>
 
-                                <div className="flex-fill p-2">
-                                    <Label forInput="location" value="Location:" />
-                                    <Form.Control
-                                        type="text"
-                                        name="location"
-                                        placeholder="Location"
-                                        value={academicEduc.location}
-                                        onChange={(e) => handleEducUpdateChange(e, index)}
-                                    />
+                                <div className="d-flex">
+                                    <div className="flex-fill p-2" style={{ width: '60%' }}>
+                                        <Label forInput="location" value="Location:" />
+                                        <input
+                                            type="text"
+                                            name="location"
+                                            className="form-admin w-100"
+                                            placeholder="Location"
+                                            value={academicEduc.location}
+                                            onChange={(e) => handleEducUpdateChange(e, index)}
+                                        />
+                                    </div>
+
+                                    <div className="flex-fill p-2" style={{ width: '40%' }}>
+                                        <Label forInput="degree" value="Degree(MS, PhD etc.) Title:" />
+                                        <input
+                                            type="text"
+                                            name="degree"
+                                            className="form-admin w-100"
+                                            placeholder="ex. MS in Crop Protection"
+                                            value={academicEduc.degree}
+                                            onChange={(e) => handleEducUpdateChange(e, index)}
+                                        />
+                                    </div>
                                 </div>
 
-                                <div className="flex-fill p-2">
-                                    <Label forInput="date" value="Year Graduated:" />
-                                    <Form.Control   
-                                        type="text"
-                                        name="date"
-                                        placeholder="YYYY"
-                                        value={academicEduc.date}
-                                        onChange={(e) => handleEducUpdateChange(e, index)}
-                                    />
-                                </div>
-
-                                <div className="flex-fill p-2">
-                                    <Label forInput="degree" value="Degree/Masteral/Doctorate Title:" />
-                                    <Form.Control
-                                        type="text"
-                                        name="degree"
-                                        placeholder="ex. MS in Crop Protection"
-                                        value={academicEduc.degree}
-                                        onChange={(e) => handleEducUpdateChange(e, index)}
-                                    />
-                                </div>
-                                
                             </div>
                         ))}
                     </Modal.Body>

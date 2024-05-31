@@ -7,6 +7,9 @@ import Label from '@/Components/Label';
 import { Form } from 'react-bootstrap';
 import { useForm } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
+import ReactDatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css'
+import moment from 'moment';
 
 export default function Publications(props){
     // data fetch
@@ -62,6 +65,42 @@ export default function Publications(props){
                 setSelectedData,
                 selectedData
             );
+        };
+
+        // for date
+        const handleDateChange = (date, index) => {
+
+            const addDate = data.publications.map((pub, i) => {
+                if (i === index) {
+                    return {
+                        ...pub,
+                        date: date
+                    };
+                }
+                return pub;
+            });
+
+            console.log(addDate);
+            setData('publications', addDate);
+        };
+        // for update date change
+        const handleUpdateDateChange = (date, index) => {
+
+            const updateDate = selectedData.publications.map((pub, i) => {
+                if (i === index) {
+                    return {
+                        ...pub,
+                        date: date,
+                    };
+                }
+                return pub;
+            });
+
+            console.log(updateDate);
+            setSelectedData(prevData => ({
+                ...prevData,
+                publications: updateDate
+            }));
         };
 
     // for handle submit buttons
@@ -155,29 +194,34 @@ export default function Publications(props){
                     </Modal.Header>
                 <form onSubmit={handleAddSubmit}>
                     <Modal.Body>
-                        {data.publications.map((academicEduc, index) => (
+                        {data.publications.map((pub, index) => (
                             <div className="publications-flex d-flex py-2" key={index}>
 
                                 <div className="flex-fill d-flex p-2 gap-3">
                                     <div className="flex-fill w-75">
                                         <Label forInput="proj_title" value="Title:" />
-                                        <Form.Control
+                                        <input
                                             type="text"
                                             name="proj_title"
+                                            className="form-admin w-100"
                                             placeholder="Title"
-                                            value={academicEduc.proj_title}
+                                            value={pub.proj_title}
                                             onChange={(e) => handleAddChange(e, index)}
                                             required
                                         />
                                     </div>
                                     <div className="flex-fill w-25">
                                         <Label forInput="date" value="Date Published:" />
-                                        <Form.Control
-                                            type="text"
-                                            name="date"
-                                            placeholder="ex. March 2020"
-                                            value={academicEduc.date}
-                                            onChange={(e) => handleAddChange(e, index)}
+                                        <ReactDatePicker 
+                                            className="form-admin w-100"
+                                            name="date" 
+                                            placeholderText="ex. March 2024"
+                                            selected={pub.date}
+                                            dateFormat="MM/yyyy"
+                                            showMonthYearPicker
+                                            showFullMonthYearPicker
+                                            onChange={(date) => {handleDateChange(date, index)}}
+                                            isClearable 
                                             required
                                         />
                                     </div>
@@ -186,22 +230,24 @@ export default function Publications(props){
                                 <div className="flex-fill d-flex p-2 gap-3">
                                     <div className="flex-fill w-25">
                                         <Label forInput="doi" value="DOI:" />
-                                        <Form.Control   
+                                        <input   
                                             type="text"
                                             name="doi"
+                                            className="form-admin w-100"
                                             placeholder="DOI"
-                                            value={academicEduc.doi}
+                                            value={pub.doi}
                                             onChange={(e) => handleAddChange(e, index)}
                                         />
                                     </div>
                                     <div className="flex-fill w-75">
                                         <Label forInput="authors" value="Authors:" />
-                                        <Form.Control
+                                        <input
                                             as="textarea"
                                             type="text"
                                             name="authors"
+                                            className="form-admin w-100"
                                             placeholder="ex. Dr. John Doe, JM Cruz, Mr. Juan Dela Cruz (required to put ,)"
-                                            value={academicEduc.authors}
+                                            value={pub.authors}
                                             onChange={(e) => handleAddChange(e, index)}
                                             required
                                         />
@@ -222,7 +268,7 @@ export default function Publications(props){
                             </div>
                         ))}
                         {/* Add button */}
-                        <div className="add-field-container w-100 px-2">
+                        <div className="add-field-container w-100 p-2">
                             <button type="button" className="add-field-btn w-100 py-2" onClick={handleAddWorkField}>
                                 <i className="fa-solid fa-plus"></i> Add publication
                             </button>
@@ -253,9 +299,10 @@ export default function Publications(props){
                                 <div className="flex-fill d-flex p-2 gap-3">
                                     <div className="flex-fill w-75">
                                         <Label forInput="proj_title" value="Title:" />
-                                        <Form.Control
+                                        <input
                                             type="text"
                                             name="proj_title"
+                                            className="form-admin w-100"
                                             placeholder="Title"
                                             value={pub.proj_title}
                                             onChange={(e) => handleUpdateChange(e, index)}
@@ -263,12 +310,17 @@ export default function Publications(props){
                                     </div>
                                     <div className="flex-fill w-25">
                                         <Label forInput="date" value="Date Published:" />
-                                        <Form.Control
-                                            type="text"
-                                            name="date"
-                                            placeholder="ex. March 2020"
-                                            value={pub.date}
-                                            onChange={(e) => handleUpdateChange(e, index)}
+                                        <ReactDatePicker 
+                                            className="form-admin w-100"
+                                            name="date" 
+                                            placeholderText="ex. March 2024"
+                                            selected={pub.date}
+                                            dateFormat="MM/yyyy"
+                                            showMonthYearPicker
+                                            showFullMonthYearPicker
+                                            onChange={(date) => {handleUpdateDateChange(date, index)}}
+                                            isClearable 
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -276,9 +328,10 @@ export default function Publications(props){
                                 <div className="flex-fill d-flex p-2 gap-3">
                                     <div className="flex-fill w-25">
                                         <Label forInput="doi" value="DOI:" />
-                                        <Form.Control   
+                                        <input   
                                             type="text"
                                             name="doi"
+                                            className="form-admin w-100"
                                             placeholder="DOI"
                                             value={pub.doi}
                                             onChange={(e) => handleUpdateChange(e, index)}
@@ -286,10 +339,11 @@ export default function Publications(props){
                                     </div>
                                     <div className="flex-fill w-75">
                                         <Label forInput="authors" value="Authors:" />
-                                        <Form.Control
+                                        <input
                                             as="textarea"
                                             type="text"
                                             name="authors"
+                                            className="form-admin w-100"
                                             placeholder="ex. Dr. John Doe, JM Cruz, Mr. Juan Dela Cruz (required to put ,)"
                                             value={pub.authors}
                                             onChange={(e) => handleUpdateChange(e, index)}
@@ -363,7 +417,7 @@ export default function Publications(props){
                                     Date Published:
                                 </span>
                                 &nbsp;
-                                {pub.date}
+                                {moment(pub.date).format('MMMM YYYY')}
                             </p>
 
                             <p className="m-0 py-1" style={{ fontSize: 'large', width: '95%' }}>

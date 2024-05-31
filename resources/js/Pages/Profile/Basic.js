@@ -91,9 +91,10 @@ export default function Basic(props){
                             }
                         </div>
                     </div>
-
-                    <div className='d-flex p-3' style={{ position: 'relative' }}>
+                    {/* LINE 1 */}
+                    <div className='d-flex p-3 gap-3' style={{ position: 'relative' }}>
                         <div className="bg-data"></div>
+                        {/* FIRST NAME */}
                         <div className="flex-fill w-25">
                             <p className="m-0 data-label">First Name:</p>
                             {edit ? 
@@ -101,6 +102,7 @@ export default function Basic(props){
                                 <input
                                     type="text"
                                     name="fname"
+                                    className="form-admin w-100"
                                     placeholder="first name"
                                     value={data.fname}
                                     onChange={(e) => handleChange(e)}
@@ -111,6 +113,7 @@ export default function Basic(props){
                                 <p className="m-0 mt-1 basic-value">{faculty_data.fname}</p>
                             </>}
                         </div>
+                        {/* MIDDLE NAME */}
                         <div className="flex-fill w-25">
                             <p className="m-0 data-label">Middle Name:</p>
                             {edit ? 
@@ -118,6 +121,7 @@ export default function Basic(props){
                                 <input 
                                     type="text" 
                                     name='mname' 
+                                    className="form-admin w-100"
                                     placeholder="middle name"
                                     value={data.mname}
                                     onChange={(e) => handleChange(e)}
@@ -128,6 +132,7 @@ export default function Basic(props){
                                 <p className="m-0 mt-1 basic-value">{faculty_data.mname}</p>
                             </>}
                         </div>
+                        {/* LAST NAME */}
                         <div className="flex-fill w-25">
                             <p className="m-0 data-label">Last Name:</p>
                             {edit ? 
@@ -135,6 +140,7 @@ export default function Basic(props){
                                 <input 
                                     type="text" 
                                     name='lname' 
+                                    className="form-admin w-100"
                                     placeholder="last name"
                                     value={data.lname}
                                     onChange={(e) => handleChange(e)}
@@ -145,6 +151,7 @@ export default function Basic(props){
                                 <p className="m-0 mt-1 basic-value">{faculty_data.lname}</p>
                             </>}
                         </div>
+                        {/* GENDER */}
                         <div className="flex-fill w-25">
                             <p className="m-0 data-label">
                                 Gender:
@@ -159,9 +166,9 @@ export default function Basic(props){
                                 <select
                                     type="text"
                                     name="gender"
+                                    className="form-admin w-100"
                                     value={data.gender}
                                     onChange={(e) => handleChange(e)}
-                                    className='w-50'
                                     required
                                 >
                                     <option disabled value="">Gender</option>
@@ -174,9 +181,10 @@ export default function Basic(props){
                             </>} 
                         </div>
                     </div>
-
-                    <div className='d-flex p-3' style={{ position: 'relative' }}>
+                    {/* LINE 2 */}
+                    <div className='d-flex p-3 gap-3' style={{ position: 'relative' }}>
                         <div className="bg-data"></div>
+                        {/* DATE OF BIRTH  */}
                         <div className="flex-fill w-25">
                             <p className="m-0 data-label">
                                 Date of Birth:
@@ -189,7 +197,7 @@ export default function Basic(props){
                             {edit ? 
                             <>
                                 <ReactDatePicker 
-                                    // className="date-picker"
+                                    className="form-admin w-100"
                                     name="birth_date" 
                                     placeholderText="MM/DD/YYYY"
                                     selected={startDate}
@@ -199,9 +207,10 @@ export default function Basic(props){
                                 />
                             </> : 
                             <>
-                                <p className="m-0 mt-1 basic-value">{faculty_data.birth_date}</p>
+                                <p className="m-0 mt-1 basic-value">{moment(faculty_data.birth_date).format('LL')}</p>
                             </>}
                         </div>
+                        {/* AGE */}
                         <div className="flex-fill w-25">
                             <p className="m-0 data-label">
                                 Age:
@@ -216,6 +225,7 @@ export default function Basic(props){
                                 <input 
                                     type="text" 
                                     name='age' 
+                                    className="form-admin w-100"
                                     placeholder="age"
                                     value={data.age}
                                     onChange={(e) => handleChange(e)}
@@ -226,6 +236,7 @@ export default function Basic(props){
                                 <p className="m-0 mt-1 basic-value">{faculty_data.age}</p>
                             </>}
                         </div>
+                        {/* CONTACT NUMBER */}
                         <div className="flex-fill w-25">
                             <p className="m-0 data-label">
                                 Contact Number:
@@ -240,6 +251,7 @@ export default function Basic(props){
                                 <input
                                     type="text" 
                                     name="contact_no"
+                                    className="form-admin w-100"
                                     value={data.contact_no}
                                     placeholder="contact number"
                                     onChange={(e) => handleChange(e)}
@@ -250,6 +262,7 @@ export default function Basic(props){
                                 <p className="m-0 mt-1 basic-value">{faculty_data.contact_no}</p>
                             </>}
                         </div>
+                        {/* EMAIL */}
                         <div className="flex-fill w-25">
                             <p className="m-0 data-label">Email:</p>
                             {edit ? 
@@ -257,6 +270,7 @@ export default function Basic(props){
                                 <input 
                                     type="email" 
                                     name='email' 
+                                    className="form-admin w-100"
                                     placeholder="email"
                                     value={data.email}
                                     onChange={(e) => handleChange(e)}
@@ -268,14 +282,15 @@ export default function Basic(props){
                             </>}
                         </div>
                     </div>
-
-                    <div className='d-flex p-3' style={{ position: 'relative' }}>
+                    {/* LINE 3 */}
+                    <div className='d-flex p-3 gap-3' style={{ position: 'relative' }}>
                         <div className="bg-data"></div>
+                        {/* RANK */}
                         <div className="flex-fill w-25">
                             <p className="m-0 data-label">
                                 Rank:
                                 &nbsp;
-                                {data.birth_date ? '' : 
+                                {data.position ? '' : 
                                 <>
                                     <i className="fa-solid fa-circle-exclamation" style={{ color: 'var(--yellow)'}}></i>
                                 </>}
@@ -285,6 +300,7 @@ export default function Basic(props){
                                 <select
                                     type="text" 
                                     name="position"
+                                    className="form-admin w-100"
                                     value={data.position}
                                     onChange={(e) => handleChange(e)}
                                     required
@@ -299,11 +315,12 @@ export default function Basic(props){
                                 <p className="m-0 mt-1 basic-value">{faculty_data.position}</p>
                             </>}
                         </div>
+                        {/* SPECIALIZATION */}
                         <div className="flex-fill w-25">
                             <p className="m-0 data-label">
                                 Specialization:
                                 &nbsp;
-                                {data.birth_date ? '' : 
+                                {data.specialization ? '' : 
                                 <>
                                     <i className="fa-solid fa-circle-exclamation" style={{ color: 'var(--yellow)'}}></i>
                                 </>}
@@ -313,6 +330,7 @@ export default function Basic(props){
                                 <input 
                                     type="text" 
                                     name='specialization' 
+                                    className="form-admin w-100"
                                     placeholder="specialization"
                                     value={data.specialization}
                                     onChange={(e) => handleChange(e)}
@@ -323,11 +341,12 @@ export default function Basic(props){
                                 <p className="m-0 mt-1 basic-value">{faculty_data.specialization}</p>
                             </>}
                         </div>
+                        {/* HIGHEST DEGREE */}
                         <div className="flex-fill w-25">
                             <p className="m-0 data-label">
                                 Highest Degree:
                                 &nbsp;
-                                {data.birth_date ? '' : 
+                                {data.high_degree ? '' : 
                                 <>
                                     <i className="fa-solid fa-circle-exclamation" style={{ color: 'var(--yellow)'}}></i>
                                 </>}
@@ -337,9 +356,9 @@ export default function Basic(props){
                                 <select
                                     type="text"
                                     name="high_degree"
+                                    className="form-admin w-100"
                                     value={data.high_degree}
                                     onChange={(e) => handleChange(e)}
-                                    className='w-50'
                                     required
                                     >
                                     <option disabled value="">Degree</option>
@@ -352,11 +371,12 @@ export default function Basic(props){
                                 <p className="m-0 mt-1 basic-value">{faculty_data.high_degree}</p>
                             </>}
                         </div>
+                        {/* ROLE */}
                         <div className="flex-fill w-25">
                             <p className="m-0 data-label">
                                 Role:
                                 &nbsp;
-                                {data.birth_date ? '' : 
+                                {data.role ? '' : 
                                 <>
                                     <i className="fa-solid fa-circle-exclamation" style={{ color: 'var(--yellow)'}}></i>
                                 </>}
@@ -366,9 +386,9 @@ export default function Basic(props){
                                 <select
                                     type="text"
                                     name="role"
+                                    className="form-admin w-100"
                                     value={data.role}
                                     onChange={(e) => handleChange(e)}
-                                    className='w-75'
                                     required
                                 >
                                     <option disabled value="">Role</option>
@@ -382,9 +402,10 @@ export default function Basic(props){
                             </>}
                         </div>
                     </div>
-
+                    {/* LINE 4 */}
                     <div className='d-flex p-3' style={{ position: 'relative' }}>
                         <div className="bg-data"></div>
+                        {/* DEPARMENT */}
                         <div className="flex-fill w-25">
                             <p className="m-0 data-label">Department:</p>
                             {edit ? 
@@ -392,6 +413,7 @@ export default function Basic(props){
                                 <select
                                     type="text"
                                     name="department"
+                                    className="form-admin w-25"
                                     value={data.department}
                                     onChange={(e) => handleChange(e)}
                                     required

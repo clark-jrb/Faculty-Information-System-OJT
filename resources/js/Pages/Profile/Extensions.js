@@ -7,6 +7,9 @@ import Label from '@/Components/Label';
 import { Form } from 'react-bootstrap';
 import { useForm } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
+import ReactDatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css'
+import moment from 'moment';
 
 export default function Extensions(props){
     // data fetch
@@ -27,7 +30,8 @@ export default function Extensions(props){
     const { data, setData, post, processing} = useForm({
         extensions: [{
             ext_title: '',
-            duration: '',
+            start_date: '',
+            end_date: '',
             lead: '',
             member: '',
             sponsor: '',
@@ -42,7 +46,8 @@ export default function Extensions(props){
                 'extensions',
                 {
                     ext_title: '',
-                    duration: '',
+                    start_date: '',
+                    end_date: '',
                     lead: '',
                     member: '',
                     sponsor: '',
@@ -73,6 +78,43 @@ export default function Extensions(props){
             );
         };
 
+        // for date
+        const handleDateChange = (date, index) => {
+
+            const addDate = data.extensions.map((ext, i) => {
+                if (i === index) {
+                    return {
+                        ...ext,
+                        start_date: date
+                    };
+                }
+                return ext;
+            });
+
+            console.log(addDate);
+            setData('extensions', addDate);
+        };
+
+        // for update date change
+        const handleUpdateDateChange = (date, index) => {
+
+            const updateDate = selectedData.extensions.map((ext, i) => {
+                if (i === index) {
+                    return {
+                        ...ext,
+                        start_date: date
+                    };
+                }
+                return ext;
+            });
+
+            console.log(updateDate);
+            setSelectedData(prevData => ({
+                ...prevData,
+                extensions: updateDate
+            }));
+        };
+
     // for handle submit buttons
         // add
         const handleAddSubmit = (e) => {
@@ -84,7 +126,8 @@ export default function Extensions(props){
             setData(({
                 extensions: [{
                     ext_title: '',
-                    duration: '',
+                    start_date: '',
+                    end_date: '',
                     lead: '',
                     member: '',
                     sponsor: '',
@@ -138,7 +181,8 @@ export default function Extensions(props){
                     extensions: [{
                         id: selectSpec.id,
                         ext_title: selectSpec.ext_title,
-                        duration: selectSpec.duration,
+                        start_date: selectSpec.start_date,
+                        end_date: selectSpec.end_date,
                         lead: selectSpec.lead,
                         member: selectSpec.member,
                         sponsor: selectSpec.sponsor,
@@ -174,9 +218,10 @@ export default function Extensions(props){
                                 <div className="flex-fill d-flex p-2 gap-3">
                                     <div className="flex-fill w-50">
                                         <Label forInput="ext_title" value="Extension Project Title:" />
-                                        <Form.Control
+                                        <textarea
                                             type="text"
                                             name="ext_title"
+                                            className='form-admin w-100'
                                             placeholder="Title"
                                             value={ext.ext_title}
                                             onChange={(e) => handleAddChange(e, index)}
@@ -185,9 +230,10 @@ export default function Extensions(props){
                                     </div>
                                     <div className="flex-fill w-25">
                                         <Label forInput="lead" value="Lead Faculty:" />
-                                        <Form.Control
+                                        <input
                                             type="text"
                                             name="lead"
+                                            className='form-admin w-100'
                                             placeholder="Lead Faculty"
                                             value={ext.lead}
                                             onChange={(e) => handleAddChange(e, index)}
@@ -195,12 +241,25 @@ export default function Extensions(props){
                                         />
                                     </div>
                                     <div className="flex-fill w-25">
-                                        <Label forInput="duration" value="Duration:" />
-                                        <Form.Control
+                                        <Label forInput="start_date" value="Start Date:" />
+                                        <ReactDatePicker 
+                                            className="form-admin w-100"
+                                            name="start_date" 
+                                            placeholderText="ex. 2001"
+                                            selected={ext.start_date}
+                                            showYearPicker
+                                            dateFormat="yyyy"
+                                            onChange={(date) => {handleDateChange(date, index)}}
+                                            isClearable 
+                                            required
+                                        />
+                                        <Label forInput="end_date" value="End Date:" />
+                                        <input   
                                             type="text"
-                                            name="duration"
-                                            placeholder="ex. 2 Years or On Going/Complete"
-                                            value={ext.duration}
+                                            name="end_date"
+                                            className='form-admin w-100'
+                                            placeholder="ex. 2001 or Present"
+                                            value={ext.end_date}
                                             onChange={(e) => handleAddChange(e, index)}
                                             required
                                         />
@@ -210,9 +269,10 @@ export default function Extensions(props){
                                 <div className="flex-fill d-flex p-2 gap-3">
                                     <div className="flex-fill w-25">
                                         <Label forInput="beneficiaries" value="Beneficiaries (e.g. farmers, professionals, organization):" />
-                                        <Form.Control   
+                                        <input   
                                             type="text"
                                             name="beneficiaries"
+                                            className='form-admin w-100'
                                             placeholder="Beneficiaries"
                                             value={ext.beneficiaries}
                                             onChange={(e) => handleAddChange(e, index)}
@@ -221,10 +281,11 @@ export default function Extensions(props){
                                     </div>
                                     <div className="flex-fill w-25">
                                         <Label forInput="sponsor" value="Sponsoring Department(s):" />
-                                        <Form.Control   
+                                        <input   
                                             type="text"
                                             as="textarea"
                                             name="sponsor"
+                                            className='form-admin w-100'
                                             placeholder="Sponsor(s) (required to put , if more than one)"
                                             value={ext.sponsor}
                                             onChange={(e) => handleAddChange(e, index)}
@@ -233,10 +294,11 @@ export default function Extensions(props){
                                     </div>
                                     <div className="flex-fill w-50">
                                         <Label forInput="member" value="Team Members:" />
-                                        <Form.Control
+                                        <textarea
                                             as="textarea"
                                             type="text"
                                             name="member"
+                                            className='form-admin w-100'
                                             placeholder="ex. Dr. John Doe, JM Cruz, Mr. Juan Dela Cruz (required to put ,)"
                                             value={ext.member}
                                             onChange={(e) => handleAddChange(e, index)}
@@ -310,12 +372,26 @@ export default function Extensions(props){
                                     </div>
                                     <div className="flex-fill w-25">
                                         <Label forInput="duration" value="Duration:" />
-                                        <Form.Control
+                                        <ReactDatePicker 
+                                            className="form-admin w-100"
+                                            name="start_date" 
+                                            placeholderText="ex. 2001"
+                                            selected={ext.start_date}
+                                            showYearPicker
+                                            dateFormat="yyyy"
+                                            onChange={(date) => {handleUpdateDateChange(date, index)}}
+                                            isClearable 
+                                            required
+                                        />
+                                        <Label forInput="end_date" value="End Date:" />
+                                        <input   
                                             type="text"
-                                            name="duration"
-                                            placeholder="ex. 2 Years or On Going/Complete"
-                                            value={ext.duration}
+                                            name="end_date"
+                                            className='form-admin w-100'
+                                            placeholder="ex. 2001 or Present"
+                                            value={ext.end_date}
                                             onChange={(e) => handleUpdateChange(e, index)}
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -434,7 +510,7 @@ export default function Extensions(props){
                             <div className="m-0 py-1">
                                 <p className='m-0 data-label'>Duration: </p>
                                 <span style={{ fontSize: 'large' }}>
-                                    {ext.duration}
+                                    {moment(ext.start_date).format('YYYY') + '-' + moment(ext.end_date).format('YYYY')}
                                 </span>
                             </div>
                         </div>

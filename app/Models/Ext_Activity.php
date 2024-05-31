@@ -11,6 +11,6 @@ class Ext_Activity extends Model
     protected $table = "ext__activities";
     public $timestamps = true;
     protected $fillable = [
-        'faculty_id', 'ext_title', 'duration', 'lead', 'member', 'sponsor', 'beneficiaries'
+        'faculty_id', 'ext_title', 'start_date', 'end_date', 'lead', 'member', 'sponsor', 'beneficiaries'
     ];
 }

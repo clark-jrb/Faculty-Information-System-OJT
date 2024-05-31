@@ -11,6 +11,6 @@ class ResActivity extends Model
     protected $table = "res__res_activities";
     public $timestamps = true;
     protected $fillable = [
-        'faculty_id', 'res_title', 'status', 'duration', 'researcher'
+        'faculty_id', 'res_title', 'status', 'start_date', 'end_date', 'researcher'
     ];
 }

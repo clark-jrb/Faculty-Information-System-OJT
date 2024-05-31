@@ -7,7 +7,9 @@ import Label from '@/Components/Label';
 import { Form } from 'react-bootstrap';
 import { useForm } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
-import { duration } from 'moment';
+import moment from 'moment';
+import ReactDatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css'
 
 export default function Research(props){
     // data fetch
@@ -29,7 +31,8 @@ export default function Research(props){
         research: [{
             title: '',
             status: '',
-            duration: '',
+            start_date: '',
+            end_date: '',
             researchers: ''
         }]
     })
@@ -39,7 +42,7 @@ export default function Research(props){
         const handleAddWorkField = () => {
             addField(
                 'research',
-                { title: '', status: '', duration: '', researchers: '' },
+                { title: '', status: '', start_date: '', end_date: '', researchers: '' },
                 setData,
                 data
             );
@@ -63,6 +66,42 @@ export default function Research(props){
                 setSelectedData,
                 selectedData
             );
+        };
+
+        // for date
+        const handleDateChange = (date, index) => {
+
+            const addDate = data.research.map((res, i) => {
+                if (i === index) {
+                    return {
+                        ...res,
+                        start_date: date
+                    };
+                }
+                return res;
+            });
+
+            console.log(addDate);
+            setData('research', addDate);
+        };
+        // for update date change
+        const handleUpdateDateChange = (date, index) => {
+
+            const updateDate = selectedData.research.map((res, i) => {
+                if (i === index) {
+                    return {
+                        ...res,
+                        start_date: date,
+                    };
+                }
+                return res;
+            });
+
+            console.log(updateDate);
+            setSelectedData(prevData => ({
+                ...prevData,
+                research: updateDate
+            }));
         };
 
     // for handle submit buttons
@@ -129,7 +168,8 @@ export default function Research(props){
                         id: selectSpec.id,
                         title: selectSpec.res_title,
                         status: selectSpec.status,
-                        duration: selectSpec.duration,
+                        start_date: selectSpec.start_date,
+                        end_date: selectSpec.end_date,
                         researchers: selectSpec.researcher
                     }]
                 });
@@ -162,9 +202,10 @@ export default function Research(props){
                                 <div className="flex-fill d-flex p-2 gap-3">
                                     <div className="flex-fill w-75">
                                         <Label forInput="title" value="Research Title:" />
-                                        <Form.Control
+                                        <input
                                             type="text"
                                             name="title"
+                                            className="form-admin w-100"
                                             placeholder="Research Title"
                                             value={res.title}
                                             onChange={(e) => handleAddChange(e, index)}
@@ -173,9 +214,10 @@ export default function Research(props){
                                     </div>
                                     <div className="flex-fill w-25">
                                         <Label forInput="status" value="Status:" />
-                                        <Form.Select
+                                        <select
                                             type="text"
                                             name="status"
+                                            className="form-admin w-100"
                                             value={res.status}
                                             onChange={(e) => handleAddChange(e, index)}
                                             required
@@ -183,28 +225,45 @@ export default function Research(props){
                                             <option disabled value="">Status</option>
                                             <option value="On Going">On going</option>
                                             <option value="Complete">Complete</option>
-                                        </Form.Select>
+                                        </select>
                                     </div>
                                 </div>
                                 
                                 <div className="flex-fill d-flex p-2 gap-3">
                                     <div className="flex-fill w-25">
-                                        <Label forInput="duration" value="Duration:" />
-                                        <Form.Control   
-                                            type="text"
-                                            name="duration"
-                                            placeholder="ex. 3 Years or YYYY-YYYY"
-                                            value={res.duration}
-                                            onChange={(e) => handleAddChange(e, index)}
+                                        <Label forInput="duration" value="Start date:" />
+                                        <ReactDatePicker 
+                                            className="form-admin w-100"
+                                            name="start_date" 
+                                            placeholderText="ex. 2001"
+                                            selected={res.start_date}
+                                            showYearPicker
+                                            dateFormat="yyyy"
+                                            onChange={(date) => {handleDateChange(date, index)}}
+                                            isClearable 
                                             required
                                         />
                                     </div>
+
+                                    <div className="flex-fill">
+                                        <Label forInput="end_date" value="End Date:" />
+                                        <input
+                                            className='form-admin w-100'
+                                            type="text"
+                                            name="end_date"
+                                            placeholder="ex. 2007 or Present"
+                                            value={res.end_date}
+                                            onChange={(e) => handleAddChange(e, index)}
+                                        />
+                                    </div>
+
                                     <div className="flex-fill w-75">
                                         <Label forInput="researchers" value="Researcher(s):" />
-                                        <Form.Control
+                                        <input
                                             as="textarea"
                                             type="text"
                                             name="researchers"
+                                            className="form-admin w-100"
                                             placeholder="ex. Dr. John Doe, Ms. Jane Doe, JM Cruz, Mr. Juan Dela Cruz"
                                             value={res.researchers}
                                             onChange={(e) => handleAddChange(e, index)}
@@ -227,7 +286,7 @@ export default function Research(props){
                             </div>
                         ))}
                         {/* Add button */}
-                        <div className="add-field-container w-100 px-2">
+                        <div className="add-field-container w-100 p-2">
                             <button type="button" className="add-field-btn w-100 py-2" onClick={handleAddWorkField}>
                                 <i className="fa-solid fa-plus"></i> Add research activity
                             </button>
@@ -258,9 +317,10 @@ export default function Research(props){
                                 <div className="flex-fill d-flex p-2 gap-3">
                                     <div className="flex-fill w-75">
                                         <Label forInput="title" value="Research Title:" />
-                                        <Form.Control
+                                        <input
                                             type="text"
                                             name="title"
+                                            className='form-admin w-100'
                                             placeholder="Research Title"
                                             value={res.title}
                                             onChange={(e) => handleUpdateChange(e, index)}
@@ -268,36 +328,55 @@ export default function Research(props){
                                     </div>
                                     <div className="flex-fill w-25">
                                         <Label forInput="status" value="Status:" />
-                                        <Form.Select
+                                        <select
                                             type="text"
                                             name="status"
+                                            className='form-admin w-100'
                                             value={res.status}
                                             onChange={(e) => handleUpdateChange(e, index)}
                                         >
                                             <option disabled value="">Status</option>
                                             <option value="On Going">On going</option>
                                             <option value="Complete">Complete</option>
-                                        </Form.Select>
+                                        </select>
                                     </div>
                                 </div>
                                 
                                 <div className="flex-fill d-flex p-2 gap-3">
                                     <div className="flex-fill w-25">
-                                        <Label forInput="duration" value="Duration:" />
-                                        <Form.Control   
+                                        <Label forInput="start_date" value="Start Date:" />
+                                        <ReactDatePicker 
+                                            className="form-admin w-100"
+                                            name="start_date" 
+                                            placeholderText="ex. 2001"
+                                            selected={res.start_date}
+                                            showYearPicker
+                                            dateFormat="yyyy"
+                                            onChange={(date) => {handleUpdateDateChange(date, index)}}
+                                            isClearable 
+                                            required
+                                        />
+                                    </div>
+
+                                    <div className="flex-fill">
+                                        <Label forInput="end_date" value="End Date:" />
+                                        <input
+                                            className='form-admin w-100'
                                             type="text"
-                                            name="duration"
-                                            placeholder="ex. 3 Years or YYYY-YYYY"
-                                            value={res.duration}
+                                            name="end_date"
+                                            placeholder="ex. 2007 or Present"
+                                            value={res.end_date}
                                             onChange={(e) => handleUpdateChange(e, index)}
                                         />
                                     </div>
+
                                     <div className="flex-fill w-75">
                                         <Label forInput="researchers" value="Researcher(s):" />
-                                        <Form.Control
+                                        <input
                                             as="textarea"
                                             type="text"
                                             name="researchers"
+                                            className='form-admin w-100'
                                             placeholder="ex. Dr. John Doe, Ms. Jane Doe, JM Cruz, Mr. Juan Dela Cruz"
                                             value={res.researchers}
                                             onChange={(e) => handleUpdateChange(e, index)}
@@ -372,7 +451,7 @@ export default function Research(props){
                                     Duration:
                                 </span> 
                                 &nbsp;
-                                {res.duration}
+                                {moment(res.start_date).format('YYYY') + '-' + res.end_date}
                             </p>
 
                             <p className="m-0 py-1" style={{ fontSize: 'large' }}>

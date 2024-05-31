@@ -208,9 +208,10 @@ export default function Trainings(props){
                                 <div className="flex-fill d-flex p-2 gap-3">
                                     <div className="flex-fill w-75">
                                         <Label forInput="title" value="Title:" />
-                                        <Form.Control
+                                        <input
                                             type="text"
                                             name="title"
+                                            className='form-admin w-100'
                                             placeholder="Title"
                                             value={train.title}
                                             onChange={(e) => handleAddChange(e, index)}
@@ -219,17 +220,9 @@ export default function Trainings(props){
                                     </div>
                                     <div className="flex-fill w-25">
                                         <Label forInput="date" value="Date: (start date - end date)" />
-                                        {/* <Form.Control
-                                            type="text"
-                                            name="date"
-                                            placeholder="Date"
-                                            value={train.date}
-                                            onChange={(e) => handleAddChange(e, index)}
-                                            required
-                                        /> */}
                                         <ReactDatePicker 
-                                            // className="date-picker"
                                             name="dates" 
+                                            className='form-admin w-100'
                                             // placeholderText="MM/DD/YYYY"
                                             selectsRange={true}
                                             // selected={train.date}
@@ -245,9 +238,10 @@ export default function Trainings(props){
                                 <div className="flex-fill d-flex p-2 gap-3">
                                     <div className="flex-fill w-25">
                                         <Label forInput="role" value="Role:" />
-                                        <Form.Control   
+                                        <input   
                                             type="text"
                                             name="role"
+                                            className='form-admin w-100'
                                             placeholder="Role"
                                             value={train.role}
                                             onChange={(e) => handleAddChange(e, index)}
@@ -255,9 +249,10 @@ export default function Trainings(props){
                                     </div>
                                     <div className="flex-fill w-75">
                                         <Label forInput="location" value="Location:" />
-                                        <Form.Control
+                                        <input
                                             type="text"
                                             name="location"
+                                            className='form-admin w-100'
                                             placeholder="Location"
                                             value={train.location}
                                             onChange={(e) => handleAddChange(e, index)}
@@ -312,9 +307,10 @@ export default function Trainings(props){
                                 <div className="flex-fill d-flex p-2 gap-3">
                                     <div className="flex-fill w-75">
                                         <Label forInput="title" value="Title:" />
-                                        <Form.Control
+                                        <input
                                             type="text"
                                             name="title"
+                                            className='form-admin w-100'
                                             placeholder="Title"
                                             value={train.title}
                                             onChange={(e) => handleUpdateChange(e, index)}
@@ -325,6 +321,7 @@ export default function Trainings(props){
                                         <Label forInput="date" value="Date: (start date - end date)" />
                                         <ReactDatePicker 
                                             name="dates" 
+                                            className='form-admin w-100'
                                             selectsRange={true}
                                             startDate={train.start_date}
                                             endDate={train.end_date}
@@ -338,9 +335,10 @@ export default function Trainings(props){
                                 <div className="flex-fill d-flex p-2 gap-3">
                                     <div className="flex-fill w-25">
                                         <Label forInput="role" value="Role:" />
-                                        <Form.Control   
+                                        <input   
                                             type="text"
                                             name="role"
+                                            className='form-admin w-100'
                                             placeholder="Role"
                                             value={train.role}
                                             onChange={(e) => handleUpdateChange(e, index)}
@@ -348,9 +346,10 @@ export default function Trainings(props){
                                     </div>
                                     <div className="flex-fill w-75">
                                         <Label forInput="location" value="Location:" />
-                                        <Form.Control
+                                        <input
                                             type="text"
                                             name="location"
+                                            className='form-admin w-100'
                                             placeholder="Location"
                                             value={train.location}
                                             onChange={(e) => handleUpdateChange(e, index)}
