@@ -1,8 +1,19 @@
 import React from 'react';
 import Authenticated from '@/Layouts/Authenticated';
 import { Carousel } from 'react-bootstrap';
+import { Inertia } from '@inertiajs/inertia';
+import BackToTopButton from '@/Components/BackToTopButton';
 
 export default function SSFacility(props) {
+    const handlePrevious = () => {
+        Inertia.visit(route('crop.science'))
+    }
+    // const handleNext = () => {
+    //     Inertia.visit(route('dept.name'))
+    // }
+    
+    // Uncomment the function above to add new department
+
     return (
         <Authenticated 
             auth={props.auth} 
@@ -18,9 +29,12 @@ export default function SSFacility(props) {
                 
                 {/* Logo Section */}
                 <div className="logoSection">
+                    <div className="fa-solid fa-circle-left prevButton" onClick={() => handlePrevious() }></div>
                     <div className="logoContainer">
                         <img src="/images/dept_logo/soil_sci.png" alt="SS Logo" className="logo" />
                     </div>
+                    {/* <div className="fa-solid fa-circle-right nextButton" onClick={() => handleNext() }></div> */}
+                    {/* Uncomment the code above to add new department */}
                 </div>
 
                 {/* Facility Section 1*/}
@@ -57,7 +71,7 @@ export default function SSFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 2*/}
-                <div className="facilitySection">
+                <div className="altfacilitySection">
                         <div className="imageBox">
                             <img src="/images/dept_previews/SSPreview2.jpg" alt="Image" className="preview-image" />
                         </div>
@@ -123,7 +137,7 @@ export default function SSFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 4*/}
-                <div className="facilitySection">
+                <div className="altfacilitySection">
                         <div className="imageBox">
                             <img src="/images/dept_previews/SSPreview4.jpg" alt="Image" className="preview-image" />
                         </div>
@@ -184,6 +198,8 @@ export default function SSFacility(props) {
                     </div>
                 </div>
             </div>
+
+            <BackToTopButton/>
         </Authenticated>
     );
 }

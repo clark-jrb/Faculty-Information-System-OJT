@@ -1,8 +1,17 @@
 import React from 'react';
 import Authenticated from '@/Layouts/Authenticated';
 import { Carousel } from 'react-bootstrap';
+import { Inertia } from '@inertiajs/inertia';
+import BackToTopButton from '@/Components/BackToTopButton';
 
 export default function AMFacility(props) {
+    const handlePrevious = () => {
+        Inertia.visit(route('agricultural.extension'))
+    }
+    const handleNext = () => {
+        Inertia.visit(route('animal.science'))
+    }
+    
     return (
         <Authenticated 
             auth={props.auth} 
@@ -18,12 +27,16 @@ export default function AMFacility(props) {
                 
                 {/* Logo Section */}
                 <div className="logoSection">
+                    <div className="fa-solid fa-circle-left prevButton" onClick={() => handlePrevious() }></div>
                     <div className="logoContainer">
                         <img src="/images/dept_logo/agri_management.png" alt="AM Logo" className="logo" />
                     </div>
+                    <div className="fa-solid fa-circle-right nextButton" onClick={() => handleNext() }></div>
                 </div>
 
                 {/* Facility Section */}
+                {/* Change className "facilitySection" to "altfacilitySection" 
+                when facility are 2 or more to alternately position them */}
                 <div className="facilitySection">
                         <div className="imageBox">
                             <img src="/images/dept_previews/AMPreview1.jpg" alt="Image" className="preview-image" />
@@ -52,6 +65,8 @@ export default function AMFacility(props) {
                     </div>
                 </div>
             </div>
+
+            <BackToTopButton/>
         </Authenticated>
     );
 }

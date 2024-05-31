@@ -5,7 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50vh; 
+    height: 30vh; 
     position: relative;
 }
 
@@ -24,22 +24,41 @@
 
 .logoSection {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 50px 8rem;
+    padding: 20px 5rem;
     background-color: #FFF6A1;
+    position: relative;
 }
 
-.logoContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.prevButton {
+    position: absolute;
+    left: 10px;
+    color: #005f00;
+    font-size: 4rem;
+    margin-left: 50px;
+}
+
+.prevButton:hover {
+    cursor: pointer;
+}
+
+.nextButton {
+    position: absolute;
+    right: 10px;
+    color: #005f00;
+    font-size: 4rem;
+    margin-right: 50px;
+}
+
+.nextButton:hover {
+    cursor: pointer;
 }
 
 .logo {
-    width: 130px;
-    height: 130px;
+    width: 160px;
+    height: 160px;
 }
 
 /* Facility Section */
@@ -48,13 +67,19 @@
     padding: 20px;
 }
 
+.altfacilitySection {
+    display: flex;
+    padding: 20px;
+    flex-direction: row-reverse;
+}
+
 .imageBox {
     margin-right: 20px;
 }
 
 .preview-image {
-    width: 550px;
-    height: 400px;
+    width: 600px;
+    height: 380px;
     border-radius: 20px;
 }
 
@@ -68,7 +93,6 @@
     justify-content: center;
     align-items: flex-start;
     margin-left: 25px; 
-    margin-top: 100px;
 }
 
 .text h2{
@@ -86,26 +110,28 @@
 }
 
 .carousel-container {
-    margin-top: 20px; /* Add margin to separate carousel from content above */
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .facility-carousel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 550px;
+    height: 350px;
 }
 
 .carousel-item {
-    display: flex;
-    justify-content: center;
     border-radius: 20px;
 }
 
 .carousel-image-box {
-    width: 500px;
-    height: 400px;
+    width: 550px;
+    height: 350px;
 }
 
 .carousel-image-box img {
+    width: 550px;
+    height: 350px;
     border-radius: 20px;
 }
