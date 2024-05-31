@@ -131,7 +131,8 @@ class FacultyController extends Controller
                         'faculty_id' => auth()->user()->id,
                         'position' => $academicWorkData['position'],
                         'work_loc' => $academicWorkData['institution'],
-                        'date' => $academicWorkData['date'],
+                        'start_date' => $academicWorkData['start_date'],
+                        'end_date' => $academicWorkData['end_date'],
                         'location' => $academicWorkData['location']
                     ]);
                 }
@@ -415,7 +416,8 @@ class FacultyController extends Controller
                         $acad_educ->update([
                             'position' => $academicWorkData['position'] ?? $acad_educ->position,
                             'work_loc' => $academicWorkData['institution'] ?? $acad_educ->work_loc,
-                            'date' => $academicWorkData['date'] ?? $acad_educ->date,
+                            'start_date' => $academicWorkData['start_date'] ?? $acad_educ->start_date,
+                            'end_date' => $academicWorkData['end_date'] ?? $acad_educ->end_date,
                             'location' => $academicWorkData['location'] ?? $acad_educ->location
                         ]);
                     }
