@@ -1,8 +1,17 @@
 import React from 'react';
 import Authenticated from '@/Layouts/Authenticated';
 import { Carousel } from 'react-bootstrap';
+import { Inertia } from '@inertiajs/inertia';
+import BackToTopButton from '@/Components/BackToTopButton';
 
 export default function CSFacility(props) {
+    const handlePrevious = () => {
+        Inertia.visit(route('crop.protection'))
+    }
+    const handleNext = () => {
+        Inertia.visit(route('soil.science'))
+    }
+
     return (
         <Authenticated 
             auth={props.auth} 
@@ -18,9 +27,11 @@ export default function CSFacility(props) {
                 
                 {/* Logo Section */}
                 <div className="logoSection">
+                    <div className="fa-solid fa-circle-left prevButton" onClick={() => handlePrevious() }></div>
                     <div className="logoContainer">
                         <img src="/images/dept_logo/crop_sci.png" alt="CS Logo" className="logo" />
                     </div>
+                    <div className="fa-solid fa-circle-right nextButton" onClick={() => handleNext() }></div>
                 </div>
 
                 {/* Facility Section 1*/}
@@ -57,7 +68,7 @@ export default function CSFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 2*/}
-                <div className="facilitySection">
+                <div className="altfacilitySection">
                         <div className="imageBox">
                             <img src="/images/dept_previews/CSPreview2.jpg" alt="Image" className="preview-image" />
                         </div>
@@ -118,7 +129,7 @@ export default function CSFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 4*/}
-                <div className="facilitySection">
+                <div className="altfacilitySection">
                         <div className="imageBox">
                             <img src="/images/dept_previews/CSPreview4.jpg" alt="Image" className="preview-image" />
                         </div>
@@ -174,7 +185,7 @@ export default function CSFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 6*/}
-                <div className="facilitySection">
+                <div className="altfacilitySection">
                         <div className="imageBox">
                             <img src="/images/dept_previews/CSPreview6.jpg" alt="Image" className="preview-image" />
                         </div>
@@ -240,7 +251,7 @@ export default function CSFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 8*/}
-                <div className="facilitySection">
+                <div className="altfacilitySection">
                         <div className="imageBox">
                             <img src="/images/dept_previews/CSPreview8.jpg" alt="Image" className="preview-image" />
                         </div>
@@ -306,6 +317,8 @@ export default function CSFacility(props) {
                     </div>
                 </div>
             </div>
+
+            <BackToTopButton/>
         </Authenticated>
     );
 }

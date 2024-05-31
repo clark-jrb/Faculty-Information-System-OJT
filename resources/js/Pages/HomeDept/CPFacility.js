@@ -1,8 +1,17 @@
 import React from 'react';
 import Authenticated from '@/Layouts/Authenticated';
 import { Carousel } from 'react-bootstrap';
+import { Inertia } from '@inertiajs/inertia';
+import BackToTopButton from '@/Components/BackToTopButton';
 
 export default function CPFacility(props) {
+    const handlePrevious = () => {
+        Inertia.visit(route('animal.science'))
+    }
+    const handleNext = () => {
+        Inertia.visit(route('crop.science'))
+    }
+
     return (
         <Authenticated 
             auth={props.auth} 
@@ -18,9 +27,11 @@ export default function CPFacility(props) {
                 
                 {/* Logo Section */}
                 <div className="logoSection">
+                    <div className="fa-solid fa-circle-left prevButton" onClick={() => handlePrevious() }></div>
                     <div className="logoContainer">
                         <img src="/images/dept_logo/crop_protect.png" alt="CP Logo" className="logo" />
                     </div>
+                    <div className="fa-solid fa-circle-right nextButton" onClick={() => handleNext() }></div>
                 </div>
 
                 {/* Facility Section 1*/}
@@ -47,7 +58,7 @@ export default function CPFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 2*/}
-                <div className="facilitySection">
+                <div className="altfacilitySection">
                         <div className="imageBox">
                             <img src="/images/dept_previews/CPPreview2.jpg" alt="Image" className="preview-image" />
                         </div>
@@ -98,7 +109,7 @@ export default function CPFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 4*/}
-                <div className="facilitySection">
+                <div className="altfacilitySection">
                         <div className="imageBox">
                             <img src="/images/dept_previews/CPPreview4.jpg" alt="Image" className="preview-image" />
                         </div>
@@ -164,6 +175,8 @@ export default function CPFacility(props) {
                     </div>
                 </div>
             </div>
+
+            <BackToTopButton/>
         </Authenticated>
     );
 }
