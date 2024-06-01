@@ -20,10 +20,10 @@ export default function Home(props) {
         >
             <div>
                 {/* Background Image Section */}
-                <div className="backgroundSection" style={{ backgroundImage: 'url("/images/home_bg.jpg")' }}>
+                <div className="backgroundSection" style={{ backgroundImage: 'url("/images/logos_bgs/home_bg.jpg")' }}>
                     <div>
                         <div className='d-flex align-items-start'>
-                            <img src="/images/clsu_logo.png" alt="University Logo" className="univLogo" />
+                            <img src="/images/logos_bgs/clsu_logo.png" alt="University Logo" className="univLogo" />
                             <p className="univText text-start">Central Luzon State University</p>
                         </div>
                         <div className="collegeTextContainer">
@@ -58,7 +58,7 @@ export default function Home(props) {
             <div className="footer">
                 <div className="footer-content">
                     <div className="footer-logo">
-                        <img src="/images/agri_logo.png" alt="Logo" />
+                        <img src="/images/logos_bgs/agri_logo.png" alt="Logo" />
                     </div>
                     <div className="footer-text">
                         <span className="footer-text-college">The College of Agriculture</span> upholds the responsibility of providing quality education in agriculture and allied fields through its world-class facilities and competent faculty members and staff who are committed to continuously produce the necessary mechanism that aims to promote relevant agricultural education in the country.

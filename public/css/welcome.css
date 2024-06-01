@@ -1,7 +1,7 @@
 
 .welcome-content {
     height: 100dvh;
-    background-image: url('../images/login_bg.png');
+    background-image: url('../images/logos_bgs/login_bg.png');
 }
 
 .welcome-content a {

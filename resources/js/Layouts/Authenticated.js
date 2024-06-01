@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
-import clsu_logo from '../../../public/images/clsu_logo.png';
-import agri_logo from '../../../public/images/agri_logo.png';
+import clsu_logo from '../../../public/images/logos_bgs/clsu_logo.png';
+import agri_logo from '../../../public/images/logos_bgs/agri_logo.png';
 import Dropdown from '@/Components/Dropdown';
 import { abbreviateName } from '@/utils/abbreviateName';
 

@@ -63,14 +63,20 @@
 
 /* Facility Section */
 .facilitySection {
-    display: flex;
-    padding: 20px;
+    background-image: url("/images/logos_bgs/preview_bg.jpg");
 }
 
 .altfacilitySection {
+    flex-direction: row-reverse;
+    background-image: url("/images/logos_bgs/preview_bg.jpg");
+}
+
+.facilitySection, .altfacilitySection {
     display: flex;
     padding: 20px;
-    flex-direction: row-reverse;
+    background-size: cover;
+    background-position: center;
+    background-clip: padding-box;
 }
 
 .imageBox {
@@ -112,13 +118,14 @@
 .carousel-container {
     display: flex;
     justify-content: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    background-image: url("/images/logos_bgs/carousel_bg.jpg");
 }
 
 .facility-carousel {
     width: 550px;
     height: 350px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .carousel-item {

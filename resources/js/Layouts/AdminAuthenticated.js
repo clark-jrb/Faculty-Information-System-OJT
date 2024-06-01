@@ -1,6 +1,6 @@
 import React from "react";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
-import agri_logo from "../../../public/images/agri_logo.png"
+import agri_logo from "../../../public/images/logos_bgs/agri_logo.png"
 import NavLink from "@/Components/NavLink";
 import Dropdown from "@/Components/Dropdown";
 

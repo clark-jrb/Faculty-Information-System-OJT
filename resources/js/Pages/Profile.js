@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Authenticated from '@/Layouts/Authenticated';
-import agri_logo from '../../../public/images/agri_logo.png'
+import agri_logo from '../../../public/images/logos_bgs/agri_logo.png'
 import NavLink from '@/Components/NavLink';
 import { usePage, useForm } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
