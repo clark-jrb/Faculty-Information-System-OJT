@@ -2,6 +2,7 @@ import React from "react";
 import { Form } from "react-bootstrap";
 import Label from "@/Components/Label";
 import { addField, handleFieldChange } from "@/utils/forms";
+import moment from "moment";
 
 export default function Publications({ data, setData }) {
 
@@ -48,7 +49,7 @@ export default function Publications({ data, setData }) {
                                 name="proj_date"
                                 className="form-admin w-100"
                                 placeholder="ex. March 2020"
-                                value={pub.proj_date}
+                                value={moment(pub.proj_date).format('MMMM YYYY')}
                                 // onChange={(e) => handleChange(e, index)}
                                 readOnly
                             />

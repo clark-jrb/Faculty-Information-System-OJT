@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Form } from "react-bootstrap";
 import Label from "@/Components/Label";
 import { addField, handleFieldChange } from "@/utils/forms";
+import moment from "moment";
 
 export default function Academic({ data, setData }) {
     const handleAddEducField = () => {
@@ -154,7 +155,7 @@ export default function Academic({ data, setData }) {
                                 name="work_date"
                                 className="form-admin w-100"
                                 placeholder="YYYY-(YYYY/Present)"
-                                value={academicWork.work_date}
+                                value={moment(academicWork.start_date).format('YYYY') + '-' + academicWork.end_date}
                                 // onChange={(e) => handleWorkChange(e, index)}
                                 readOnly
                             />

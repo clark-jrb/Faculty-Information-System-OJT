@@ -43,13 +43,15 @@ export default function FacultyInfo({ children }) {
         work_position: item.position,
         work_institution: item.work_loc,
         work_location: item.location,
-        work_date: item.date
+        start_date: item.start_date,
+        end_date: item.end_date
     }));
 
     const ResearchActData = research_data.map(item => ({
         title: item.res_title,
         status: item.status,
-        duration: item.duration,
+        start_date: item.start_date,
+        end_date: item.end_date,
         researchers: item.researcher
     }));
 

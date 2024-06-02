@@ -2,6 +2,7 @@ import React from "react";
 import { Form } from "react-bootstrap";
 import Label from "@/Components/Label";
 import { addField, handleFieldChange } from "@/utils/forms";
+import moment from "moment";
 
 export default function ResearchActivities({ data, setData }) {
 
@@ -66,7 +67,7 @@ export default function ResearchActivities({ data, setData }) {
                                 name="duration"
                                 className="form-admin w-100"
                                 placeholder="ex. 3 Years or YYYY-YYYY"
-                                value={res.duration}
+                                value={moment(res.start_date).format('YYYY') + '-' + res.end_date}
                                 // onChange={(e) => handleResActChange(e, index)}
                                 readOnly
                             />
