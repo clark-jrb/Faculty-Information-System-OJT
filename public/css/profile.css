@@ -15,7 +15,7 @@
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     border: #ccc solid 1px;
-    box-shadow: 0 1.5px 3px 0 #ccc;
+    /* box-shadow: 0 1.5px 3px 0 #ccc; */
 }
 
 .profile-section {

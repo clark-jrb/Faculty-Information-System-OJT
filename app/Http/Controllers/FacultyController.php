@@ -320,6 +320,41 @@ class FacultyController extends Controller
         return Inertia::render($view, array_merge(['faculty_data' => $faculty_data], $data));
     }
 
+    // PRINT
+    public function print(Request $request)
+    {
+        $spec = $request->input('toPrint', null);
+
+        switch ($spec) {
+            case 'education':
+                $query = Acad_Education::where('faculty_id', auth()->user()->id);
+                break;
+            case 'work':
+                $query = Acad_WorkExp::where('faculty_id', auth()->user()->id);
+                break;
+            case 'research':
+                $query = ResActivity::where('faculty_id', auth()->user()->id);
+                break;
+            case 'publications':
+                $query = Publication::where('faculty_id', auth()->user()->id);
+                break;
+            case 'trainings':
+                $query = Trainings::where('faculty_id', auth()->user()->id);
+                break;
+            default:
+                $query = Basic_Info::where('faculty_id', auth()->user()->id);
+                break;
+        }
+
+        $facultyData = $query->get();
+        $basicInfo = Basic_Info::where('faculty_id', auth()->user()->id)->firstOrFail();
+
+        return Inertia::render('Print/FacultyPrint', [
+            'faculty_data' => $facultyData, 
+            'basic_info' => $basicInfo
+        ]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

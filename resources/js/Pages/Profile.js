@@ -102,7 +102,7 @@ export default function Profile({ children, ...props }) {
             <div className="profile-content pt-4 px-4">
                 <div className="profile-container">
                     {/* <!-- Profile  --> */}
-                    <div className="profile-section p-4">
+                    <div className="profile-section p-4 shadow">
                         {/* <div className='go-back-btn' onClick={() => handleGoBack()}>
                             <i className="fa-solid fa-arrow-left-long fa-xl"></i>
                         </div> */}
@@ -155,7 +155,7 @@ export default function Profile({ children, ...props }) {
                     </div>
 
                     {/* <!-- Profile Informations --> */}
-                    <div className="profile-info-section">
+                    <div className="profile-info-section shadow">
                         <div className="profile-ribbon">
                             <ul>
                                 <li className={`basic-tab px-3 ${route().current('basic') ? 'active' : ''}`} id="basic">

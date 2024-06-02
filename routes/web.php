@@ -27,11 +27,12 @@ Route::get('/', function () {
     ]);
 });
 
-// For Viewer
+// For Faculty
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/redirectAuthenticatedUsers', [RedirectAuthenticatedUsersController::class, 'home']);
     // Dashboard Route
     Route::get('/dashboard', fn () => Inertia::render('Dashboard'))->name('dashboard');
+    Route::get('/print', fn () => Inertia::render('Print/FacultyPrint'))->name('faculty.print');
 
     // Profile Routes
     Route::prefix('/profile')->group(function () {
@@ -85,7 +86,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/soil-science', fn () => Inertia::render('HomeDept/SSFacility'))->name('soil.science');
     });
     
-    // For Admin
+    
     // Route::middleware(['auth', 'verified'])->group(function () {
     //     Route::prefix('/admin')->group(function () {
     //         Route::get('/', fn () => Inertia::render('AdminDashboard'))->name('admin');
@@ -93,6 +94,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     //     });
     // });
 
+// For Admin
     Route::group(['middleware' => 'ifAdmin:admin'], function() {
         Route::inertia('/admin', 'Admin/AdminDashboard')->name('admin');
         Route::get('/admin/dashboard', [AdminController::class, 'showFacultiesDashboard'])->name('admin.dashboard');
