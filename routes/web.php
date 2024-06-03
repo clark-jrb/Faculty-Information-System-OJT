@@ -32,7 +32,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/redirectAuthenticatedUsers', [RedirectAuthenticatedUsersController::class, 'home']);
     // Dashboard Route
     Route::get('/dashboard', fn () => Inertia::render('Dashboard'))->name('dashboard');
-    Route::get('/print', fn () => Inertia::render('Print/FacultyPrint'))->name('faculty.print');
 
     // Profile Routes
     Route::prefix('/profile')->group(function () {
@@ -69,6 +68,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::delete('/destroyTrain/{id}', [FacultyController::class, 'destroyTrain'])->name('destroy.train');
 
         Route::post('/updateProfPic', [FacultyController::class, 'updateProfPic'])->name('update.profilePic');
+        Route::get('/print', [FacultyController::class, 'print'])->name('faculty.print');
+
     });
 
     // Faculty Route

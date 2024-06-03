@@ -387,3 +387,20 @@
     border-bottom-right-radius: 2px !important;
     border-bottom-left-radius: 2px !important;
 } */
+
+
+.faculty-print-content {
+    height: auto;
+    overflow: auto;
+}
+
+.faculty-print-container {
+    background-color: white;
+    /* border: red solid 1px; */
+    height: auto;
+    /* margin-top: 60px; */
+}
+
+.print-page-table-cont-title {
+    font-size: xx-large;
+}

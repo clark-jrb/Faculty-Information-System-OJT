@@ -115,6 +115,11 @@ export default function Education ({ data, acadEduc_data, setData, post }) {
             setSelectedID(id)
             setShowModalDel(true)
         }
+    
+    // to print
+    const handlePrint = () => {
+        Inertia.get(route('faculty.print', { toPrint: 'education' }))
+    }
 
     return (
         <>
@@ -318,7 +323,14 @@ export default function Education ({ data, acadEduc_data, setData, post }) {
                         </>}
                     </p>
                     
-                    <div className='edit-profile-container ms-auto'>
+                    
+
+                    <div className='edit-profile-container ms-auto gap-2'>
+                        <div style={{ fontSize: 'medium' }}>
+                            <button className='go-back-btn ms-auto px-2 py-1' onClick={handlePrint}>
+                                <i className="fa-solid fa-print fa-sm"></i> Print
+                            </button>
+                        </div>
                         <div className='d-flex gap-2 align-items-center'>
                             <button className='edit-profile p-1 px-2' onClick={() => setShowModalEduc(true)}>
                                 <i className="fa-regular fa-plus"></i> Add

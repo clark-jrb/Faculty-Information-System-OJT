@@ -351,7 +351,8 @@ class FacultyController extends Controller
 
         return Inertia::render('Print/FacultyPrint', [
             'faculty_data' => $facultyData, 
-            'basic_info' => $basicInfo
+            'basic_info' => $basicInfo,
+            'type' => $request->input('toPrint')
         ]);
     }
 
