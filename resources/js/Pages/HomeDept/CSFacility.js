@@ -35,7 +35,7 @@ export default function CSFacility(props) {
                 </div>
 
                 {/* Facility Section 1*/}
-                <div className="facilitySection">
+                <div className="facilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/CSPreview1.jpg" alt="Image" className="preview-image" />
                         </div>
@@ -68,12 +68,12 @@ export default function CSFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 2*/}
-                <div className="altfacilitySection">
+                <div className="altfacilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/CSPreview2.jpg" alt="Image" className="preview-image" />
                         </div>
                         <div className="content">
-                            <div className="text">
+                            <div className="alttext">
                                 <h2>Postharvest Laboratory</h2>
                                 <p>Postharvest Laboratory is a specialized laboratory catering the conduct of researches and experiments on the storability of major perishables commodities mainly fruits and vegetables.</p>
                             </div>
@@ -96,7 +96,7 @@ export default function CSFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 3*/}
-                <div className="facilitySection">
+                <div className="facilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/CSPreview3.jpg" alt="Image" className="preview-image" />
                         </div>
@@ -129,12 +129,12 @@ export default function CSFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 4*/}
-                <div className="altfacilitySection">
+                <div className="altfacilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/CSPreview4.jpg" alt="Image" className="preview-image" />
                         </div>
                         <div className="content">
-                            <div className="text">
+                            <div className="alttext">
                                 <h2>Vegetable Production Module</h2>
                                 <p>The vegetable production module has an area of almost 2.2 hectares planted with different kinds of lowland vegetables such as tomato, eggplant, pepper, luffa, mungbean, bitter gourd and stringbeans. The area is used by students for actual performance of exercises on the cultural management practices of each crop and venue for the major practice in vegetable production.</p>
                             </div>
@@ -157,7 +157,7 @@ export default function CSFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 5*/}
-                <div className="facilitySection">
+                <div className="facilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/CSPreview5.jpg" alt="Image" className="preview-image" />
                         </div>
@@ -185,12 +185,12 @@ export default function CSFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 6*/}
-                <div className="altfacilitySection">
+                <div className="altfacilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/CSPreview6.jpg" alt="Image" className="preview-image" />
                         </div>
                         <div className="content">
-                            <div className="text">
+                            <div className="alttext">
                                 <h2>Mixed Orchard and Plantation Crops Module</h2>
                                 <p>The area is planted and maintained with different fruit trees like mango, rambutan, cacao, coffee, lanzones, and chico. The orchard serves as an instructional area, where students taking-up Fruits and Plantation Crops (HORT 3310) and Practices in Crop Production (CRSCI 1105) perform different actual hands-on cultural management practices such as maintenance and asexual propagation. It also serves as a germplasm collection for identification and propagation.</p>
                             </div>
@@ -218,7 +218,7 @@ export default function CSFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 7*/}
-                <div className="facilitySection">
+                <div className="facilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/CSPreview7.jpg" alt="Image" className="preview-image" />
                         </div>
@@ -251,12 +251,12 @@ export default function CSFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 8*/}
-                <div className="altfacilitySection">
+                <div className="altfacilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/CSPreview8.jpg" alt="Image" className="preview-image" />
                         </div>
                         <div className="content">
-                            <div className="text">
+                            <div className="alttext">
                                 <h2>RM-CARES</h2>
                                 <p>Also known as Ramon Magsaysay Center for Agricultural Resources and Environment Studies, it leads in the pursuit of environmentally sustainable and best practice technologies in waste and resource management and organic farming in CLSU and in the region. It undertakes rigorous capacity building of all the stakeholders including students through training and immersions to build their competencies and consciousness in organic farming practices.</p>
                             </div>
@@ -284,7 +284,7 @@ export default function CSFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 9*/}
-                <div className="facilitySection">
+                <div className="facilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/CSPreview9.jpg" alt="Image" className="preview-image" />
                         </div>

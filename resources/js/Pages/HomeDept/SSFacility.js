@@ -38,7 +38,7 @@ export default function SSFacility(props) {
                 </div>
 
                 {/* Facility Section 1*/}
-                <div className="facilitySection">
+                <div className="facilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/SSPreview1.jpg" alt="Image" className="preview-image" />
                         </div>
@@ -71,12 +71,12 @@ export default function SSFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 2*/}
-                <div className="altfacilitySection">
+                <div className="altfacilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/SSPreview2.jpg" alt="Image" className="preview-image" />
                         </div>
                         <div className="content">
-                            <div className="text">
+                            <div className="alttext">
                                 <h2>Soil Museum</h2>
                                 <p>The museum is used particularly to showcase the different kinds of identified and classified rocks and minerals. Included in the museum are displays of ideal soil profiles in different soil orders found in the Philippines and other countries in Asia as well as samples of various soil structures and textures. The rocks and minerals serve as instructional materials for Soil Science subjects.</p>
                             </div>
@@ -104,7 +104,7 @@ export default function SSFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 3*/}
-                <div className="facilitySection">
+                <div className="facilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/SSPreview3.jpg" alt="Image" className="preview-image" />
                         </div>
@@ -137,12 +137,12 @@ export default function SSFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 4*/}
-                <div className="altfacilitySection">
+                <div className="altfacilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/SSPreview4.jpg" alt="Image" className="preview-image" />
                         </div>
                         <div className="content">
-                            <div className="text">
+                            <div className="alttext">
                                 <h2>Soil and Plant Tissue Analytical Laboratory</h2>
                                 <p>It is adjacent to the Soil Biology and Biotechnology Laboratory. This room is equipped with digital and analytical balances for weighing chemical reagents that are needed for soil and plant tissue analyses. A wooden cabinet can be found in this room where small laboratory tools for weighing and measurements are kept.</p>
                             </div>
@@ -170,7 +170,7 @@ export default function SSFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 5*/}
-                <div className="facilitySection">
+                <div className="facilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/SSPreview5.jpg" alt="Image" className="preview-image" />
                         </div>

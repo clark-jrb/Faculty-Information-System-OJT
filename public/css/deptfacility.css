@@ -63,12 +63,12 @@
 
 /* Facility Section */
 .facilitySection {
-    background-image: url("/images/logos_bgs/preview_bg.jpg");
+    background-image: url("/images/logos_bgs/preview_bg1.jpg");
 }
 
 .altfacilitySection {
     flex-direction: row-reverse;
-    background-image: url("/images/logos_bgs/preview_bg.jpg");
+    background-image: url("/images/logos_bgs/preview_bg2.jpg");
 }
 
 .facilitySection, .altfacilitySection {
@@ -93,21 +93,38 @@
     flex: 1; 
 }
 
-.text {
+.text, .alttext {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     margin-left: 25px; 
+    padding: 10px;
 }
 
 .text h2{
+    color: whitesmoke;
     font-size: 40px; 
     font-weight: bold; 
 }
 
 .text p{
-    color: #000000;
+    color: whitesmoke;
+    font-size: 20px;
+    font-family: 'Roboto Condensed', sans-serif; 
+    font-weight: 400;
+    max-width: calc(90% - 25px); 
+    position: relative; 
+}
+
+.alttext h2{
+    color: #DBA126;
+    font-size: 40px; 
+    font-weight: bold; 
+}
+
+.alttext p{
+    color: #DBA126;
     font-size: 20px;
     font-family: 'Roboto Condensed', sans-serif; 
     font-weight: 400;
@@ -118,7 +135,8 @@
 .carousel-container {
     display: flex;
     justify-content: center;
-    background-image: url("/images/logos_bgs/carousel_bg.jpg");
+    background-color: #FFF6A1;
+    /* background-image: url("/images/logos_bgs/carousel_bg.jpg"); */
 }
 
 .facility-carousel {
