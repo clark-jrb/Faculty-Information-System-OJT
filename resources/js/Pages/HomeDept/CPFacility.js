@@ -35,7 +35,7 @@ export default function CPFacility(props) {
                 </div>
 
                 {/* Facility Section 1*/}
-                <div className="facilitySection">
+                <div className="facilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/CPPreview1.jpg" alt="Image" className="preview-image" />
                         </div>
@@ -58,12 +58,12 @@ export default function CPFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 2*/}
-                <div className="altfacilitySection">
+                <div className="altfacilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/CPPreview2.jpg" alt="Image" className="preview-image" />
                         </div>
                         <div className="content">
-                            <div className="text">
+                            <div className="alttext">
                                 <h2>Entomology Laboratory 1 & 2</h2>
                                 <p>The Entomology Lab 1 is used for a class with a small group of students. On the other hand, Entomology Lab 2 can occupy a bigger class with 25-30 students. Both laboratory rooms have a storage room used for keeping the visual aids, insect collections and other instructional materials used for Crop Protection basic and major courses and serve as working areas for the laboratory classes of students enrolled in crop protection subjects.</p>
                             </div>
@@ -81,7 +81,7 @@ export default function CPFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 3*/}
-                <div className="facilitySection">
+                <div className="facilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/CPPreview3.jpg" alt="Image" className="preview-image" />
                         </div>
@@ -109,12 +109,12 @@ export default function CPFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 4*/}
-                <div className="altfacilitySection">
+                <div className="altfacilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/CPPreview4.jpg" alt="Image" className="preview-image" />
                         </div>
                         <div className="content">
-                            <div className="text">
+                            <div className="alttext">
                                 <h2>The Preparation Room</h2>
                                 <p>This room caters the needs of the laboratory activities of students in the department. Such activities include preparation and sterilization of culture media, preparation of reagents and other materials, washing and sterilization of glassware, and issuance of microscopes.</p>
                             </div>
@@ -142,7 +142,7 @@ export default function CPFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 5*/}
-                <div className="facilitySection">
+                <div className="facilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/CPPreview5.jpg" alt="Image" className="preview-image" />
                         </div>

@@ -35,7 +35,7 @@ export default function ASFacility(props) {
                 </div>
 
                 {/* Facility Section 1*/}
-                <div className="facilitySection">
+                <div className="facilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/ASPreview1.jpg" alt="Image" className="preview-image" />
                         </div>
@@ -63,12 +63,12 @@ export default function ASFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 2*/}
-                <div className="altfacilitySection">
+                <div className="altfacilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/ASPreview2.jpg" alt="Image" className="preview-image" />
                         </div>
                         <div className="content">
-                            <div className="text">
+                            <div className="alttext">
                                 <h2>Animal Anatomy and Physiology Laboratory</h2>
                                 <p>The laboratory is a learning place for the different body systems and organs of domestic animals. Mounted skeleton and live specimens are available for demo in class.</p>
                             </div>
@@ -86,7 +86,7 @@ export default function ASFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 3*/}
-                <div className="facilitySection">
+                <div className="facilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/ASPreview3.jpg" alt="Image" className="preview-image" />
                         </div>
@@ -114,12 +114,12 @@ export default function ASFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 4*/}
-                <div className="altfacilitySection">
+                <div className="altfacilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/ASPreview4.jpg" alt="Image" className="preview-image" />
                         </div>
                         <div className="content">
-                            <div className="text">
+                            <div className="alttext">
                                 <h2>Meat Processing Laboratory</h2>
                                 <p>The laboratory supports the activities in the subject Slaughter of Animals and Processing of their Products. It is provided with refrigerators, freezers, meat grinder, and cooking facilities/utensils.</p>
                             </div>
@@ -142,7 +142,7 @@ export default function ASFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 5*/}
-                <div className="facilitySection">
+                <div className="facilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/ASPreview5.jpg" alt="Image" className="preview-image" />
                         </div>
@@ -175,12 +175,12 @@ export default function ASFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 6*/}
-                <div className="altfacilitySection">
+                <div className="altfacilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/ASPreview6.jpg" alt="Image" className="preview-image" />
                         </div>
                         <div className="content">
-                            <div className="text">
+                            <div className="alttext">
                                 <h2>Broiler Production Project</h2>
                                 <p>The project occupies an area of almost 2.0 hectares with tub tunnel ventilated houses with capacity of 50,000 heads per cycle. It is used primarily for in-campus major practice in poultry production.</p>
                             </div>
@@ -208,7 +208,7 @@ export default function ASFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 7*/}
-                <div className="facilitySection">
+                <div className="facilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/ASPreview7.jpg" alt="Image" className="preview-image" />
                         </div>
@@ -241,12 +241,12 @@ export default function ASFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 8*/}
-                <div className="altfacilitySection">
+                <div className="altfacilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/ASPreview8.jpg" alt="Image" className="preview-image" />
                         </div>
                         <div className="content">
-                            <div className="text">
+                            <div className="alttext">
                                 <h2>Swine Production Project</h2>
                                 <p>The project occupies an area of 0.50 hectare and is operated as a breeding-weanling-fattening enterprise, with 50 sow level. It supports the laboratory activities in Animal Science, and serves as venues for student research and in-campus major practice of swine production.</p>
                             </div>
@@ -269,7 +269,7 @@ export default function ASFacility(props) {
                     </div>
                 </div>
                 {/* Facility Section 9*/}
-                <div className="facilitySection">
+                <div className="facilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/ASPreview9.jpg" alt="Image" className="preview-image" />
                         </div>

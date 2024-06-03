@@ -37,7 +37,7 @@ export default function AMFacility(props) {
                 {/* Facility Section */}
                 {/* Change className "facilitySection" to "altfacilitySection" 
                 when facility are 2 or more to alternately position them */}
-                <div className="facilitySection">
+                <div className="facilitySection px-4">
                         <div className="imageBox">
                             <img src="/images/dept_previews/AMPreview1.jpg" alt="Image" className="preview-image" />
                         </div>
