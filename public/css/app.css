@@ -726,6 +726,10 @@ select {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
 }
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
 .-ml-px {
   margin-left: -1px;
 }
@@ -938,6 +942,9 @@ select {
 }
 .text-wrap {
   text-wrap: wrap;
+}
+.break-all {
+  word-break: break-all;
 }
 .rounded {
   border-radius: 0.25rem;

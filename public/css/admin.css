@@ -464,7 +464,7 @@
 .research-flex,
 .extensions-flex,
 .publications-flex {
-    border-bottom: var(--green) solid 1px;
+    border-bottom: #92D12C solid 2px;
     /* box-shadow: 0 1.5px 3px 0 #ccc; */
     /* background-color: whitesmoke; */
 }

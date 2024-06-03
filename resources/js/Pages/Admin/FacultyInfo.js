@@ -243,6 +243,7 @@ export default function FacultyInfo({ children }) {
                             <option value="education">Education</option>
                             <option value="work">Work Experience</option>
                             <option value="research">Research Activities</option>
+                            <option value="extensions">Extension Activities</option>
                             <option value="publications">Publications</option>
                             <option value="trainings">Trainings/ Seminars</option>
                         </select>
@@ -258,6 +259,10 @@ export default function FacultyInfo({ children }) {
                             {toPrint === 'research' && 
                                 <button className="print-btn py-1 px-2" onClick={() => handleRedirectToPrint()}>
                                     <i className="fa-solid fa-print fa-sm"></i>&nbsp;Print Research Activities
+                                </button>}
+                            {toPrint === 'extensions' && 
+                                <button className="print-btn py-1 px-2" onClick={() => handleRedirectToPrint()}>
+                                    <i className="fa-solid fa-print fa-sm"></i>&nbsp;Print Extension Activities
                                 </button>}
                             {toPrint === 'publications' && 
                                 <button className="print-btn py-1 px-2" onClick={() => handleRedirectToPrint()}>
@@ -310,7 +315,7 @@ export default function FacultyInfo({ children }) {
                             <Publications data={data} setData={setData}/>
                             </> : <></>}
                         {/* EXTENSION ACTIVITIES  */}
-                            {ExtActData > 0 ?
+                            {ExtActData.length > 0 ?
                             <>
                             <div className="acf-title my-3 px-3">
                                 Extension Activities

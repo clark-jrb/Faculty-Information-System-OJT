@@ -426,6 +426,9 @@ class AdminController extends Controller
             case 'publications':
                 $query = Publication::where('faculty_id', 'like', $faculty_id);
                 break;
+            case 'extensions':
+                $query = Ext_Activity::where('faculty_id', 'like', $faculty_id);
+                break;
             case 'trainings':
                 $query = Trainings::where('faculty_id', 'like', $faculty_id);
                 break;

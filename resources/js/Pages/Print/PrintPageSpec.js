@@ -36,7 +36,7 @@ export default function PrintPageSpec() {
     return (
         <AdminAuthenticated>
             <div className='h-100'>
-                <div className="px-4 w-75 d-flex align-items-center py-2 mb-2">
+                <div className="mx-4 w-75 d-flex align-items-center py-2 mb-2">
                     <button className='go-back-btn px-2 py-1' onClick={handleGoBack}>
                         <i className="fa-solid fa-arrow-left"></i> Go back
                     </button>
@@ -45,7 +45,7 @@ export default function PrintPageSpec() {
                     </button>
                 </div>
 
-                <div className="px-4 w-75">
+                <div className="mx-4 p-4 w-75 shadow" style={{ backgroundColor: 'white' }}>
                     <PageSpec ref={componentRef} data={faculty_data} specify={specific.toPrint} basic={basic_info}/>
                 </div>
             </div>
