@@ -131,7 +131,7 @@ export default function AdminDashboard() {
 
                 {/* TOTALS OF RANKS  */}
                 <div className="total-per-ranks d-flex gap-3">
-                    <div className="total-rank-data d-flex w-25 p-3">
+                    <div className="total-rank-data d-flex w-25 p-3 shadow">
                         <div>
                             <p className="m-0">Professors</p>
                         </div>
@@ -141,7 +141,7 @@ export default function AdminDashboard() {
                             </p>
                         </div>
                     </div>
-                    <div className="total-rank-data d-flex w-25 p-3">
+                    <div className="total-rank-data d-flex w-25 p-3 shadow">
                         <div>
                             <p className="m-0">Associate Professors</p>
                         </div>
@@ -151,7 +151,7 @@ export default function AdminDashboard() {
                             </p>
                         </div>
                     </div>
-                    <div className="total-rank-data d-flex w-25 p-3">
+                    <div className="total-rank-data d-flex w-25 p-3 shadow">
                         <div>
                             <p className="m-0">Assistant Professors</p>
                         </div>
@@ -161,7 +161,7 @@ export default function AdminDashboard() {
                             </p>
                         </div>
                     </div>
-                    <div className="total-rank-data d-flex w-25 p-3">
+                    <div className="total-rank-data d-flex w-25 p-3 shadow">
                         <div>
                             <p className="m-0">Instructors</p>
                         </div>

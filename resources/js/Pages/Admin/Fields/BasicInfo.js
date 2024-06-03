@@ -280,6 +280,7 @@ export default function BasicInfo({ data, setData, profile_pic, faculty_id }) {
                             readOnly
                             >
                             <option disabled value="">Degree</option>
+                            <option value="postdoc">Post Doctoral</option>
                             <option value="doctoral">Doctoral</option>
                             <option value="masteral">Masteral</option>
                             <option value="bachelor">Bachelor</option>

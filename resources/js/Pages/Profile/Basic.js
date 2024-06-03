@@ -362,13 +362,27 @@ export default function Basic(props){
                                     required
                                     >
                                     <option disabled value="">Degree</option>
+                                    <option value="postdoc">Post Doctoral</option>
                                     <option value="doctoral">Doctoral</option>
                                     <option value="masteral">Masteral</option>
                                     <option value="bachelor">Bachelor</option>
                                 </select>
                             </> : 
                             <>
-                                <p className="m-0 mt-1 basic-value">{faculty_data.high_degree}</p>
+                                <p className="m-0 mt-1 basic-value">
+                                    {faculty_data.high_degree === 'postdoc' && (
+                                        'Post Doctoral'
+                                    )}
+                                    {faculty_data.high_degree === 'doctoral' && (
+                                        'Doctoral'
+                                    )}
+                                    {faculty_data.high_degree === 'masteral' && (
+                                        'Masteral'
+                                    )}
+                                    {faculty_data.high_degree === 'bachelor' && (
+                                        'Bachelor'
+                                    )}
+                                </p>
                             </>}
                         </div>
                         {/* ROLE */}
