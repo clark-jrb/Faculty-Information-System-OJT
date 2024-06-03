@@ -41,7 +41,7 @@ export default function FacultyPrint(props) {
                 {/* <div className='faculty-print-container w-75 shadow'>
                     print here
                 </div> */}
-                <div className="w-75">
+                <div className="mx-4 p-5 w-75 shadow" style={{ backgroundColor: 'white' }}>
                     <FacultyPrintPage ref={componentRef} data={faculty_data} type={type} basic={basic_info}/>
                 </div>
             </div>

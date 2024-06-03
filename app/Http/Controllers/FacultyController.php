@@ -338,6 +338,9 @@ class FacultyController extends Controller
             case 'publications':
                 $query = Publication::where('faculty_id', auth()->user()->id);
                 break;
+            case 'extensions':
+                $query = Ext_Activity::where('faculty_id', auth()->user()->id);
+                break;
             case 'trainings':
                 $query = Trainings::where('faculty_id', auth()->user()->id);
                 break;
