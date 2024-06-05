@@ -20,6 +20,7 @@ export default function CPFacility(props) {
             <div>
                 {/* Department Background Section */}
                 <div className="deptbgSection" style={{ backgroundImage: 'url("/images/logos_bgs/home_bg.jpg")' }}>
+                    <div className="bg-dark-opacity"></div>
                     <div className="deptTextContainer">
                         <h1 className="deptText">CROP PROTECTION</h1>
                     </div>

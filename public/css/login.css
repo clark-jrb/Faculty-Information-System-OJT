@@ -23,7 +23,8 @@
 }
 
 .form-container button:active {
-    border-bottom: 1px solid var(--dark-green);
+    background-color: var(--green) !important;
+    border-bottom: 3px solid var(--dark-green) !important;
 }
 
 /* .for-dropdown-cont button {

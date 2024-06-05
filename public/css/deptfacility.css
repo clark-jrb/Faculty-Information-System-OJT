@@ -4,14 +4,16 @@
     background-position: center;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 30vh; 
+    align-items: end;
+    height: 27vh; 
     position: relative;
 }
 
 .deptTextContainer {
     display: flex;
     align-items: center;
+    padding: 2rem 0;
+    z-index: 2;
 }
 
 .deptText {
@@ -57,8 +59,7 @@
 }
 
 .logo {
-    width: 160px;
-    height: 160px;
+    height: 100px;
 }
 
 /* Facility Section */
@@ -86,7 +87,7 @@
 .preview-image {
     width: 600px;
     height: 380px;
-    border-radius: 20px;
+    border-radius: 3px;
 }
 
 .content {
@@ -158,5 +159,5 @@
 .carousel-image-box img {
     width: 550px;
     height: 350px;
-    border-radius: 20px;
+    border-radius: 3px;
 }

@@ -25,7 +25,7 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
+})->name('index');
 
 // For Faculty
 Route::middleware(['auth', 'verified'])->group(function () {

@@ -81,14 +81,21 @@ export default function Login({ status, canResetPassword }) {
                     </div>
                     </> : 
                     <>
-                    {canResetPassword && (
+                    {/* {canResetPassword && (
                         <Link
                             href={route('password.request')}
                             className="underline text-sm hover:text-gray-900"
                         >
                             Forgot your password?
                         </Link>
-                    )}
+                    )} */}
+
+                    <Link
+                        href={route('index')}
+                        className="underline text-sm hover:text-gray-900"
+                    >
+                        <i className="fa-solid fa-arrow-left"></i> Go back
+                    </Link>
 
                     <button type='submit' className='py-1 px-3'>
                         Log in

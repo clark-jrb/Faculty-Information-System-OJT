@@ -19,6 +19,7 @@ export default function AEFacility(props) {
                     <div className="deptTextContainer">
                         <h1 className="deptText">AGRICULTURAL EXTENSION</h1>
                     </div>
+                    <div className="bg-dark-opacity"></div>
                 </div>
                 
                 {/* Logo Section */}

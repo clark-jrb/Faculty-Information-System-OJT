@@ -21,7 +21,8 @@ export default function Home(props) {
             <div>
                 {/* Background Image Section */}
                 <div className="backgroundSection" style={{ backgroundImage: 'url("/images/logos_bgs/home_bg.jpg")' }}>
-                    <div>
+                    <div className="bg-dark-opacity"></div>
+                    <div style={{ zIndex: '2' }}>
                         <div className='d-flex align-items-start'>
                             <img src="/images/logos_bgs/clsu_logo.png" alt="University Logo" className="univLogo" />
                             <p className="univText text-start">Central Luzon State University</p>
