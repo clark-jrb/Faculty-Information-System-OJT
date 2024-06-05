@@ -34,7 +34,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', fn () => Inertia::render('Dashboard'))->name('dashboard');
 
     // Profile Routes
-    Route::prefix('/profile')->group(function () {
+    Route::prefix('/profile')->middleware(['redirect_admin'])->group(function () {
         Route::get('/', [FacultyController::class, 'showProfile'])->name('profile');
         Route::get('/basic', [FacultyController::class, 'showBasic'])->name('basic');
         Route::get('/research', [FacultyController::class, 'showResearch'])->name('research');
@@ -76,7 +76,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Route::get('/faculty', fn () => Inertia::render('Faculty'))->name('faculty');
     Route::get('/faculty', [AdminController::class, 'showFaculties'])->name('faculties');
 
-    Route::prefix('/home')->group(function () {
+    Route::prefix('/home')->middleware(['redirect_admin'])->group(function () {
         Route::get('/', fn () => Inertia::render('Home'))->name('home');
         // Dept Facility Route
         Route::get('/agricultural-extension', fn () => Inertia::render('HomeDept/AEFacility'))->name('agricultural.extension');
