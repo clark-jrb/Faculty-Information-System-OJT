@@ -64,7 +64,8 @@ export default function FacultyInfo({ children }) {
 
     const ExtActData = extention_data.map(item => ({
         ext_title: item.ext_title,
-        ext_duration: item.duration,
+        start_date: item.start_date,
+        end_date: item.end_date,
         lead_faculty: item.lead,
         members: item.member,
         sponsor: item.sponsor,
@@ -113,74 +114,10 @@ export default function FacultyInfo({ children }) {
         profile_pic: faculty_data.profile_pic
     })
 
-    const { data: filesData, setData: setFilesData, post: postFilesData, processing: filesProcess } = useForm({
-        documents: DocumentData
-    })
-
-    const { data: addFilesData, setData: setAddFilesData, post: postAddFilesData, processing: addFilesProcess } = useForm({
-        faculty_id: '',
-        label: '',
-        file_name: null
-    })
-
-
-
-    const [fileInput, setFileInput] = useState(false)
-    const [updatePF, setUpdatePF] = useState(true);
-    const [removeUpdatePF, setRemoveUpdatePF] = useState(false);
-    const [showProfileUpdBtn, setShowProfileUpdBtn] = useState(false);
-    const [addFileCont, setAddFileCont] = useState(false);
-    const [fileData, setFileData] = useState([]);
-
     const { handleToPrint, specific, toPrint, handleResetSpecific } = useFilterDataContext()
-
-    const handleRemoveUpdate = () => {
-        setRemoveUpdatePF(false)
-        setFileInput(false)
-        setUpdatePF(true)
-        setShowProfileUpdBtn(false)
-    }
-
-    const handleAddUpdatePF = () => {
-        setRemoveUpdatePF(true)
-        setFileInput(true)
-        setUpdatePF(false)
-    }
+    
 
     const { updateNotif, updateMessage } = useNotifContext()
-
-    const handleFileChange = (e) => {
-        const file = e.target.files[0];
-        setProfPicData(prevState => ({
-            ...prevState,
-            profile_pic: file 
-        }));
-        setShowProfileUpdBtn(true)
-    };
-
-    const handleValueOnFileChange = (e) => {
-        const { value } = e.target;
-        setAddFilesData(prevState => ({
-            ...prevState,
-            faculty_id: faculty_data.faculty_id,
-            label: value
-        }));
-    };
-
-    const handleAddFileChange = (e) => {
-        const file = e.target.files[0];
-        setAddFilesData(prevState => ({
-            ...prevState,
-            file_name: file
-        }));
-    };
-
-    const handleAddFileSubmit = (e) => {
-        e.preventDefault()
-        console.log(addFilesData);
-        postAddFilesData(`/admin/addDocument/${faculty_data.faculty_id}`, addFilesData);
-        setAddFileCont(false)
-    }
 
     const handleUpdateProfPic = (e) => {
         e.preventDefault();
@@ -192,7 +129,6 @@ export default function FacultyInfo({ children }) {
             console.error('Error uploading file:', error);
             // Optionally, you can notify the user about the error, or handle it in another way.
         }
-        setShowProfileUpdBtn(false);
     }
 
     const handleSubmit = (e) => {
@@ -293,7 +229,7 @@ export default function FacultyInfo({ children }) {
                         {/* ACADEMIC FIELDS */}
                             {AcadEducData.length > 0 ? 
                             <>
-                            <div className="acf-title my-3 px-3">
+                            <div className="acf-title my-3 px-3 mt-4">
                                 Academic
                             </div>
                             <Academic data={data} setData={setData}/>
@@ -301,7 +237,7 @@ export default function FacultyInfo({ children }) {
                         {/* RESEARCH FIELDS  */}
                             {ResearchActData.length > 0 ? 
                             <>
-                            <div className="acf-title my-3 px-3">
+                            <div className="acf-title my-3 px-3 mt-4">
                                 Research Activities
                             </div>
                             <ResearchActivities data={data} setData={setData}/>
@@ -309,7 +245,7 @@ export default function FacultyInfo({ children }) {
                         {/* PUBLICATIONS FIELDS  */}
                             {PublicationData.length > 0 ? 
                             <>
-                            <div className="acf-title my-3 px-3">
+                            <div className="acf-title my-3 px-3 mt-4">
                                 Publications
                             </div>
                             <Publications data={data} setData={setData}/>
@@ -317,7 +253,7 @@ export default function FacultyInfo({ children }) {
                         {/* EXTENSION ACTIVITIES  */}
                             {ExtActData.length > 0 ?
                             <>
-                            <div className="acf-title my-3 px-3">
+                            <div className="acf-title my-3 px-3 mt-4">
                                 Extension Activities
                             </div>
                             <Extensions data={data} setData={setData}/>
@@ -325,7 +261,7 @@ export default function FacultyInfo({ children }) {
                         {/* TRAININGS/ SEMINARS */}
                             {TrainingsData.length > 0 ? 
                             <>
-                            <div className="acf-title my-3 px-3">
+                            <div className="acf-title my-3 px-3 mt-4">
                                 Trainings/ Seminars Attended
                             </div>
                             <Trainings data={data} setData={setData}/>
@@ -342,7 +278,7 @@ export default function FacultyInfo({ children }) {
                         </div>
                         {/* Profile Picture  */}
                         <form onSubmit={handleUpdateProfPic}>
-                            <div className="admin-profile-pic-update-cont p-3">
+                            <div className="admin-profile-pic-update-cont p-3 shadow-sm">
                                 <div className="p-2 profile-image-cont">
                                     <Label forInput="profile-image" value="Profile Picture:" />
 

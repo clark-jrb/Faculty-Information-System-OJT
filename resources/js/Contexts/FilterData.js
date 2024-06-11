@@ -60,6 +60,10 @@ export const FilterDataProvider = ({ children }) => {
 
     const handleResetSpecific = () => {
         setToPrint('')
+        setSelectedRank('')
+        setSelectedDegree('')
+        setSelectedDepartment('')
+        setActiveDept('')
         setSpecific({
             faculty_id: '',
             toPrint: ''

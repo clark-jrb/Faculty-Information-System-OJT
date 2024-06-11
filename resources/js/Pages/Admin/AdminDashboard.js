@@ -24,12 +24,28 @@ export default function AdminDashboard() {
     const assoc_prof = faculty_data.filter(faculty => new RegExp(`^Associate Professor [IVX]+$`).test(faculty.position))
     const asst_prof = faculty_data.filter(faculty => new RegExp(`^Assistant Professor [IVX]+$`).test(faculty.position))
     const inst = faculty_data.filter(faculty => new RegExp(`^Instructor [IVX]+$`).test(faculty.position))
+    
+    const bachelor = faculty_data.filter(faculty => faculty.high_degree === 'bachelor')
+    const masteral = faculty_data.filter(faculty => faculty.high_degree === 'masteral')
+    const doctoral = faculty_data.filter(faculty => faculty.high_degree === 'doctoral')
+    const postdoc = faculty_data.filter(faculty => faculty.high_degree === 'postdoc')
 
     return (
         <AdminAuthenticated>
             <div className="admin-dash-cont m-4">
+                <div className="admin-dash-title py-2">
+                    Total faculty members in College of Agriculture:
+                    <br />
+                    <span style={{ fontSize: 'xxx-large', fontWeight: 'bold' }}>
+                        {faculty_data.length}
+                    </span>
+                </div>
+                
                 {/* TOTALS 1 */}
-                <div className="d-flex gap-3 mb-3">
+                <div className="admin-dash-title py-2">
+                    Total faculty members per Department:
+                </div>
+                <div className="d-flex gap-3 mb-3 py-2">
                     <div className="total-dept d-flex flex-fill p-3 px-4">
                         <div>
                             <p className="m-0">Agricultural Extension</p>
@@ -130,8 +146,11 @@ export default function AdminDashboard() {
                 </div>
 
                 {/* TOTALS OF RANKS  */}
-                <div className="total-per-ranks d-flex gap-3">
-                    <div className="total-rank-data d-flex w-25 p-3 shadow">
+                <div className="admin-dash-title py-2">
+                    Total faculty members by Rank (Overall Faculty):
+                </div>
+                <div className="total-per-ranks d-flex gap-3 mb-3 py-2">
+                    <div className="total-rank-data d-flex w-25 p-3 shadow-sm">
                         <div>
                             <p className="m-0">Professors</p>
                         </div>
@@ -141,7 +160,7 @@ export default function AdminDashboard() {
                             </p>
                         </div>
                     </div>
-                    <div className="total-rank-data d-flex w-25 p-3 shadow">
+                    <div className="total-rank-data d-flex w-25 p-3 shadow-sm">
                         <div>
                             <p className="m-0">Associate Professors</p>
                         </div>
@@ -151,7 +170,7 @@ export default function AdminDashboard() {
                             </p>
                         </div>
                     </div>
-                    <div className="total-rank-data d-flex w-25 p-3 shadow">
+                    <div className="total-rank-data d-flex w-25 p-3 shadow-sm">
                         <div>
                             <p className="m-0">Assistant Professors</p>
                         </div>
@@ -161,13 +180,59 @@ export default function AdminDashboard() {
                             </p>
                         </div>
                     </div>
-                    <div className="total-rank-data d-flex w-25 p-3 shadow">
+                    <div className="total-rank-data d-flex w-25 p-3 shadow-sm">
                         <div>
                             <p className="m-0">Instructors</p>
                         </div>
                         <div className="ms-auto">
                             <p className="m-0 fs-4">
                                 {inst.length}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {/* TOTAL DEGREES */}
+                <div className="admin-dash-title py-2">
+                    Total faculty members by Degree (Overall Faculty):
+                </div>
+                <div className="total-per-ranks d-flex gap-3 mb-3 py-2">
+                    <div className="total-rank-data d-flex w-25 p-3 shadow-sm">
+                        <div>
+                            <p className="m-0">Bachelor Degree</p>
+                        </div>
+                        <div className="ms-auto">
+                            <p className="m-0 fs-4">
+                                {bachelor.length}
+                            </p>
+                        </div>
+                    </div>
+                    <div className="total-rank-data d-flex w-25 p-3 shadow-sm">
+                        <div>
+                            <p className="m-0">Masteral Degree</p>
+                        </div>
+                        <div className="ms-auto">
+                            <p className="m-0 fs-4">
+                                {masteral.length}
+                            </p>
+                        </div>
+                    </div>
+                    <div className="total-rank-data d-flex w-25 p-3 shadow-sm">
+                        <div>
+                            <p className="m-0">Doctoral Degree</p>
+                        </div>
+                        <div className="ms-auto">
+                            <p className="m-0 fs-4">
+                                {doctoral.length}
+                            </p>
+                        </div>
+                    </div>
+                    <div className="total-rank-data d-flex w-25 p-3 shadow-sm">
+                        <div>
+                            <p className="m-0">Post Doctoral Degree</p>
+                        </div>
+                        <div className="ms-auto">
+                            <p className="m-0 fs-4">
+                                {postdoc.length}
                             </p>
                         </div>
                     </div>

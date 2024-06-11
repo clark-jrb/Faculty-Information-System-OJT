@@ -69,7 +69,7 @@ export default function AdminFacultyList() {
                             </div>
                             
                         ) : (
-                            <table className="admin-table">
+                            <table className="admin-table shadow-sm">
                                 <thead>
                                     <tr>
                                         <th scope="col" className="p-3 pb-2 tb-no">#</th>
@@ -123,7 +123,7 @@ export default function AdminFacultyList() {
                             </div>
                             
                         ) : (
-                            <table className="admin-table">
+                            <table className="admin-table shadow-sm">
                                 <thead>
                                     <tr>
                                         <th scope="col" className="p-3 pb-2 tb-no">#</th>
@@ -177,7 +177,7 @@ export default function AdminFacultyList() {
                             </div>
                             
                         ) : (
-                            <table className="admin-table">
+                            <table className="admin-table shadow-sm">
                                 <thead>
                                     <tr>
                                         <th scope="col" className="p-3 pb-2 tb-no">#</th>
@@ -231,7 +231,7 @@ export default function AdminFacultyList() {
                             </div>
                             
                         ) : (
-                            <table className="admin-table">
+                            <table className="admin-table shadow-sm">
                                 <thead>
                                     <tr>
                                         <th scope="col" className="p-3 pb-2 tb-no">#</th>
@@ -284,7 +284,7 @@ export default function AdminFacultyList() {
                                 <p className="m-0">No data to show</p>
                             </div>
                         ) : (
-                            <table className="admin-table">
+                            <table className="admin-table shadow-sm">
                                 <thead>
                                     <tr>
                                         <th scope="col" className="p-3 pb-2 tb-no">#</th>
@@ -338,7 +338,7 @@ export default function AdminFacultyList() {
                             </div>
                             
                         ) : (
-                            <table className="admin-table">
+                            <table className="admin-table shadow-sm">
                                 <thead>
                                     <tr>
                                         <th scope="col" className="p-3 pb-2 tb-no">#</th>

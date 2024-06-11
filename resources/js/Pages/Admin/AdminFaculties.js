@@ -227,6 +227,7 @@ export default function AdminFaculties({ children }) {
                                 // disabled={toDisable}
                             >
                                 <option disabled value="">Select Degree</option>
+                                <option value="postdoc">Post Doctoral</option>
                                 <option value="doctoral">Doctoral</option>
                                 <option value="masteral">Masteral</option>
                                 <option value="bachelor">Bachelor</option>

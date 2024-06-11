@@ -296,6 +296,13 @@
     font-weight: bold;
 }
 
+.acf-title-sub {
+    border-bottom: 2px solid var(--yellow);
+    font-size: x-large;
+    color: var(--grey);
+    font-weight: bold;
+}
+
 .in-parenthesis {
     font-weight: normal;
     font-size: large;
@@ -309,11 +316,11 @@
 .create-documents-fields,
 .admin-profile-pic-update-cont,
 .admin-file-update-cont {
-    border: #ccc solid 1px;
+    /* border: #ccc solid 1px; */
     height: auto;
     background-color: white;
     border-radius: 3px;
-    box-shadow: 0 1.5px 3px 0 #ccc;
+    /* box-shadow: 0 1.5px 3px 0 #ccc; */
     /* display: flex; */
     /* flex-wrap: wrap; */
     /* justify-content: space-around; */
@@ -464,9 +471,9 @@
 .research-flex,
 .extensions-flex,
 .publications-flex {
-    border-bottom: #92D12C solid 2px;
-    /* box-shadow: 0 1.5px 3px 0 #ccc; */
-    /* background-color: whitesmoke; */
+    border-bottom: #ccc solid 2px;
+    font-size: large;
+    color: var(--grey);
 }
 
 .print-name {
@@ -487,4 +494,15 @@
 
 .react-datepicker-wrapper  {
     width: 100%;
+}
+
+.admin-dash-title {
+    color: var(--grey);
+    border-bottom: #ccc solid 1px;
+}
+
+.basic-flex {
+    border-bottom: #ccc 1px solid;
+    font-size: large;
+    color: var(--grey);
 }

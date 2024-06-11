@@ -65,13 +65,13 @@ export default function Login({ status, canResetPassword }) {
                     />
                 </div>
 
-                <div className="other-link-cont block mt-4">
+                {/* <div className="other-link-cont block mt-4">
                     <label className="flex items-center">
                         <Checkbox name="remember" value={data.remember} handleChange={onHandleChange} />
 
                         <span className="ml-2 text-sm">Remember me</span>
                     </label>
-                </div>
+                </div> */}
 
                 <div className="other-link-cont flex items-center justify-end mt-4 gap-3">
                     {processing === true ? 
