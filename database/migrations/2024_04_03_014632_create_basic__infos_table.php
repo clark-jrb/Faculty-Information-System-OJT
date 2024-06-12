@@ -15,18 +15,21 @@ class CreateBasicInfosTable extends Migration
     {
         Schema::create('basic__infos', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('faculty_id');
             $table->string('fname');
+            $table->string('mname');
             $table->string('lname');
-            $table->string('gender');
-            $table->date('birth_date');
-            $table->integer('age');
+            $table->string('gender')->nullable()->default(null);
+            $table->date('birth_date')->nullable()->default(null);
+            $table->string('age')->nullable()->default(null);
             $table->string('department');
-            $table->string('position');
-            $table->string('role');
-            $table->string('specialization');
+            $table->string('position')->nullable()->default(null);
+            $table->string('high_degree')->nullable()->default(null);
+            $table->string('role')->nullable()->default(null);
+            $table->string('specialization')->nullable()->default(null);
             $table->string('email');
-            $table->string('contact_no');
-            $table->string('profile_pic');
+            $table->string('contact_no')->nullable()->default(null);
+            $table->string('profile_pic')->nullable()->default(null);
             $table->timestamps();
         });
     }

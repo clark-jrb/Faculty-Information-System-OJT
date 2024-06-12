@@ -520,7 +520,7 @@ export default function Extensions(props){
                             <div className="m-0 py-1">
                                 <p className='m-0 data-label'>Duration: </p>
                                 <span style={{ fontSize: 'large' }}>
-                                    {moment(ext.start_date).format('YYYY') + '-' + moment(ext.end_date).format('YYYY')}
+                                    {moment(ext.start_date).format('YYYY') + ' - ' + ext.end_date}
                                 </span>
                             </div>
                         </div>

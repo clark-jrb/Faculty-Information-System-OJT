@@ -19,7 +19,7 @@ class CreateResPublicationsTable extends Migration
             $table->string('proj_title');
             $table->string('authors');
             $table->string('date');
-            $table->string('doi');
+            $table->string('doi')->nullable()->default(null);
             $table->timestamps();
         });
     }

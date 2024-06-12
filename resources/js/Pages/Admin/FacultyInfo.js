@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import NavLink from "@/Components/NavLink";
-import { Form } from "react-bootstrap";
-import { useForm, usePage, InertiaLink } from "@inertiajs/inertia-react";
+import { useForm, usePage } from "@inertiajs/inertia-react";
 import 'react-datepicker/dist/react-datepicker.css'
 import AdminAuthenticated from "@/Layouts/AdminAuthenticated";
 import { useNotifContext } from "@/Contexts/Notification";
@@ -12,7 +11,6 @@ import Publications from "./Fields/Publications";
 import Extensions from "./Fields/Extensions";
 import Trainings from "./Fields/Trainings";
 import Label from "@/Components/Label";
-import { handleFieldChange } from "@/utils/forms";
 import { Inertia } from "@inertiajs/inertia";
 import { useFilterDataContext } from "@/Contexts/FilterData";
 
@@ -24,7 +22,6 @@ export default function FacultyInfo({ children }) {
         research_data,
         publication_data,
         extention_data,
-        document_data,
         trainings_data
     } = usePage().props;
 
@@ -70,12 +67,6 @@ export default function FacultyInfo({ children }) {
         members: item.member,
         sponsor: item.sponsor,
         beneficiaries: item.beneficiaries
-    }));
-
-    const DocumentData = document_data.map(item => ({
-        doc_id: item.id,
-        label: item.label,
-        file_name: item.file_name
     }));
 
     const TrainingsData = trainings_data.map(item => ({
@@ -266,10 +257,6 @@ export default function FacultyInfo({ children }) {
                             </div>
                             <Trainings data={data} setData={setData}/>
                             </> : <></>}
-                        {/* SUBMIT BUTTON  */}
-                            {/* <div className="admin-add-faculty d-flex justify-content-end py-3">
-                                <button className="p-3 py-2" type="submit" disabled={processing}>Update faculty</button>
-                            </div> */}
                         </form>
                     </div>
                     <div className="admin-faculty-files-panel w-25 mt-2">
@@ -285,119 +272,10 @@ export default function FacultyInfo({ children }) {
                                     <div className="d-flex justify-content-center py-2">
                                         <img src={`/images/faculty_images/${faculty_data.profile_pic}`} alt="Faculty Profile" />
                                     </div>
-                                    {/* {fileInput && (
-                                        <>
-                                        <div className="add-field-container w-100 p-2">
-                                            <Form.Control type="file" name="profile_pic" onChange={handleFileChange}/>
-                                        </div>
-                                        {showProfileUpdBtn && (
-                                            <>
-                                            <div className="update-prof-btn px-2 d-flex align-items-center">
-                                                <div className="ms-auto">
-                                                    <button type="submit" className="p-3 py-1" disabled={profilePicProcess}>
-                                                        Update
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            </>
-                                        )}
-                                        {profilePicProcess && (
-                                            <>
-                                            <p>Processing upload...</p>
-                                            </>
-                                        )}
-                                        </>
-                                    )}
-
-                                    {updatePF && (
-                                        <div className="update-btn-container w-100 px-2">
-                                            <button type="button" className="add-field-btn w-100 py-2" onClick={handleAddUpdatePF}
-                                            disabled={processing}>
-                                                <i className="fa-solid fa-square-pen"></i> Edit profile picture
-                                            </button>
-                                        </div>
-                                    )}
-                                    
-                                    {removeUpdatePF && (
-                                        <div className="remove-update-container w-100 p-2">
-                                            <button type="button" className="add-field-btn w-100 py-2" onClick={handleRemoveUpdate}>
-                                                <i className="fa-solid fa-xmark"></i> Cancel Edit
-                                            </button>
-                                        </div>
-                                    )} */}
                                 </div>
                             </div>
                         </form>
-                        {/* Documents */}
-                        {/* <div className="acf-title my-3 px-3">
-                            Files <span className="in-parenthesis">(certificates etc.)</span>
-                        </div>
-                        {DocumentData.map((file, index) => (
-                            <div className="admin-file-update-cont p-3 mb-3" key={index}>
-                                <form>
-                                    <div className="file-image-cont py-2">
-                                        <Label forInput="file-image" value={file.label + ":"} />
-                                    </div>
-                                    <p>{file.file_name}</p>
-                                    <div className="d-flex align-items-center">
-                                        <div className="delete-doc-btn ms-auto">
-                                            <InertiaLink
-                                                method="delete"
-                                                href={route('admin.deleteDocument', { id: file.doc_id })} 
-                                                className="py-1 px-2"
-                                                as="button"
-                                            >
-                                                Delete
-                                            </InertiaLink>
-                                        </div>
-                                    </div>
-                                    
-                                </form>
-                            </div>
-                        ))} */}
 
-                        {/* {addFileCont && 
-                        <>
-                            <div className="admin-file-update-cont p-3">
-                                <form onSubmit={handleAddFileSubmit}>
-                                    <div className="pt-3">
-                                        <Label forInput="label" value="Image Label:" />
-                                        <Form.Control
-                                            type="text"
-                                            name="label"
-                                            placeholder="Label"
-                                            value={addFilesData.label === null ? undefined : addFilesData.label}
-                                            onChange={(e) => handleValueOnFileChange(e)}
-                                        />
-                                    </div>
-                                    <div className="pt-3">
-                                        <Label forInput="file_name" value="Upload Image (.png, .jpg, .jpeg)" />
-                                        <Form.Control
-                                            type="file"
-                                            name="file_name"
-                                            onChange={(e) => handleAddFileChange(e)}
-                                        />
-                                    </div>
-                                    <div className="add-file-btn pt-3 d-flex align-items-center">
-                                        <div className="ms-auto d-flex align-items-center gap-2">
-                                            <div className="flex-fill">
-                                                <button type="submit" className="p-3 py-1">Add</button>
-                                            </div>
-                                            <div className="cancel-add-btn flex-fill">
-                                                <button type="button" className="p-3 py-1" onClick={() => setAddFileCont(false)}>Cancel</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </>
-                        } */}
-
-                        {/* <div className="add-field-container w-100 py-2">
-                            <button type="button" className="add-field-btn w-100 py-2" onClick={() => setAddFileCont(true)}>
-                                <i className="fa-regular fa-image"></i> Add Image
-                            </button>
-                        </div> */}
                     </div>  
                 </div>
             </div>

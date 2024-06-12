@@ -18,7 +18,8 @@ class CreateResResActivitiesTable extends Migration
             $table->unsignedBigInteger('faculty_id');
             $table->string('res_title');
             $table->string('status');
-            $table->string('duration');
+            $table->string('start_date');
+            $table->string('end_date');
             $table->string('researcher');
             $table->timestamps();
         });

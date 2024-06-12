@@ -451,7 +451,7 @@ export default function Trainings(props){
                                         Date:
                                     </span>
                                     &nbsp;
-                                    {moment(train.start_date).format('MMM DD') + ' - ' + moment(train.end_date).format('MMM DD, YYYY')}
+                                    {moment(train.start_date).add(1, 'days').format('MMM DD') + ' - ' + moment(train.end_date).add(1, 'days').format('MMM DD, YYYY')}
                                 </p>
                             </div>
 

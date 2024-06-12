@@ -282,7 +282,6 @@ class AdminController extends Controller
         $research_data = ResActivity::where('faculty_id', '=', $id)->get();
         $publication_data = Publication::where('faculty_id', '=', $id)->get();
         $extention_data = Ext_Activity::where('faculty_id', '=', $id)->get();
-        $document_data = Document::where('faculty_id', '=', $id)->get();
         $trainings_data = Trainings::where('faculty_id', '=', $id)->get();
 
         // Pass the retrieved data to the Inertia view
@@ -293,7 +292,6 @@ class AdminController extends Controller
             'research_data' => $research_data,
             'publication_data' => $publication_data,
             'extention_data' => $extention_data,
-            'document_data' => $document_data,
             'trainings_data' => $trainings_data
         ]);
     }

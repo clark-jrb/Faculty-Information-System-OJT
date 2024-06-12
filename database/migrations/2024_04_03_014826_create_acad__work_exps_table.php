@@ -18,7 +18,8 @@ class CreateAcadWorkExpsTable extends Migration
             $table->unsignedBigInteger('faculty_id');
             $table->string('position');
             $table->string('work_loc');
-            $table->string('date');
+            $table->string('start_date');
+            $table->string('end_date');
             $table->string('location');
             $table->timestamps();
         });

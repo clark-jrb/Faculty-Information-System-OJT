@@ -17,7 +17,8 @@ class CreateExtActivitiesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('faculty_id');
             $table->string('ext_title');
-            $table->string('duration');
+            $table->string('start_date');
+            $table->string('end_date');
             $table->string('lead');
             $table->string('member');
             $table->string('sponsor');
